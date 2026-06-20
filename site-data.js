@@ -1,9 +1,21 @@
 window.HDR_SITE_DATA = {
   "categories": [
-    { "id": "all", "label": "全部" },
-    { "id": "3c", "label": "3C" },
-    { "id": "travel", "label": "旅遊" },
-    { "id": "photo", "label": "拍照" }
+    {
+      "id": "all",
+      "label": "全部"
+    },
+    {
+      "id": "3c",
+      "label": "3C"
+    },
+    {
+      "id": "travel",
+      "label": "旅遊"
+    },
+    {
+      "id": "photo",
+      "label": "拍照"
+    }
   ],
   "featuredVideo": "https://youtu.be/mNSBuB4Yc4o?si=TSRRWgb3R-oq4CL3",
   "videos": [
@@ -21,6 +33,14 @@ window.HDR_SITE_DATA = {
     }
   ],
   "photos": [
+    {
+      "title": "S1000RR",
+      "category": "photo",
+      "src": "Photo/web/2Y6A8596-1781975245900.webp",
+      "fullSrc": "Photo/2Y6A8596-1781975245896.jpeg",
+      "description": "HDR 相片作品。",
+      "meta": "WebP 預覽 / 原始 HDR"
+    },
     {
       "title": "HDR 相片作品 2Y6A8536",
       "category": "photo",
