@@ -622,6 +622,110 @@ h1 {
   margin: 0 20px 20px;
 }
 
+@media (min-width: 1100px) {
+  .topbar {
+    padding-inline: max(36px, calc((100vw - 1440px) / 2));
+  }
+
+  .site-shell {
+    width: min(1440px, calc(100% - 72px));
+    padding-top: 54px;
+  }
+
+  .hero {
+    min-height: calc(100vh - 104px);
+    grid-template-columns: minmax(330px, 0.42fr) minmax(720px, 1fr);
+    gap: clamp(48px, 6vw, 104px);
+  }
+
+  .hero-copy {
+    align-self: center;
+    max-width: 430px;
+  }
+
+  h1 {
+    font-size: clamp(6.8rem, 8.8vw, 10.5rem);
+  }
+
+  .intro {
+    max-width: 31rem;
+  }
+
+  .video-frame {
+    border-radius: 10px;
+    box-shadow:
+      0 36px 100px rgba(0, 0, 0, 0.58),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  .portfolio-intro {
+    width: fit-content;
+    margin: 0 auto;
+    padding-block: 62px 20px;
+  }
+
+  .portfolio-section {
+    grid-template-columns: minmax(220px, 0.28fr) minmax(0, 1fr);
+    gap: clamp(36px, 5vw, 88px);
+    align-items: start;
+    padding-block: 86px 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .section-heading {
+    position: sticky;
+    top: 92px;
+    max-width: 320px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(3.1rem, 4.8vw, 6.2rem);
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  #noteGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .photo-mosaic {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: minmax(78px, 7vw);
+    gap: 10px;
+  }
+
+  .mosaic-tile {
+    border-radius: 10px;
+  }
+
+  .mosaic-tile:nth-child(1) {
+    grid-column: span 6;
+    grid-row: span 4;
+  }
+
+  .mosaic-tile:nth-child(2),
+  .mosaic-tile:nth-child(3) {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
+  .mosaic-tile:nth-child(n + 4) {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
+  .media-card {
+    border-radius: 10px;
+  }
+
+  .card-body {
+    padding: 24px;
+  }
+}
+
 @media (max-width: 860px) {
   .topbar {
     align-items: flex-start;
