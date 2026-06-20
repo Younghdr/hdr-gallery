@@ -316,6 +316,37 @@ h1 {
   gap: 18px;
 }
 
+.photo-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(120px, 16vw);
+  gap: 8px;
+}
+
+.photo-mosaic[hidden] {
+  display: none;
+}
+
+.mosaic-tile {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #050608;
+}
+
+.mosaic-tile.is-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.mosaic-tile img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .media-card,
 .resize-card,
 .tool-panel {
@@ -611,9 +642,19 @@ h1 {
   .details,
   .content-grid,
   .resize-results,
+  .photo-mosaic,
   .tool-controls,
   .admin-layout {
     grid-template-columns: 1fr;
+  }
+
+  .photo-mosaic {
+    grid-auto-rows: minmax(180px, 45vw);
+  }
+
+  .mosaic-tile.is-large {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 
   .library {

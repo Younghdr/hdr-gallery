@@ -60,6 +60,44 @@
         </form>
       </section>
 
+      <section class="admin-layout">
+        <form class="admin-panel" id="folderPhotoForm">
+          <div class="panel-heading">
+            <span class="eyebrow">Batch Photo</span>
+            <h2>相片資料夾批次上傳</h2>
+          </div>
+          <label>
+            選擇相片資料夾
+            <input name="photos" type="file" accept="image/*" multiple webkitdirectory />
+          </label>
+          <label> 分類 <select name="category" data-category-select></select> </label>
+          <label> 批次標題前綴 <input name="prefix" placeholder="例如：京都旅遊" /> </label>
+          <label> 統一說明 <textarea name="description" rows="4" placeholder="這批相片的說明"></textarea> </label>
+          <label> 預覽圖長邊
+            <select name="maxSize">
+              <option value="1600">1600px 快速</option>
+              <option value="2048" selected>2048px 平衡</option>
+              <option value="2400">2400px 高畫質</option>
+            </select>
+          </label>
+          <button class="primary-button" type="submit">批次加入相片</button>
+          <p class="form-note">建議一次 10-30 張以內。每張會保留原始圖，並產生網頁用 WebP 預覽圖。</p>
+        </form>
+
+        <form class="admin-panel" id="noteForm">
+          <div class="panel-heading">
+            <span class="eyebrow">Travel Note</span>
+            <h2>新增遊記</h2>
+          </div>
+          <label> 標題 <input name="title" required placeholder="遊記標題" /> </label>
+          <label> 日期 <input name="date" type="date" /> </label>
+          <label> 分類 <select name="category" data-category-select></select> </label>
+          <label> 封面相片 <input name="cover" type="file" accept="image/*" /> </label>
+          <label> 摘要 <textarea name="description" rows="5" placeholder="這趟旅行或拍攝的重點"></textarea> </label>
+          <button class="primary-button" type="submit">加入遊記</button>
+        </form>
+      </section>
+
       <section class="admin-panel">
         <div class="panel-heading">
           <span class="eyebrow">Library</span>
@@ -68,6 +106,7 @@
         <div class="admin-tabs">
           <button class="pill is-active" type="button" data-admin-tab="videos">影片</button>
           <button class="pill" type="button" data-admin-tab="photos">相片</button>
+          <button class="pill" type="button" data-admin-tab="travelNotes">遊記</button>
         </div>
         <div id="adminList" class="admin-list"></div>
       </section>

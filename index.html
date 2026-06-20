@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="HDR 影片與相片展示網站，支援 YouTube HDR 影片、HDR 相片作品、主題分類與本機預覽流程。"
+      content="HDR 影片與相片展示網站，支援 YouTube HDR 影片、HDR 相片作品、主題分類與遊記。"
     />
     <title>Young HDR Gallery</title>
     <link rel="preconnect" href="https://www.youtube.com" />
@@ -20,6 +20,7 @@
       <nav class="topnav" aria-label="主要導覽">
         <a href="#videos">影片</a>
         <a href="#photos">相片</a>
+        <a href="#notes">遊記</a>
         <a href="photo-resizer.html">相片工具</a>
       </nav>
     </header>
@@ -30,13 +31,13 @@
           <p class="eyebrow">HDR Showcase</p>
           <h1 id="hero-title">HDR 影像作品</h1>
           <p class="intro">
-            集中展示你的 HDR YouTube 影片與 HDR 相片作品。網站分成影片、相片與主題分類，方便快速更新與分享。
+            集中展示你的 HDR YouTube 影片、HDR 相片與遊記。網站分成影片、相片、遊記和主題分類，方便快速更新與分享。
           </p>
           <div class="hero-actions">
             <a class="primary-link" id="hdrWatchLink" href="#" target="_blank" rel="noopener">
               開啟 YouTube HDR 播放
             </a>
-            <a class="secondary-link" href="photo-resizer.html">整理 HDR 相片</a>
+            <a class="secondary-link" href="admin.html">開啟管理後台</a>
           </div>
         </div>
 
@@ -58,19 +59,19 @@
         <div class="detail-block">
           <span class="detail-kicker">Photo</span>
           <strong>HDR Photo</strong>
-          <p>相片可用網頁版預覽圖加速載入，也可點開原始 HDR 檔案觀看。</p>
+          <p>相片頁開頭會用馬賽克相簿快速展示，點擊可開啟原始 HDR 檔案。</p>
         </div>
         <div class="detail-block">
-          <span class="detail-kicker">Topics</span>
-          <strong>3C / 旅遊 / 拍照</strong>
-          <p>同一個網站可依主題切換，之後新增作品不用重做版面。</p>
+          <span class="detail-kicker">Notes</span>
+          <strong>旅遊遊記</strong>
+          <p>之後可以新增旅遊紀錄，搭配 HDR 相片封面和主題分類。</p>
         </div>
       </section>
 
       <section class="library" aria-labelledby="library-title">
         <div class="section-heading">
           <p class="eyebrow">Content Library</p>
-          <h2 id="library-title">影片與相片</h2>
+          <h2 id="library-title">影片、相片與遊記</h2>
           <p>
             選擇內容類型與主題。HDR 相片建議保留原始檔，另外準備 1600-2400px 的網頁版預覽圖，速度與畫質會比較平衡。
           </p>
@@ -79,10 +80,12 @@
         <div class="switch-row" aria-label="內容類型">
           <button class="pill is-active" type="button" data-view="videos">影片</button>
           <button class="pill" type="button" data-view="photos">相片</button>
+          <button class="pill" type="button" data-view="notes">遊記</button>
         </div>
 
         <div class="switch-row" id="categoryTabs" aria-label="主題分類"></div>
 
+        <div class="photo-mosaic" id="photoMosaic" aria-label="相片馬賽克精選"></div>
         <div class="content-grid" id="contentGrid" aria-live="polite"></div>
       </section>
     </main>

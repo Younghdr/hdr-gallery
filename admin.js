@@ -59,7 +59,9 @@ function renderAdminList() {
 
     card.className = "admin-item";
     heading.textContent = item.title;
-    meta.textContent = `${categoryLabel(item.category)} / ${activeAdminTab === "videos" ? item.youtube : item.src}`;
+    meta.textContent = `${categoryLabel(item.category)} / ${
+      activeAdminTab === "videos" ? item.youtube : activeAdminTab === "photos" ? item.src : item.date || "遊記"
+    }`;
     text.textContent = item.description || "";
     remove.type = "button";
     remove.className = "danger-button";
@@ -108,6 +110,30 @@ async function makePreview(file, maxSize) {
   });
 }
 
+function itemTitleFromFile(file, prefix = "") {
+  const name = file.name.replace(/\.[^.]+$/, "");
+  return [prefix.trim(), name].filter(Boolean).join(" - ");
+}
+
+async function uploadPhotoFile(file, maxSize) {
+  const upload = new FormData();
+  upload.append("original", file, file.name);
+
+  try {
+    const preview = await makePreview(file, maxSize);
+    if (preview) {
+      upload.append("preview", preview, file.name.replace(/\.[^.]+$/, ".webp"));
+    }
+  } catch {
+    log(`${file.name} 無法產生預覽圖，會直接使用原始檔。`);
+  }
+
+  const result = await uploadFiles(upload);
+  const original = result.files.find((item) => item.field === "original")?.path;
+  const preview = result.files.find((item) => item.field === "preview")?.path;
+  return { original, preview };
+}
+
 document.querySelector("#videoForm").addEventListener("submit", async (event) => {
   event.preventDefault();
   const form = new FormData(event.currentTarget);
@@ -137,22 +163,7 @@ document.querySelector("#photoForm").addEventListener("submit", async (event) =>
   const formElement = event.currentTarget;
   const form = new FormData(formElement);
   const file = form.get("photo");
-  const upload = new FormData();
-
-  upload.append("original", file, file.name);
-
-  try {
-    const preview = await makePreview(file, form.get("maxSize"));
-    if (preview) {
-      upload.append("preview", preview, file.name.replace(/\.[^.]+$/, ".webp"));
-    }
-  } catch {
-    log("這張圖無法在瀏覽器產生預覽圖，會直接使用原始檔。");
-  }
-
-  const result = await uploadFiles(upload);
-  const original = result.files.find((item) => item.field === "original")?.path;
-  const preview = result.files.find((item) => item.field === "preview")?.path;
+  const { original, preview } = await uploadPhotoFile(file, form.get("maxSize"));
 
   siteData.photos.unshift({
     title: form.get("title").trim(),
@@ -166,6 +177,73 @@ document.querySelector("#photoForm").addEventListener("submit", async (event) =>
   formElement.reset();
   fillCategorySelects();
   activeAdminTab = "photos";
+  renderAdminList();
+  await saveData();
+});
+
+document.querySelector("#folderPhotoForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const formElement = event.currentTarget;
+  const form = new FormData(formElement);
+  const files = Array.from(formElement.elements.photos.files || []).filter((file) =>
+    file.type.startsWith("image/"),
+  );
+
+  if (!files.length) {
+    log("請先選擇相片資料夾。");
+    return;
+  }
+
+  const prefix = form.get("prefix") || "";
+  const description = form.get("description") || "HDR 相片作品。";
+
+  log(`正在處理 ${files.length} 張相片...`);
+
+  for (const [index, file] of files.entries()) {
+    log(`正在處理 ${index + 1}/${files.length}: ${file.name}`);
+    const { original, preview } = await uploadPhotoFile(file, form.get("maxSize"));
+    siteData.photos.unshift({
+      title: itemTitleFromFile(file, prefix),
+      category: form.get("category"),
+      src: preview || original,
+      fullSrc: original,
+      description,
+      meta: preview ? "WebP 預覽 / 原始 HDR" : "原始 HDR",
+    });
+  }
+
+  formElement.reset();
+  fillCategorySelects();
+  activeAdminTab = "photos";
+  renderAdminList();
+  await saveData();
+  log(`已加入 ${files.length} 張相片。`);
+});
+
+document.querySelector("#noteForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const formElement = event.currentTarget;
+  const form = new FormData(formElement);
+  const cover = form.get("cover");
+  let coverPath = siteData.photos?.[0]?.src || "Photo/2Y6A8536.avif";
+
+  if (cover && cover.size) {
+    const { original, preview } = await uploadPhotoFile(cover, 2048);
+    coverPath = preview || original;
+  }
+
+  siteData.travelNotes = siteData.travelNotes || [];
+  siteData.travelNotes.unshift({
+    title: form.get("title").trim(),
+    category: form.get("category"),
+    cover: coverPath,
+    description: form.get("description").trim() || "旅行與拍攝紀錄。",
+    date: form.get("date") || new Date().toISOString().slice(0, 10),
+  });
+
+  formElement.reset();
+  fillCategorySelects();
+  activeAdminTab = "travelNotes";
   renderAdminList();
   await saveData();
 });

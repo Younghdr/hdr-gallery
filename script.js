@@ -8,25 +8,13 @@ let activeCategory = "all";
 function extractYouTubeId(input) {
   const value = String(input || "").trim();
 
-  if (/^[a-zA-Z0-9_-]{11}$/.test(value)) {
-    return value;
-  }
+  if (/^[a-zA-Z0-9_-]{11}$/.test(value)) return value;
 
   try {
     const url = new URL(value);
-
-    if (url.hostname.includes("youtu.be")) {
-      return url.pathname.split("/").filter(Boolean)[0] || "";
-    }
-
-    if (url.pathname.startsWith("/shorts/")) {
-      return url.pathname.split("/").filter(Boolean)[1] || "";
-    }
-
-    if (url.pathname.startsWith("/embed/")) {
-      return url.pathname.split("/").filter(Boolean)[1] || "";
-    }
-
+    if (url.hostname.includes("youtu.be")) return url.pathname.split("/").filter(Boolean)[0] || "";
+    if (url.pathname.startsWith("/shorts/")) return url.pathname.split("/").filter(Boolean)[1] || "";
+    if (url.pathname.startsWith("/embed/")) return url.pathname.split("/").filter(Boolean)[1] || "";
     return url.searchParams.get("v") || "";
   } catch {
     return "";
@@ -59,23 +47,17 @@ function renderFeaturedVideo() {
   const placeholder = document.querySelector("#featuredVideoPlaceholder");
   const watchLink = document.querySelector("#hdrWatchLink");
 
-  if (!videoId || !frame) {
-    return;
-  }
+  if (!videoId || !frame) return;
 
   placeholder?.remove();
   frame.appendChild(createYouTubeEmbed(featuredVideo, "Featured YouTube HDR video"));
 
-  if (watchLink) {
-    watchLink.href = `https://www.youtube.com/watch?v=${videoId}&vq=highres`;
-  }
+  if (watchLink) watchLink.href = `https://www.youtube.com/watch?v=${videoId}&vq=highres`;
 }
 
 function renderCategoryTabs() {
   const categoryTabs = document.querySelector("#categoryTabs");
-  if (!categoryTabs) {
-    return;
-  }
+  if (!categoryTabs) return;
 
   categoryTabs.replaceChildren();
 
@@ -98,12 +80,15 @@ function categoryLabel(id) {
   return categories.find((category) => category.id === id)?.label || id;
 }
 
-function filteredItems() {
-  const source = activeView === "videos" ? data.videos || [] : data.photos || [];
-  if (activeCategory === "all") {
-    return source;
-  }
+function sourceItems() {
+  if (activeView === "videos") return data.videos || [];
+  if (activeView === "photos") return data.photos || [];
+  return data.travelNotes || [];
+}
 
+function filteredItems() {
+  const source = sourceItems();
+  if (activeCategory === "all") return source;
   return source.filter((item) => item.category === activeCategory);
 }
 
@@ -163,14 +148,71 @@ function createPhotoCard(item) {
   return card;
 }
 
-function renderGrid() {
-  const grid = document.querySelector("#contentGrid");
-  if (!grid) {
+function createNoteCard(item) {
+  const card = document.createElement("article");
+  const imageLink = document.createElement("a");
+  const image = document.createElement("img");
+  const body = document.createElement("div");
+  const heading = document.createElement("h3");
+  const meta = document.createElement("span");
+  const text = document.createElement("p");
+
+  card.className = "media-card";
+  imageLink.className = "photo-link";
+  imageLink.href = item.cover || "#";
+  imageLink.target = "_blank";
+  imageLink.rel = "noopener";
+  image.src = item.cover || "Photo/2Y6A8536.avif";
+  image.alt = item.title;
+  image.loading = "lazy";
+  imageLink.appendChild(image);
+
+  body.className = "card-body";
+  meta.textContent = `${categoryLabel(item.category)} / ${item.date || "Travel Note"}`;
+  heading.textContent = item.title;
+  text.textContent = item.description || "";
+
+  body.append(meta, heading, text);
+  card.append(imageLink, body);
+  return card;
+}
+
+function renderPhotoMosaic() {
+  const mosaic = document.querySelector("#photoMosaic");
+  if (!mosaic) return;
+
+  mosaic.replaceChildren();
+  mosaic.hidden = activeView !== "photos";
+  if (activeView !== "photos") return;
+
+  const photos = filteredItems().slice(0, 8);
+  if (!photos.length) {
+    mosaic.hidden = true;
     return;
   }
 
+  photos.forEach((photo, index) => {
+    const link = document.createElement("a");
+    const image = document.createElement("img");
+    link.href = photo.fullSrc || photo.src;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.className = index === 0 ? "mosaic-tile is-large" : "mosaic-tile";
+    image.src = photo.src;
+    image.alt = photo.title;
+    image.loading = "lazy";
+    link.appendChild(image);
+    mosaic.appendChild(link);
+  });
+}
+
+function renderGrid() {
+  const grid = document.querySelector("#contentGrid");
+  if (!grid) return;
+
   const items = filteredItems();
   grid.replaceChildren();
+  renderPhotoMosaic();
 
   if (!items.length) {
     const empty = document.createElement("p");
@@ -181,7 +223,9 @@ function renderGrid() {
   }
 
   for (const item of items) {
-    grid.appendChild(activeView === "videos" ? createVideoCard(item) : createPhotoCard(item));
+    if (activeView === "videos") grid.appendChild(createVideoCard(item));
+    if (activeView === "photos") grid.appendChild(createPhotoCard(item));
+    if (activeView === "notes") grid.appendChild(createNoteCard(item));
   }
 }
 
