@@ -27,7 +27,7 @@ http://127.0.0.1:4173
 之後更新網站建議用 GUI 後台：
 
 ```powershell
-.\start-admin.ps1
+.\local-tools\start-admin.ps1
 ```
 
 瀏覽器會開啟：
@@ -48,6 +48,26 @@ http://127.0.0.1:4174/admin.html
 - 一鍵發布到 GitHub Pages
 
 後台只綁定 `127.0.0.1`，是本機工具，不會公開到網路。
+
+如果要用 iPhone 上傳 HDR 相片：
+
+```powershell
+.\local-tools\start-admin.ps1
+```
+
+啟動時輸入：
+
+```text
+iphone
+```
+
+電腦和 iPhone 必須在同一個 Wi-Fi。PowerShell 會顯示一個像這樣的網址：
+
+```text
+http://192.168.x.x:4174/admin.html
+```
+
+用 iPhone Safari 打開這個網址，就可以直接從 iPhone 選 HDR 相片上傳。完成後在後台按「發布到 GitHub Pages」。
 
 ## GitHub Pages 費用與限制
 

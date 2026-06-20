@@ -2,4 +2,5 @@
 github-pages-upload-*/
 github-pages-upload-*.zip
 tools/
+local-tools/
 *.log
