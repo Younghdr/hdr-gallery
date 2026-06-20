@@ -1,0 +1,27 @@
+window.HDR_SITE_DATA = {
+  categories: [
+    { id: "all", label: "全部" },
+    { id: "3c", label: "3C" },
+    { id: "travel", label: "旅遊" },
+    { id: "photo", label: "拍照" },
+  ],
+  featuredVideo: "https://youtu.be/Tji5JMn2hWs?si=bIICcPjyIuFXclzq",
+  videos: [
+    {
+      title: "OMEN Ultra 9 285K RTX5090",
+      category: "3c",
+      youtube: "https://youtu.be/Tji5JMn2hWs?si=bIICcPjyIuFXclzq",
+      description: "HDR 影片展示。嵌入頁可預覽，正式 HDR 觀看建議開啟 YouTube 官方播放器。",
+    },
+  ],
+  photos: [
+    {
+      title: "HDR 相片作品 2Y6A8536",
+      category: "photo",
+      src: "Photo/2Y6A8536.avif",
+      fullSrc: "Photo/2Y6A8536.avif",
+      description: "原始 AVIF HDR 相片。之後可用相片工具產生較小的網頁版預覽圖。",
+      meta: "AVIF / 原始 HDR",
+    },
+  ],
+};

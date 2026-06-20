@@ -5,70 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="HDR 影片展示網站，嵌入 YouTube HDR 作品並提供沉浸式觀看體驗。"
+      content="HDR 影片與相片展示網站，支援 YouTube HDR 影片、HDR 相片作品、主題分類與本機預覽流程。"
     />
-    <title>HDR 影片展示</title>
+    <title>Young HDR Gallery</title>
     <link rel="preconnect" href="https://www.youtube.com" />
     <link rel="preconnect" href="https://i.ytimg.com" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Young HDR Gallery">
+        <span>Young HDR</span>
+      </a>
+      <nav class="topnav" aria-label="主要導覽">
+        <a href="#videos">影片</a>
+        <a href="#photos">相片</a>
+        <a href="photo-resizer.html">相片工具</a>
+      </nav>
+    </header>
+
+    <main id="home" class="site-shell">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">YouTube HDR Showcase</p>
+          <p class="eyebrow">HDR Showcase</p>
           <h1 id="hero-title">HDR 影像作品</h1>
           <p class="intro">
-            高亮度、寬色域、細節層次一次呈現。此頁面為你的 YouTube HDR 影片打造沉浸式入口。
+            集中展示你的 HDR YouTube 影片與 HDR 相片作品。網站分成影片、相片與主題分類，方便快速更新與分享。
           </p>
-          <a class="hdr-link" id="hdrWatchLink" href="#" target="_blank" rel="noopener">
-            開啟 YouTube HDR 播放
-          </a>
+          <div class="hero-actions">
+            <a class="primary-link" id="hdrWatchLink" href="#" target="_blank" rel="noopener">
+              開啟 YouTube HDR 播放
+            </a>
+            <a class="secondary-link" href="photo-resizer.html">整理 HDR 相片</a>
+          </div>
         </div>
 
         <div class="video-stage" aria-label="HDR YouTube 影片播放器">
-          <div class="video-frame" id="videoFrame">
-            <div class="video-placeholder" id="videoPlaceholder">
-              <span>等待嵌入你的 YouTube HDR 影片</span>
+          <div class="video-frame" id="featuredVideoFrame">
+            <div class="video-placeholder" id="featuredVideoPlaceholder">
+              <span>等待載入 YouTube HDR 影片</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="details" aria-label="HDR 影片資訊">
+      <section class="details" aria-label="網站功能">
         <div class="detail-block">
-          <span class="detail-kicker">Format</span>
-          <strong>4K HDR Ready</strong>
-          <p>播放器採用 16:9 響應式比例，適合桌面、平板與手機瀏覽。</p>
+          <span class="detail-kicker">Video</span>
+          <strong>YouTube HDR</strong>
+          <p>嵌入預覽影片，並保留一鍵開啟 YouTube 官方 HDR 播放頁。</p>
         </div>
         <div class="detail-block">
-          <span class="detail-kicker">Source</span>
-          <strong>YouTube Embed</strong>
-          <p>支援一般 YouTube 連結、Shorts 連結、分享短網址與影片 ID。</p>
+          <span class="detail-kicker">Photo</span>
+          <strong>HDR Photo</strong>
+          <p>相片可用網頁版預覽圖加速載入，也可點開原始 HDR 檔案觀看。</p>
         </div>
         <div class="detail-block">
-          <span class="detail-kicker">Viewing</span>
-          <strong>沉浸式頁面</strong>
-          <p>深色介面與高對比排版讓影片成為第一視覺焦點。</p>
+          <span class="detail-kicker">Topics</span>
+          <strong>3C / 旅遊 / 拍照</strong>
+          <p>同一個網站可依主題切換，之後新增作品不用重做版面。</p>
         </div>
       </section>
 
-      <section class="photo-showcase" aria-labelledby="photo-title">
+      <section class="library" aria-labelledby="library-title">
         <div class="section-heading">
-          <p class="eyebrow">HDR Photo Gallery</p>
-          <h2 id="photo-title">HDR 相片展示</h2>
+          <p class="eyebrow">Content Library</p>
+          <h2 id="library-title">影片與相片</h2>
           <p>
-            原始 AVIF 相片直接載入，盡量保留 HDR 色彩與亮度資訊；支援的瀏覽器與螢幕會以 HDR 呈現。
+            選擇內容類型與主題。HDR 相片建議保留原始檔，另外準備 1600-2400px 的網頁版預覽圖，速度與畫質會比較平衡。
           </p>
         </div>
 
-        <a class="photo-feature" href="Photo/2Y6A8536.avif" target="_blank" rel="noopener">
-          <img src="Photo/2Y6A8536.avif" alt="HDR 相片作品 2Y6A8536" loading="lazy" />
-          <span>點擊開啟原始 HDR 相片</span>
-        </a>
+        <div class="switch-row" aria-label="內容類型">
+          <button class="pill is-active" type="button" data-view="videos">影片</button>
+          <button class="pill" type="button" data-view="photos">相片</button>
+        </div>
+
+        <div class="switch-row" id="categoryTabs" aria-label="主題分類"></div>
+
+        <div class="content-grid" id="contentGrid" aria-live="polite"></div>
       </section>
     </main>
 
+    <script src="site-data.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

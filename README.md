@@ -1,10 +1,16 @@
-# HDR Website Local Preview
+# Young HDR Gallery
 
-平常先用本機預覽，不會消耗 Netlify 點數。
+這是你的 HDR 影片與相片展示網站。
 
-## 本機預覽
+公開網址：
 
-在 PowerShell 執行：
+```text
+https://younghdr.github.io/hdr-gallery/
+```
+
+## 平常先本機預覽
+
+不會消耗 Netlify，也不會立刻發布到網路。
 
 ```powershell
 .\start-local-preview.ps1
@@ -16,40 +22,80 @@
 http://127.0.0.1:4173
 ```
 
-預覽完成後，在 PowerShell 視窗按 `Ctrl+C` 停止伺服器。
+## HDR 相片大小建議
 
-## 什麼時候才部署
+相片展示建議分成兩份：
 
-只有在畫面確認完成、真的要讓外部看到時，才執行 Netlify 部署。這樣可以避免一直消耗 Netlify credit。
+- 原始 HDR 檔：保留完整品質，讓使用者點開觀看。
+- 網頁預覽圖：長邊 1600-2400px，速度與畫質比較平衡。
 
-## GitHub Pages 實驗
-
-GitHub Pages 可以用 public repository 免費發布這個靜態網站。
-
-建議 repository 名稱：
+建議尺寸：
 
 ```text
-hdr-gallery
+1600px：載入最快，適合大量相片
+2048px：平衡速度與畫質，最推薦
+2400px：高畫質展示，但檔案較大
 ```
 
-上傳時請把發布包資料夾內的檔案放在 repository 根目錄，必須能直接看到：
+建議檔案大小：
 
 ```text
-index.html
-styles.css
-script.js
-.nojekyll
-Photo/2Y6A8536.avif
+預覽圖：每張 0.5-2 MB
+原始 HDR：可以保留較大檔案，但不要一次放太多張在首頁
 ```
 
-啟用位置：
+## 使用相片縮小工具
+
+本機預覽時開啟：
 
 ```text
-Settings -> Pages -> Deploy from a branch -> main -> /root
+http://127.0.0.1:4173/photo-resizer.html
 ```
 
-完成後網址通常是：
+或在網站右上角點「相片工具」。
+
+注意：瀏覽器產生的縮圖通常會變成 SDR 預覽圖。這是為了速度；原始 HDR 檔請仍放在 `Photo/`，讓訪客點開觀看完整版本。
+
+## 快速更換 YouTube HDR 影片
+
+執行：
+
+```powershell
+.\quick-youtube.ps1
+```
+
+依提示貼上 YouTube 連結、標題、分類。
+
+分類可用：
 
 ```text
-https://你的GitHub帳號.github.io/hdr-gallery/
+3c
+travel
+photo
 ```
+
+資料會寫入：
+
+```text
+site-data.js
+```
+
+## 發布到 GitHub Pages
+
+確認本機預覽沒問題後再發布：
+
+```powershell
+.\publish-github.ps1
+```
+
+GitHub Pages 通常 1-3 分鐘後更新。
+
+## 手動新增內容
+
+所有內容集中在：
+
+```text
+site-data.js
+```
+
+影片放在 `videos`，相片放在 `photos`。網站會自動依 `category` 分到 `3C / 旅遊 / 拍照` 主題。
