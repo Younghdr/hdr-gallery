@@ -70,7 +70,7 @@ function renderCategoryTabs() {
     button.addEventListener("click", () => {
       activeCategory = category.id;
       renderCategoryTabs();
-      renderGrid();
+      renderPortfolio();
     });
     categoryTabs.appendChild(button);
   }
@@ -80,14 +80,7 @@ function categoryLabel(id) {
   return categories.find((category) => category.id === id)?.label || id;
 }
 
-function sourceItems() {
-  if (activeView === "videos") return data.videos || [];
-  if (activeView === "photos") return data.photos || [];
-  return data.travelNotes || [];
-}
-
-function filteredItems() {
-  const source = sourceItems();
+function filteredItems(source) {
   if (activeCategory === "all") return source;
   return source.filter((item) => item.category === activeCategory);
 }
@@ -182,12 +175,13 @@ function renderPhotoMosaic() {
   if (!mosaic) return;
 
   mosaic.replaceChildren();
-  mosaic.hidden = activeView !== "photos";
-  if (activeView !== "photos") return;
 
-  const photos = filteredItems().slice(0, 8);
+  const photos = filteredItems(data.photos || []).slice(0, 12);
   if (!photos.length) {
-    mosaic.hidden = true;
+    const empty = document.createElement("p");
+    empty.className = "empty-state";
+    empty.textContent = "這個主題目前還沒有相片。";
+    mosaic.appendChild(empty);
     return;
   }
 
@@ -206,42 +200,32 @@ function renderPhotoMosaic() {
   });
 }
 
-function renderGrid() {
-  const grid = document.querySelector("#contentGrid");
+function renderGrid(gridId, items, createCard, emptyText) {
+  const grid = document.querySelector(gridId);
   if (!grid) return;
 
-  const items = filteredItems();
+  const filtered = filteredItems(items);
   grid.replaceChildren();
-  renderPhotoMosaic();
 
-  if (!items.length) {
+  if (!filtered.length) {
     const empty = document.createElement("p");
     empty.className = "empty-state";
-    empty.textContent = "這個主題目前還沒有作品。";
+    empty.textContent = emptyText;
     grid.appendChild(empty);
     return;
   }
 
-  for (const item of items) {
-    if (activeView === "videos") grid.appendChild(createVideoCard(item));
-    if (activeView === "photos") grid.appendChild(createPhotoCard(item));
-    if (activeView === "notes") grid.appendChild(createNoteCard(item));
+  for (const item of filtered) {
+    grid.appendChild(createCard(item));
   }
 }
 
-function bindViewTabs() {
-  document.querySelectorAll("[data-view]").forEach((button) => {
-    button.addEventListener("click", () => {
-      activeView = button.dataset.view;
-      document.querySelectorAll("[data-view]").forEach((tab) => {
-        tab.classList.toggle("is-active", tab === button);
-      });
-      renderGrid();
-    });
-  });
+function renderPortfolio() {
+  renderGrid("#videoGrid", data.videos || [], createVideoCard, "這個主題目前還沒有影片。");
+  renderPhotoMosaic();
+  renderGrid("#noteGrid", data.travelNotes || [], createNoteCard, "這個主題目前還沒有遊記。");
 }
 
 renderFeaturedVideo();
 renderCategoryTabs();
-bindViewTabs();
-renderGrid();
+renderPortfolio();

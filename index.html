@@ -49,43 +49,32 @@
         </div>
       </section>
 
-      <section class="details" aria-label="網站功能">
-        <div class="detail-block">
-          <span class="detail-kicker">Video</span>
-          <strong>YouTube HDR</strong>
-          <p>嵌入預覽影片，並保留一鍵開啟 YouTube 官方 HDR 播放頁。</p>
-        </div>
-        <div class="detail-block">
-          <span class="detail-kicker">Photo</span>
-          <strong>HDR Photo</strong>
-          <p>相片頁開頭會用馬賽克相簿快速展示，點擊可開啟原始 HDR 檔案。</p>
-        </div>
-        <div class="detail-block">
-          <span class="detail-kicker">Notes</span>
-          <strong>旅遊遊記</strong>
-          <p>之後可以新增旅遊紀錄，搭配 HDR 相片封面和主題分類。</p>
-        </div>
+      <section class="portfolio-intro" aria-label="作品分類">
+        <div class="switch-row" id="categoryTabs" aria-label="主題分類"></div>
       </section>
 
-      <section class="library" aria-labelledby="library-title">
+      <section id="videos" class="portfolio-section" aria-labelledby="videos-title">
         <div class="section-heading">
-          <p class="eyebrow">Content Library</p>
-          <h2 id="library-title">影片、相片與遊記</h2>
-          <p>
-            選擇內容類型與主題。HDR 相片建議保留原始檔，另外準備 1600-2400px 的網頁版預覽圖，速度與畫質會比較平衡。
-          </p>
+          <p class="eyebrow">Films</p>
+          <h2 id="videos-title">HDR 影片</h2>
         </div>
+        <div class="content-grid" id="videoGrid" aria-live="polite"></div>
+      </section>
 
-        <div class="switch-row" aria-label="內容類型">
-          <button class="pill is-active" type="button" data-view="videos">影片</button>
-          <button class="pill" type="button" data-view="photos">相片</button>
-          <button class="pill" type="button" data-view="notes">遊記</button>
+      <section id="photos" class="portfolio-section" aria-labelledby="photos-title">
+        <div class="section-heading">
+          <p class="eyebrow">Photography</p>
+          <h2 id="photos-title">HDR 相片</h2>
         </div>
-
-        <div class="switch-row" id="categoryTabs" aria-label="主題分類"></div>
-
         <div class="photo-mosaic" id="photoMosaic" aria-label="相片馬賽克精選"></div>
-        <div class="content-grid" id="contentGrid" aria-live="polite"></div>
+      </section>
+
+      <section id="notes" class="portfolio-section" aria-labelledby="notes-title">
+        <div class="section-heading">
+          <p class="eyebrow">Journal</p>
+          <h2 id="notes-title">遊記</h2>
+        </div>
+        <div class="content-grid" id="noteGrid" aria-live="polite"></div>
       </section>
     </main>
 

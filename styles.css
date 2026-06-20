@@ -280,10 +280,15 @@ h1 {
   line-height: 1.65;
 }
 
-.library {
+.portfolio-intro,
+.portfolio-section {
   display: grid;
   gap: 26px;
   padding: clamp(56px, 8vw, 96px) 0 18px;
+}
+
+.portfolio-section {
+  scroll-margin-top: 96px;
 }
 
 .switch-row {
@@ -325,6 +330,10 @@ h1 {
 
 .photo-mosaic[hidden] {
   display: none;
+}
+
+.photo-mosaic .empty-state {
+  grid-column: 1 / -1;
 }
 
 .mosaic-tile {
@@ -657,7 +666,8 @@ h1 {
     grid-row: span 1;
   }
 
-  .library {
+  .portfolio-intro,
+  .portfolio-section {
     padding-top: 54px;
   }
 }
