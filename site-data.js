@@ -34,6 +34,14 @@ window.HDR_SITE_DATA = {
   ],
   "photos": [
     {
+      "title": "BMW S1000RR 夜景",
+      "category": "3c",
+      "src": "Photo/web/2Y6A8596-1781975245900.webp",
+      "fullSrc": "Photo/2Y6A8596-1781975245896.jpeg",
+      "description": "夜間機車 HDR 相片作品。",
+      "meta": "WebP 預覽 / 原始 HDR"
+    },
+    {
       "title": "Deadvlei",
       "category": "photo",
       "src": "Photo/web/2Y6A7079-1781976362506.webp",
