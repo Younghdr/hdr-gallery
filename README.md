@@ -22,6 +22,31 @@ https://younghdr.github.io/hdr-gallery/
 http://127.0.0.1:4173
 ```
 
+## GUI 管理後台
+
+之後更新網站建議用 GUI 後台：
+
+```powershell
+.\start-admin.ps1
+```
+
+瀏覽器會開啟：
+
+```text
+http://127.0.0.1:4174/admin.html
+```
+
+後台可以做：
+
+- 新增 YouTube HDR 影片
+- 上傳 HDR 相片
+- 自動產生 WebP 預覽圖
+- 分類到 3C / 旅遊 / 拍照
+- 儲存到 `site-data.js`
+- 一鍵發布到 GitHub Pages
+
+後台只綁定 `127.0.0.1`，是本機工具，不會公開到網路。
+
 ## HDR 相片大小建議
 
 相片展示建議分成兩份：

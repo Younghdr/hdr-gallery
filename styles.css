@@ -421,6 +421,155 @@ h1 {
   background: var(--panel-2);
 }
 
+.admin-shell {
+  display: grid;
+  gap: 28px;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.admin-panel {
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(17, 21, 29, 0.9);
+}
+
+.panel-heading {
+  display: grid;
+  gap: 8px;
+}
+
+.panel-heading h2,
+.publish-panel h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.admin-panel label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.admin-panel input,
+.admin-panel select,
+.admin-panel textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--panel-2);
+  padding: 10px 12px;
+}
+
+.admin-panel textarea {
+  resize: vertical;
+}
+
+.checkline {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.checkline input {
+  width: 18px;
+  min-height: 18px;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  min-height: 44px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.primary-button {
+  color: #071014;
+  border-color: var(--amber);
+  background: var(--amber);
+}
+
+.secondary-button {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.danger-button {
+  width: fit-content;
+  padding: 0 14px;
+  color: #fff;
+  border-color: rgba(255, 107, 154, 0.5);
+  background: rgba(255, 107, 154, 0.18);
+}
+
+.form-note,
+.publish-panel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.admin-tabs,
+.publish-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-list {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-item {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin-item h3,
+.admin-item p {
+  margin: 0;
+}
+
+.admin-item h3 {
+  font-size: 1.1rem;
+}
+
+.admin-item span {
+  color: var(--amber);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.admin-log {
+  min-height: 120px;
+  overflow: auto;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--green);
+  background: #050608;
+  white-space: pre-wrap;
+}
+
 .resize-card {
   display: grid;
 }
@@ -462,7 +611,8 @@ h1 {
   .details,
   .content-grid,
   .resize-results,
-  .tool-controls {
+  .tool-controls,
+  .admin-layout {
     grid-template-columns: 1fr;
   }
 

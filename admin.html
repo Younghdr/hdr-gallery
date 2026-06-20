@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Young HDR 管理後台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html"><span>Young HDR Admin</span></a>
+      <nav class="topnav" aria-label="管理導覽">
+        <a href="index.html">預覽網站</a>
+        <a href="photo-resizer.html">相片工具</a>
+      </nav>
+    </header>
+
+    <main class="site-shell admin-shell">
+      <section class="tool-hero">
+        <p class="eyebrow">Local GUI</p>
+        <h1>網站管理後台</h1>
+        <p>新增 YouTube HDR 影片、上傳 HDR 相片、設定主題分類，確認後一鍵發布到 GitHub Pages。</p>
+      </section>
+
+      <section class="admin-layout">
+        <form class="admin-panel" id="videoForm">
+          <div class="panel-heading">
+            <span class="eyebrow">Video</span>
+            <h2>新增影片</h2>
+          </div>
+          <label> YouTube 連結 <input name="youtube" required placeholder="https://youtu.be/..." /> </label>
+          <label> 標題 <input name="title" required placeholder="影片標題" /> </label>
+          <label> 分類 <select name="category" data-category-select></select> </label>
+          <label> 說明 <textarea name="description" rows="4"></textarea> </label>
+          <label class="checkline">
+            <input name="featured" type="checkbox" checked />
+            設為首頁主打影片
+          </label>
+          <button class="primary-button" type="submit">加入影片</button>
+        </form>
+
+        <form class="admin-panel" id="photoForm">
+          <div class="panel-heading">
+            <span class="eyebrow">Photo</span>
+            <h2>新增相片</h2>
+          </div>
+          <label> HDR 原始相片 <input name="photo" type="file" accept="image/*" required /> </label>
+          <label> 標題 <input name="title" required placeholder="相片標題" /> </label>
+          <label> 分類 <select name="category" data-category-select></select> </label>
+          <label> 說明 <textarea name="description" rows="4"></textarea> </label>
+          <label> 預覽圖長邊
+            <select name="maxSize">
+              <option value="1600">1600px 快速</option>
+              <option value="2048" selected>2048px 平衡</option>
+              <option value="2400">2400px 高畫質</option>
+            </select>
+          </label>
+          <button class="primary-button" type="submit">上傳相片</button>
+          <p class="form-note">後台會保留原始檔，並嘗試產生 WebP 預覽圖讓網頁載入更快。</p>
+        </form>
+      </section>
+
+      <section class="admin-panel">
+        <div class="panel-heading">
+          <span class="eyebrow">Library</span>
+          <h2>目前內容</h2>
+        </div>
+        <div class="admin-tabs">
+          <button class="pill is-active" type="button" data-admin-tab="videos">影片</button>
+          <button class="pill" type="button" data-admin-tab="photos">相片</button>
+        </div>
+        <div id="adminList" class="admin-list"></div>
+      </section>
+
+      <section class="admin-panel publish-panel">
+        <div>
+          <span class="eyebrow">Publish</span>
+          <h2>儲存與發布</h2>
+          <p>先按「儲存資料」，本機預覽確認後再按「發布到 GitHub Pages」。</p>
+        </div>
+        <div class="publish-actions">
+          <button class="secondary-button" id="saveData" type="button">儲存資料</button>
+          <button class="primary-button" id="publishSite" type="button">發布到 GitHub Pages</button>
+        </div>
+        <pre id="adminLog" class="admin-log" aria-live="polite"></pre>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
