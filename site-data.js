@@ -20,6 +20,12 @@ window.HDR_SITE_DATA = {
   "featuredVideo": "https://youtu.be/mNSBuB4Yc4o?si=TSRRWgb3R-oq4CL3",
   "videos": [
     {
+      "title": "[8K HDR]納米比亞",
+      "category": "travel",
+      "youtube": "https://youtu.be/cAJiCyvlY7E?si=qSrLrVNQGBjtzQnQ",
+      "description": "HDR video work. Open in the official YouTube player for the best HDR playback."
+    },
+    {
       "title": "Insta360 Luna & Canon R5II",
       "category": "3c",
       "youtube": "https://youtu.be/mNSBuB4Yc4o?si=TSRRWgb3R-oq4CL3",
@@ -36,25 +42,25 @@ window.HDR_SITE_DATA = {
     {
       "title": "BMW S1000RR 夜景",
       "category": "3c",
-      "src": "Photo/web/2Y6A8596-1781975245900.webp",
+      "src": "Photo/2Y6A8596-1781975245896.jpeg",
       "fullSrc": "Photo/2Y6A8596-1781975245896.jpeg",
       "description": "夜間機車 HDR 相片作品。",
-      "meta": "WebP 預覽 / 原始 HDR"
+      "meta": "Ultra HDR JPEG / 原始 HDR"
     },
     {
       "title": "Deadvlei",
       "category": "photo",
-      "src": "Photo/web/2Y6A7079-1781976362506.webp",
-      "fullSrc": "Photo/2Y6A7079-1781976362502.avif",
+      "src": "Photo/2Y6A7079-1781977032501.avif",
+      "fullSrc": "Photo/2Y6A7079-1781977032501.avif",
       "description": "HDR 相片作品。",
-      "meta": "WebP 預覽 / 原始 HDR"
+      "meta": "AVIF / 原始 HDR"
     },
     {
       "title": "HDR 相片作品 2Y6A8536",
       "category": "photo",
       "src": "Photo/2Y6A8536.avif",
       "fullSrc": "Photo/2Y6A8536.avif",
-      "description": "原始 AVIF HDR 相片。之後可用相片工具產生較小的網頁版預覽圖。",
+      "description": "原始 AVIF HDR 相片，直接用於網頁展示。",
       "meta": "AVIF / 原始 HDR"
     }
   ],
