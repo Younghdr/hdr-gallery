@@ -1,0 +1,4 @@
+.netlify/
+github-pages-upload-*/
+github-pages-upload-*.zip
+*.log

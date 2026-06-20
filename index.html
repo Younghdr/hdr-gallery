@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="HDR 影片展示網站，嵌入 YouTube HDR 作品並提供沉浸式觀看體驗。"
+    />
+    <title>HDR 影片展示</title>
+    <link rel="preconnect" href="https://www.youtube.com" />
+    <link rel="preconnect" href="https://i.ytimg.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="site-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">YouTube HDR Showcase</p>
+          <h1 id="hero-title">HDR 影像作品</h1>
+          <p class="intro">
+            高亮度、寬色域、細節層次一次呈現。此頁面為你的 YouTube HDR 影片打造沉浸式入口。
+          </p>
+          <a class="hdr-link" id="hdrWatchLink" href="#" target="_blank" rel="noopener">
+            開啟 YouTube HDR 播放
+          </a>
+        </div>
+
+        <div class="video-stage" aria-label="HDR YouTube 影片播放器">
+          <div class="video-frame" id="videoFrame">
+            <div class="video-placeholder" id="videoPlaceholder">
+              <span>等待嵌入你的 YouTube HDR 影片</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="details" aria-label="HDR 影片資訊">
+        <div class="detail-block">
+          <span class="detail-kicker">Format</span>
+          <strong>4K HDR Ready</strong>
+          <p>播放器採用 16:9 響應式比例，適合桌面、平板與手機瀏覽。</p>
+        </div>
+        <div class="detail-block">
+          <span class="detail-kicker">Source</span>
+          <strong>YouTube Embed</strong>
+          <p>支援一般 YouTube 連結、Shorts 連結、分享短網址與影片 ID。</p>
+        </div>
+        <div class="detail-block">
+          <span class="detail-kicker">Viewing</span>
+          <strong>沉浸式頁面</strong>
+          <p>深色介面與高對比排版讓影片成為第一視覺焦點。</p>
+        </div>
+      </section>
+
+      <section class="photo-showcase" aria-labelledby="photo-title">
+        <div class="section-heading">
+          <p class="eyebrow">HDR Photo Gallery</p>
+          <h2 id="photo-title">HDR 相片展示</h2>
+          <p>
+            原始 AVIF 相片直接載入，盡量保留 HDR 色彩與亮度資訊；支援的瀏覽器與螢幕會以 HDR 呈現。
+          </p>
+        </div>
+
+        <a class="photo-feature" href="Photo/2Y6A8536.avif" target="_blank" rel="noopener">
+          <img src="Photo/2Y6A8536.avif" alt="HDR 相片作品 2Y6A8536" loading="lazy" />
+          <span>點擊開啟原始 HDR 相片</span>
+        </a>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
