@@ -40,6 +40,38 @@ window.HDR_SITE_DATA = {
   ],
   "photos": [
     {
+      "title": "2Y6A0533-已增強-雜訊減少",
+      "category": "photo",
+      "src": "Photo/2Y6A0533-1782053173568.avif",
+      "fullSrc": "Photo/2Y6A0533-1782053173568.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "2Y6A0400-已增強-雜訊減少",
+      "category": "photo",
+      "src": "Photo/2Y6A0400-1782053173509.avif",
+      "fullSrc": "Photo/2Y6A0400-1782053173509.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "2Y6A0399-已增強-雜訊減少",
+      "category": "photo",
+      "src": "Photo/2Y6A0399-1782053173446.avif",
+      "fullSrc": "Photo/2Y6A0399-1782053173446.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "TEST",
+      "category": "photo",
+      "src": "Photo/2Y6A0543-1782052717397.avif",
+      "fullSrc": "Photo/2Y6A0543-1782052717397.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "BMW S1000RR 夜景",
       "category": "3c",
       "src": "Photo/2Y6A8596-1781975245896.jpeg",
@@ -53,14 +85,6 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A7079-1781977032501.avif",
       "fullSrc": "Photo/2Y6A7079-1781977032501.avif",
       "description": "HDR 相片作品。",
-      "meta": "AVIF / 原始 HDR"
-    },
-    {
-      "title": "HDR 相片作品 2Y6A8536",
-      "category": "photo",
-      "src": "Photo/2Y6A8536.avif",
-      "fullSrc": "Photo/2Y6A8536.avif",
-      "description": "原始 AVIF HDR 相片，直接用於網頁展示。",
       "meta": "AVIF / 原始 HDR"
     }
   ],

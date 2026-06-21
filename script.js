@@ -123,9 +123,7 @@ function createPhotoCard(item) {
 
   card.className = "media-card";
   link.className = "photo-link";
-  link.href = item.fullSrc || item.src;
-  link.target = "_blank";
-  link.rel = "noopener";
+  link.href = photoViewerHref(item);
   image.src = item.src;
   image.alt = item.title;
   image.loading = "lazy";
@@ -198,9 +196,8 @@ function renderPhotoMosaic() {
   photos.forEach((photo, index) => {
     const link = document.createElement("a");
     const image = document.createElement("img");
-    link.href = photo.fullSrc || photo.src;
-    link.target = "_blank";
-    link.rel = "noopener";
+    link.href = photoViewerHref(photo);
+    link.setAttribute("aria-label", `在 HDR Photo Viewer 檢視 ${photo.title}`);
     link.className = index === 0 ? "mosaic-tile is-large" : "mosaic-tile";
     image.src = photo.src;
     image.alt = photo.title;
@@ -208,6 +205,11 @@ function renderPhotoMosaic() {
     link.appendChild(image);
     mosaic.appendChild(link);
   });
+}
+
+function photoViewerHref(item) {
+  const photoPath = item.fullSrc || item.src || "";
+  return `photos.html?photo=${encodeURIComponent(photoPath)}`;
 }
 
 function renderGrid(gridId, items, createCard, emptyText) {

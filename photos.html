@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Young HDR Gallery 的全頁 HDR Photo Viewer，可檢視 AVIF、Ultra HDR JPEG 與 HEIC 原始相片。"
+    />
+    <title>HDR Photo Viewer - Young HDR Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="photo-viewer-page">
+    <header class="topbar">
+      <a class="brand" href="index.html#home" aria-label="Young HDR Gallery">
+        <span>Young HDR</span>
+      </a>
+      <nav class="topnav" aria-label="主要導覽">
+        <a href="index.html#videos">HDR 影片</a>
+        <a href="index.html#photos" class="active">HDR 相片</a>
+        <a href="index.html#notes">旅遊</a>
+      </nav>
+    </header>
+
+    <main class="hdr-viewer" aria-labelledby="viewerTitle">
+      <section class="viewer-stage" aria-label="HDR 相片檢視區">
+        <div class="viewer-copy">
+          <p class="eyebrow">HDR Photography</p>
+          <h1 id="viewerTitle">HDR Photo</h1>
+          <p id="viewerDescription">
+            選擇一張相片後，這裡會以原始 HDR 檔案顯示，適合檢查 AVIF、Ultra HDR JPEG 或 HEIC 的亮度與細節。
+          </p>
+        </div>
+
+        <figure class="viewer-photo-frame">
+          <img id="viewerImage" alt="" />
+          <figcaption id="viewerMeta"></figcaption>
+        </figure>
+      </section>
+
+      <aside class="viewer-rail" aria-label="HDR 相片清單">
+        <div class="viewer-rail-heading">
+          <span class="eyebrow">Library</span>
+          <strong>HDR Photos</strong>
+        </div>
+        <div class="viewer-thumbs" id="viewerThumbs"></div>
+      </aside>
+    </main>
+
+    <script src="site-data.js"></script>
+    <script>
+      const photoData = window.HDR_SITE_DATA || {};
+      const photos = photoData.photos || [];
+      const categories = photoData.categories || [];
+      const params = new URLSearchParams(window.location.search);
+      const requestedPhoto = params.get("photo") || "";
+
+      const title = document.querySelector("#viewerTitle");
+      const description = document.querySelector("#viewerDescription");
+      const image = document.querySelector("#viewerImage");
+      const meta = document.querySelector("#viewerMeta");
+      const thumbs = document.querySelector("#viewerThumbs");
+
+      function categoryLabel(id) {
+        return categories.find((category) => category.id === id)?.label || id || "HDR Photo";
+      }
+
+      function photoPath(photo) {
+        return photo.fullSrc || photo.src || "";
+      }
+
+      function selectPhoto(photo) {
+        if (!photo) return;
+
+        const src = photoPath(photo);
+        title.textContent = photo.title || "HDR Photo";
+        description.textContent = photo.description || "HDR photo work.";
+        image.src = src;
+        image.alt = photo.title || "HDR Photo";
+        meta.textContent = `${categoryLabel(photo.category)} / ${photo.meta || "HDR original"}`;
+
+        document.querySelectorAll("[data-photo-src]").forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.photoSrc === src);
+        });
+
+        const url = new URL(window.location.href);
+        url.searchParams.set("photo", src);
+        window.history.replaceState({}, "", url);
+      }
+
+      function renderThumbs() {
+        thumbs.replaceChildren();
+
+        if (!photos.length) {
+          const empty = document.createElement("p");
+          empty.className = "empty-state";
+          empty.textContent = "目前還沒有 HDR 相片。";
+          thumbs.appendChild(empty);
+          return;
+        }
+
+        for (const photo of photos) {
+          const button = document.createElement("button");
+          const thumb = document.createElement("img");
+          const label = document.createElement("span");
+          const src = photoPath(photo);
+
+          button.type = "button";
+          button.className = "viewer-thumb";
+          button.dataset.photoSrc = src;
+          button.addEventListener("click", () => selectPhoto(photo));
+
+          thumb.src = photo.src || src;
+          thumb.alt = "";
+          thumb.loading = "lazy";
+
+          label.textContent = photo.title || "HDR Photo";
+          button.append(thumb, label);
+          thumbs.appendChild(button);
+        }
+      }
+
+      renderThumbs();
+      selectPhoto(photos.find((photo) => photoPath(photo) === requestedPhoto) || photos[0]);
+    </script>
+  </body>
+</html>
