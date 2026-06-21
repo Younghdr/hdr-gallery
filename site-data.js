@@ -40,6 +40,38 @@ window.HDR_SITE_DATA = {
   ],
   "photos": [
     {
+      "title": "2Y6A8596",
+      "category": "photo",
+      "src": "Photo/2Y6A8596-1781975245896.jpeg",
+      "fullSrc": "Photo/2Y6A8596-1781975245896.jpeg",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "2Y6A8536",
+      "category": "photo",
+      "src": "Photo/2Y6A8536.avif",
+      "fullSrc": "Photo/2Y6A8536.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "2Y6A7079",
+      "category": "photo",
+      "src": "Photo/2Y6A7079-1781976362502.avif",
+      "fullSrc": "Photo/2Y6A7079-1781976362502.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "西九龍文化區戲曲中心",
+      "category": "photo",
+      "src": "Photo/2Y6A0420-1782056905234.avif",
+      "fullSrc": "Photo/2Y6A0420-1782056905234.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "BMW S1000RR",
       "category": "photo",
       "src": "Photo/2Y6A8596-1782056505359.avif",
