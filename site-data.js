@@ -40,6 +40,14 @@ window.HDR_SITE_DATA = {
   ],
   "photos": [
     {
+      "title": "紫藤花",
+      "category": "photo",
+      "src": "Photo/2Y6A8536-1782056244124.avif",
+      "fullSrc": "Photo/2Y6A8536-1782056244124.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "2Y6A0533-已增強-雜訊減少",
       "category": "photo",
       "src": "Photo/2Y6A0533-1782053173568.avif",
@@ -70,14 +78,6 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/2Y6A0543-1782052717397.avif",
       "description": "HDR photo work.",
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
-      "title": "BMW S1000RR 夜景",
-      "category": "3c",
-      "src": "Photo/2Y6A8596-1781975245896.jpeg",
-      "fullSrc": "Photo/2Y6A8596-1781975245896.jpeg",
-      "description": "夜間機車 HDR 相片作品。",
-      "meta": "Ultra HDR JPEG / 原始 HDR"
     },
     {
       "title": "Deadvlei",
