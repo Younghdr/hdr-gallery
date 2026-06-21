@@ -40,6 +40,14 @@ window.HDR_SITE_DATA = {
   ],
   "photos": [
     {
+      "title": "BMW S1000RR",
+      "category": "photo",
+      "src": "Photo/2Y6A8596-1782056505359.avif",
+      "fullSrc": "Photo/2Y6A8596-1782056505359.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "紫藤花",
       "category": "photo",
       "src": "Photo/2Y6A8536-1782056244124.avif",
