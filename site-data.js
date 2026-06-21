@@ -66,11 +66,20 @@ window.HDR_SITE_DATA = {
   ],
   "travelNotes": [
     {
-      "title": "準備新增第一篇遊記",
+      "title": "南美：印加傳奇（上）",
       "category": "travel",
-      "cover": "Photo/2Y6A8536.avif",
-      "description": "之後可以在管理後台新增旅遊紀錄，搭配 HDR 相片當封面。",
-      "date": "2026-06-21"
+      "cover": "https://farm2.staticflickr.com/1447/26718718066_3a57107973_h.jpg",
+      "description": "秘魯、玻利維亞、智利的小資探索祕境之旅。整理自早期發表在 Mobile01 的長篇遊記，保留拍攝與路線重點。",
+      "date": "2016-05-04",
+      "url": "journal.html?id=south-america-inca"
+    },
+    {
+      "title": "南美：印加傳奇（下）",
+      "category": "travel",
+      "cover": "https://farm8.staticflickr.com/7477/26349365793_09429b3d8d_h.jpg",
+      "description": "接續南美上篇，整理玻利維亞拉巴斯、烏尤尼天空之鏡、智利高原、阿雷基帕、科卡峽谷與利馬的旅行紀錄。",
+      "date": "2016-05-04",
+      "url": "journal.html?id=south-america-inca-part-2"
     }
   ]
 };

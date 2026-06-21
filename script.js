@@ -105,7 +105,7 @@ function createVideoCard(item) {
   link.href = `https://www.youtube.com/watch?v=${videoId}&vq=highres`;
   link.target = "_blank";
   link.rel = "noopener";
-  link.textContent = "開啟 YouTube HDR";
+  link.textContent = "觀看 YouTube HDR";
 
   body.append(meta, heading, text, link);
   card.append(media, body);
@@ -149,12 +149,16 @@ function createNoteCard(item) {
   const heading = document.createElement("h3");
   const meta = document.createElement("span");
   const text = document.createElement("p");
+  const action = document.createElement("a");
+  const noteHref = item.url || item.cover || "#";
 
   card.className = "media-card";
   imageLink.className = "photo-link";
-  imageLink.href = item.cover || "#";
-  imageLink.target = "_blank";
-  imageLink.rel = "noopener";
+  imageLink.href = noteHref;
+  if (/^https?:\/\//.test(noteHref)) {
+    imageLink.target = "_blank";
+    imageLink.rel = "noopener";
+  }
   image.src = item.cover || "Photo/2Y6A8536.avif";
   image.alt = item.title;
   image.loading = "lazy";
@@ -164,8 +168,14 @@ function createNoteCard(item) {
   meta.textContent = `${categoryLabel(item.category)} / ${item.date || "Travel Note"}`;
   heading.textContent = item.title;
   text.textContent = item.description || "";
+  action.href = noteHref;
+  action.textContent = item.url ? "閱讀遊記" : "查看相片";
+  if (/^https?:\/\//.test(noteHref)) {
+    action.target = "_blank";
+    action.rel = "noopener";
+  }
 
-  body.append(meta, heading, text);
+  body.append(meta, heading, text, action);
   card.append(imageLink, body);
   return card;
 }
@@ -180,7 +190,7 @@ function renderPhotoMosaic() {
   if (!photos.length) {
     const empty = document.createElement("p");
     empty.className = "empty-state";
-    empty.textContent = "這個主題目前還沒有相片。";
+    empty.textContent = "這個主題目前還沒有 HDR 相片。";
     mosaic.appendChild(empty);
     return;
   }
@@ -221,9 +231,9 @@ function renderGrid(gridId, items, createCard, emptyText) {
 }
 
 function renderPortfolio() {
-  renderGrid("#videoGrid", data.videos || [], createVideoCard, "這個主題目前還沒有影片。");
+  renderGrid("#videoGrid", data.videos || [], createVideoCard, "這個主題目前還沒有 HDR 影片。");
   renderPhotoMosaic();
-  renderGrid("#noteGrid", data.travelNotes || [], createNoteCard, "這個主題目前還沒有遊記。");
+  renderGrid("#noteGrid", data.travelNotes || [], createNoteCard, "這個主題目前還沒有旅遊紀錄。");
 }
 
 renderFeaturedVideo();
