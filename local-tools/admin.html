@@ -10,7 +10,8 @@
     <header class="topbar">
       <a class="brand" href="index.html"><span>Young HDR Admin</span></a>
       <nav class="topnav" aria-label="Admin navigation">
-        <a href="index.html">Preview site</a>
+        <a href="index.html">Preview old site</a>
+        <a href="http://127.0.0.1:3000/" target="_blank" rel="noopener">Preview Next.js site</a>
       </nav>
     </header>
 
@@ -104,7 +105,10 @@
           <span class="eyebrow">Analytics</span>
           <h2>Visitor stats</h2>
         </div>
-        <p class="form-note">Requires <code>TRACKING_ENDPOINT</code> in your <code>.env</code> file (local admin only).</p>
+        <p class="form-note">
+          Click <strong>Load stats</strong> to fetch visitor data. The counter is shown here in the admin, not on the public site.
+          Requires <code>TRACKING_ENDPOINT</code> in your <code>.env</code> file.
+        </p>
         <button class="secondary-button" id="loadStats" type="button">Load stats</button>
         <div id="statsPanel" class="stats-panel"></div>
       </section>
