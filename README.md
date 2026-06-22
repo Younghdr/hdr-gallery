@@ -89,6 +89,57 @@ For a local GitHub Pages style build, run:
 npm run build:github
 ```
 
+## Analytics and Music
+
+The site supports optional GA4 analytics and a floating music player.
+
+Set these GitHub repository variables in `Settings > Secrets and variables > Actions > Variables`:
+
+```text
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_MUSIC_SRC=/hdr-gallery/music/your-track.mp3
+NEXT_PUBLIC_TRACKING_ENDPOINT=https://your-worker.your-subdomain.workers.dev/track
+```
+
+Tracked GA4 events:
+
+- `page_view`: pages and routes.
+- `photo_open`: which HDR photo visitors open.
+- `film_embed_load`: which HDR film embed is loaded.
+- `music_play`: when a visitor starts music.
+- `music_pause`: when a visitor pauses music.
+
+For music, put the audio file in `public/music/` locally, then use a GitHub Pages path such as `/hdr-gallery/music/ambient.mp3`.
+
+### Private View Counter Backend
+
+GitHub Pages cannot store view counts by itself because it is static hosting. For a private backend record, deploy the sample Cloudflare Worker in:
+
+```text
+tracking/cloudflare-worker.js
+tracking/schema.sql
+```
+
+The worker stores every event in D1 and exposes:
+
+```text
+POST /track
+GET /stats
+```
+
+Use `/stats` with:
+
+```text
+Authorization: Bearer YOUR_ADMIN_TOKEN
+```
+
+The stats response includes:
+
+- total events and unique visitors
+- top viewed photos
+- music play and pause counts
+- page views by path
+
 Useful practical limits:
 
 - Keep each published photo as small as you can while preserving HDR.

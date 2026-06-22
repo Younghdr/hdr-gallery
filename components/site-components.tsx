@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MusicPlayer } from "@/components/music-player";
+import { trackEvent } from "@/components/analytics";
 import type { JournalItem, PhotoItem, VideoItem } from "@/lib/site-data";
 import { brand, copy, navItems } from "@/lib/copy";
 
@@ -65,6 +67,7 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen overflow-hidden">
       <Header />
       {children}
+      <MusicPlayer />
       <Footer />
     </div>
   );
@@ -234,6 +237,12 @@ export function PhotoMasonry({ photos }: { photos: PhotoItem[] }) {
         <motion.a
           key={`${photoPath(photo)}-${index}`}
           href={appHref(`/photography?photo=${encodeURIComponent(photoPath(photo))}`)}
+          onClick={() =>
+            trackEvent("photo_open", {
+              photo_title: photo.title || "HDR Frame",
+              photo_src: photoPath(photo),
+            })
+          }
           className="group mb-4 block break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -264,6 +273,12 @@ export function FilmGrid({ films }: { films: VideoItem[] }) {
               <div className="aspect-video bg-black">
                 {id ? (
                   <iframe
+                    onLoad={() =>
+                      trackEvent("film_embed_load", {
+                        film_title: film.title,
+                        youtube_id: id,
+                      })
+                    }
                     className="h-full w-full"
                     src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1&vq=highres`}
                     title={film.title}
