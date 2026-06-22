@@ -104,7 +104,12 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / 原始 HDR"
     }
   ],
-  "music": [],
+  "music": [
+    {
+      "title": "토토로의+우산+ +トトロの傘",
+      "src": "public/music/_-1782144485147.mp3"
+    }
+  ],
   "travelNotes": [
     {
       "title": "南美：印加傳奇（上）",
@@ -121,6 +126,72 @@ window.HDR_SITE_DATA = {
       "description": "接續南美上篇，整理玻利維亞拉巴斯、烏尤尼天空之鏡、智利高原、阿雷基帕、科卡峽谷與利馬的旅行紀錄。",
       "date": "2016-05-04",
       "url": "journal.html?id=south-america-inca-part-2"
+    }
+  ],
+  "photoDetails": [
+    {
+      "title": "西九龍文化區戲曲中心",
+      "category": "photo",
+      "src": "Photo/2Y6A0420-1782056905234.avif",
+      "fullSrc": "Photo/2Y6A0420-1782056905234.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "BMW S1000RR",
+      "category": "photo",
+      "src": "Photo/2Y6A8596-1782056505359.avif",
+      "fullSrc": "Photo/2Y6A8596-1782056505359.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "紫藤花",
+      "category": "photo",
+      "src": "Photo/2Y6A8536-1782056244124.avif",
+      "fullSrc": "Photo/2Y6A8536-1782056244124.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "2Y6A0533-已增強-雜訊減少",
+      "category": "photo",
+      "src": "Photo/2Y6A0533-1782053173568.avif",
+      "fullSrc": "Photo/2Y6A0533-1782053173568.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "2Y6A0400-已增強-雜訊減少",
+      "category": "photo",
+      "src": "Photo/2Y6A0400-1782053173509.avif",
+      "fullSrc": "Photo/2Y6A0400-1782053173509.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "2Y6A0399-已增強-雜訊減少",
+      "category": "photo",
+      "src": "Photo/2Y6A0399-1782053173446.avif",
+      "fullSrc": "Photo/2Y6A0399-1782053173446.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "TEST",
+      "category": "photo",
+      "src": "Photo/2Y6A0543-1782052717397.avif",
+      "fullSrc": "Photo/2Y6A0543-1782052717397.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "Deadvlei",
+      "category": "photo",
+      "src": "Photo/2Y6A7079-1781977032501.avif",
+      "fullSrc": "Photo/2Y6A7079-1781977032501.avif",
+      "description": "HDR 相片作品。",
+      "meta": "AVIF / 原始 HDR"
     }
   ]
 };
