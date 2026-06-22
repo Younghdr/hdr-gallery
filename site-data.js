@@ -106,8 +106,8 @@ window.HDR_SITE_DATA = {
   ],
   "music": [
     {
-      "title": "토토로의+우산+ +トトロの傘",
-      "src": "public/music/_-1782144485147.mp3"
+      "title": "토토로의 우산 トトロの傘",
+      "src": "music/_-1782144485147.mp3"
     }
   ],
   "travelNotes": [

@@ -265,13 +265,18 @@ async function uploadMusicFile(file) {
     body: upload,
   });
   const saved = result.files.find((item) => item.field === "track");
-  return saved ? saved.path : null;
+  if (!saved) return null;
+  return {
+    path: saved.path,
+    originalName: saved.originalName || file.name,
+  };
 }
 
 function cleanMusicTitle(filename) {
   return filename
     .replace(/\.[^.]+$/, "")
     .replace(/[-_]+/g, " ")
+    .replace(/\+/g, " ")
     .trim();
 }
 
@@ -293,11 +298,12 @@ document.querySelector("#musicForm").addEventListener("submit", async (event) =>
 
   for (const [index, file] of files.entries()) {
     log(`Uploading ${index + 1}/${files.length}: ${file.name}`);
-    const path = await uploadMusicFile(file);
-    if (!path) continue;
+    const result = await uploadMusicFile(file);
+    if (!result) continue;
+    const title = cleanMusicTitle(result.originalName || file.name);
     siteData.music.push({
-      title: cleanMusicTitle(file.name),
-      src: path,
+      title: title || "Music track",
+      src: result.path,
     });
   }
 

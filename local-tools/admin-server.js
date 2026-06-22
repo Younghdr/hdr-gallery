@@ -82,8 +82,12 @@ function splitBuffer(buffer, delimiter) {
 
 function sanitizeName(name) {
   const ext = path.extname(name);
-  const base = path.basename(name, ext).replace(/[^a-zA-Z0-9._-]+/g, "-").replace(/^-+|-+$/g, "");
-  return `${base || "photo"}-${Date.now()}${ext.toLowerCase()}`;
+  const base = path
+    .basename(name, ext)
+    .replace(/[<>:"/\\|?*\x00-\x1f]+/g, "-")
+    .replace(/^[\s.-]+|[\s.-]+$/g, "");
+  const safeBase = base.length > 100 ? base.slice(0, 100) : base;
+  return `${safeBase || "file"}-${Date.now()}${ext.toLowerCase()}`;
 }
 
 function parseMultipart(buffer, contentType) {
@@ -232,10 +236,13 @@ async function handleApi(req, res) {
       const filename = sanitizeName(part.filename);
       const fullPath = path.join(folder, filename);
       fs.writeFileSync(fullPath, part.content);
+      const relativePath = path.relative(ROOT, fullPath).replace(/\\/g, "/");
+      const publicPath = relativePath.replace(/^public\//, "");
       saved.push({
         field: part.field,
         type: part.type,
-        path: path.relative(ROOT, fullPath).replace(/\\/g, "/"),
+        path: publicPath,
+        originalName: part.filename,
       });
     }
 
