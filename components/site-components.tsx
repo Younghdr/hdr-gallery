@@ -232,7 +232,7 @@ export function PortfolioPaths({ image }: { image: string }) {
 
 export function PhotoMasonry({ photos }: { photos: PhotoItem[] }) {
   return (
-    <div className="masonry mx-auto mt-12 max-w-7xl">
+    <div className="masonry mx-auto mt-12 w-full px-4 lg:px-8 xl:px-12">
       {photos.map((photo, index) => (
         <motion.a
           key={`${photoPath(photo)}-${index}`}
@@ -291,6 +291,20 @@ export function FilmGrid({ films }: { films: VideoItem[] }) {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Films</p>
                 <h3 className="mt-2 text-2xl font-semibold text-pearl">{film.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-mist">{film.description || "Films crafted for HDR playback and luminous screens."}</p>
+                <a
+                  href={film.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("film_youtube_click", {
+                      film_title: film.title,
+                      youtube_url: film.youtube,
+                    })
+                  }
+                  className="mt-5 inline-flex items-center justify-center rounded-[8px] bg-white/10 px-5 py-3 text-sm font-semibold text-pearl transition hover:bg-white/20"
+                >
+                  觀看 YouTube HDR
+                </a>
               </div>
             </article>
           </Reveal>
