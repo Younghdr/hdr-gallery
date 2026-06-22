@@ -18,6 +18,33 @@ export type VideoItem = {
   description?: string;
 };
 
+export type JournalPhoto = {
+  src: string;
+  alt?: string;
+  caption?: string;
+};
+
+export type JournalSection = {
+  heading: string;
+  body: string;
+  photos?: (string | JournalPhoto)[];
+};
+
+export type JournalArticle = {
+  title: string;
+  subtitle?: string;
+  date?: string;
+  category?: string;
+  sourceTitle?: string;
+  sourceUrl?: string;
+  hero?: string;
+  video?: string;
+  intro?: string;
+  stats?: string[];
+  sections?: JournalSection[];
+  gallery?: (string | JournalPhoto)[];
+};
+
 export type JournalItem = {
   title: string;
   category?: string;
@@ -104,6 +131,25 @@ export function getMusicItems() {
 export function getFeaturedHeroImage() {
   const { homepage, details } = getPhotographyItems();
   return photoSrc(homepage[0] || details[0] || fallbackPhoto);
+}
+
+export function getJournalData(): Record<string, JournalArticle> {
+  const file = path.join(process.cwd(), "journal-data.js");
+
+  try {
+    const source = fs.readFileSync(file, "utf8");
+    const sandbox = { window: {} as { HDR_JOURNAL_DATA?: Record<string, JournalArticle> } };
+    vm.createContext(sandbox);
+    vm.runInContext(source, sandbox);
+    return sandbox.window.HDR_JOURNAL_DATA || {};
+  } catch {
+    return {};
+  }
+}
+
+export function getJournalArticle(id: string): JournalArticle | null {
+  const data = getJournalData();
+  return data[id] || null;
 }
 
 export function youtubeId(input = "") {

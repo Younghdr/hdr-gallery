@@ -1,10 +1,12 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MusicPlayer } from "@/components/music-player";
 import { trackEvent } from "@/components/analytics";
+import { Lightbox } from "@/components/lightbox";
 import type { JournalItem, MusicItem, PhotoItem, VideoItem } from "@/lib/site-data";
 import { brand, copy, navItems } from "@/lib/copy";
 
@@ -131,34 +133,32 @@ function Footer() {
 
 export function Hero({ image }: { image: string }) {
   return (
-    <section className="relative min-h-[92vh] px-5 pb-16 pt-32 lg:px-8">
+    <section className="relative flex min-h-[92vh] flex-col items-center justify-end px-5 pb-20 pt-32 text-center lg:px-8">
       <div className="absolute inset-0 -z-10">
         <img src={image} alt="" className="h-full w-full object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/45 to-ink" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,9,13,0.86),rgba(7,9,13,0.2)_58%,rgba(7,9,13,0.82))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(7,9,13,0.25)_0%,rgba(7,9,13,0.72)_80%)]" />
       </div>
       <motion.div
-        className="mx-auto flex min-h-[72vh] max-w-7xl items-end"
+        className="mx-auto w-full max-w-4xl"
         initial={{ opacity: 0, y: 34 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold">{copy.hero.eyebrow}</p>
-          <h1 className="mt-5 text-5xl font-semibold leading-tight text-pearl md:text-7xl lg:text-8xl">{copy.hero.title}</h1>
-          <p className="mt-8 max-w-3xl text-xl leading-9 text-pearl md:text-2xl">{copy.hero.zh}</p>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-mist md:text-lg">{copy.hero.en}</p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <Link className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink transition hover:scale-[1.03]" href="/photography">
-              {copy.hero.primary} / {copy.hero.primaryZh}
-            </Link>
-            <Link className="glass rounded-full px-6 py-3 text-sm font-semibold text-pearl transition hover:scale-[1.03]" href="/films">
-              {copy.hero.secondary} / {copy.hero.secondaryZh}
-            </Link>
-            <Link className="glass rounded-full px-6 py-3 text-sm font-semibold text-pearl transition hover:scale-[1.03]" href="/journal">
-              {copy.hero.tertiary} / {copy.hero.tertiaryZh}
-            </Link>
-          </div>
+        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold">{copy.hero.eyebrow}</p>
+        <h1 className="mx-auto mt-5 max-w-3xl text-5xl font-semibold leading-[1.1] text-pearl md:text-6xl lg:text-7xl">{copy.hero.title}</h1>
+        <p className="mx-auto mt-7 max-w-2xl text-xl leading-9 text-pearl md:text-2xl">{copy.hero.zh}</p>
+        <p className="mx-auto mt-3 max-w-2xl text-base leading-8 text-mist md:text-lg">{copy.hero.en}</p>
+        <div className="mt-9 flex flex-wrap justify-center gap-4">
+          <Link className="glass rounded-full px-6 py-3 text-sm font-semibold text-pearl transition hover:bg-white/15 hover:text-gold" href="/photography">
+            {copy.hero.primary}
+          </Link>
+          <Link className="glass rounded-full px-6 py-3 text-sm font-semibold text-pearl transition hover:bg-white/15 hover:text-gold" href="/films">
+            {copy.hero.secondary}
+          </Link>
+          <Link className="glass rounded-full px-6 py-3 text-sm font-semibold text-pearl transition hover:bg-white/15 hover:text-gold" href="/journal">
+            {copy.hero.tertiary}
+          </Link>
         </div>
       </motion.div>
     </section>
@@ -231,34 +231,46 @@ export function PortfolioPaths({ image }: { image: string }) {
 }
 
 export function PhotoMasonry({ photos }: { photos: PhotoItem[] }) {
+  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
+  const isOpen = lightboxIndex !== null;
+
   return (
-    <div className="masonry mx-auto mt-12 w-full px-4 lg:px-8 xl:px-12">
-      {photos.map((photo, index) => (
-        <motion.a
-          key={`${photoPath(photo)}-${index}`}
-          href={appHref(`/photography?photo=${encodeURIComponent(photoPath(photo))}`)}
-          onClick={() =>
-            trackEvent("photo_open", {
-              photo_title: photo.title || "HDR Frame",
-              photo_src: photoPath(photo),
-            })
-          }
-          className="group mb-4 block break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: Math.min(index * 0.04, 0.32) }}
-          whileHover={{ y: -4 }}
-        >
-          <img src={photoPath(photo)} alt={photo.title} className="w-full object-cover transition duration-700 group-hover:scale-105" />
-          <div className="p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Photography</p>
-            <h3 className="mt-2 text-lg font-semibold text-pearl">{photo.title || "HDR Frame"}</h3>
-            {photo.description ? <p className="mt-2 text-sm leading-6 text-mist">{photo.description}</p> : null}
-          </div>
-        </motion.a>
-      ))}
-    </div>
+    <>
+      <div className="masonry mx-auto mt-12 w-full px-4 lg:px-8 xl:px-12">
+        {photos.map((photo, index) => (
+          <motion.button
+            key={`${photoPath(photo)}-${index}`}
+            onClick={() => {
+              trackEvent("photo_open", {
+                photo_title: photo.title || "HDR Frame",
+                photo_src: photoPath(photo),
+              });
+              setLightboxIndex(index);
+            }}
+            className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: Math.min(index * 0.04, 0.32) }}
+            whileHover={{ y: -4 }}
+          >
+            <img src={photoPath(photo)} alt={photo.title} className="w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div className="p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Photography</p>
+              <h3 className="mt-2 text-lg font-semibold text-pearl">{photo.title || "HDR Frame"}</h3>
+              {photo.description ? <p className="mt-2 text-sm leading-6 text-mist">{photo.description}</p> : null}
+            </div>
+          </motion.button>
+        ))}
+      </div>
+      <Lightbox
+        photos={photos}
+        index={lightboxIndex ?? 0}
+        isOpen={isOpen}
+        onClose={() => setLightboxIndex(null)}
+        onChangeIndex={setLightboxIndex}
+      />
+    </>
   );
 }
 
@@ -344,21 +356,35 @@ export function PageIntro({
   );
 }
 
+function journalIdFromUrl(url = "") {
+  if (!url) return "";
+  try {
+    const parsed = new URL(url, "http://localhost");
+    return parsed.searchParams.get("id") || "";
+  } catch {
+    return "";
+  }
+}
+
 export function JournalList({ items }: { items: JournalItem[] }) {
   return (
     <div className="mx-auto mt-12 grid max-w-7xl gap-6 md:grid-cols-2">
-      {items.map((item, index) => (
-        <Reveal key={`${item.title}-${index}`}>
-          <article className="glass overflow-hidden rounded-[8px]">
-            {item.cover ? <img src={item.cover} alt={item.title} className="h-72 w-full object-cover opacity-85" /> : null}
-            <div className="p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{item.date || "Field Notes"}</p>
-              <h3 className="mt-2 text-2xl font-semibold text-pearl">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-mist">{item.description || "A note on travel, light, and the imaging process."}</p>
-            </div>
-          </article>
-        </Reveal>
-      ))}
+      {items.map((item, index) => {
+        const id = journalIdFromUrl(item.url);
+        const href = id ? `/journal/${id}` : item.url || "#";
+        return (
+          <Reveal key={`${item.title}-${index}`}>
+            <Link href={href} className="group block overflow-hidden rounded-[8px] glass transition hover:scale-[1.01]">
+              {item.cover ? <img src={item.cover} alt={item.title} className="h-72 w-full object-cover opacity-85 transition duration-700 group-hover:scale-105" /> : null}
+              <div className="p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{item.date || "Field Notes"}</p>
+                <h3 className="mt-2 text-2xl font-semibold text-pearl">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-mist">{item.description || "A note on travel, light, and the imaging process."}</p>
+              </div>
+            </Link>
+          </Reveal>
+        );
+      })}
     </div>
   );
 }

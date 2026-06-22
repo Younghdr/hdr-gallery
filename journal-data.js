@@ -6,7 +6,7 @@ window.HDR_JOURNAL_DATA = {
     "category": "travel",
     "sourceTitle": "Mobile01 原文",
     "sourceUrl": "https://www.mobile01.com/topicdetail.php?f=244&t=4789090",
-    "hero": "Photo/travel/machu-picchu-cover.png",
+    "hero": "https://farm2.staticflickr.com/1447/26718718066_3a57107973_h.jpg",
     "video": "https://www.youtube.com/embed/Ct95KiRPfHk",
     "intro": "這趟南美旅行以秘魯為主軸，串起納斯卡線、庫斯科、印加聖谷與馬丘比丘。原文是早期發表在 Mobile01 的長篇遊記，這裡整理成作品集版本，保留旅行脈絡、拍攝亮點與精選照片。",
     "stats": [

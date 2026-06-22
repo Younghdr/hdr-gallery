@@ -18,7 +18,7 @@ export const navItems = [
 export const copy = {
   hero: {
     eyebrow: "HDR Photography / HDR Films / HDR Travel Stories",
-    title: "YOUNG HUNG HDR STUDIO",
+    title: "Young Hung HDR Studio",
     zh: "在超越 SDR 的光域之中，尋找風景的呼吸、旅途的靜默，以及影像尚未說出口的故事。",
     en: "Explore light beyond SDR. Where landscapes breathe, journeys fall quiet, and every frame holds a story before words arrive.",
     primary: "HDR Photography",
@@ -91,10 +91,10 @@ export const copy = {
   journal: {
     title: "Journal",
     titleZh: "札記",
-    subtitle: "Notes on travel, light, tools, and the imaging process.",
-    subtitleZh: "關於路途、光線、器材與影像流程的短篇筆記。",
-    intro: "Some images are made before the shutter is pressed. Others are completed through sorting, choosing, and waiting. This journal gathers the paths behind the work: arrival, observation, workflow, and the details outside the center of the frame.",
-    introZh: "有些影像完成於按下快門之前，有些則完成於長時間的整理、選擇與等待。這裡收錄的是影像背後的路徑：抵達、觀察、工作流程，以及那些沒有出現在畫面中央的細節。",
+    subtitle: "Collecting light along the road, tracing where each image begins.",
+    subtitleZh: "在路上收藏光，在靜默裡書寫影像的來處。",
+    intro: "Some frames come from the landscape itself. Others come from the road before arriving. These are not guides or gear reviews, but notes on how to see: how to wait for light while in motion, and how to remember the air and temperature of a moment long after leaving.",
+    introZh: "有些畫面來自風景本身，有些來自抵達風景之前的路。這裡不是攻略，也不是器材評測，而是關於觀看的方式：如何在移動中等待光線，如何在離開之後，仍然記得某一片刻的空氣與溫度。",
     sectionTitle: "Field Notes",
     sectionTitleZh: "現場筆記",
   },
