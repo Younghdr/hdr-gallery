@@ -1,14 +1,15 @@
 import { copy } from "@/lib/copy";
-import { getFeaturedHeroImage, getFilmItems, getPhotographyItems } from "@/lib/site-data";
+import { getFeaturedHeroImage, getFilmItems, getMusicItems, getPhotographyItems } from "@/lib/site-data";
 import { FilmGrid, Hero, PhotoMasonry, SectionHeader, SiteFrame, TextPanel } from "@/components/site-components";
 
 export default function HomePage() {
   const heroImage = getFeaturedHeroImage();
   const { homepage } = getPhotographyItems();
   const films = getFilmItems();
+  const music = getMusicItems();
 
   return (
-    <SiteFrame>
+    <SiteFrame music={music}>
       <Hero image={heroImage} />
       <section className="px-5 py-24 lg:px-8">
         <SectionHeader

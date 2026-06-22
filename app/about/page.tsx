@@ -1,9 +1,12 @@
 import { copy } from "@/lib/copy";
+import { getMusicItems } from "@/lib/site-data";
 import { PageIntro, SiteFrame, TextPanel } from "@/components/site-components";
 
 export default function AboutPage() {
+  const music = getMusicItems();
+
   return (
-    <SiteFrame>
+    <SiteFrame music={music}>
       <PageIntro
         title={copy.about.title}
         titleZh={copy.about.titleZh}

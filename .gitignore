@@ -6,8 +6,11 @@
 node_modules/
 out/
 public/Photo/
+.env
 github-pages-upload-*/
 github-pages-upload-*.zip
+tmp-*/
+tmp-*
 tools/
 local-tools/
 *.log

@@ -1,12 +1,13 @@
 import { copy } from "@/lib/copy";
-import { getPhotographyItems } from "@/lib/site-data";
+import { getMusicItems, getPhotographyItems } from "@/lib/site-data";
 import { PageIntro, PhotoMasonry, SectionHeader, SiteFrame } from "@/components/site-components";
 
 export default function PhotographyPage() {
   const { details } = getPhotographyItems();
+  const music = getMusicItems();
 
   return (
-    <SiteFrame>
+    <SiteFrame music={music}>
       <PageIntro
         title={copy.photography.title}
         titleZh={copy.photography.titleZh}

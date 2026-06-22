@@ -1,12 +1,13 @@
 import { copy } from "@/lib/copy";
-import { getJournalItems } from "@/lib/site-data";
+import { getJournalItems, getMusicItems } from "@/lib/site-data";
 import { JournalList, PageIntro, SectionHeader, SiteFrame } from "@/components/site-components";
 
 export default function JournalPage() {
   const journals = getJournalItems();
+  const music = getMusicItems();
 
   return (
-    <SiteFrame>
+    <SiteFrame music={music}>
       <PageIntro
         title={copy.journal.title}
         titleZh={copy.journal.titleZh}

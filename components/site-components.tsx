@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MusicPlayer } from "@/components/music-player";
 import { trackEvent } from "@/components/analytics";
-import type { JournalItem, PhotoItem, VideoItem } from "@/lib/site-data";
+import type { JournalItem, MusicItem, PhotoItem, VideoItem } from "@/lib/site-data";
 import { brand, copy, navItems } from "@/lib/copy";
 
 type MotionProps = {
@@ -62,12 +62,12 @@ export function Reveal({ children, className }: MotionProps) {
   );
 }
 
-export function SiteFrame({ children }: { children: React.ReactNode }) {
+export function SiteFrame({ children, music }: { children: React.ReactNode; music?: MusicItem[] }) {
   return (
     <div className="min-h-screen overflow-hidden">
       <Header />
       {children}
-      <MusicPlayer />
+      <MusicPlayer playlist={music} />
       <Footer />
     </div>
   );

@@ -27,12 +27,19 @@ export type JournalItem = {
   url?: string;
 };
 
+export type MusicItem = {
+  title: string;
+  src: string;
+};
+
 export type SiteData = {
+  categories?: { id: string; label: string }[];
   featuredVideo?: string;
   photos?: PhotoItem[];
   photoDetails?: PhotoItem[];
   videos?: VideoItem[];
   travelNotes?: JournalItem[];
+  music?: MusicItem[];
 };
 
 const fallbackPhoto: PhotoItem = {
@@ -87,6 +94,11 @@ export function getFilmItems() {
 export function getJournalItems() {
   const data = getSiteData();
   return data.travelNotes || [];
+}
+
+export function getMusicItems() {
+  const data = getSiteData();
+  return data.music || [];
 }
 
 export function getFeaturedHeroImage() {

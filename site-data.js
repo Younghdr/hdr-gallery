@@ -104,6 +104,7 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / 原始 HDR"
     }
   ],
+  "music": [],
   "travelNotes": [
     {
       "title": "南美：印加傳奇（上）",

@@ -1093,3 +1093,39 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+.stats-panel {
+  margin-top: 16px;
+}
+
+.stats-section {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel-2);
+}
+
+.stats-section h3 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.stats-section p {
+  margin: 4px 0;
+  color: var(--muted);
+}
+
+.stats-section ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.stats-section li {
+  margin: 4px 0;
+  word-break: break-all;
+}

@@ -1,12 +1,13 @@
 import { copy } from "@/lib/copy";
-import { getFilmItems } from "@/lib/site-data";
+import { getFilmItems, getMusicItems } from "@/lib/site-data";
 import { FilmGrid, PageIntro, SectionHeader, SiteFrame } from "@/components/site-components";
 
 export default function FilmsPage() {
   const films = getFilmItems();
+  const music = getMusicItems();
 
   return (
-    <SiteFrame>
+    <SiteFrame music={music}>
       <PageIntro
         title={copy.films.title}
         titleZh={copy.films.titleZh}
