@@ -64,23 +64,7 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
-      "title": "2Y6A0533-已增強-雜訊減少",
-      "category": "photo",
-      "src": "Photo/2Y6A0533-1782053173568.avif",
-      "fullSrc": "Photo/2Y6A0533-1782053173568.avif",
-      "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
-      "title": "2Y6A0400-已增強-雜訊減少",
-      "category": "photo",
-      "src": "Photo/2Y6A0400-1782053173509.avif",
-      "fullSrc": "Photo/2Y6A0400-1782053173509.avif",
-      "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
-      "title": "2Y6A0399-已增強-雜訊減少",
+      "title": "香港維多利亞港",
       "category": "photo",
       "src": "Photo/2Y6A0399-1782053173446.avif",
       "fullSrc": "Photo/2Y6A0399-1782053173446.avif",
@@ -100,7 +84,7 @@ window.HDR_SITE_DATA = {
       "category": "photo",
       "src": "Photo/2Y6A7079-1781977032501.avif",
       "fullSrc": "Photo/2Y6A7079-1781977032501.avif",
-      "description": "HDR 相片作品。",
+      "description": "HDR photo work.",
       "meta": "AVIF / 原始 HDR"
     }
   ],
@@ -154,23 +138,7 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
-      "title": "2Y6A0533-已增強-雜訊減少",
-      "category": "photo",
-      "src": "Photo/2Y6A0533-1782053173568.avif",
-      "fullSrc": "Photo/2Y6A0533-1782053173568.avif",
-      "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
-      "title": "2Y6A0400-已增強-雜訊減少",
-      "category": "photo",
-      "src": "Photo/2Y6A0400-1782053173509.avif",
-      "fullSrc": "Photo/2Y6A0400-1782053173509.avif",
-      "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
-      "title": "2Y6A0399-已增強-雜訊減少",
+      "title": "香港維多利亞港",
       "category": "photo",
       "src": "Photo/2Y6A0399-1782053173446.avif",
       "fullSrc": "Photo/2Y6A0399-1782053173446.avif",
@@ -190,7 +158,7 @@ window.HDR_SITE_DATA = {
       "category": "photo",
       "src": "Photo/2Y6A7079-1781977032501.avif",
       "fullSrc": "Photo/2Y6A7079-1781977032501.avif",
-      "description": "HDR 相片作品。",
+      "description": "HDR photo work.",
       "meta": "AVIF / 原始 HDR"
     }
   ]
