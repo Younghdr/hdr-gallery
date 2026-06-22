@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Young HDR Admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html"><span>Young HDR Admin</span></a>
+      <nav class="topnav" aria-label="Admin navigation">
+        <a href="index.html">Preview site</a>
+      </nav>
+    </header>
+
+    <main class="site-shell admin-shell">
+      <section class="tool-hero">
+        <p class="eyebrow">Local GUI</p>
+        <h1>Site Admin</h1>
+        <p>Add HDR YouTube videos, upload HDR photos, assign topics, recover missed uploads, and publish to GitHub Pages.</p>
+      </section>
+
+      <section class="admin-layout">
+        <form class="admin-panel" id="videoForm">
+          <div class="panel-heading">
+            <span class="eyebrow">Video</span>
+            <h2>Add video</h2>
+          </div>
+          <label>YouTube URL <input name="youtube" required placeholder="https://youtu.be/..." /></label>
+          <label>Title <input name="title" required placeholder="Video title" /></label>
+          <label>Topic <select name="category" data-category-select></select></label>
+          <label>Description <textarea name="description" rows="4"></textarea></label>
+          <label class="checkline">
+            <input name="featured" type="checkbox" checked />
+            Set as featured video
+          </label>
+          <button class="primary-button" type="submit">Add video</button>
+        </form>
+
+        <form class="admin-panel" id="photoForm">
+          <div class="panel-heading">
+            <span class="eyebrow">Photo</span>
+            <h2>Upload photos</h2>
+          </div>
+          <label>Choose photo(s) <input name="photos" type="file" accept=".avif,.jpg,.jpeg,.heic,.heif,image/avif,image/jpeg,image/heic,image/heif" multiple /></label>
+          <label>Or choose a whole folder <input name="folderPhotos" type="file" accept=".avif,.jpg,.jpeg,.heic,.heif,image/avif,image/jpeg,image/heic,image/heif" multiple webkitdirectory /></label>
+          <label>Title or prefix <input name="title" placeholder="Photo title or batch prefix" /></label>
+          <label>Topic <select name="category" data-category-select></select></label>
+          <label>Description <textarea name="description" rows="4"></textarea></label>
+          <label>Upload target
+            <select name="target">
+              <option value="home">Homepage only</option>
+              <option value="detail">Photo Page only</option>
+              <option value="both">Homepage and Photo Page</option>
+            </select>
+          </label>
+          <button class="primary-button" type="submit">Upload photos</button>
+          <p class="form-note">Single, multiple, and folder uploads use the same target setting.</p>
+        </form>
+
+        <form class="admin-panel" id="noteForm">
+          <div class="panel-heading">
+            <span class="eyebrow">Travel Note</span>
+            <h2>Add journal</h2>
+          </div>
+          <label>Title <input name="title" required placeholder="Journal title" /></label>
+          <label>Date <input name="date" type="date" /></label>
+          <label>Topic <select name="category" data-category-select></select></label>
+          <label>Cover photo <input name="cover" type="file" accept=".avif,.jpg,.jpeg,.heic,.heif,image/avif,image/jpeg,image/heic,image/heif" /></label>
+          <label>Summary <textarea name="description" rows="5" placeholder="Trip or shooting notes"></textarea></label>
+          <button class="primary-button" type="submit">Add journal</button>
+        </form>
+
+        <form class="admin-panel" id="musicForm">
+          <div class="panel-heading">
+            <span class="eyebrow">Music</span>
+            <h2>Upload music</h2>
+          </div>
+          <label>Choose music file(s) <input name="tracks" type="file" accept=".mp3,.wav,.ogg,.flac,.m4a,.aac,audio/*" multiple /></label>
+          <p class="form-note">Upload MP3, WAV, OGG, FLAC, M4A, or AAC files. Tracks will play in rotation on the site.</p>
+          <button class="primary-button" type="submit">Upload music</button>
+        </form>
+      </section>
+
+      <section class="admin-panel">
+        <div class="panel-heading">
+          <span class="eyebrow">Library</span>
+          <h2>Current content</h2>
+        </div>
+        <div class="admin-tabs">
+          <button class="pill is-active" type="button" data-admin-tab="videos">Videos</button>
+          <button class="pill" type="button" data-admin-tab="photos">Home Photos</button>
+          <button class="pill" type="button" data-admin-tab="photoDetails">Photo Page</button>
+          <button class="pill" type="button" data-admin-tab="travelNotes">Journal</button>
+          <button class="pill" type="button" data-admin-tab="music">Music</button>
+          <button class="secondary-button" id="scanPhotos" type="button">Scan Photo folder</button>
+        </div>
+        <div id="adminList" class="admin-list"></div>
+      </section>
+
+      <section class="admin-panel">
+        <div class="panel-heading">
+          <span class="eyebrow">Analytics</span>
+          <h2>Visitor stats</h2>
+        </div>
+        <p class="form-note">Requires <code>TRACKING_ENDPOINT</code> in your <code>.env</code> file (local admin only).</p>
+        <button class="secondary-button" id="loadStats" type="button">Load stats</button>
+        <div id="statsPanel" class="stats-panel"></div>
+      </section>
+
+      <section class="admin-panel publish-panel">
+        <div>
+          <span class="eyebrow">Publish</span>
+          <h2>Save and publish</h2>
+          <p>Save locally first. Preview the site, then publish to GitHub Pages when ready.</p>
+        </div>
+        <div class="publish-actions">
+          <button class="secondary-button" id="saveData" type="button">Save data</button>
+          <button class="primary-button" id="publishSite" type="button">Publish to GitHub Pages</button>
+        </div>
+        <pre id="adminLog" class="admin-log" aria-live="polite"></pre>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
