@@ -42,7 +42,8 @@
     <script src="site-data.js"></script>
     <script>
       const photoData = window.HDR_SITE_DATA || {};
-      const photos = photoData.photos || [];
+      const homePhotos = photoData.photos || [];
+      const photos = photoData.photoDetails || photoData.photos || [];
       const params = new URLSearchParams(window.location.search);
       const requestedPhoto = params.get("photo") || "";
       const list = document.querySelector("#photoStreamList");
@@ -52,9 +53,9 @@
       }
 
       function orderedPhotos() {
-        const selected = photos.find((photo) => photoPath(photo) === requestedPhoto);
+        const selected = [...homePhotos, ...photos].find((photo) => photoPath(photo) === requestedPhoto);
         if (!selected) return photos;
-        return [selected, ...photos.filter((photo) => photo !== selected)];
+        return [selected, ...photos.filter((photo) => photoPath(photo) !== requestedPhoto)];
       }
 
       function renderPhotoStream() {

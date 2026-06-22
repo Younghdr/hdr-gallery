@@ -1,4 +1,11 @@
 .netlify/
+.next/
+.next-dev/
+.next-build/
+.next-github/
+node_modules/
+out/
+public/Photo/
 github-pages-upload-*/
 github-pages-upload-*.zip
 tools/

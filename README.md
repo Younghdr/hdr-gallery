@@ -10,17 +10,20 @@ https://younghdr.github.io/hdr-gallery/
 
 ## Local Preview
 
-Preview the public website without spending Netlify deploy credits:
+Preview the Next.js website locally:
 
 ```powershell
-.\start-local-preview.ps1
+npm install
+npm run dev
 ```
 
 Open:
 
 ```text
-http://127.0.0.1:4173
+http://127.0.0.1:3000
 ```
+
+`127.0.0.1` is local to your own computer. It is not a public GitHub preview URL.
 
 ## Local Admin
 
@@ -73,6 +76,18 @@ The photo gallery loads the original HDR file directly through `src` and `fullSr
 ## GitHub Pages
 
 GitHub Pages is free for normal public portfolio use. Keep the repository reasonably small and avoid publishing huge raw photo sets at once.
+
+This project deploys through GitHub Actions. After pushing to GitHub, the workflow builds a static Next.js export and publishes it to:
+
+```text
+https://younghdr.github.io/hdr-gallery/
+```
+
+For a local GitHub Pages style build, run:
+
+```powershell
+npm run build:github
+```
 
 Useful practical limits:
 
