@@ -72,7 +72,7 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
-      "title": "TEST",
+      "title": "黃刀鎮極光",
       "category": "photo",
       "src": "Photo/2Y6A0543-1782052717397.avif",
       "fullSrc": "Photo/2Y6A0543-1782052717397.avif",
@@ -146,7 +146,7 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
-      "title": "TEST",
+      "title": "黃刀鎮極光",
       "category": "photo",
       "src": "Photo/2Y6A0543-1782052717397.avif",
       "fullSrc": "Photo/2Y6A0543-1782052717397.avif",
