@@ -41,6 +41,14 @@ window.HDR_SITE_DATA = {
   ],
   "photos": [
     {
+      "title": "天空之鏡",
+      "category": "photo",
+      "src": "Photo/A0163665-1782235691664.avif",
+      "fullSrc": "Photo/A0163665-1782235691664.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "BMW S1000 RR",
       "category": "photo",
       "src": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
@@ -122,6 +130,14 @@ window.HDR_SITE_DATA = {
     }
   ],
   "photoDetails": [
+    {
+      "title": "天空之鏡",
+      "category": "photo",
+      "src": "Photo/A0163665-1782235691664.avif",
+      "fullSrc": "Photo/A0163665-1782235691664.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
     {
       "title": "BMW S1000 RR",
       "category": "photo",
