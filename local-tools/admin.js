@@ -1,5 +1,6 @@
 let siteData = null;
 let activeAdminTab = "videos";
+let editingIndex = null;
 
 const logBox = document.querySelector("#adminLog");
 
@@ -55,17 +56,12 @@ function renderAdminList() {
 
   items.forEach((item, index) => {
     const card = document.createElement("article");
-    const heading = document.createElement("h3");
     const meta = document.createElement("span");
-    const text = document.createElement("p");
-    const remove = document.createElement("button");
 
     card.className = "admin-item";
-    heading.textContent = item.title;
 
     if (activeAdminTab === "music") {
       meta.textContent = item.src;
-      text.textContent = "";
     } else {
       meta.textContent = `${categoryLabel(item.category)} / ${
         activeAdminTab === "videos"
@@ -76,19 +72,71 @@ function renderAdminList() {
               : item.src
             : item.date || "journal"
       }`;
-      text.textContent = item.description || "";
     }
 
-    remove.type = "button";
-    remove.className = "danger-button";
-    remove.textContent = "Delete";
-    remove.addEventListener("click", () => {
-      if (!confirm(`Delete "${item.title}"?`)) return;
-      siteData[activeAdminTab].splice(index, 1);
-      renderAdminList();
-    });
+    if (editingIndex === index) {
+      const titleInput = document.createElement("input");
+      titleInput.value = item.title || "";
 
-    card.append(meta, heading, text, remove);
+      const descInput = document.createElement("textarea");
+      descInput.rows = 4;
+      descInput.value = item.description || "";
+
+      const save = document.createElement("button");
+      save.type = "button";
+      save.className = "primary-button";
+      save.textContent = "Save";
+      save.addEventListener("click", async () => {
+        item.title = titleInput.value.trim();
+        item.description = descInput.value.trim();
+        editingIndex = null;
+        renderAdminList();
+        await saveData();
+      });
+
+      const cancel = document.createElement("button");
+      cancel.type = "button";
+      cancel.className = "secondary-button";
+      cancel.textContent = "Cancel";
+      cancel.addEventListener("click", () => {
+        editingIndex = null;
+        renderAdminList();
+      });
+
+      const actions = document.createElement("div");
+      actions.append(save, cancel);
+      card.append(meta, titleInput, descInput, actions);
+    } else {
+      const heading = document.createElement("h3");
+      heading.textContent = item.title;
+
+      const text = document.createElement("p");
+      text.textContent = activeAdminTab === "music" ? "" : item.description || "";
+
+      const edit = document.createElement("button");
+      edit.type = "button";
+      edit.className = "secondary-button";
+      edit.textContent = "Edit";
+      edit.addEventListener("click", () => {
+        editingIndex = index;
+        renderAdminList();
+      });
+
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "danger-button";
+      remove.textContent = "Delete";
+      remove.addEventListener("click", () => {
+        if (!confirm(`Delete "${item.title}"?`)) return;
+        siteData[activeAdminTab].splice(index, 1);
+        renderAdminList();
+      });
+
+      const actions = document.createElement("div");
+      actions.append(edit, remove);
+      card.append(meta, heading, text, actions);
+    }
+
     list.appendChild(card);
   });
 }
@@ -491,6 +539,7 @@ document.querySelector("#loadStats").addEventListener("click", async () => {
 document.querySelectorAll("[data-admin-tab]").forEach((button) => {
   button.addEventListener("click", () => {
     activeAdminTab = button.dataset.adminTab;
+    editingIndex = null;
     renderAdminList();
   });
 });

@@ -57,14 +57,6 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
-      "title": "BMW S1000RR",
-      "category": "photo",
-      "src": "Photo/2Y6A8596-1782056505359.avif",
-      "fullSrc": "Photo/2Y6A8596-1782056505359.avif",
-      "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
       "title": "紫藤花",
       "category": "photo",
       "src": "Photo/2Y6A8536-1782056244124.avif",
@@ -97,7 +89,7 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / 原始 HDR"
     },
     {
-      "title": "金剛鸚鵡HDR",
+      "title": "金剛鸚鵡",
       "category": "photo",
       "src": "Photo/AF7I6722-1782196199512.avif",
       "fullSrc": "Photo/AF7I6722-1782196199512.avif",
