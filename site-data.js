@@ -131,6 +131,22 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
+      "title": "Rovinj",
+      "category": "photo",
+      "src": "Photo/DJI_0008-1782237709695.avif",
+      "fullSrc": "Photo/DJI_0008-1782237709695.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "Bled Lake",
+      "category": "photo",
+      "src": "Photo/DJI_0004-1782237667319.avif",
+      "fullSrc": "Photo/DJI_0004-1782237667319.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "天空之鏡",
       "category": "photo",
       "src": "Photo/A0163665-1782235691664.avif",
