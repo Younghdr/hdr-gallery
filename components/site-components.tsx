@@ -146,7 +146,11 @@ export function Hero({ image }: { image: string }) {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold">{copy.hero.eyebrow}</p>
-        <h1 className="mx-auto mt-5 max-w-3xl text-5xl font-semibold leading-[1.1] text-pearl md:text-6xl lg:text-7xl">{copy.hero.title}</h1>
+        <h1 className="mx-auto mt-5 max-w-3xl text-5xl font-semibold leading-[1.1] text-pearl md:text-6xl lg:text-7xl">
+          Young Hung
+          <br className="hidden md:inline" />
+          HDR Studio
+        </h1>
         <p className="mx-auto mt-7 max-w-2xl text-xl leading-9 text-pearl md:text-2xl">{copy.hero.zh}</p>
         <p className="mx-auto mt-3 max-w-2xl text-base leading-8 text-mist md:text-lg">{copy.hero.en}</p>
         <div className="mt-9 flex flex-wrap justify-center gap-4">
@@ -230,46 +234,78 @@ export function PortfolioPaths({ image }: { image: string }) {
   );
 }
 
-export function PhotoMasonry({ photos }: { photos: PhotoItem[] }) {
+export function PhotoMasonry({
+  photos,
+  mode = "lightbox",
+  linkHref,
+}: {
+  photos: PhotoItem[];
+  mode?: "lightbox" | "link";
+  linkHref?: string;
+}) {
   const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
   const isOpen = lightboxIndex !== null;
+
+  const cardContent = (photo: PhotoItem, index: number) => (
+    <>
+      <img src={photoPath(photo)} alt={photo.title} className="w-full object-cover transition duration-700 group-hover:scale-105" />
+      <div className="p-5">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Photography</p>
+        <h3 className="mt-2 text-lg font-semibold text-pearl">{photo.title || "HDR Frame"}</h3>
+        {photo.description ? <p className="mt-2 text-sm leading-6 text-mist">{photo.description}</p> : null}
+      </div>
+    </>
+  );
 
   return (
     <>
       <div className="masonry mx-auto mt-12 w-full px-4 lg:px-8 xl:px-12">
-        {photos.map((photo, index) => (
-          <motion.button
-            key={`${photoPath(photo)}-${index}`}
-            onClick={() => {
-              trackEvent("photo_open", {
-                photo_title: photo.title || "HDR Frame",
-                photo_src: photoPath(photo),
-              });
-              setLightboxIndex(index);
-            }}
-            className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: Math.min(index * 0.04, 0.32) }}
-            whileHover={{ y: -4 }}
-          >
-            <img src={photoPath(photo)} alt={photo.title} className="w-full object-cover transition duration-700 group-hover:scale-105" />
-            <div className="p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Photography</p>
-              <h3 className="mt-2 text-lg font-semibold text-pearl">{photo.title || "HDR Frame"}</h3>
-              {photo.description ? <p className="mt-2 text-sm leading-6 text-mist">{photo.description}</p> : null}
-            </div>
-          </motion.button>
-        ))}
+        {photos.map((photo, index) =>
+          mode === "link" && linkHref ? (
+            <Link
+              key={`${photoPath(photo)}-${index}`}
+              href={appHref(linkHref)}
+              onClick={() => {
+                trackEvent("photo_grid_click", {
+                  photo_title: photo.title || "HDR Frame",
+                  photo_src: photoPath(photo),
+                });
+              }}
+              className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left transition hover:-translate-y-1"
+            >
+              {cardContent(photo, index)}
+            </Link>
+          ) : (
+            <motion.button
+              key={`${photoPath(photo)}-${index}`}
+              onClick={() => {
+                trackEvent("photo_open", {
+                  photo_title: photo.title || "HDR Frame",
+                  photo_src: photoPath(photo),
+                });
+                setLightboxIndex(index);
+              }}
+              className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: Math.min(index * 0.04, 0.32) }}
+              whileHover={{ y: -4 }}
+            >
+              {cardContent(photo, index)}
+            </motion.button>
+          )
+        )}
       </div>
-      <Lightbox
-        photos={photos}
-        index={lightboxIndex ?? 0}
-        isOpen={isOpen}
-        onClose={() => setLightboxIndex(null)}
-        onChangeIndex={setLightboxIndex}
-      />
+      {mode === "lightbox" ? (
+        <Lightbox
+          photos={photos}
+          index={lightboxIndex ?? 0}
+          isOpen={isOpen}
+          onClose={() => setLightboxIndex(null)}
+          onChangeIndex={setLightboxIndex}
+        />
+      ) : null}
     </>
   );
 }
@@ -389,9 +425,9 @@ export function JournalList({ items }: { items: JournalItem[] }) {
   );
 }
 
-export function TextPanel({ children }: { children: React.ReactNode }) {
+export function TextPanel({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <Reveal className="mx-auto max-w-5xl px-5 pb-24 lg:px-8">
+    <Reveal className={`mx-auto max-w-5xl px-5 pb-24 lg:px-8 ${className || ""}`}>
       <div className="glass rounded-[8px] p-7 md:p-10">{children}</div>
     </Reveal>
   );

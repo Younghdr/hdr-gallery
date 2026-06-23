@@ -3,6 +3,7 @@
 import { useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { PhotoItem } from "@/lib/site-data";
+import { BeforeAfterSlider } from "./before-after-slider";
 
 function photoPath(photo: PhotoItem) {
   const src = photo.fullSrc || photo.src;
@@ -105,11 +106,19 @@ export function Lightbox({
             className="max-h-[92vh] max-w-[96vw]"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={photoPath(current)}
-              alt={current.title || "HDR Photo"}
-              className="max-h-[88vh] max-w-[96vw] rounded-[8px] object-contain shadow-2xl"
-            />
+            {current.sdrSrc ? (
+              <BeforeAfterSlider
+                beforeSrc={photoPath({ ...current, src: current.sdrSrc, fullSrc: current.sdrSrc })}
+                afterSrc={photoPath(current)}
+                alt={current.title || "HDR Photo"}
+              />
+            ) : (
+              <img
+                src={photoPath(current)}
+                alt={current.title || "HDR Photo"}
+                className="max-h-[88vh] max-w-[96vw] rounded-[8px] object-contain shadow-2xl"
+              />
+            )}
             {(current.title || current.description) && (
               <div className="mt-4 text-center">
                 {current.title ? <h3 className="text-lg font-semibold text-pearl">{current.title}</h3> : null}

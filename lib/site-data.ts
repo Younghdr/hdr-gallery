@@ -7,6 +7,7 @@ export type PhotoItem = {
   category?: string;
   src: string;
   fullSrc?: string;
+  sdrSrc?: string;
   description?: string;
   meta?: string;
 };
@@ -62,8 +63,10 @@ export type MusicItem = {
 export type SiteData = {
   categories?: { id: string; label: string }[];
   featuredVideo?: string;
+  featuredHero?: string;
   photos?: PhotoItem[];
   photoDetails?: PhotoItem[];
+  photoComparisons?: PhotoItem[];
   videos?: VideoItem[];
   travelNotes?: JournalItem[];
   music?: MusicItem[];
@@ -113,6 +116,11 @@ export function getPhotographyItems() {
   };
 }
 
+export function getPhotoComparisons() {
+  const data = getSiteData();
+  return data.photoComparisons || [];
+}
+
 export function getFilmItems() {
   const data = getSiteData();
   return data.videos || [];
@@ -129,6 +137,10 @@ export function getMusicItems() {
 }
 
 export function getFeaturedHeroImage() {
+  const data = getSiteData();
+  if (data.featuredHero) {
+    return photoSrc({ title: "Featured", src: data.featuredHero, fullSrc: data.featuredHero });
+  }
   const { homepage, details } = getPhotographyItems();
   return photoSrc(homepage[0] || details[0] || fallbackPhoto);
 }

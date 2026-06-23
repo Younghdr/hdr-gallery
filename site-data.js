@@ -18,6 +18,7 @@ window.HDR_SITE_DATA = {
     }
   ],
   "featuredVideo": "https://youtu.be/mNSBuB4Yc4o?si=TSRRWgb3R-oq4CL3",
+  "featuredHero": "Photo/2Y6A0420-1782056905234.avif",
   "videos": [
     {
       "title": "[8K HDR]納米比亞",
@@ -39,6 +40,14 @@ window.HDR_SITE_DATA = {
     }
   ],
   "photos": [
+    {
+      "title": "BMW S1000 RR",
+      "category": "photo",
+      "src": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
+      "fullSrc": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
     {
       "title": "西九龍文化區戲曲中心",
       "category": "photo",
@@ -86,6 +95,14 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/2Y6A7079-1781977032501.avif",
       "description": "HDR photo work.",
       "meta": "AVIF / 原始 HDR"
+    },
+    {
+      "title": "金剛鸚鵡HDR",
+      "category": "photo",
+      "src": "Photo/AF7I6722-1782196199512.avif",
+      "fullSrc": "Photo/AF7I6722-1782196199512.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     }
   ],
   "music": [
@@ -114,18 +131,18 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
-      "title": "西九龍文化區戲曲中心",
+      "title": "BMW S1000 RR",
       "category": "photo",
-      "src": "Photo/2Y6A0420-1782056905234.avif",
-      "fullSrc": "Photo/2Y6A0420-1782056905234.avif",
+      "src": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
+      "fullSrc": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
       "description": "HDR photo work.",
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
-      "title": "BMW S1000RR",
+      "title": "西九龍文化區戲曲中心",
       "category": "photo",
-      "src": "Photo/2Y6A8596-1782056505359.avif",
-      "fullSrc": "Photo/2Y6A8596-1782056505359.avif",
+      "src": "Photo/2Y6A0420-1782056905234.avif",
+      "fullSrc": "Photo/2Y6A0420-1782056905234.avif",
       "description": "HDR photo work.",
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
@@ -160,6 +177,34 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/2Y6A7079-1781977032501.avif",
       "description": "HDR photo work.",
       "meta": "AVIF / 原始 HDR"
+    },
+    {
+      "title": "金剛鸚鵡HDR",
+      "category": "photo",
+      "src": "Photo/AF7I6722-1782196199512.avif",
+      "fullSrc": "Photo/AF7I6722-1782196199512.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    }
+  ],
+  "photoComparisons": [
+    {
+      "title": "Aurora",
+      "category": "photo",
+      "src": "Photo/2Y6A0627-已增強-雜訊減少-1782228943044.avif",
+      "fullSrc": "Photo/2Y6A0627-已增強-雜訊減少-1782228943044.avif",
+      "sdrSrc": "Photo/2Y6A0627-已增強-雜訊減少-1782228943041.jpg",
+      "description": "SDR / HDR comparison.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "Sunset",
+      "category": "photo",
+      "src": "Photo/A0163729-1782225662549.avif",
+      "fullSrc": "Photo/A0163729-1782225662549.avif",
+      "sdrSrc": "Photo/A0163729-1782225662547.jpg",
+      "description": "SDR / HDR comparison.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     }
   ]
 };

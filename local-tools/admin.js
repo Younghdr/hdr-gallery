@@ -68,7 +68,13 @@ function renderAdminList() {
       text.textContent = "";
     } else {
       meta.textContent = `${categoryLabel(item.category)} / ${
-        activeAdminTab === "videos" ? item.youtube : ["photos", "photoDetails"].includes(activeAdminTab) ? item.src : item.date || "journal"
+        activeAdminTab === "videos"
+          ? item.youtube
+          : ["photos", "photoDetails", "photoComparisons"].includes(activeAdminTab)
+            ? activeAdminTab === "photoComparisons"
+              ? `SDR: ${item.sdrSrc || "-"} / HDR: ${item.src}`
+              : item.src
+            : item.date || "journal"
       }`;
       text.textContent = item.description || "";
     }
@@ -123,11 +129,35 @@ async function uploadPhotoFile(file) {
   return { original };
 }
 
+async function uploadComparisonFiles(sdrFile, hdrFile) {
+  const upload = new FormData();
+  upload.append("sdr", sdrFile, sdrFile.name);
+  upload.append("hdr", hdrFile, hdrFile.name);
+
+  const result = await uploadFiles(upload);
+  const sdr = result.files.find((item) => item.field === "sdr")?.path;
+  const hdr = result.files.find((item) => item.field === "hdr")?.path;
+  return { sdr, hdr };
+}
+
+function createComparisonItem({ title, sdr, hdr, description }) {
+  return {
+    title,
+    category: "photo",
+    src: hdr,
+    fullSrc: hdr,
+    sdrSrc: sdr,
+    description: description || "SDR / HDR comparison.",
+    meta: "AVIF / Ultra HDR JPEG / HEIC original",
+  };
+}
+
 function ensurePhotoCollections() {
   siteData.photos = siteData.photos || [];
   if (!Array.isArray(siteData.photoDetails)) {
     siteData.photoDetails = siteData.photos.map((photo) => ({ ...photo }));
   }
+  siteData.photoComparisons = siteData.photoComparisons || [];
 }
 
 function createPhotoItem({ title, category, src, description }) {
@@ -213,6 +243,53 @@ document.querySelector("#photoForm").addEventListener("submit", async (event) =>
   renderAdminList();
   await saveData();
   log(`Added ${files.length} photo(s).`);
+});
+
+document.querySelector("#comparisonForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const formElement = event.currentTarget;
+  const form = new FormData(formElement);
+  const sdrFiles = Array.from(formElement.elements.sdr.files || []);
+  const hdrFiles = Array.from(formElement.elements.hdr.files || []);
+  const titleOrPrefix = (form.get("title") || "").trim();
+  const description = (form.get("description") || "").trim() || "SDR / HDR comparison.";
+
+  if (!sdrFiles.length || !hdrFiles.length) {
+    log("Please select at least one SDR photo and one HDR photo.");
+    return;
+  }
+
+  if (sdrFiles.length !== hdrFiles.length) {
+    log(`SDR count (${sdrFiles.length}) and HDR count (${hdrFiles.length}) must match.`);
+    return;
+  }
+
+  log(`Uploading ${sdrFiles.length} SDR/HDR comparison(s)...`);
+  ensurePhotoCollections();
+
+  let added = 0;
+  for (let i = 0; i < sdrFiles.length; i++) {
+    const sdrFile = sdrFiles[i];
+    const hdrFile = hdrFiles[i];
+    try {
+      const { sdr, hdr } = await uploadComparisonFiles(sdrFile, hdrFile);
+      const title = sdrFiles.length === 1 && titleOrPrefix
+        ? titleOrPrefix
+        : itemTitleFromFile(hdrFile, titleOrPrefix);
+      const item = createComparisonItem({ title, sdr, hdr, description });
+      siteData.photoComparisons.unshift(item);
+      added++;
+      log(`Processed ${i + 1}/${sdrFiles.length}: ${title}`);
+    } catch (error) {
+      log(`Failed pair ${i + 1}: ${error.message}`);
+    }
+  }
+
+  formElement.reset();
+  activeAdminTab = "photoComparisons";
+  renderAdminList();
+  await saveData();
+  log(`Added ${added} SDR/HDR comparison(s).`);
 });
 
 document.querySelector("#noteForm").addEventListener("submit", async (event) => {
@@ -439,3 +516,4 @@ async function init() {
 }
 
 init().catch((error) => log(error.message));
+

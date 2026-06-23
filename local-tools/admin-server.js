@@ -172,6 +172,14 @@ function scanMissingPhotos(category = "photo", target = "photoDetails") {
     const sitePath = `Photo/${file}`;
     if (known.has(sitePath)) continue;
 
+    // Make sure the file is also available to the Next.js public folder.
+    const publicPhotoDir = path.join(ROOT, "public", "Photo");
+    fs.mkdirSync(publicPhotoDir, { recursive: true });
+    const publicPath = path.join(publicPhotoDir, file);
+    if (!fs.existsSync(publicPath)) {
+      fs.copyFileSync(fullPath, publicPath);
+    }
+
     const item = {
       title: cleanTitleFromFile(file),
       category,
@@ -212,6 +220,14 @@ async function handleApi(req, res) {
       const filename = sanitizeName(part.filename);
       const fullPath = path.join(folder, filename);
       fs.writeFileSync(fullPath, part.content);
+
+      // Keep public/Photo in sync so the Next.js site can serve the file too.
+      if (isImageFile(part.filename)) {
+        const publicFolder = path.join(ROOT, "public", "Photo");
+        fs.mkdirSync(publicFolder, { recursive: true });
+        fs.copyFileSync(fullPath, path.join(publicFolder, filename));
+      }
+
       saved.push({
         field: part.field,
         type: part.type,

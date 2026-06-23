@@ -60,6 +60,19 @@
           <p class="form-note">Single, multiple, and folder uploads use the same target setting.</p>
         </form>
 
+        <form class="admin-panel" id="comparisonForm">
+          <div class="panel-heading">
+            <span class="eyebrow">SDR / HDR</span>
+            <h2>Upload comparison</h2>
+          </div>
+          <label>SDR photo(s) <input name="sdr" type="file" accept=".avif,.jpg,.jpeg,.heic,.heif,image/avif,image/jpeg,image/heic,image/heif" multiple required /></label>
+          <label>HDR photo(s) <input name="hdr" type="file" accept=".avif,.jpg,.jpeg,.heic,.heif,image/avif,image/jpeg,image/heic,image/heif" multiple required /></label>
+          <label>Title or prefix <input name="title" placeholder="Comparison title or batch prefix" /></label>
+          <label>Description <textarea name="description" rows="4"></textarea></label>
+          <button class="primary-button" type="submit">Upload comparison(s)</button>
+          <p class="form-note">Upload multiple SDR/HDR pairs. Files are matched by order: first SDR with first HDR, second with second, etc.</p>
+        </form>
+
         <form class="admin-panel" id="noteForm">
           <div class="panel-heading">
             <span class="eyebrow">Travel Note</span>
@@ -93,6 +106,7 @@
           <button class="pill is-active" type="button" data-admin-tab="videos">Videos</button>
           <button class="pill" type="button" data-admin-tab="photos">Home Photos</button>
           <button class="pill" type="button" data-admin-tab="photoDetails">Photo Page</button>
+          <button class="pill" type="button" data-admin-tab="photoComparisons">SDR/HDR</button>
           <button class="pill" type="button" data-admin-tab="travelNotes">Journal</button>
           <button class="pill" type="button" data-admin-tab="music">Music</button>
           <button class="secondary-button" id="scanPhotos" type="button">Scan Photo folder</button>

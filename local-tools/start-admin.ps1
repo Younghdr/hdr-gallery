@@ -60,6 +60,18 @@ if (-not $devRunning) {
 
 Set-Location $root
 
+# Start a background watcher that keeps public/Photo in sync with Photo/.
+$watcherTitle = "HDR Photo Sync Watcher"
+$existingWatcher = Get-CimInstance Win32_Process -Filter "Name = 'node.exe'" | Where-Object { $_.CommandLine -like "*watch-photo-sync.js*" } | Select-Object -First 1
+if (-not $existingWatcher) {
+  Write-Host "Starting Photo -> public/Photo sync watcher..."
+  Start-Process -FilePath "C:\Program Files\nodejs\node.exe" `
+    -ArgumentList "$siteRoot\scripts\watch-photo-sync.js" `
+    -WindowStyle Minimized
+} else {
+  Write-Host "Photo sync watcher already running."
+}
+
 Write-Host ""
 Write-Host "Young HDR Admin"
 Write-Host "Site folder: $siteRoot"
