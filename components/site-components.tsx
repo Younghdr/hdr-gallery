@@ -264,7 +264,7 @@ export function PhotoMasonry({
           mode === "link" && linkHref ? (
             <Link
               key={`${photoPath(photo)}-${index}`}
-              href={appHref(linkHref)}
+              href={linkHref}
               onClick={() => {
                 trackEvent("photo_grid_click", {
                   photo_title: photo.title || "HDR Frame",
