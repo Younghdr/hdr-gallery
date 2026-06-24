@@ -77,6 +77,14 @@ export function SiteFrame({ children, music }: { children: React.ReactNode; musi
 
 function Header() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const normalizedPathname = pathname.replace(basePath, "") || "/";
+
+  const navLinkClass = (active: boolean) =>
+    `rounded-full px-4 py-2 text-sm transition ${
+      active ? "bg-white/12 text-pearl" : "text-mist hover:bg-white/8 hover:text-pearl"
+    }`;
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-ink/70 backdrop-blur-2xl">
@@ -87,21 +95,62 @@ function Header() {
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => {
-            const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            const active = item.href === "/" ? normalizedPathname === "/" : normalizedPathname.startsWith(item.href);
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded-full px-4 py-2 text-sm transition ${
-                  active ? "bg-white/12 text-pearl" : "text-mist hover:bg-white/8 hover:text-pearl"
-                }`}
-              >
+              <Link key={item.href} href={item.href} className={navLinkClass(active)}>
                 {item.label}
               </Link>
             );
           })}
         </nav>
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-pearl transition hover:bg-white/10 md:hidden"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          )}
+        </button>
       </div>
+      {menuOpen ? (
+        <motion.nav
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.2 }}
+          className="absolute left-0 right-0 top-full border-b border-white/10 bg-ink/95 px-5 py-4 backdrop-blur-2xl md:hidden"
+        >
+          <div className="flex flex-col gap-1">
+            {navItems.map((item) => {
+              const active = item.href === "/" ? normalizedPathname === "/" : normalizedPathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`rounded-lg px-4 py-3 text-sm transition ${
+                    active ? "bg-white/12 text-pearl" : "text-mist hover:bg-white/8 hover:text-pearl"
+                  }`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </motion.nav>
+      ) : null}
     </header>
   );
 }
