@@ -131,6 +131,14 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
+      "title": "丹麥",
+      "category": "photo",
+      "src": "Photo/IMG_3960-1782320454592.avif",
+      "fullSrc": "Photo/IMG_3960-1782320454592.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "Reykjavík",
       "category": "photo",
       "src": "Photo/P1050385-編輯-1782316996279.avif",
