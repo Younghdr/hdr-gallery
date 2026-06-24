@@ -309,6 +309,15 @@ window.HDR_SITE_DATA = {
   ],
   "photoComparisons": [
     {
+      "title": "Split",
+      "category": "photo",
+      "src": "Photo/DJI_0065-1782321838383.avif",
+      "fullSrc": "Photo/DJI_0065-1782321838383.avif",
+      "sdrSrc": "Photo/DJI_0065-1782321838379.jpg",
+      "description": "SDR / HDR comparison.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "Gullfoss",
       "category": "photo",
       "src": "Photo/IMG_1921-1782316892674.avif",
