@@ -131,6 +131,94 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
+      "title": "Reykjavík",
+      "category": "photo",
+      "src": "Photo/P1050385-編輯-1782316996279.avif",
+      "fullSrc": "Photo/P1050385-編輯-1782316996279.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "澳門",
+      "category": "photo",
+      "src": "Photo/P1020926-1782316996239.avif",
+      "fullSrc": "Photo/P1020926-1782316996239.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "MACAU",
+      "category": "photo",
+      "src": "Photo/P1020820-1782316996219.avif",
+      "fullSrc": "Photo/P1020820-1782316996219.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "Hokkaido",
+      "category": "photo",
+      "src": "Photo/IMG_7570-1782316996200.avif",
+      "fullSrc": "Photo/IMG_7570-1782316996200.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "Gullfoss",
+      "category": "photo",
+      "src": "Photo/IMG_1921-1782316996095.avif",
+      "fullSrc": "Photo/IMG_1921-1782316996095.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "峇厘島",
+      "category": "photo",
+      "src": "Photo/SDIM1207-1782310873060.avif",
+      "fullSrc": "Photo/SDIM1207-1782310873060.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "Dynastes hercules reidi",
+      "category": "photo",
+      "src": "Photo/IMG_8603-1782310873047.avif",
+      "fullSrc": "Photo/IMG_8603-1782310873047.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "天燈",
+      "category": "photo",
+      "src": "Photo/IMG_6806-1782310873012.avif",
+      "fullSrc": "Photo/IMG_6806-1782310873012.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "STEVE AOKI",
+      "category": "photo",
+      "src": "Photo/IMG_2105-1782310872956.avif",
+      "fullSrc": "Photo/IMG_2105-1782310872956.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "伏見稻荷千本鳥居",
+      "category": "photo",
+      "src": "Photo/IMG_2041-1782310872938.avif",
+      "fullSrc": "Photo/IMG_2041-1782310872938.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "紅腹錦雞",
+      "category": "photo",
+      "src": "Photo/IMG_0630-1782310872864.avif",
+      "fullSrc": "Photo/IMG_0630-1782310872864.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "Rovinj",
       "category": "photo",
       "src": "Photo/DJI_0008-1782237709695.avif",
@@ -203,7 +291,7 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / 原始 HDR"
     },
     {
-      "title": "金剛鸚鵡HDR",
+      "title": "金剛鸚鵡",
       "category": "photo",
       "src": "Photo/AF7I6722-1782196199512.avif",
       "fullSrc": "Photo/AF7I6722-1782196199512.avif",
@@ -212,6 +300,24 @@ window.HDR_SITE_DATA = {
     }
   ],
   "photoComparisons": [
+    {
+      "title": "Gullfoss",
+      "category": "photo",
+      "src": "Photo/IMG_1921-1782316892674.avif",
+      "fullSrc": "Photo/IMG_1921-1782316892674.avif",
+      "sdrSrc": "Photo/IMG_1921-1782316892660.jpg",
+      "description": "SDR / HDR comparison.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "澳門",
+      "category": "photo",
+      "src": "Photo/P1020926-1782316814714.avif",
+      "fullSrc": "Photo/P1020926-1782316814714.avif",
+      "sdrSrc": "Photo/P1020926-1782316814710.jpg",
+      "description": "SDR / HDR comparison.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
     {
       "title": "Aurora",
       "category": "photo",
