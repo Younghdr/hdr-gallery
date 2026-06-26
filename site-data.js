@@ -131,6 +131,22 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
+      "title": "Golden Hall",
+      "category": "photo",
+      "src": "Photo/IMG_1272-1782494610679.avif",
+      "fullSrc": "Photo/IMG_1272-1782494610679.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "Nobel Prize",
+      "category": "photo",
+      "src": "Photo/IMG_1248-1782494610661.avif",
+      "fullSrc": "Photo/IMG_1248-1782494610661.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "Helsinki Cathedral",
       "category": "photo",
       "src": "Photo/IMG_1530-1782489580885.avif",
