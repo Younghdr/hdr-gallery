@@ -12,7 +12,7 @@ export default function JournalPage() {
         title={copy.journal.title}
         titleZh={copy.journal.titleZh}
         subtitle={copy.journal.subtitle}
-          subtitleZh="?????????????????????"
+          subtitleZh="Journey notes through light, travel, and images."
         intro={copy.journal.intro}
         introZh={copy.journal.introZh}
       />
@@ -22,7 +22,7 @@ export default function JournalPage() {
           title={copy.journal.sectionTitle}
           titleZh={copy.journal.sectionTitleZh}
           subtitle="Looking back at the journey through images, and understanding the journey again through them."
-          subtitleZh="?????????????????????"
+          subtitleZh="Looking back through images, and understanding the journey again."
         />
         <JournalList items={journals} />
       </section>

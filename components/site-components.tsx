@@ -406,7 +406,7 @@ export function FilmGrid({ films }: { films: VideoItem[] }) {
                   }
                   className="mt-5 inline-flex items-center justify-center rounded-[8px] bg-white/10 px-5 py-3 text-sm font-semibold text-pearl transition hover:bg-white/20"
                 >
-                  ?? YouTube HDR
+                  Open YouTube HDR
                 </a>
               </div>
             </article>

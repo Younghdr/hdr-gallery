@@ -115,7 +115,7 @@ export function BeforeAfterSlider({
       </div>
 
       <p className="mt-2 text-center text-xs text-mist">
-        ?? HDR ????????????
+        View on an HDR display and supported browser.
       </p>
     </div>
   );
