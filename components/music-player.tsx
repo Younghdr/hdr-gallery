@@ -132,7 +132,7 @@ export function MusicPlayer({ playlist = [] }: { playlist?: MusicItem[] }) {
             aria-label="Previous track"
             title="Previous track"
           >
-            ‹
+            &lt;&lt;
           </button>
         )}
         <button
@@ -142,7 +142,7 @@ export function MusicPlayer({ playlist = [] }: { playlist?: MusicItem[] }) {
           aria-pressed={playing}
           aria-label={playing ? "Pause music" : "Play music"}
         >
-          {playing ? "Pause / 暫停" : "Play / 播放"}
+          {playing ? "Pause" : "Play"}
         </button>
         {tracks.length > 1 && (
           <button
@@ -152,7 +152,7 @@ export function MusicPlayer({ playlist = [] }: { playlist?: MusicItem[] }) {
             aria-label="Next track"
             title="Next track"
           >
-            ›
+            &gt;&gt;
           </button>
         )}
       </div>

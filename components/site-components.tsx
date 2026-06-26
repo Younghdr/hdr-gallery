@@ -173,7 +173,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-2 border-t border-white/10 pt-6 text-xs text-mist md:flex-row md:items-center md:justify-between">
-        <span>? Young Hung HDR Studio. All rights reserved.</span>
+        <span>Copyright Young Hung HDR Studio. All rights reserved.</span>
         <span>{brand.keywords}</span>
       </div>
     </footer>
