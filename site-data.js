@@ -131,6 +131,14 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
+      "title": "Hagia Sophia",
+      "category": "photo",
+      "src": "Photo/P1110416-1782498388799.avif",
+      "fullSrc": "Photo/P1110416-1782498388799.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "Golden Hall",
       "category": "photo",
       "src": "Photo/IMG_1272-1782494610679.avif",
