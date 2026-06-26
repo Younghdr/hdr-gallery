@@ -131,6 +131,14 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
+      "title": "Split",
+      "category": "photo",
+      "src": "Photo/DJI_0065-1782499816506.avif",
+      "fullSrc": "Photo/DJI_0065-1782499816506.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "Hagia Sophia",
       "category": "photo",
       "src": "Photo/P1110416-1782498388799.avif",
@@ -388,15 +396,6 @@ window.HDR_SITE_DATA = {
     }
   ],
   "photoComparisons": [
-    {
-      "title": "Split",
-      "category": "photo",
-      "src": "Photo/DJI_0065-1782321838383.avif",
-      "fullSrc": "Photo/DJI_0065-1782321838383.avif",
-      "sdrSrc": "Photo/DJI_0065-1782321838379.jpg",
-      "description": "SDR / HDR comparison.",
-      "meta": "AVIF / Ultra HDR JPEG"
-    },
     {
       "title": "Gullfoss",
       "category": "photo",
