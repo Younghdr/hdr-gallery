@@ -173,7 +173,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-2 border-t border-white/10 pt-6 text-xs text-mist md:flex-row md:items-center md:justify-between">
-        <span>© Young Hung HDR Studio. All rights reserved.</span>
+        <span>? Young Hung HDR Studio. All rights reserved.</span>
         <span>{brand.keywords}</span>
       </div>
     </footer>
@@ -297,7 +297,13 @@ export function PhotoMasonry({
 
   const cardContent = (photo: PhotoItem, index: number) => (
     <>
-      <img src={photoPath(photo)} alt={photo.title} className="w-full object-cover transition duration-700 group-hover:scale-105" />
+      <img
+        src={photoPath(photo)}
+        alt={photo.title}
+        loading="lazy"
+        decoding="async"
+        className="w-full object-cover transition duration-700 group-hover:scale-105"
+      />
       <div className="p-5">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Photography</p>
         <h3 className="mt-2 text-lg font-semibold text-pearl">{photo.title || "HDR Frame"}</h3>
@@ -400,7 +406,7 @@ export function FilmGrid({ films }: { films: VideoItem[] }) {
                   }
                   className="mt-5 inline-flex items-center justify-center rounded-[8px] bg-white/10 px-5 py-3 text-sm font-semibold text-pearl transition hover:bg-white/20"
                 >
-                  觀看 YouTube HDR
+                  ?? YouTube HDR
                 </a>
               </div>
             </article>
@@ -460,7 +466,15 @@ export function JournalList({ items }: { items: JournalItem[] }) {
         return (
           <Reveal key={`${item.title}-${index}`}>
             <Link href={href} className="group block overflow-hidden rounded-[8px] glass transition hover:scale-[1.01]">
-              {item.cover ? <img src={item.cover} alt={item.title} className="h-72 w-full object-cover opacity-85 transition duration-700 group-hover:scale-105" /> : null}
+              {item.cover ? (
+                <img
+                  src={item.cover}
+                  alt={item.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-72 w-full object-cover opacity-85 transition duration-700 group-hover:scale-105"
+                />
+              ) : null}
               <div className="p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{item.date || "Field Notes"}</p>
                 <h3 className="mt-2 text-2xl font-semibold text-pearl">{item.title}</h3>

@@ -46,7 +46,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/A0163665-1782235691664.avif",
       "fullSrc": "Photo/A0163665-1782235691664.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "BMW S1000 RR",
@@ -54,7 +54,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
       "fullSrc": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "西九龍文化區戲曲中心",
@@ -62,7 +62,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A0420-1782056905234.avif",
       "fullSrc": "Photo/2Y6A0420-1782056905234.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "紫藤花",
@@ -70,7 +70,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A8536-1782056244124.avif",
       "fullSrc": "Photo/2Y6A8536-1782056244124.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "香港維多利亞港",
@@ -78,7 +78,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A0399-1782053173446.avif",
       "fullSrc": "Photo/2Y6A0399-1782053173446.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "黃刀鎮極光",
@@ -86,7 +86,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A0543-1782052717397.avif",
       "fullSrc": "Photo/2Y6A0543-1782052717397.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Deadvlei",
@@ -102,7 +102,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/AF7I6722-1782196199512.avif",
       "fullSrc": "Photo/AF7I6722-1782196199512.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     }
   ],
   "music": [
@@ -136,7 +136,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_3960-1782320454592.avif",
       "fullSrc": "Photo/IMG_3960-1782320454592.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Reykjavík",
@@ -144,7 +144,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/P1050385-編輯-1782316996279.avif",
       "fullSrc": "Photo/P1050385-編輯-1782316996279.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "澳門",
@@ -152,7 +152,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/P1020926-1782316996239.avif",
       "fullSrc": "Photo/P1020926-1782316996239.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "MACAU",
@@ -160,7 +160,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/P1020820-1782316996219.avif",
       "fullSrc": "Photo/P1020820-1782316996219.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Hokkaido",
@@ -168,7 +168,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_7570-1782316996200.avif",
       "fullSrc": "Photo/IMG_7570-1782316996200.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Gullfoss",
@@ -176,7 +176,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_1921-1782316996095.avif",
       "fullSrc": "Photo/IMG_1921-1782316996095.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "峇厘島",
@@ -184,7 +184,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/SDIM1207-1782310873060.avif",
       "fullSrc": "Photo/SDIM1207-1782310873060.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Dynastes hercules reidi",
@@ -192,7 +192,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_8603-1782310873047.avif",
       "fullSrc": "Photo/IMG_8603-1782310873047.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "天燈",
@@ -200,7 +200,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_6806-1782310873012.avif",
       "fullSrc": "Photo/IMG_6806-1782310873012.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "STEVE AOKI",
@@ -208,7 +208,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_2105-1782310872956.avif",
       "fullSrc": "Photo/IMG_2105-1782310872956.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "伏見稻荷千本鳥居",
@@ -216,7 +216,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_2041-1782310872938.avif",
       "fullSrc": "Photo/IMG_2041-1782310872938.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "紅腹錦雞",
@@ -224,7 +224,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_0630-1782310872864.avif",
       "fullSrc": "Photo/IMG_0630-1782310872864.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Rovinj",
@@ -232,7 +232,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/DJI_0008-1782237709695.avif",
       "fullSrc": "Photo/DJI_0008-1782237709695.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Bled Lake",
@@ -240,7 +240,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/DJI_0004-1782237667319.avif",
       "fullSrc": "Photo/DJI_0004-1782237667319.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "天空之鏡",
@@ -248,7 +248,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/A0163665-1782235691664.avif",
       "fullSrc": "Photo/A0163665-1782235691664.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "BMW S1000 RR",
@@ -256,7 +256,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
       "fullSrc": "Photo/20243002-已增強-雜訊減少-1782227596537.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "西九龍文化區戲曲中心",
@@ -264,7 +264,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A0420-1782056905234.avif",
       "fullSrc": "Photo/2Y6A0420-1782056905234.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "紫藤花",
@@ -272,7 +272,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A8536-1782056244124.avif",
       "fullSrc": "Photo/2Y6A8536-1782056244124.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "香港維多利亞港",
@@ -280,7 +280,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A0399-1782053173446.avif",
       "fullSrc": "Photo/2Y6A0399-1782053173446.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "黃刀鎮極光",
@@ -288,7 +288,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/2Y6A0543-1782052717397.avif",
       "fullSrc": "Photo/2Y6A0543-1782052717397.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Deadvlei",
@@ -304,7 +304,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/AF7I6722-1782196199512.avif",
       "fullSrc": "Photo/AF7I6722-1782196199512.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     }
   ],
   "photoComparisons": [
@@ -315,7 +315,7 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/DJI_0065-1782321838383.avif",
       "sdrSrc": "Photo/DJI_0065-1782321838379.jpg",
       "description": "SDR / HDR comparison.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Gullfoss",
@@ -324,7 +324,7 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/IMG_1921-1782316892674.avif",
       "sdrSrc": "Photo/IMG_1921-1782316892660.jpg",
       "description": "SDR / HDR comparison.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "澳門",
@@ -333,7 +333,7 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/P1020926-1782316814714.avif",
       "sdrSrc": "Photo/P1020926-1782316814710.jpg",
       "description": "SDR / HDR comparison.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Aurora",
@@ -342,7 +342,7 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/2Y6A0627-已增強-雜訊減少-1782228943044.avif",
       "sdrSrc": "Photo/2Y6A0627-已增強-雜訊減少-1782228943041.jpg",
       "description": "SDR / HDR comparison.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Sunset",
@@ -351,7 +351,7 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/A0163729-1782225662549.avif",
       "sdrSrc": "Photo/A0163729-1782225662547.jpg",
       "description": "SDR / HDR comparison.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     }
   ]
 };

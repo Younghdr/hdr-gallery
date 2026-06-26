@@ -10,7 +10,7 @@
     "prebuild:github": "node scripts/prepare-public-assets.js",
     "build:github": "cross-env GITHUB_PAGES=1 NEXT_PUBLIC_BASE_PATH=/hdr-gallery NEXT_DIST_DIR=.next-github next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "tsc --noEmit --pretty false --incremental false"
   },
   "dependencies": {
     "cross-env": "^7.0.3",

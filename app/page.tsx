@@ -8,7 +8,7 @@ export default function HomePage() {
   const { homepage } = getPhotographyItems();
   const films = getFilmItems();
   const music = getMusicItems();
-  const comparisons = getPhotoComparisons();
+  const comparisons = getPhotoComparisons().filter((p) => p.sdrSrc);
 
   return (
     <SiteFrame music={music}>
@@ -21,10 +21,10 @@ export default function HomePage() {
         <p className="mt-3 text-base leading-8 text-mist">{copy.home.rangeSubtitle}</p>
       </TextPanel>
 
-      {comparisons.filter((p) => p.sdrSrc).length > 0 ? (
+      {comparisons.length > 0 ? (
         <section className="px-5 pb-8 pt-8 lg:px-8">
           <div className="mx-auto w-full max-w-5xl space-y-10 lg:w-2/3 lg:max-w-none">
-            {comparisons.filter((p) => p.sdrSrc).map((photo) => (
+            {comparisons.map((photo) => (
               <div key={photo.src}>
                 <BeforeAfterSlider
                   beforeSrc={photoSrc({ ...photo, src: photo.sdrSrc!, fullSrc: photo.sdrSrc! })}

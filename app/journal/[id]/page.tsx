@@ -69,7 +69,7 @@ export default async function JournalArticlePage({ params }: { params: Promise<{
                 rel="noopener noreferrer"
                 className="inline-flex rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-pearl transition hover:bg-white/15 hover:text-gold"
               >
-                {article.sourceTitle || "原文連結"}
+                {article.sourceTitle || "????"}
               </a>
             </div>
           ) : null}
@@ -133,7 +133,7 @@ export default async function JournalArticlePage({ params }: { params: Promise<{
           return (
             <section className="mx-auto mt-16 max-w-5xl">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold">Selected Frames</p>
-              <h2 className="mt-3 text-3xl font-semibold text-pearl">精選照片</h2>
+              <h2 className="mt-3 text-3xl font-semibold text-pearl">????</h2>
               <div className="mt-6 columns-1 gap-4 md:columns-2 lg:columns-3">
                 {remainingPhotos.map((photo, index) => (
                   <div key={index} className="mb-4 break-inside-avoid">
