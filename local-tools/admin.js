@@ -1,6 +1,7 @@
 let siteData = null;
 let activeAdminTab = "videos";
 let editingIndex = null;
+let adminView = "list";
 
 const logBox = document.querySelector("#adminLog");
 
@@ -38,13 +39,163 @@ function categoryLabel(id) {
   return siteData.categories.find((category) => category.id === id)?.label || id;
 }
 
+function youtubeThumbnail(url) {
+  const value = (url || "").trim();
+  if (!value) return "";
+  let id = "";
+  if (/^[a-zA-Z0-9_-]{11}$/.test(value)) {
+    id = value;
+  } else {
+    try {
+      const parsed = new URL(value);
+      if (parsed.hostname.includes("youtu.be")) {
+        id = parsed.pathname.split("/").filter(Boolean)[0] || "";
+      } else if (parsed.pathname.startsWith("/shorts/")) {
+        id = parsed.pathname.split("/").filter(Boolean)[1] || "";
+      } else if (parsed.pathname.startsWith("/embed/")) {
+        id = parsed.pathname.split("/").filter(Boolean)[1] || "";
+      } else {
+        id = parsed.searchParams.get("v") || "";
+      }
+    } catch {
+      id = "";
+    }
+  }
+  return id ? `https://img.youtube.com/vi/${id}/mqdefault.jpg` : "";
+}
+
+function thumbnailSrc(item) {
+  if (activeAdminTab === "videos") return youtubeThumbnail(item.youtube);
+  if (activeAdminTab === "travelNotes") return item.cover || "";
+  if (activeAdminTab === "music") return "";
+  if (activeAdminTab === "photoComparisons") return item.sdrSrc || item.src || "";
+  return item.src || item.cover || "";
+}
+
+function formatThumbnailSrc(src) {
+  if (!src) return "";
+  if (/^https?:\/\//.test(src)) return src;
+  return src.startsWith("/") ? src : `/${src}`;
+}
+
+function moveItem(fromIndex, toIndex) {
+  const items = siteData[activeAdminTab];
+  if (
+    !items ||
+    fromIndex < 0 ||
+    fromIndex >= items.length ||
+    toIndex < 0 ||
+    toIndex >= items.length ||
+    fromIndex === toIndex
+  ) {
+    return;
+  }
+  const [moved] = items.splice(fromIndex, 1);
+  items.splice(toIndex, 0, moved);
+  editingIndex = null;
+  renderAdminList();
+  saveData();
+}
+
+function syncAdminViewToggle() {
+  document.querySelectorAll("[data-admin-view]").forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.adminView === adminView);
+  });
+}
+
+function renderAdminGrid(items) {
+  const grid = document.querySelector("#adminGrid");
+  grid.replaceChildren();
+  grid.style.display = "grid";
+  grid.style.gridTemplateColumns = "repeat(auto-fill, minmax(160px, 1fr))";
+  grid.style.gap = "12px";
+
+  if (!items.length) {
+    grid.textContent = "No content yet.";
+    return;
+  }
+
+  items.forEach((item, index) => {
+    const card = document.createElement("article");
+    card.className = "admin-grid-item";
+    card.style.cursor = "move";
+    card.style.border = "1px solid rgba(244,247,251,0.15)";
+    card.style.borderRadius = "8px";
+    card.style.overflow = "hidden";
+    card.style.background = "rgba(255,255,255,0.06)";
+    card.draggable = true;
+
+    const thumbSrc = formatThumbnailSrc(thumbnailSrc(item));
+    const thumb = document.createElement("img");
+    thumb.src = thumbSrc || "";
+    thumb.alt = item.title || "";
+    thumb.loading = "lazy";
+    thumb.style.width = "100%";
+    thumb.style.aspectRatio = "4 / 3";
+    thumb.style.objectFit = "cover";
+    thumb.style.display = thumbSrc ? "block" : "none";
+
+    const info = document.createElement("div");
+    info.style.padding = "10px";
+    info.style.minHeight = "48px";
+
+    const title = document.createElement("p");
+    title.textContent = item.title || "Untitled";
+    title.style.margin = "0";
+    title.style.fontSize = "13px";
+    title.style.fontWeight = "600";
+    title.style.color = "#f4f7fb";
+    title.style.whiteSpace = "nowrap";
+    title.style.overflow = "hidden";
+    title.style.textOverflow = "ellipsis";
+
+    info.appendChild(title);
+    card.append(thumb, info);
+
+    card.addEventListener("dragstart", (event) => {
+      event.dataTransfer.setData("text/plain", String(index));
+      event.dataTransfer.effectAllowed = "move";
+      card.style.opacity = "0.5";
+    });
+
+    card.addEventListener("dragend", () => {
+      card.style.opacity = "1";
+    });
+
+    card.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      event.dataTransfer.dropEffect = "move";
+    });
+
+    card.addEventListener("drop", (event) => {
+      event.preventDefault();
+      const fromIndex = Number(event.dataTransfer.getData("text/plain"));
+      if (Number.isNaN(fromIndex)) return;
+      moveItem(fromIndex, index);
+    });
+
+    grid.appendChild(card);
+  });
+}
+
 function renderAdminList() {
   const list = document.querySelector("#adminList");
+  const grid = document.querySelector("#adminGrid");
   ensurePhotoCollections();
   siteData.music = siteData.music || [];
   const items = siteData[activeAdminTab] || [];
   syncAdminTabs();
+  syncAdminViewToggle();
+
+  list.style.display = adminView === "list" ? "block" : "none";
+  grid.style.display = adminView === "grid" ? "grid" : "none";
+  grid.replaceChildren();
   list.replaceChildren();
+
+  if (adminView === "grid") {
+    renderAdminGrid(items);
+    return;
+  }
 
   if (!items.length) {
     const empty = document.createElement("p");
@@ -75,6 +226,9 @@ function renderAdminList() {
     }
 
     if (editingIndex === index) {
+      card.draggable = false;
+      card.style.cursor = "";
+
       const titleInput = document.createElement("input");
       titleInput.value = item.title || "";
 
@@ -107,6 +261,31 @@ function renderAdminList() {
       actions.append(save, cancel);
       card.append(meta, titleInput, descInput, actions);
     } else {
+      card.draggable = true;
+      card.style.cursor = "move";
+
+      card.addEventListener("dragstart", (event) => {
+        event.dataTransfer.setData("text/plain", String(index));
+        event.dataTransfer.effectAllowed = "move";
+        card.style.opacity = "0.5";
+      });
+
+      card.addEventListener("dragend", () => {
+        card.style.opacity = "1";
+      });
+
+      card.addEventListener("dragover", (event) => {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "move";
+      });
+
+      card.addEventListener("drop", (event) => {
+        event.preventDefault();
+        const fromIndex = Number(event.dataTransfer.getData("text/plain"));
+        if (Number.isNaN(fromIndex)) return;
+        moveItem(fromIndex, index);
+      });
+
       const heading = document.createElement("h3");
       heading.textContent = item.title;
 
@@ -132,9 +311,49 @@ function renderAdminList() {
         renderAdminList();
       });
 
+      const up = document.createElement("button");
+      up.type = "button";
+      up.className = "secondary-button";
+      up.textContent = "↑";
+      up.title = "Move up";
+      up.disabled = index === 0;
+      up.addEventListener("click", () => moveItem(index, index - 1));
+
+      const down = document.createElement("button");
+      down.type = "button";
+      down.className = "secondary-button";
+      down.textContent = "↓";
+      down.title = "Move down";
+      down.disabled = index === items.length - 1;
+      down.addEventListener("click", () => moveItem(index, index + 1));
+
       const actions = document.createElement("div");
-      actions.append(edit, remove);
-      card.append(meta, heading, text, actions);
+      actions.append(up, down, edit, remove);
+
+      const content = document.createElement("div");
+      content.style.flex = "1";
+      content.style.minWidth = "0";
+      content.append(meta, heading, text, actions);
+
+      card.style.display = "flex";
+      card.style.alignItems = "flex-start";
+      card.style.gap = "12px";
+
+      const thumbSrc = formatThumbnailSrc(thumbnailSrc(item));
+      if (thumbSrc) {
+        const thumb = document.createElement("img");
+        thumb.src = thumbSrc;
+        thumb.alt = item.title || "";
+        thumb.loading = "lazy";
+        thumb.style.width = "96px";
+        thumb.style.height = "64px";
+        thumb.style.objectFit = "cover";
+        thumb.style.borderRadius = "4px";
+        thumb.style.flexShrink = "0";
+        card.append(thumb);
+      }
+
+      card.append(content);
     }
 
     list.appendChild(card);
@@ -539,6 +758,14 @@ document.querySelector("#loadStats").addEventListener("click", async () => {
 document.querySelectorAll("[data-admin-tab]").forEach((button) => {
   button.addEventListener("click", () => {
     activeAdminTab = button.dataset.adminTab;
+    editingIndex = null;
+    renderAdminList();
+  });
+});
+
+document.querySelectorAll("[data-admin-view]").forEach((button) => {
+  button.addEventListener("click", () => {
+    adminView = button.dataset.adminView;
     editingIndex = null;
     renderAdminList();
   });

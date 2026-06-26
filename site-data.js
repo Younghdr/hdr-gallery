@@ -139,22 +139,6 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
-      "title": "Golden Hall",
-      "category": "photo",
-      "src": "Photo/IMG_1272-1782494610679.avif",
-      "fullSrc": "Photo/IMG_1272-1782494610679.avif",
-      "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
-      "title": "Nobel Prize",
-      "category": "photo",
-      "src": "Photo/IMG_1248-1782494610661.avif",
-      "fullSrc": "Photo/IMG_1248-1782494610661.avif",
-      "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
       "title": "Helsinki Cathedral",
       "category": "photo",
       "src": "Photo/IMG_1530-1782489580885.avif",
@@ -179,20 +163,20 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
-      "title": "Frederiksborg Castle",
-      "category": "photo",
-      "src": "Photo/IMG_7473.avif",
-      "fullSrc": "Photo/IMG_7473.avif",
-      "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
-    },
-    {
       "title": "角川武藏野博物館",
       "category": "photo",
       "src": "Photo/IMG_7334.avif",
       "fullSrc": "Photo/IMG_7334.avif",
       "description": "HDR photo work.",
       "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "Reykjavík",
+      "category": "photo",
+      "src": "Photo/P1050385-編輯-1782316996279.avif",
+      "fullSrc": "Photo/P1050385-編輯-1782316996279.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "優鶴國家公園",
@@ -219,12 +203,12 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG"
     },
     {
-      "title": "Reykjavík",
+      "title": "Nobel Prize",
       "category": "photo",
-      "src": "Photo/P1050385-編輯-1782316996279.avif",
-      "fullSrc": "Photo/P1050385-編輯-1782316996279.avif",
+      "src": "Photo/IMG_1248-1782494610661.avif",
+      "fullSrc": "Photo/IMG_1248-1782494610661.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG"
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
       "title": "澳門",
@@ -299,6 +283,14 @@ window.HDR_SITE_DATA = {
       "meta": "AVIF / Ultra HDR JPEG"
     },
     {
+      "title": "Golden Hall",
+      "category": "photo",
+      "src": "Photo/IMG_1272-1782494610679.avif",
+      "fullSrc": "Photo/IMG_1272-1782494610679.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "紅腹錦雞",
       "category": "photo",
       "src": "Photo/IMG_0630-1782310872864.avif",
@@ -353,6 +345,14 @@ window.HDR_SITE_DATA = {
       "fullSrc": "Photo/2Y6A8536-1782056244124.avif",
       "description": "HDR photo work.",
       "meta": "AVIF / Ultra HDR JPEG"
+    },
+    {
+      "title": "Frederiksborg Castle",
+      "category": "photo",
+      "src": "Photo/IMG_7473.avif",
+      "fullSrc": "Photo/IMG_7473.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
       "title": "香港維多利亞港",

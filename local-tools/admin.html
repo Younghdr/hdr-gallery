@@ -111,7 +111,12 @@
           <button class="pill" type="button" data-admin-tab="music">Music</button>
           <button class="secondary-button" id="scanPhotos" type="button">Scan Photo folder</button>
         </div>
+        <div class="admin-view-toggle" style="margin: 1rem 0;">
+          <button class="secondary-button is-active" type="button" data-admin-view="list">List</button>
+          <button class="secondary-button" type="button" data-admin-view="grid">Grid preview</button>
+        </div>
         <div id="adminList" class="admin-list"></div>
+        <div id="adminGrid" class="admin-grid" style="display: none;"></div>
       </section>
 
       <section class="admin-panel">
