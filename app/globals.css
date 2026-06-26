@@ -35,6 +35,12 @@ iframe {
   display: block;
 }
 
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
 ::selection {
   background: rgba(247, 207, 105, 0.35);
 }

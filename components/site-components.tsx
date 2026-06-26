@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { MusicPlayer } from "@/components/music-player";
 import { trackEvent } from "@/components/analytics";
 import { Lightbox } from "@/components/lightbox";
+import { ImageProtection } from "@/components/image-protection";
 import type { JournalItem, MusicItem, PhotoItem, VideoItem } from "@/lib/site-data";
 import { brand, copy, navItems } from "@/lib/copy";
 
@@ -67,6 +68,7 @@ export function Reveal({ children, className }: MotionProps) {
 export function SiteFrame({ children, music }: { children: React.ReactNode; music?: MusicItem[] }) {
   return (
     <div className="min-h-screen overflow-hidden">
+      <ImageProtection />
       <Header />
       {children}
       <MusicPlayer playlist={music} />
