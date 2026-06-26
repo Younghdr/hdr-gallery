@@ -5,12 +5,14 @@ import { useState, useRef, useCallback, useEffect } from "react";
 export function BeforeAfterSlider({
   beforeSrc,
   afterSrc,
+  afterFallbackSrc,
   beforeLabel = "SDR",
   afterLabel = "HDR",
   alt = "HDR comparison",
 }: {
   beforeSrc: string;
   afterSrc: string;
+  afterFallbackSrc?: string;
   beforeLabel?: string;
   afterLabel?: string;
   alt?: string;
@@ -18,6 +20,7 @@ export function BeforeAfterSlider({
   const [split, setSplit] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const afterIsAvif = /\.avif(?:[?#].*)?$/i.test(afterSrc);
 
   const updateSplit = useCallback(
     (clientX: number) => {
@@ -85,12 +88,15 @@ export function BeforeAfterSlider({
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - split}% 0 0)` }}
         >
-          <img
-            src={afterSrc}
-            alt={`${alt} ${afterLabel}`}
-            className="block w-full max-w-none"
-            draggable={false}
-          />
+          <picture>
+            {afterIsAvif ? <source srcSet={afterSrc} type="image/avif" /> : null}
+            <img
+              src={afterFallbackSrc || afterSrc}
+              alt={`${alt} ${afterLabel}`}
+              className="block w-full max-w-none"
+              draggable={false}
+            />
+          </picture>
         </div>
 
         {/* Divider line + handle */}

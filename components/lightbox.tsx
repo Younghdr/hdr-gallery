@@ -110,6 +110,7 @@ export function Lightbox({
               <BeforeAfterSlider
                 beforeSrc={photoPath({ ...current, src: current.sdrSrc, fullSrc: current.sdrSrc })}
                 afterSrc={photoPath(current)}
+                afterFallbackSrc={photoPath({ ...current, src: current.sdrSrc, fullSrc: current.sdrSrc })}
                 alt={current.title || "HDR Photo"}
               />
             ) : (

@@ -5,6 +5,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Young Hung HDR Studio",
   description: "HDR Photography, HDR Films, and HDR Travel Stories by Young Hung.",
+  other: {
+    "color-scheme": "light dark",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

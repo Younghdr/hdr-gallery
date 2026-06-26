@@ -29,6 +29,7 @@ export default function HomePage() {
                 <BeforeAfterSlider
                   beforeSrc={photoSrc({ ...photo, src: photo.sdrSrc!, fullSrc: photo.sdrSrc! })}
                   afterSrc={photoSrc(photo)}
+                  afterFallbackSrc={photoSrc({ ...photo, src: photo.sdrSrc!, fullSrc: photo.sdrSrc! })}
                   alt={photo.title || "HDR comparison"}
                 />
                 {photo.title ? (

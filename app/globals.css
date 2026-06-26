@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
   --font-sans: "Inter", "Noto Sans TC", "Segoe UI", Arial, sans-serif;
 }
 

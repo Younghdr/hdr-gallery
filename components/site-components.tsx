@@ -184,9 +184,9 @@ export function Hero({ image }: { image: string }) {
   return (
     <section className="relative flex min-h-[92vh] flex-col items-center justify-end px-5 pb-20 pt-32 text-center lg:px-8">
       <div className="absolute inset-0 -z-10">
-        <img src={image} alt="" className="h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/45 to-ink" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(7,9,13,0.25)_0%,rgba(7,9,13,0.72)_80%)]" />
+        <img src={image} alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(7,9,13,0.1)_0%,rgba(7,9,13,0.78)_80%)]" />
       </div>
       <motion.div
         className="mx-auto w-full max-w-4xl"
@@ -262,8 +262,8 @@ export function PortfolioPaths({ image }: { image: string }) {
           <Reveal key={item.href}>
             <Link href={item.href} className="group glass block overflow-hidden rounded-[8px]">
               <div className="relative h-[24rem] overflow-hidden">
-                <img src={item.image} alt="" className="h-full w-full object-cover opacity-75 transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
+                <img src={item.image} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/10" />
                 <div className="absolute bottom-0 p-7">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">0{index + 1}</p>
                   <h3 className="mt-3 text-3xl font-semibold text-pearl">{item.title}</h3>
@@ -472,7 +472,7 @@ export function JournalList({ items }: { items: JournalItem[] }) {
                   alt={item.title}
                   loading="lazy"
                   decoding="async"
-                  className="h-72 w-full object-cover opacity-85 transition duration-700 group-hover:scale-105"
+                  className="h-72 w-full object-cover transition duration-700 group-hover:scale-105"
                 />
               ) : null}
               <div className="p-6">
