@@ -136,7 +136,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_7473-1782482556738.avif",
       "fullSrc": "Photo/IMG_7473-1782482556738.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "角川武藏野博物館",
@@ -144,7 +144,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_7334-1782482556703.avif",
       "fullSrc": "Photo/IMG_7334-1782482556703.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "優鶴國家公園",
@@ -152,7 +152,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_6880-1782482556639.avif",
       "fullSrc": "Photo/IMG_6880-1782482556639.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "Wynn Palace",
@@ -160,7 +160,7 @@ window.HDR_SITE_DATA = {
       "src": "Photo/IMG_4318-1782482556573.avif",
       "fullSrc": "Photo/IMG_4318-1782482556573.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+      "meta": "AVIF / Ultra HDR JPEG"
     },
     {
       "title": "丹麥",
