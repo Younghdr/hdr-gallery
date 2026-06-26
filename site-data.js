@@ -131,44 +131,52 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
-      "title": "IMG_7171",
+      "title": "Odense",
       "category": "photo",
-      "src": "Photo/IMG_7171.avif",
-      "fullSrc": "Photo/IMG_7171.avif",
+      "src": "Photo/P1060693-1782487562431.avif",
+      "fullSrc": "Photo/P1060693-1782487562431.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR HEIC"
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
+      "title": "San Gimignano",
+      "category": "photo",
+      "src": "Photo/IMG_7171-1782487562407.avif",
+      "fullSrc": "Photo/IMG_7171-1782487562407.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
       "title": "Frederiksborg Castle",
       "category": "photo",
-      "src": "Photo/IMG_7473.avif",
-      "fullSrc": "Photo/IMG_7473.avif",
+      "src": "Photo/IMG_7473-1782482556738.avif",
+      "fullSrc": "Photo/IMG_7473-1782482556738.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG"
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
       "title": "角川武藏野博物館",
       "category": "photo",
-      "src": "Photo/IMG_7334.avif",
-      "fullSrc": "Photo/IMG_7334.avif",
+      "src": "Photo/IMG_7334-1782482556703.avif",
+      "fullSrc": "Photo/IMG_7334-1782482556703.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG"
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
       "title": "優鶴國家公園",
       "category": "photo",
-      "src": "Photo/IMG_6880.avif",
-      "fullSrc": "Photo/IMG_6880.avif",
+      "src": "Photo/IMG_6880-1782482556639.avif",
+      "fullSrc": "Photo/IMG_6880-1782482556639.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG"
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
       "title": "Wynn Palace",
       "category": "photo",
-      "src": "Photo/IMG_4318.avif",
-      "fullSrc": "Photo/IMG_4318.avif",
+      "src": "Photo/IMG_4318-1782482556573.avif",
+      "fullSrc": "Photo/IMG_4318-1782482556573.avif",
       "description": "HDR photo work.",
-      "meta": "AVIF / Ultra HDR JPEG"
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
     },
     {
       "title": "丹麥",
