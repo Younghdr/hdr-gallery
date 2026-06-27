@@ -199,10 +199,9 @@ export function Hero({ image }: { image: string }) {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold">{copy.hero.eyebrow}</p>
-        <h1 className="mx-auto mt-5 max-w-3xl text-5xl font-semibold leading-[1.1] text-pearl md:text-6xl lg:text-7xl">
-          Young Hung
-          <br className="hidden md:inline" />
-          HDR Studio
+        <h1 className="mx-auto mt-5 max-w-full text-[clamp(2.75rem,12vw,4.5rem)] font-semibold leading-[0.98] text-pearl sm:text-6xl lg:text-7xl">
+          <span className="block whitespace-nowrap">Young Hung</span>
+          <span className="mt-1 block whitespace-nowrap">HDR Studio</span>
         </h1>
         <p className="mx-auto mt-7 max-w-2xl text-xl leading-9 text-pearl md:text-2xl">{copy.hero.zh}</p>
         <p className="mx-auto mt-3 max-w-2xl text-base leading-8 text-mist md:text-lg">{copy.hero.en}</p>
