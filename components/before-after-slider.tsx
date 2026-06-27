@@ -83,10 +83,10 @@ export function BeforeAfterSlider({
           draggable={false}
         />
 
-        {/* HDR (after) - clipped by split */}
+        {/* HDR (after) - clipped to the right side of the divider */}
         <div
           className="absolute inset-0 overflow-hidden"
-          style={{ clipPath: `inset(0 ${100 - split}% 0 0)` }}
+          style={{ clipPath: `inset(0 0 0 ${split}%)` }}
         >
           <picture>
             {afterIsAvif ? <source srcSet={afterSrc} type="image/avif" /> : null}

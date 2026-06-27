@@ -220,7 +220,7 @@ function renderAdminList() {
           ? item.youtube
           : ["photos", "photoDetails", "photoComparisons"].includes(activeAdminTab)
             ? activeAdminTab === "photoComparisons"
-              ? `SDR: ${item.sdrSrc || "-"} / HDR: ${item.src}`
+              ? `Left SDR: ${item.sdrSrc || "-"} / Right HDR: ${item.src}`
               : item.src
             : item.date || "journal"
       }`;
@@ -532,7 +532,7 @@ document.querySelector("#comparisonForm").addEventListener("submit", async (even
     return;
   }
 
-  log(`Uploading ${sdrFiles.length} SDR/HDR comparison(s)...`);
+  log(`Uploading ${sdrFiles.length} SDR/HDR comparison(s). Preview order: left SDR / right HDR.`);
   ensurePhotoCollections();
 
   let added = 0;
@@ -793,4 +793,3 @@ async function init() {
 }
 
 init().catch((error) => log(error.message));
-
