@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   assetPrefix: basePath || undefined,
   trailingSlash: isGithubPages,
   reactStrictMode: true,
+  allowedDevOrigins: ["localhost", "127.0.0.1"],
 };
 
 export default nextConfig;

@@ -17,6 +17,16 @@ window.HDR_SITE_DATA = {
       "label": "拍照"
     }
   ],
+  "tests": [
+    {
+      "title": "Display Level Test",
+      "category": "display-level-test",
+      "items": [
+        "Near Black (0~31)",
+        "Near White (224~255)"
+      ]
+    }
+  ],
   "featuredVideo": "https://youtu.be/mNSBuB4Yc4o?si=TSRRWgb3R-oq4CL3",
   "featuredHero": "Photo/2Y6A0420-1782056905234.avif",
   "videos": [

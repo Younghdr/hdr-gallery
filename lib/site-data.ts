@@ -60,6 +60,12 @@ export type MusicItem = {
   src: string;
 };
 
+export type TestItem = {
+  title: string;
+  category?: string;
+  items: string[];
+};
+
 export type SiteData = {
   categories?: { id: string; label: string }[];
   featuredVideo?: string;
@@ -70,6 +76,7 @@ export type SiteData = {
   videos?: VideoItem[];
   travelNotes?: JournalItem[];
   music?: MusicItem[];
+  tests?: TestItem[];
 };
 
 const fallbackPhoto: PhotoItem = {
@@ -134,6 +141,11 @@ export function getJournalItems() {
 export function getMusicItems() {
   const data = getSiteData();
   return data.music || [];
+}
+
+export function getTestItems() {
+  const data = getSiteData();
+  return data.tests || [];
 }
 
 export function getFeaturedHeroImage() {
