@@ -132,7 +132,8 @@ function renderAdminGrid(items) {
     thumb.loading = "lazy";
     thumb.style.width = "100%";
     thumb.style.aspectRatio = "4 / 3";
-    thumb.style.objectFit = "cover";
+    thumb.style.objectFit = "contain";
+    thumb.style.backgroundColor = "rgba(0,0,0,0.25)";
     thumb.style.display = thumbSrc ? "block" : "none";
 
     const info = document.createElement("div");

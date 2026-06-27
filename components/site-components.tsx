@@ -297,33 +297,26 @@ export function PhotoMasonry({
   const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
   const isOpen = lightboxIndex !== null;
 
-  const cardClasses =
-    "group flex h-full flex-col overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left transition hover:-translate-y-1";
-
-  const cardContent = (photo: PhotoItem) => (
+  const cardContent = (photo: PhotoItem, index: number) => (
     <>
-      <div className="aspect-[4/3] overflow-hidden">
-        <img
-          src={photoPath(photo)}
-          alt={photo.title}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-        />
-      </div>
-      <div className="flex flex-1 flex-col p-5">
+      <img
+        src={photoPath(photo)}
+        alt={photo.title}
+        loading="lazy"
+        decoding="async"
+        className="w-full object-cover transition duration-700 group-hover:scale-105"
+      />
+      <div className="p-5">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Photography</p>
-        <h3 className="mt-2 line-clamp-1 text-lg font-semibold text-pearl">{photo.title || "HDR Frame"}</h3>
-        {photo.description ? (
-          <p className="mt-2 line-clamp-2 text-sm leading-6 text-mist">{photo.description}</p>
-        ) : null}
+        <h3 className="mt-2 text-lg font-semibold text-pearl">{photo.title || "HDR Frame"}</h3>
+        {photo.description ? <p className="mt-2 text-sm leading-6 text-mist">{photo.description}</p> : null}
       </div>
     </>
   );
 
   return (
     <>
-      <div className="mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:px-8 xl:px-12">
+      <div className="masonry mx-auto mt-12 w-full px-4 lg:px-8 xl:px-12">
         {photos.map((photo, index) =>
           mode === "link" && linkHref ? (
             <Link
@@ -335,9 +328,9 @@ export function PhotoMasonry({
                   photo_src: photoPath(photo),
                 });
               }}
-              className={cardClasses}
+              className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left transition hover:-translate-y-1"
             >
-              {cardContent(photo)}
+              {cardContent(photo, index)}
             </Link>
           ) : (
             <motion.button
@@ -349,13 +342,14 @@ export function PhotoMasonry({
                 });
                 setLightboxIndex(index);
               }}
-              className={cardClasses}
+              className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: Math.min(index * 0.04, 0.32) }}
+              whileHover={{ y: -4 }}
             >
-              {cardContent(photo)}
+              {cardContent(photo, index)}
             </motion.button>
           )
         )}
