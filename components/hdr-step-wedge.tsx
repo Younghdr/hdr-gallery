@@ -464,17 +464,22 @@ export function HdrStepWedge({
   }
 
   if (supported === true && clipCheck && effectiveColorSpace !== "rec2100-pq") {
+    const title = hdrOutputEnabled ? "HDR output detected" : "SDR mode detected";
+    const description = hdrOutputEnabled
+      ? "This display reports HDR output, but this browser cannot render the Rec.2100 PQ WebGL buffer required for the peak nits checker. Try Safari or a browser/GPU path with WebGL HDR output."
+      : "This peak brightness test requires HDR output. In SDR mode, the browser cannot render or verify HDR nits, so the peak highlight checker is disabled.";
+
     return (
       <div className={`${heightClassName || "min-h-[16rem] md:min-h-[24rem]"} flex items-center justify-center rounded-[8px] border border-amber-400/30 bg-black/50 p-6 text-center`}>
         <div className="max-w-xl">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-300">
-            HDR peak test unavailable
+            WebGL HDR peak test unavailable
           </p>
           <h4 className="mt-3 text-2xl font-semibold text-pearl">
-            SDR mode detected
+            {title}
           </h4>
           <p className="mt-3 text-sm leading-7 text-mist">
-            This peak brightness test requires HDR output. In SDR mode, the browser cannot render or verify HDR nits, so the peak highlight checker is disabled.
+            {description}
           </p>
         </div>
       </div>
