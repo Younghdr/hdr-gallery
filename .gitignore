@@ -3,6 +3,8 @@
 .next-dev/
 .next-build/
 .next-github/
+.next-preview-github*/
+.preview-github*/
 node_modules/
 out/
 public/Photo/

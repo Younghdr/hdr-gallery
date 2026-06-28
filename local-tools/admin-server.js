@@ -10,6 +10,7 @@ const DATA_FILE = path.join(ROOT, "site-data.js");
 const PORT = Number(process.env.PORT || 4174);
 const HOST = process.env.HOST || "127.0.0.1";
 const GIT = "C:\\Program Files\\Git\\cmd\\git.exe";
+const PREVIEW_PATHSPECS = [".next-preview-github*", ".preview-github*"];
 
 const TYPES = {
   ".avif": "image/avif",
@@ -126,6 +127,19 @@ function runGit(args) {
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
   });
+}
+
+function untrackPreviewArtifacts() {
+  const tracked = runGit(["ls-files", ...PREVIEW_PATHSPECS])
+    .split(/\r?\n/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  for (let index = 0; index < tracked.length; index += 100) {
+    runGit(["rm", "--cached", "--ignore-unmatch", "--", ...tracked.slice(index, index + 100)]);
+  }
+
+  return tracked.length;
 }
 
 function isImageFile(file) {
@@ -315,7 +329,11 @@ async function handleApi(req, res) {
 
     try {
       logs.push(runGit(["status", "--short"]));
-      runGit(["add", "."]);
+      runGit(["add", "-A"]);
+      const untrackedPreviewCount = untrackPreviewArtifacts();
+      if (untrackedPreviewCount) {
+        logs.push(`Removed ${untrackedPreviewCount} local preview build artifact(s) from Git tracking.`);
+      }
       try {
         logs.push(runGit(["commit", "-m", message]));
       } catch (error) {
