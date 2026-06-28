@@ -141,6 +141,14 @@ window.HDR_SITE_DATA = {
   ],
   "photoDetails": [
     {
+      "title": "Pandion haliaetus",
+      "category": "photo",
+      "src": "Photo/AF7I3688-1782653423632.avif",
+      "fullSrc": "Photo/AF7I3688-1782653423632.avif",
+      "description": "HDR photo work.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
+    {
       "title": "Split",
       "category": "photo",
       "src": "Photo/DJI_0065-1782499816506.avif",
@@ -406,6 +414,15 @@ window.HDR_SITE_DATA = {
     }
   ],
   "photoComparisons": [
+    {
+      "title": "Pandion haliaetus",
+      "category": "photo",
+      "src": "Photo/AF7I3288-1782653287796.avif",
+      "fullSrc": "Photo/AF7I3288-1782653287796.avif",
+      "sdrSrc": "Photo/AF7I3288-1782653287790.jpg",
+      "description": "SDR / HDR comparison.",
+      "meta": "AVIF / Ultra HDR JPEG / HEIC original"
+    },
     {
       "title": "Gullfoss",
       "category": "photo",
