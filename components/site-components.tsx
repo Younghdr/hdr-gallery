@@ -546,10 +546,21 @@ export function TestGrid({ tests }: { tests: TestItem[] }) {
     setHdrWhiteColor(supportsHdrWhite && hdrOutput ? "color(rec2100-pq 1 1 1)" : null);
 
     const canvas = document.createElement("canvas");
-    const gl = canvas.getContext("webgl2", {
-      colorSpace: "rec2100-pq",
-      premultipliedAlpha: false,
-    }) as WebGL2RenderingContext | null;
+    let gl: WebGL2RenderingContext | null = null;
+    try {
+      gl = canvas.getContext("webgl2", {
+        colorSpace: "rec2100-pq",
+        premultipliedAlpha: false,
+      } as WebGLContextAttributes) as WebGL2RenderingContext | null;
+    } catch {
+      try {
+        gl = canvas.getContext("webgl2", {
+          premultipliedAlpha: false,
+        }) as WebGL2RenderingContext | null;
+      } catch {
+        gl = null;
+      }
+    }
     let webglHdr = false;
     if (gl && "drawingBufferColorSpace" in gl) {
       try {

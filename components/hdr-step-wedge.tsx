@@ -8,7 +8,6 @@ const PQ_M2 = (2523 / 4096) * 128;
 const PQ_C1 = 3424 / 4096;
 const PQ_C2 = (2413 / 4096) * 32;
 const PQ_C3 = (2392 / 4096) * 32;
-
 export function pqEncode(nits: number) {
   const L = Math.max(0, nits) / 10000;
   const Lm = Math.pow(L, PQ_M1);
@@ -116,13 +115,21 @@ function clipNitsFor(base: number) {
   return Math.min(10000, Math.round(base * 1.5));
 }
 
-function sdrEncode(nits: number) {
-  const progress = Math.min(1, Math.max(0, Math.log10(Math.max(nits, 0.01) / 100) / Math.log10(16)));
-  return 0.18 + progress * 0.82;
+function encodeForColorSpace(nits: number, colorSpace: RenderColorSpace) {
+  return colorSpace === "rec2100-pq" ? pqEncode(nits) : 1;
 }
 
-function encodeForColorSpace(nits: number, colorSpace: RenderColorSpace) {
-  return colorSpace === "rec2100-pq" ? pqEncode(nits) : sdrEncode(nits);
+function markerEncodeForColorSpace(nits: number, colorSpace: RenderColorSpace) {
+  if (colorSpace === "rec2100-pq") return pqEncode(clipNitsFor(nits));
+  return 1;
+}
+
+function getHdrOutputEnabled() {
+  if (typeof window === "undefined") return false;
+  return (
+    window.matchMedia("(dynamic-range: high)").matches ||
+    window.matchMedia("(video-dynamic-range: high)").matches
+  );
 }
 
 function tryWebGl2Context(canvas: HTMLCanvasElement, colorSpace?: RenderColorSpace) {
@@ -186,7 +193,10 @@ export function HdrStepWedge({
   const vaoRef = useRef<WebGLVertexArrayObject | null>(null);
   const colorSpaceRef = useRef<RenderColorSpace>("srgb");
   const [supported, setSupported] = useState<boolean | null>(null);
+  const [hdrOutputEnabled, setHdrOutputEnabled] = useState(false);
   const [containerSize, setContainerSize] = useState<{ width: number; height: number } | null>(null);
+  const effectiveColorSpace: RenderColorSpace =
+    hdrOutputEnabled && colorSpaceRef.current === "rec2100-pq" ? "rec2100-pq" : "srgb";
 
   const gridStyle: React.CSSProperties | undefined = useMemo(() => {
     if (!containerSize) return undefined;
@@ -291,6 +301,21 @@ export function HdrStepWedge({
     setSupported(true);
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const dynamicRangeQuery = window.matchMedia("(dynamic-range: high)");
+    const videoDynamicRangeQuery = window.matchMedia("(video-dynamic-range: high)");
+    const update = () => setHdrOutputEnabled(getHdrOutputEnabled());
+
+    update();
+    dynamicRangeQuery.addEventListener("change", update);
+    videoDynamicRangeQuery.addEventListener("change", update);
+    return () => {
+      dynamicRangeQuery.removeEventListener("change", update);
+      videoDynamicRangeQuery.removeEventListener("change", update);
+    };
+  }, []);
+
   const draw = () => {
     const gl = glRef.current;
     const canvas = canvasRef.current;
@@ -326,25 +351,25 @@ export function HdrStepWedge({
 
       // Base patch.
       gl.scissor(Math.round(x), Math.round(y), Math.round(w), Math.round(h));
-      gl.uniform1f(pqLoc, encodeForColorSpace(steps[i], colorSpaceRef.current));
+      gl.uniform1f(pqLoc, encodeForColorSpace(steps[i], effectiveColorSpace));
       gl.uniform1f(clipPqLoc, -1);
       gl.uniform1f(checkerSizeLoc, 0);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
-      // Optional highlight-clip checker marker.
-      if (clipCheck) {
+      // Optional HDR highlight-clip checker marker.
+      if (clipCheck && effectiveColorSpace === "rec2100-pq") {
         const markerCss = Math.max(16, Math.min(cellRect.width, cellRect.height) * 0.25);
         const marginCss = 4;
         if (markerCss + marginCss * 2 <= Math.min(cellRect.width, cellRect.height)) {
-          const mx = (cellRect.left - rect.left + cellRect.width - markerCss - marginCss) * dpr;
-          const my = (rect.bottom - cellRect.bottom + cellRect.height - markerCss - marginCss) * dpr;
-          const mw = markerCss * dpr;
-          const mh = markerCss * dpr;
-          gl.scissor(Math.round(mx), Math.round(my), Math.round(mw), Math.round(mh));
-          gl.uniform1f(pqLoc, encodeForColorSpace(steps[i], colorSpaceRef.current));
-          gl.uniform1f(clipPqLoc, encodeForColorSpace(clipNitsFor(steps[i]), colorSpaceRef.current));
-          gl.uniform1f(checkerSizeLoc, Math.max(2, 4 * dpr));
-          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        const mx = (cellRect.left - rect.left + cellRect.width - markerCss - marginCss) * dpr;
+        const my = (rect.bottom - cellRect.bottom + cellRect.height - markerCss - marginCss) * dpr;
+        const mw = markerCss * dpr;
+        const mh = markerCss * dpr;
+        gl.scissor(Math.round(mx), Math.round(my), Math.round(mw), Math.round(mh));
+        gl.uniform1f(pqLoc, encodeForColorSpace(steps[i], effectiveColorSpace));
+        gl.uniform1f(clipPqLoc, markerEncodeForColorSpace(steps[i], effectiveColorSpace));
+        gl.uniform1f(checkerSizeLoc, Math.max(2, 4 * dpr));
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         }
       }
     }
@@ -362,7 +387,7 @@ export function HdrStepWedge({
       cancelAnimationFrame(raf);
       clearTimeout(timeout);
     };
-  }, [supported, steps, windowSize, selected, containerSize, clipCheck, fullscreen]);
+  }, [supported, steps, windowSize, selected, containerSize, clipCheck, effectiveColorSpace, fullscreen]);
 
   useEffect(() => {
     if (supported !== true) return;
@@ -434,6 +459,24 @@ export function HdrStepWedge({
           );
         })}
       </div>
+      </div>
+    );
+  }
+
+  if (supported === true && clipCheck && effectiveColorSpace !== "rec2100-pq") {
+    return (
+      <div className={`${heightClassName || "min-h-[16rem] md:min-h-[24rem]"} flex items-center justify-center rounded-[8px] border border-amber-400/30 bg-black/50 p-6 text-center`}>
+        <div className="max-w-xl">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-300">
+            HDR peak test unavailable
+          </p>
+          <h4 className="mt-3 text-2xl font-semibold text-pearl">
+            SDR mode detected
+          </h4>
+          <p className="mt-3 text-sm leading-7 text-mist">
+            This peak brightness test requires HDR output. In SDR mode, the browser cannot render or verify HDR nits, so the peak highlight checker is disabled.
+          </p>
+        </div>
       </div>
     );
   }
