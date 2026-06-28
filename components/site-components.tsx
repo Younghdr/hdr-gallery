@@ -643,7 +643,7 @@ export function TestGrid({ tests }: { tests: TestItem[] }) {
                       <div
                         className="relative z-10 flex aspect-[5/3] min-h-24 items-center justify-center font-mono text-2xl font-black sm:text-3xl"
                         style={{
-                          color: isWhite && webglHdrSupported ? "#07090d" : `rgb(${value}, ${value}, ${value})`,
+                          color: `rgb(${value}, ${value}, ${value})`,
                         }}
                       >
                         {value}
