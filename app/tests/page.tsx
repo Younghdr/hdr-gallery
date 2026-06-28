@@ -4,6 +4,7 @@ import { PageIntro, SectionHeader, SiteFrame, TestGrid } from "@/components/site
 import { PeakBrightnessTest } from "@/components/peak-brightness-test";
 import { HdrDiagnostics } from "@/components/hdr-diagnostics";
 import { HdrSummary } from "@/components/hdr-summary";
+import { HdrVideoVisibilityTest } from "@/components/hdr-video-visibility-test";
 import Script from "next/script";
 
 export default function TestsPage() {
@@ -22,6 +23,7 @@ export default function TestsPage() {
         introZh={copy.tests.introZh}
       />
       <HdrDiagnostics />
+      <HdrVideoVisibilityTest />
       <section className="px-5 pb-24 lg:px-8">
         <SectionHeader
           eyebrow="Display Test"
