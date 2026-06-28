@@ -67,6 +67,8 @@ function textColorForNits(nits: number) {
   return progress > 0.45 ? "#07090d" : "#f4f7fb";
 }
 
+type RenderColorSpace = "rec2100-pq" | "display-p3" | "srgb";
+
 type HdrStepWedgeProps = {
   steps: number[];
   selected: number | null;
@@ -114,23 +116,49 @@ function clipNitsFor(base: number) {
   return Math.min(10000, Math.round(base * 1.5));
 }
 
-function getWebGl2Context(canvas: HTMLCanvasElement) {
+function sdrEncode(nits: number) {
+  const progress = Math.min(1, Math.max(0, Math.log10(Math.max(nits, 0.01) / 100) / Math.log10(16)));
+  return 0.18 + progress * 0.82;
+}
+
+function encodeForColorSpace(nits: number, colorSpace: RenderColorSpace) {
+  return colorSpace === "rec2100-pq" ? pqEncode(nits) : sdrEncode(nits);
+}
+
+function tryWebGl2Context(canvas: HTMLCanvasElement, colorSpace?: RenderColorSpace) {
   try {
     return canvas.getContext("webgl2", {
-      colorSpace: "rec2100-pq",
+      ...(colorSpace ? { colorSpace } : {}),
       premultipliedAlpha: false,
       alpha: false,
     } as WebGLContextAttributes) as WebGL2RenderingContext | null;
   } catch {
+    return null;
+  }
+}
+
+function getWebGl2Context(canvas: HTMLCanvasElement) {
+  const attempts: RenderColorSpace[] = ["rec2100-pq", "display-p3"];
+
+  for (const colorSpace of attempts) {
+    const gl = tryWebGl2Context(canvas, colorSpace);
+    if (!gl) continue;
+    if (!("drawingBufferColorSpace" in gl)) {
+      if (colorSpace === "display-p3") return { gl, colorSpace: "srgb" as RenderColorSpace };
+      continue;
+    }
     try {
-      return canvas.getContext("webgl2", {
-        premultipliedAlpha: false,
-        alpha: false,
-      }) as WebGL2RenderingContext | null;
+      (gl as unknown as { drawingBufferColorSpace: string }).drawingBufferColorSpace = colorSpace;
     } catch {
-      return null;
+      continue;
+    }
+    if ((gl as unknown as { drawingBufferColorSpace: string }).drawingBufferColorSpace === colorSpace) {
+      return { gl, colorSpace };
     }
   }
+
+  const gl = tryWebGl2Context(canvas);
+  return gl ? { gl, colorSpace: "srgb" as RenderColorSpace } : null;
 }
 
 export function HdrStepWedge({
@@ -156,6 +184,7 @@ export function HdrStepWedge({
   const clipPqLocRef = useRef<WebGLUniformLocation | null>(null);
   const checkerSizeLocRef = useRef<WebGLUniformLocation | null>(null);
   const vaoRef = useRef<WebGLVertexArrayObject | null>(null);
+  const colorSpaceRef = useRef<RenderColorSpace>("srgb");
   const [supported, setSupported] = useState<boolean | null>(null);
   const [containerSize, setContainerSize] = useState<{ width: number; height: number } | null>(null);
 
@@ -195,28 +224,13 @@ export function HdrStepWedge({
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const gl = getWebGl2Context(canvas);
-    if (!gl) {
+    const context = getWebGl2Context(canvas);
+    if (!context) {
       setSupported(false);
       return;
     }
-    if (!("drawingBufferColorSpace" in gl)) {
-      setSupported(false);
-      return;
-    }
-    try {
-      (gl as unknown as { drawingBufferColorSpace: string }).drawingBufferColorSpace = "rec2100-pq";
-    } catch {
-      setSupported(false);
-      return;
-    }
-    if (
-      (gl as unknown as { drawingBufferColorSpace: string }).drawingBufferColorSpace !==
-      "rec2100-pq"
-    ) {
-      setSupported(false);
-      return;
-    }
+    const { gl, colorSpace } = context;
+    colorSpaceRef.current = colorSpace;
 
     const program = createProgram(
       gl,
@@ -312,7 +326,7 @@ export function HdrStepWedge({
 
       // Base patch.
       gl.scissor(Math.round(x), Math.round(y), Math.round(w), Math.round(h));
-      gl.uniform1f(pqLoc, pqEncode(steps[i]));
+      gl.uniform1f(pqLoc, encodeForColorSpace(steps[i], colorSpaceRef.current));
       gl.uniform1f(clipPqLoc, -1);
       gl.uniform1f(checkerSizeLoc, 0);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -327,8 +341,8 @@ export function HdrStepWedge({
           const mw = markerCss * dpr;
           const mh = markerCss * dpr;
           gl.scissor(Math.round(mx), Math.round(my), Math.round(mw), Math.round(mh));
-          gl.uniform1f(pqLoc, pqEncode(steps[i]));
-          gl.uniform1f(clipPqLoc, pqEncode(clipNitsFor(steps[i])));
+          gl.uniform1f(pqLoc, encodeForColorSpace(steps[i], colorSpaceRef.current));
+          gl.uniform1f(clipPqLoc, encodeForColorSpace(clipNitsFor(steps[i]), colorSpaceRef.current));
           gl.uniform1f(checkerSizeLoc, Math.max(2, 4 * dpr));
           gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         }

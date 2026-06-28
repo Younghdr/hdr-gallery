@@ -13,28 +13,40 @@ type HdrDiagnostics = {
   colorGamutP3: boolean;
   colorGamutRec2020: boolean;
   webglHdr: boolean;
+  webglColorSpace: "rec2100-pq" | "display-p3" | "srgb" | "none";
 };
 
-function detectWebglHdr() {
-  if (typeof document === "undefined") return false;
+function detectWebglColorSpace(): HdrDiagnostics["webglColorSpace"] {
+  if (typeof document === "undefined") return "none";
   const canvas = document.createElement("canvas");
-  let gl: WebGL2RenderingContext | null = null;
-  try {
-    gl = canvas.getContext("webgl2", {
-      colorSpace: "rec2100-pq",
-      premultipliedAlpha: false,
-    } as WebGLContextAttributes) as WebGL2RenderingContext | null;
-  } catch {
-    return false;
+
+  for (const colorSpace of ["rec2100-pq", "display-p3"] as const) {
+    let gl: WebGL2RenderingContext | null = null;
+    try {
+      gl = canvas.getContext("webgl2", {
+        colorSpace,
+        premultipliedAlpha: false,
+        alpha: false,
+      } as WebGLContextAttributes) as WebGL2RenderingContext | null;
+    } catch {
+      gl = null;
+    }
+    if (!gl || !("drawingBufferColorSpace" in gl)) continue;
+    try {
+      (gl as unknown as { drawingBufferColorSpace: string }).drawingBufferColorSpace = colorSpace;
+    } catch {
+      continue;
+    }
+    if ((gl as unknown as { drawingBufferColorSpace: string }).drawingBufferColorSpace === colorSpace) {
+      return colorSpace;
+    }
   }
-  if (!gl) return false;
-  if (!("drawingBufferColorSpace" in gl)) return false;
+
   try {
-    (gl as unknown as { drawingBufferColorSpace: string }).drawingBufferColorSpace = "rec2100-pq";
+    return canvas.getContext("webgl2") ? "srgb" : "none";
   } catch {
-    return false;
+    return "none";
   }
-  return (gl as unknown as { drawingBufferColorSpace: string }).drawingBufferColorSpace === "rec2100-pq";
 }
 
 function useHdrDiagnostics(): HdrDiagnostics | null {
@@ -51,6 +63,7 @@ function useHdrDiagnostics(): HdrDiagnostics | null {
         colorGamutP3: false,
         colorGamutRec2020: false,
         webglHdr: false,
+        webglColorSpace: "none",
       });
       return;
     }
@@ -61,7 +74,8 @@ function useHdrDiagnostics(): HdrDiagnostics | null {
     const videoDynamicRangeHigh = window.matchMedia("(video-dynamic-range: high)").matches;
     const colorGamutP3 = window.matchMedia("(color-gamut: p3)").matches;
     const colorGamutRec2020 = window.matchMedia("(color-gamut: rec2020)").matches;
-    const webglHdr = detectWebglHdr();
+    const webglColorSpace = detectWebglColorSpace();
+    const webglHdr = webglColorSpace === "rec2100-pq";
 
     let status: HdrStatus;
     if (webglHdr || (cssRec2100Pq && (dynamicRangeHigh || videoDynamicRangeHigh))) {
@@ -81,6 +95,7 @@ function useHdrDiagnostics(): HdrDiagnostics | null {
       colorGamutP3,
       colorGamutRec2020,
       webglHdr,
+      webglColorSpace,
     });
   }, []);
 
@@ -93,9 +108,17 @@ export function HdrDiagnostics() {
   if (!diagnostics) return null;
   const hdrOutputEnabled = diagnostics.dynamicRangeHigh || diagnostics.videoDynamicRangeHigh;
   const colorGamutName = hdrOutputEnabled && (diagnostics.cssDisplayP3 || diagnostics.colorGamutP3) ? "Display P3" : "sRGB";
+  const webglRenderingName =
+    diagnostics.webglColorSpace === "rec2100-pq"
+      ? "WebGL PQ HDR"
+      : diagnostics.webglColorSpace === "display-p3"
+        ? "WebGL Display P3"
+        : diagnostics.webglColorSpace === "srgb"
+          ? "WebGL SDR"
+          : "WebGL unavailable";
   const requiredChecks: { group: string; name: string; supported: boolean; enabledLabel?: boolean }[] = [
     { group: "Display Environment", name: "HDR Output", supported: hdrOutputEnabled, enabledLabel: true },
-    { group: "Rendering", name: "WebGL HDR", supported: diagnostics.webglHdr },
+    { group: "Rendering", name: webglRenderingName, supported: diagnostics.webglColorSpace !== "none" },
     { group: "Color Gamut", name: colorGamutName, supported: colorGamutName === "Display P3" },
     { group: "Dynamic Range", name: "HDR", supported: diagnostics.dynamicRangeHigh || diagnostics.videoDynamicRangeHigh },
   ];
