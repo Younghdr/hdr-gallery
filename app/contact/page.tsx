@@ -1,6 +1,26 @@
+import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getMusicItems } from "@/lib/site-data";
 import { PageIntro, SiteFrame, TextPanel } from "@/components/site-components";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export const metadata: Metadata = {
+  title: "聯繫 Young Hung",
+  description:
+    "有合作、授權、影像製作或 HDR 工作流程相關問題？歡迎透過 Email 與 Young Hung 聯繫，討論你的影像計畫。",
+  keywords: [
+    "聯繫 Young Hung",
+    "HDR 合作",
+    "HDR 授權",
+    "影像製作",
+    "HDR 工作流程",
+    "Young HDR Gallery",
+  ],
+  alternates: {
+    canonical: `${BASE_PATH}/contact/`,
+  },
+};
 
 export default function ContactPage() {
   const music = getMusicItems();

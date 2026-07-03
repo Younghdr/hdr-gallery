@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getFilmItems, getMusicItems } from "@/lib/site-data";
 import { FilmGrid, PageIntro, SectionHeader, SiteFrame } from "@/components/site-components";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export const metadata: Metadata = {
+  title: "HDR 影像作品",
+  description:
+    "觀看為 YouTube HDR 與高亮度顯示器製作的 HDR 影片。從旅行、自然到城市，記錄光線在時間中的流動。",
+  keywords: [
+    "HDR 影片",
+    "HDR Films",
+    "YouTube HDR",
+    "HDR 旅行影片",
+    "HDR 自然影片",
+    "高動態範圍影像",
+    "Young HDR Gallery",
+  ],
+  alternates: {
+    canonical: `${BASE_PATH}/films/`,
+  },
+};
 
 export default function FilmsPage() {
   const films = getFilmItems();

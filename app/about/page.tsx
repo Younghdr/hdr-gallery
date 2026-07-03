@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getMusicItems } from "@/lib/site-data";
 import { PageIntro, SiteFrame, TextPanel } from "@/components/site-components";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export const metadata: Metadata = {
+  title: "關於 Young Hung",
+  description:
+    "認識 HDR 攝影師 Young Hung：專注於 HDR Photography、HDR Imaging Workflow、旅行與風景攝影，以安靜的方式記錄光的層次。",
+  keywords: [
+    "Young Hung",
+    "HDR 攝影師",
+    "HDR Photography",
+    "HDR Imaging Workflow",
+    "旅行攝影",
+    "風景攝影",
+    "Young HDR Gallery",
+  ],
+  alternates: {
+    canonical: `${BASE_PATH}/about/`,
+  },
+};
 
 export default function AboutPage() {
   const music = getMusicItems();

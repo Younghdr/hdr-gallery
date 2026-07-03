@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getMusicItems, getTestItems } from "@/lib/site-data";
 import { PageIntro, SectionHeader, SiteFrame, TestGrid } from "@/components/site-components";
@@ -6,6 +7,27 @@ import { HdrDiagnostics } from "@/components/hdr-diagnostics";
 import { HdrSummary } from "@/components/hdr-summary";
 import { HdrVideoVisibilityTest } from "@/components/hdr-video-visibility-test";
 import Script from "next/script";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export const metadata: Metadata = {
+  title: "HDR 顯示器測試 | 峰值亮度、暗部與亮部檢查",
+  description:
+    "免費線上 HDR 顯示器測試工具：峰值亮度測試、Near Black 暗部細節、Near White 亮部細節，幫助你快速了解螢幕的 HDR 表現。",
+  keywords: [
+    "HDR 測試",
+    "HDR 顯示器測試",
+    "峰值亮度測試",
+    "Peak Brightness Test",
+    "暗部細節測試",
+    "亮部細節測試",
+    "HDR 檢測工具",
+    "Young HDR Gallery",
+  ],
+  alternates: {
+    canonical: `${BASE_PATH}/tests/`,
+  },
+};
 
 export default function TestsPage() {
   const tests = getTestItems();

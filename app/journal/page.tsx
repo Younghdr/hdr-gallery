@@ -1,6 +1,26 @@
+import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getJournalItems, getMusicItems } from "@/lib/site-data";
 import { JournalList, PageIntro, SectionHeader, SiteFrame } from "@/components/site-components";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export const metadata: Metadata = {
+  title: "影像札記",
+  description:
+    "閱讀 Young Hung 的影像札記：關於旅行、光線、HDR 攝影與觀看方式的現場筆記。",
+  keywords: [
+    "影像札記",
+    "旅行攝影筆記",
+    "HDR 攝影心得",
+    "攝影隨筆",
+    "Journal",
+    "Young HDR Gallery",
+  ],
+  alternates: {
+    canonical: `${BASE_PATH}/journal/`,
+  },
+};
 
 export default function JournalPage() {
   const journals = getJournalItems();

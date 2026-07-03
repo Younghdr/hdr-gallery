@@ -396,7 +396,7 @@ export function FilmGrid({ films }: { films: VideoItem[] }) {
               <div className="p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Films</p>
                 <h3 className="mt-2 text-2xl font-semibold text-pearl">{film.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-mist">{film.description || "Films crafted for HDR playback and luminous screens."}</p>
+                <p className="mt-3 text-sm leading-7 text-mist">{film.description || "Experience true HDR. Preview here or watch on YouTube for the best quality."}</p>
                 <a
                   href={film.youtube}
                   target="_blank"

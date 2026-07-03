@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { copy } from "@/lib/copy";
 import { getJournalArticle, getJournalItems, getMusicItems } from "@/lib/site-data";
 import type { JournalPhoto, JournalSection, JournalArticle } from "@/lib/site-data";
 import { SiteFrame } from "@/components/site-components";
@@ -16,6 +18,44 @@ export function generateStaticParams() {
       }
     })
     .filter((param): param is { id: string } => Boolean(param?.id));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const article = getJournalArticle(id);
+  if (!article) return {};
+
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const description = article.intro || article.subtitle || copy.journal.subtitleZh;
+
+  return {
+    title: article.title,
+    description,
+    keywords: [
+      article.title,
+      "HDR 攝影",
+      "旅行攝影",
+      "影像札記",
+      "Young HDR Gallery",
+    ],
+    alternates: {
+      canonical: `${basePath}/journal/${id}/`,
+    },
+    openGraph: article.hero
+      ? {
+          images: [
+            {
+              url: imageSrc(article.hero),
+              alt: article.title,
+            },
+          ],
+        }
+      : undefined,
+  };
 }
 
 function normalizePhoto(photo: string | JournalPhoto, fallbackAlt: string): JournalPhoto {
