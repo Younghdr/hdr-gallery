@@ -5,6 +5,7 @@ import { getJournalArticle, getJournalItems, getMusicItems } from "@/lib/site-da
 import type { JournalPhoto, JournalSection, JournalArticle } from "@/lib/site-data";
 import { SiteFrame } from "@/components/site-components";
 import { JsonLd } from "@/components/json-ld";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld";
 import { absUrl } from "@/lib/url";
 
 export function generateStaticParams() {
@@ -112,6 +113,13 @@ export default async function JournalArticlePage({ params }: { params: Promise<{
 
   return (
     <SiteFrame music={getMusicItems()}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "首頁", url: "/" },
+          { name: "影像札記", url: "/journal/" },
+          { name: article.title, url: `/journal/${id}/` },
+        ]}
+      />
       <JsonLd data={jsonLd} />
       <article className="px-5 pb-24 pt-32 lg:px-8">
         <header className="mx-auto max-w-5xl">

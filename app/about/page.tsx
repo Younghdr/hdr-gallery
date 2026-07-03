@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getMusicItems } from "@/lib/site-data";
 import { PageIntro, SiteFrame, TextPanel } from "@/components/site-components";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -28,6 +29,12 @@ export default function AboutPage() {
 
   return (
     <SiteFrame music={music}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "首頁", url: "/" },
+          { name: "關於", url: "/about/" },
+        ]}
+      />
       <PageIntro
         title={copy.about.title}
         titleZh={copy.about.titleZh}

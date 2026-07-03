@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getMusicItems, getTestItems } from "@/lib/site-data";
-import { PageIntro, SectionHeader, SiteFrame, TestGrid } from "@/components/site-components";
+import { PageIntro, SectionHeader, SiteFrame, TestGrid, TextPanel } from "@/components/site-components";
 import { PeakBrightnessTest } from "@/components/peak-brightness-test";
 import { HdrDiagnostics } from "@/components/hdr-diagnostics";
 import { HdrSummary } from "@/components/hdr-summary";
 import { HdrVideoVisibilityTest } from "@/components/hdr-video-visibility-test";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld";
 import Script from "next/script";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -36,6 +37,12 @@ export default function TestsPage() {
 
   return (
     <SiteFrame music={music}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "首頁", url: "/" },
+          { name: "顯示測試", url: "/tests/" },
+        ]}
+      />
       <PageIntro
         title={copy.tests.title}
         titleZh={copy.tests.titleZh}
@@ -44,6 +51,12 @@ export default function TestsPage() {
         intro={copy.tests.intro}
         introZh={copy.tests.introZh}
       />
+      <TextPanel>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">{copy.tests.guideTitle}</p>
+        <h2 className="mt-3 text-2xl font-semibold text-pearl md:text-3xl">{copy.tests.guideTitleZh}</h2>
+        <p className="mt-5 text-base leading-8 text-mist">{copy.tests.guideIntroZh}</p>
+        <p className="mt-3 text-base leading-8 text-mist">{copy.tests.guideIntro}</p>
+      </TextPanel>
       <HdrDiagnostics />
       <HdrVideoVisibilityTest />
       <section className="px-5 pb-24 lg:px-8">

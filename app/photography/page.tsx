@@ -3,6 +3,7 @@ import { copy } from "@/lib/copy";
 import { getMusicItems, getPhotographyItems, photoSrc } from "@/lib/site-data";
 import { PageIntro, PhotoMasonry, SectionHeader, SiteFrame } from "@/components/site-components";
 import { JsonLd } from "@/components/json-ld";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld";
 import { absUrl } from "@/lib/url";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -32,6 +33,12 @@ export default function PhotographyPage() {
 
   return (
     <SiteFrame music={music}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "首頁", url: "/" },
+          { name: "HDR 攝影", url: "/photography/" },
+        ]}
+      />
       <JsonLd
         data={{
           "@context": "https://schema.org",

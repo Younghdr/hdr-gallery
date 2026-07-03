@@ -94,6 +94,12 @@ export const copy = {
     subtitleZh: "用來檢查 SDR / HDR 顯示器暗部與亮部層次的快速測試。",
     intro: "Start with SDR tests, then expand this page into additional HDR, grayscale, and tone-mapping checks as needed.",
     introZh: "先從顯示階調測試開始，之後可再擴充 HDR、灰階與 tone mapping 相關檢查。",
+    guideTitle: "What These Tests Check",
+    guideTitleZh: "這些測試檢查什麼",
+    guideIntro:
+      "This page provides free online display tests for HDR enthusiasts, photographers, and anyone who wants to understand how well their screen handles brightness, shadow detail, and highlight detail. The Display Level Test checks near-black and near-white separation in SDR and HDR modes. The Peak Brightness Test uses visible HDR brightness steps with a clip-detector marker to estimate your display's peak highlight capability. The HDR Video Visibility Test uses an HDR10 PQ pattern to see if your browser and display preserve bright stops. Results are subjective and depend on your viewing environment, display settings, and browser HDR support.",
+    guideIntroZh:
+      "這個頁面提供免費的線上顯示器測試，適合 HDR 愛好者、攝影師，以及任何想了解自己螢幕在亮度、暗部細節與亮部細節表現的人。Display Level Test 檢查 SDR 與 HDR 模式下的接近黑位與接近白位分離度；Peak Brightness Test 利用可見的 HDR 亮度階梯與高光裁切偵測標記，估算顯示器的峰值高光能力；HDR Video Visibility Test 則使用 HDR10 PQ 圖樣，觀察瀏覽器與顯示器是否能保留亮部階層。測試結果屬於主觀判斷，會受到觀看環境、螢幕設定與瀏覽器 HDR 支援度影響。",
     sectionTitle: "Display Level Test",
     sectionTitleZh: "",
     sectionSubtitle: "Two basic ranges for checking near-black and near-white detail.",

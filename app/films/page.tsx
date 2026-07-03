@@ -3,6 +3,7 @@ import { copy } from "@/lib/copy";
 import { getFilmItems, getMusicItems, youtubeId } from "@/lib/site-data";
 import { FilmGrid, PageIntro, SectionHeader, SiteFrame } from "@/components/site-components";
 import { JsonLd } from "@/components/json-ld";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld";
 import { absUrl } from "@/lib/url";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -31,6 +32,12 @@ export default function FilmsPage() {
 
   return (
     <SiteFrame music={music}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "首頁", url: "/" },
+          { name: "HDR 影像", url: "/films/" },
+        ]}
+      />
       <JsonLd
         data={{
           "@context": "https://schema.org",

@@ -3,6 +3,7 @@ import { copy } from "@/lib/copy";
 import { getJournalItems, getMusicItems } from "@/lib/site-data";
 import { JournalList, PageIntro, SectionHeader, SiteFrame } from "@/components/site-components";
 import { JsonLd } from "@/components/json-ld";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-json-ld";
 import { absUrl } from "@/lib/url";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -41,6 +42,12 @@ export default function JournalPage() {
 
   return (
     <SiteFrame music={music}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "首頁", url: "/" },
+          { name: "影像札記", url: "/journal/" },
+        ]}
+      />
       <JsonLd
         data={{
           "@context": "https://schema.org",
