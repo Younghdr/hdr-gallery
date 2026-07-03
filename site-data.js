@@ -35,21 +35,21 @@ window.HDR_SITE_DATA = {
       "category": "travel",
       "youtube": "https://youtu.be/cAJiCyvlY7E?si=qSrLrVNQGBjtzQnQ",
       "description": "Experience true HDR. Preview here or watch on YouTube for the best quality.",
-      "date": "2026-06-13"
+      "date": "2026-06-13T23:09:48-07:00"
     },
     {
       "title": "Insta360 Luna & Canon R5II",
       "category": "3c",
       "youtube": "https://youtu.be/mNSBuB4Yc4o?si=TSRRWgb3R-oq4CL3",
       "description": "Experience true HDR. Preview here or watch on YouTube for the best quality.",
-      "date": "2026-06-13"
+      "date": "2026-06-13T23:10:04-07:00"
     },
     {
       "title": "OMEN Ultra 9 285K RTX5090",
       "category": "3c",
       "youtube": "https://youtu.be/Tji5JMn2hWs?si=bIICcPjyIuFXclzq",
       "description": "Experience true HDR. Preview here or watch on YouTube for the best quality.",
-      "date": "2026-06-20"
+      "date": "2026-06-20T05:19:32-07:00"
     }
   ],
   "photos": [
