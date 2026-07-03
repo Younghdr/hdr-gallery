@@ -4,6 +4,8 @@ import { copy } from "@/lib/copy";
 import { getJournalArticle, getJournalItems, getMusicItems } from "@/lib/site-data";
 import type { JournalPhoto, JournalSection, JournalArticle } from "@/lib/site-data";
 import { SiteFrame } from "@/components/site-components";
+import { JsonLd } from "@/components/json-ld";
+import { absUrl } from "@/lib/url";
 
 export function generateStaticParams() {
   const items = getJournalItems();
@@ -93,8 +95,24 @@ export default async function JournalArticlePage({ params }: { params: Promise<{
 
   const usedPhotoSources = new Set<string>();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.intro || article.subtitle || copy.journal.subtitleZh,
+    image: article.hero ? absUrl(imageSrc(article.hero)) : undefined,
+    datePublished: article.date,
+    author: {
+      "@type": "Person",
+      name: "Young Hung",
+      url: absUrl("/about/"),
+    },
+    url: absUrl(`/journal/${id}/`),
+  };
+
   return (
     <SiteFrame music={getMusicItems()}>
+      <JsonLd data={jsonLd} />
       <article className="px-5 pb-24 pt-32 lg:px-8">
         <header className="mx-auto max-w-5xl">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold">Travel Journal</p>

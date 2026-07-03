@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { copy } from "@/lib/copy";
 import { getJournalItems, getMusicItems } from "@/lib/site-data";
 import { JournalList, PageIntro, SectionHeader, SiteFrame } from "@/components/site-components";
+import { JsonLd } from "@/components/json-ld";
+import { absUrl } from "@/lib/url";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -22,12 +24,46 @@ export const metadata: Metadata = {
   },
 };
 
+function journalCanonical(url?: string): string {
+  if (!url) return absUrl("/journal/");
+  try {
+    const parsed = new URL(url, "http://localhost");
+    const id = parsed.searchParams.get("id");
+    return id ? absUrl(`/journal/${id}/`) : absUrl("/journal/");
+  } catch {
+    return absUrl("/journal/");
+  }
+}
+
 export default function JournalPage() {
   const journals = getJournalItems();
   const music = getMusicItems();
 
   return (
     <SiteFrame music={music}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: journals.map((item, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "BlogPosting",
+              headline: item.title,
+              description: item.description || copy.journal.subtitleZh,
+              url: journalCanonical(item.url),
+              image: item.cover ? absUrl(item.cover) : undefined,
+              datePublished: item.date,
+              author: {
+                "@type": "Person",
+                name: "Young Hung",
+                url: absUrl("/about/"),
+              },
+            },
+          })),
+        }}
+      />
       <PageIntro
         title={copy.journal.title}
         titleZh={copy.journal.titleZh}

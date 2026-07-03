@@ -2,6 +2,8 @@ import { copy } from "@/lib/copy";
 import { getFeaturedHeroImage, getFilmItems, getMusicItems, getPhotographyItems, getPhotoComparisons, photoSrc } from "@/lib/site-data";
 import { FilmGrid, Hero, PhotoMasonry, SectionHeader, SiteFrame, TextPanel } from "@/components/site-components";
 import { BeforeAfterSlider } from "@/components/before-after-slider";
+import { JsonLd } from "@/components/json-ld";
+import { absUrl } from "@/lib/url";
 
 export default function HomePage() {
   const heroImage = getFeaturedHeroImage();
@@ -12,7 +14,30 @@ export default function HomePage() {
 
   return (
     <SiteFrame music={music}>
-      <Hero image={heroImage} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: "Young HDR Gallery",
+              url: absUrl("/"),
+              description:
+                "探索 HDR 旅行、重機與科技影片，以及免費 HDR 顯示器測試工具。",
+              inLanguage: "zh-Hant",
+            },
+            {
+              "@type": "Person",
+              name: "Young Hung",
+              url: absUrl("/about/"),
+              jobTitle: "HDR Photographer & Imaging Workflow Explorer",
+              description:
+                "專注於 HDR Photography、HDR Imaging Workflow、旅行與風景攝影。",
+            },
+          ],
+        }}
+      />
+      <Hero image={heroImage} alt="Young Hung HDR Studio 首頁主視覺" />
 
       <TextPanel>
         <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold">{copy.home.rangeTitle}</p>
