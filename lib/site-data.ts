@@ -17,6 +17,7 @@ export type VideoItem = {
   category?: string;
   youtube: string;
   description?: string;
+  date?: string;
 };
 
 export type JournalPhoto = {

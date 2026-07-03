@@ -35,27 +35,27 @@ export default function FilmsPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          itemListElement: films.map((film, index) => ({
-            "@type": "ListItem",
-            position: index + 1,
-            item: {
-              "@type": "VideoObject",
-              name: film.title,
-              description: film.description || copy.films.subtitleZh,
-              url: film.youtube,
-              embedUrl: youtubeId(film.youtube)
-                ? `https://www.youtube.com/embed/${youtubeId(film.youtube)}`
-                : film.youtube,
-              thumbnailUrl: youtubeId(film.youtube)
-                ? `https://img.youtube.com/vi/${youtubeId(film.youtube)}/maxresdefault.jpg`
-                : undefined,
-              author: {
-                "@type": "Person",
-                name: "Young Hung",
-                url: absUrl("/about/"),
+          itemListElement: films.map((film, index) => {
+            const id = youtubeId(film.youtube);
+            return {
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "VideoObject",
+                name: film.title,
+                description: film.description || copy.films.subtitleZh,
+                url: film.youtube,
+                embedUrl: id ? `https://www.youtube.com/embed/${id}` : film.youtube,
+                thumbnailUrl: id ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg` : undefined,
+                uploadDate: film.date,
+                author: {
+                  "@type": "Person",
+                  name: "Young Hung",
+                  url: absUrl("/about/"),
+                },
               },
-            },
-          })),
+            };
+          }),
         }}
       />
       <PageIntro
