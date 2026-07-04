@@ -49,6 +49,15 @@ export default function ContactPage() {
         >
           Start a Conversation / 開始聯繫
         </a>
+        <p className="mt-4 text-sm text-mist">
+          如果按鈕無法開啟，請直接來信：
+          <a
+            href="mailto:hello@younghunghdr.studio"
+            className="ml-1 text-gold hover:underline"
+          >
+            hello@younghunghdr.studio
+          </a>
+        </p>
       </TextPanel>
     </SiteFrame>
   );
