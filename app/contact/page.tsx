@@ -9,7 +9,7 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export const metadata: Metadata = {
   title: "聯繫 Young Hung",
   description:
-    "有合作、授權、影像製作或 HDR 工作流程相關問題？歡迎透過 Email 與 Young Hung 聯繫，討論你的影像計畫。",
+    "有合作、授權、影像製作或 HDR 工作流程相關問題？歡迎透過 Instagram 與 Young Hung 聯繫，討論你的影像計畫。",
   keywords: [
     "聯繫 Young Hung",
     "HDR 合作",
@@ -45,17 +45,21 @@ export default function ContactPage() {
         <p className="mt-4 text-base leading-8 text-mist">{copy.contact.bodyEn}</p>
         <a
           className="mt-8 inline-flex rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink transition hover:scale-[1.03]"
-          href="mailto:hello@younghunghdr.studio"
+          href="https://www.instagram.com/young_hung_101/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Start a Conversation / 開始聯繫
+          Follow on Instagram / 追蹤 Instagram
         </a>
         <p className="mt-4 text-sm text-mist">
-          如果按鈕無法開啟，請直接來信：
+          如果按鈕無法開啟，請直接前往：
           <a
-            href="mailto:hello@younghunghdr.studio"
+            href="https://www.instagram.com/young_hung_101/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-1 text-gold hover:underline"
           >
-            hello@younghunghdr.studio
+            @young_hung_101
           </a>
         </p>
       </TextPanel>
