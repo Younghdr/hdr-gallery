@@ -189,7 +189,7 @@ export function Hero({ image, alt }: { image: string; alt?: string }) {
   return (
     <section className="relative flex min-h-[92vh] flex-col items-center justify-end px-5 pb-20 pt-32 text-center lg:px-8">
       <div className="absolute inset-0 -z-10">
-        <img src={image} alt={imageAlt} className="h-full w-full object-cover" />
+        <img src={image} alt={imageAlt} className="hero-image h-full w-full object-cover object-[center_42%] md:object-center" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(7,9,13,0.1)_0%,rgba(7,9,13,0.78)_80%)]" />
       </div>
@@ -205,15 +205,15 @@ export function Hero({ image, alt }: { image: string; alt?: string }) {
           <span className="mt-1 block whitespace-nowrap">HDR Studio</span>
         </h1>
         <p className="mx-auto mt-7 max-w-2xl text-xl leading-9 text-pearl md:text-2xl">{copy.hero.zh}</p>
-        <p className="mx-auto mt-3 max-w-2xl text-base leading-8 text-mist md:text-lg">{copy.hero.en}</p>
-        <div className="mt-9 flex flex-wrap justify-center gap-4">
-          <Link className="glass rounded-full px-6 py-3 text-sm font-semibold text-pearl transition hover:bg-white/15 hover:text-gold" href="/photography">
+        <p className="mx-auto mt-2 max-w-xl text-sm leading-7 text-mist/75 md:text-base">{copy.hero.en}</p>
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+          <Link className="primary-cta rounded-full px-7 py-3 text-sm font-semibold text-ink transition" href="/photography">
             {copy.hero.primary}
           </Link>
-          <Link className="glass rounded-full px-6 py-3 text-sm font-semibold text-pearl transition hover:bg-white/15 hover:text-gold" href="/films">
+          <Link className="secondary-cta text-sm font-semibold text-pearl transition hover:text-gold" href="/films">
             {copy.hero.secondary}
           </Link>
-          <Link className="glass rounded-full px-6 py-3 text-sm font-semibold text-pearl transition hover:bg-white/15 hover:text-gold" href="/tests">
+          <Link className="secondary-cta text-sm font-semibold text-pearl transition hover:text-gold" href="/tests">
             {copy.hero.tertiary}
           </Link>
         </div>
@@ -264,7 +264,7 @@ export function PortfolioPaths({ image }: { image: string }) {
       <div className="mx-auto mt-12 grid max-w-7xl gap-6 md:grid-cols-2">
         {items.map((item, index) => (
           <Reveal key={item.href}>
-            <Link href={item.href} className="group glass block overflow-hidden rounded-[8px]">
+            <Link href={item.href} className="group glass block overflow-hidden rounded-xl">
               <div className="relative h-[24rem] overflow-hidden">
                 <img src={item.image} alt={`${item.title} - ${item.titleZh}`} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/10" />
@@ -306,12 +306,12 @@ export function PhotoMasonry({
         alt={photo.title}
         loading="lazy"
         decoding="async"
-        className="w-full object-cover transition duration-700 group-hover:scale-105"
+        className="h-auto w-full object-contain transition duration-700 group-hover:scale-[1.025]"
       />
-      <div className="p-5">
+      <div className={mode === "link" ? "px-5 py-4" : "p-5"}>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">HDR Photography</p>
         <h3 className="mt-2 text-lg font-semibold text-pearl">{photo.title || "HDR Frame"}</h3>
-        {photo.description ? <p className="mt-2 text-sm leading-6 text-mist">{photo.description}</p> : null}
+        {mode !== "link" && photo.description ? <p className="mt-2 text-sm leading-6 text-mist">{photo.description}</p> : null}
       </div>
     </>
   );
@@ -330,7 +330,7 @@ export function PhotoMasonry({
                   photo_src: photoPath(photo),
                 });
               }}
-              className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left transition hover:-translate-y-1"
+              className="gallery-card group mb-4 block w-full break-inside-avoid overflow-hidden text-left transition hover:-translate-y-1"
             >
               {cardContent(photo, index)}
             </Link>
@@ -344,7 +344,7 @@ export function PhotoMasonry({
                 });
                 setLightboxIndex(index);
               }}
-              className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-[8px] border border-white/10 bg-white/8 text-left"
+              className="gallery-card group mb-4 block w-full break-inside-avoid overflow-hidden text-left"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -376,7 +376,7 @@ export function FilmGrid({ films }: { films: VideoItem[] }) {
         const id = youtubeId(film.youtube);
         return (
           <Reveal key={`${film.youtube}-${index}`}>
-            <article className="glass overflow-hidden rounded-[8px]">
+            <article className="glass overflow-hidden rounded-xl">
               <div className="aspect-video bg-black">
                 {id ? (
                   <iframe
@@ -408,7 +408,7 @@ export function FilmGrid({ films }: { films: VideoItem[] }) {
                       youtube_url: film.youtube,
                     })
                   }
-                  className="mt-5 inline-flex items-center justify-center rounded-[8px] bg-white/10 px-5 py-3 text-sm font-semibold text-pearl transition hover:bg-white/20"
+                  className="mt-5 inline-flex items-center justify-center rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-pearl transition hover:bg-white/20"
                 >
                   Open YouTube HDR
                 </a>
@@ -821,7 +821,7 @@ export function JournalList({ items }: { items: JournalItem[] }) {
         const href = id ? `/journal/${id}` : item.url || "#";
         return (
           <Reveal key={`${item.title}-${index}`}>
-            <Link href={href} className="group block overflow-hidden rounded-[8px] glass transition hover:scale-[1.01]">
+            <Link href={href} className="group block overflow-hidden rounded-xl glass transition hover:scale-[1.01]">
               {item.cover ? (
                 <img
                   src={item.cover}
@@ -847,7 +847,7 @@ export function JournalList({ items }: { items: JournalItem[] }) {
 export function TextPanel({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <Reveal className={`mx-auto max-w-5xl px-5 pb-24 lg:px-8 ${className || ""}`}>
-      <div className="glass rounded-[8px] p-7 md:p-10">{children}</div>
+      <div className="glass rounded-xl p-7 md:p-10">{children}</div>
     </Reveal>
   );
 }

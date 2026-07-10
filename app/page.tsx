@@ -43,7 +43,7 @@ export default function HomePage() {
         <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold">{copy.home.rangeTitle}</p>
         <h2 className="mt-3 text-3xl font-semibold text-pearl">{copy.home.rangeTitleZh}</h2>
         <p className="mt-6 text-base leading-8 text-mist">{copy.home.rangeSubtitleZh}</p>
-        <p className="mt-3 text-base leading-8 text-mist">{copy.home.rangeSubtitle}</p>
+        <p className="mt-2 text-sm leading-7 text-mist/70">{copy.home.rangeSubtitle}</p>
       </TextPanel>
 
       {comparisons.length > 0 ? (
