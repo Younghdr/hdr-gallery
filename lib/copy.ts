@@ -7,6 +7,7 @@ export const brand = {
 };
 
 export const navItems = [
+  { href: "/travel", label: "Travel", labelZh: "旅遊" },
   { href: "/photography", label: "HDR Photography", labelZh: "HDR 攝影" },
   { href: "/films", label: "HDR Films", labelZh: "HDR 影片" },
   { href: "/tests", label: "Display Tests", labelZh: "顯示測試" },

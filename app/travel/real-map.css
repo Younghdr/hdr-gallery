@@ -1,0 +1,13 @@
+.real-route-map { position: absolute; inset: 0; z-index: 1; background: #1e2118; }
+.map-shade { position: absolute; z-index: 2; pointer-events: none; inset: 0; background: linear-gradient(90deg, rgba(11,12,9,.38), transparent 35%, rgba(11,12,9,.08)), linear-gradient(0deg, rgba(11,12,9,.3), transparent 30%); mix-blend-mode: multiply; }
+.map-panel .leaflet-tile { filter: grayscale(.42) sepia(.38) hue-rotate(20deg) brightness(.58) contrast(1.2); }
+.map-panel .leaflet-control-container { position: relative; z-index: 5; }
+.map-panel .leaflet-control-zoom a { background: #151610; color: #e8dfcf; border-color: #393b31; }
+.map-panel .leaflet-control-attribution { background: rgba(14,15,11,.72); color: #aaa; font-size: 8px; }
+.map-panel .leaflet-control-attribution a { color: #e7692e; }
+.route-marker-wrap { background: transparent !important; border: 0 !important; }
+.route-marker { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #d5d6c2; color: #111; font: 700 9px monospace; box-shadow: 0 0 0 7px rgba(213,214,194,.16); transition: .25s; }
+.route-marker.is-active { background: #e7692e; color: #fff; transform: scale(1.3); box-shadow: 0 0 0 9px rgba(231,105,46,.2); }
+.leaflet-tooltip { border: 0 !important; border-radius: 0 !important; background: #12130f !important; color: #ede5d5 !important; font: 10px monospace !important; letter-spacing: .1em !important; box-shadow: none !important; }
+.leaflet-tooltip:before { border-top-color: #12130f !important; }
+.map-compass, .map-scale, .selected-card { z-index: 4; }
