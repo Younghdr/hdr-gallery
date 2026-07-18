@@ -23,7 +23,6 @@ export default function VisaGuidePage() {
         <section><h3>基本文件 <span>REQUIRED</span></h3><ul><li>護照規格照片</li><li>護照個人資料頁</li><li>近六個月英文銀行對帳單或財力證明</li><li>英文申請動機信</li><li>已確認的來回機票</li><li>住宿預訂與完整旅行行程</li></ul></section>
         <section><h3>旅行社或代理申請 <span>IF APPLICABLE</span></h3><ul><li>旅行社行程確認或支持文件</li><li>每位申請人簽署的 Power of Attorney</li><li>Agent／旅行社聯絡資料</li></ul></section>
         <section><h3>送件之後 <span>DON'T FORGET</span></h3><ul><li>保存每個人的申請編號</li><li>定期登入查看申請狀態</li><li>長時間沒有更新時主動詢問</li><li>核准後完成付款並下載電子簽證</li></ul></section>
-        <aside><strong>這次不需要良民證</strong><p>良民證不在一般 Holiday Visa 的官方固定文件清單中，不必為了這次申請額外辦理；若系統或承辦單位個別要求，再依通知補件。</p></aside>
       </div>
     </section>
     <section className="visa-process"><div className="process-title"><p>APPLICATION / 02</p><h2>六個步驟，完成線上申請。</h2></div>{steps.map(step=><article key={step.number}><div><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></div><figure><img src={`${BASE_PATH}/travel/visa/${step.image}`} alt={`納米比亞簽證申請步驟 ${step.number}：${step.title}`} loading="lazy" /></figure></article>)}</section>
