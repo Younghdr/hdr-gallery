@@ -32,11 +32,34 @@ export default function NamibiaExperience() {
       <section className="namibia-hero" style={{ backgroundImage: `linear-gradient(90deg,rgba(8,8,6,.62),rgba(8,8,6,.12) 60%,rgba(8,8,6,.35)),url('${BASE_PATH}/travel/namibia-hero.png')` }}>
         <div className="hero-noise" />
         <div className="hero-copy">
-          <p className="kicker">13 DAYS · 12 NIGHTS · PRIVATE EXPEDITION</p>
+          <p className="kicker">TAIWAN ↔ NAMIBIA · 16 DAYS TOTAL · 13 DAYS IN NAMIBIA</p>
           <h1>INTO THE<br /><em>WILD</em></h1>
           <div className="hero-meta"><span>NAMIBIA</span><span>22°34′S 17°05′E</span><span>SEP — OCT 2025</span></div>
         </div>
         <div className="scroll-cue"><i />SCROLL TO EXPLORE</div>
+      </section>
+
+      <section className="country-portrait" aria-labelledby="country-portrait-title">
+        <div className="portrait-heading">
+          <p className="section-label">QUICK PORTRAIT / 01</p>
+          <h2 id="country-portrait-title">快速認識<br />納米比亞</h2>
+          <strong>這裡不只有動物</strong>
+          <p>很多人想到非洲，第一個想到的是 Safari。</p>
+          <p>但納米比亞真正令人難忘的，是一片經過數千萬年形成的沙漠、直抵大西洋的巨大沙丘、在乾旱中學會生存的生命，以及城市之外幾乎沒有人工照明的黑夜。</p>
+          <p>這個人口不多的國家，卻擁有大得難以想像的土地。</p>
+          <figure className="portrait-scale-figure">
+            <img src={`${BASE_PATH}/travel/namibia-taiwan-scale-preview.webp`} alt="納米比亞與台灣面積約二十三倍的比例概念圖" loading="lazy" />
+            <figcaption><span>SCALE STUDY / PREVIEW</span><b>約 23 個台灣的面積</b><small>概念示意，非精確排列</small></figcaption>
+          </figure>
+        </div>
+        <div className="portrait-list">
+          <article><span>01 / TIME</span><h3>古老沙漠與千年活化石</h3><p>納米布沙漠歷經數千萬年的風、洋流與地質變化；外形奇特的千歲蘭一生只長出兩片葉子，部分植株能在沙漠中存活超過千年。</p></article>
+          <article><span>02 / SCALE</span><h3>一個納米比亞，約等於二十三個台灣</h3><p>納米比亞人口僅約三百萬，國土面積卻約為台灣的二十三倍；光是 Etosha 國家公園，就接近台灣的三分之二大。</p></article>
+          <article><span>03 / LIFE</span><h3>獵豹、沙漠象與沙漠獅</h3><p>納米比亞擁有全球規模最大的自由活動獵豹族群；在 Etosha 與西北部荒野，也能看見適應乾旱環境的象、獅與其他野生動物。</p></article>
+          <article><span>04 / CULTURE</span><h3>世界遺產與多層次文化</h3><p>Twyfelfontein 保存兩千多幅古老岩刻；Spitzkoppe 的桑人岩畫、不同族群的傳統，以及 Swakopmund 的德國殖民痕跡，也留下不同時代的人文記憶。</p></article>
+          <article><span>05 / LAND & LIGHT</span><h3>花崗岩群峰、沙海與星空</h3><p>Spitzkoppe 的花崗岩巨石與天然拱門從平原升起；Sandwich Harbour 的沙丘直接落入大西洋。遠離城市後，幾乎沒有人工照明的黑夜，則讓銀河成為地景的一部分。</p></article>
+          <div className="portrait-link"><p>這些不是散落的景點，而是這趟旅程即將穿越的土地。</p><a href={`${BASE_PATH}/travel/guide/`}>完整認識納米比亞 <b>→</b></a></div>
+        </div>
       </section>
 
       <section className="route-intro" id="route">
@@ -135,19 +158,6 @@ export default function NamibiaExperience() {
             <blockquote>你在旅途中的某一刻停下腳步，挑選一張卡片，寫下此刻的心情。然後它開始一段獨立的旅程。</blockquote>
             <p>它跨越海洋、穿過邊境、經過無數雙手，最後出現在某個人的信箱裡。這個過程，本身就是一種浪漫。</p>
             <p>至於它會不會抵達？何時抵達？那都是命運的一部分。就像旅行本身，充滿不確定性，但也因此更加珍貴。</p>
-          </div>
-        </article>
-
-        <article className="namibia-note">
-          <div className="namibia-note-title"><p className="story-chapter">納米比亞 🇳🇦</p><h3>壯麗的自然景觀<br /><span>不只是動物</span></h3></div>
-          <div className="note-copy">
-            <p>很多人提到非洲，第一個想到的是「Safari 看動物」。但納米比亞不只有動物，這個國家的自然景觀，豐富到令人難以置信。</p>
-            <ul>
-              <li><b>3,000,000</b><span>三百萬人，散落在二十三個台灣大的土地上。</span></li>
-              <li><b>55,000,000</b><span>沙漠有五千五百萬年的歷史。</span></li>
-              <li><b>1,000 YEARS</b><span>枯樹站在白色鹽地裡，已經站了近千年。</span></li>
-            </ul>
-            <p>象群學會了在沙漠裡行走與生活，全世界只有這裡。有些地方，安靜到你會開始聽見自己。</p>
           </div>
         </article>
 

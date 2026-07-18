@@ -5,6 +5,86 @@
   white-space: nowrap;
 }
 
+/* Desktop readability pass: retain the editorial hierarchy without micro type. */
+@media (min-width: 901px) {
+  .travel-page .travel-nav { font-size: 13px; }
+  .travel-page .travel-mark b { font-size: 12px; }
+  .travel-page .kicker,
+  .travel-page .section-label { font-size: 14px; line-height: 1.5; }
+  .travel-page .hero-meta { font-size: 13px; }
+  .travel-page .scroll-cue { font-size: 11px; }
+
+  .travel-page .portrait-heading > p:not(.section-label) { font-size: 18px; }
+  .travel-page .portrait-list article > span { font-size: 12px; line-height: 1.5; }
+  .travel-page .portrait-list article > p { font-size: 16px; line-height: 1.85; }
+  .travel-page .portrait-link a { font-size: 13px; }
+  .travel-page .portrait-scale-figure figcaption { font-size: 11px; line-height: 1.5; }
+  .travel-page .portrait-scale-figure figcaption b { font-size: 12px; }
+  .travel-page .portrait-scale-figure figcaption small { font-size: 10px; }
+
+  .travel-page .route-intro > p { font-size: 18px; line-height: 1.9; }
+  .travel-page .selected-card p { font-size: 12px; line-height: 1.5; }
+  .travel-page .selected-card span { font-size: 15px; }
+  .travel-page .itinerary-head { font-size: 12px; }
+  .travel-page .stop-main small { font-size: 11px; line-height: 1.4; }
+  .travel-page .stop-main em { font-size: 13px; }
+  .travel-page .stop-stay { font-size: 11px; }
+  .travel-page .travel-stats small { font-size: 10px; line-height: 1.4; }
+  .travel-page .travel-stats b { font-size: 18px; }
+
+  .travel-page .guide-teaser-copy > p { font-size: 18px; }
+  .travel-page .guide-teaser-cta { font-size: 14px; }
+  .travel-page .journal-deck { font-size: 18px; }
+  .travel-page .video-caption { font-size: 12px; line-height: 1.5; }
+  .travel-page .postcard-story aside { font-size: 12px; }
+  .travel-page .story-chapter { font-size: 13px !important; line-height: 1.5 !important; }
+  .travel-page .story-copy p { font-size: 18px; line-height: 1.9; }
+  .travel-page .postcard-photo figcaption { font-size: 11px; line-height: 1.5; }
+  .travel-page .journey-credits > span,
+  .travel-page .journey-credits small,
+  .travel-page .travel-footer p,
+  .travel-page .travel-footer small { font-size: 12px; line-height: 1.5; }
+  .travel-page .travel-footer a { font-size: 14px; }
+}
+
+@media (min-width: 2200px) {
+  .travel-page .travel-nav { font-size: 15px; }
+  .travel-page .travel-mark b { font-size: 14px; }
+  .travel-page .kicker,
+  .travel-page .section-label { font-size: 17px; }
+  .travel-page .hero-meta { font-size: 16px; }
+  .travel-page .scroll-cue { font-size: 14px; }
+  .travel-page .portrait-heading > p:not(.section-label),
+  .travel-page .route-intro > p,
+  .travel-page .guide-teaser-copy > p,
+  .travel-page .journal-deck { font-size: 22px; }
+  .travel-page .portrait-list article > span,
+  .travel-page .video-caption,
+  .travel-page .postcard-story aside { font-size: 15px; }
+  .travel-page .portrait-list article > p { font-size: 20px; }
+  .travel-page .portrait-link a,
+  .travel-page .guide-teaser-cta { font-size: 16px; }
+  .travel-page .portrait-scale-figure figcaption { font-size: 14px; }
+  .travel-page .portrait-scale-figure figcaption b { font-size: 15px; }
+  .travel-page .portrait-scale-figure figcaption small { font-size: 13px; }
+  .travel-page .selected-card p,
+  .travel-page .itinerary-head { font-size: 15px; }
+  .travel-page .selected-card span { font-size: 18px; }
+  .travel-page .stop-main small,
+  .travel-page .stop-stay,
+  .travel-page .travel-stats small { font-size: 14px; }
+  .travel-page .stop-main em { font-size: 16px; }
+  .travel-page .travel-stats b { font-size: 21px; }
+  .travel-page .story-chapter { font-size: 16px !important; }
+  .travel-page .story-copy p { font-size: 21px; }
+  .travel-page .postcard-photo figcaption { font-size: 14px; }
+  .travel-page .journey-credits > span,
+  .travel-page .journey-credits small,
+  .travel-page .travel-footer p,
+  .travel-page .travel-footer small { font-size: 15px; }
+  .travel-page .travel-footer a { font-size: 17px; }
+}
+
 .namibia-note h3 span {
   display: inline-flex;
   align-items: center;

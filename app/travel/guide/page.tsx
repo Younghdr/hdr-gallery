@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: "Namibia Travel Guide", description: 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const guides = [
-  { n: "01", en: "START HERE", zh: "快速認識納米比亞", text: "天數、季節、語言、貨幣與第一次前往前最需要知道的事。", slug: "overview" },
+  { n: "01", en: "START HERE", zh: "快速認識納米比亞", text: "從時間、尺度、生命、人文與光線，先理解這片土地為什麼如此不同。", slug: "overview", ready: true },
   { n: "02", en: "VISA & ENTRY", zh: "簽證與入境", text: "準備文件、六步線上申請與官方入口。", slug: "visa", ready: true },
   { n: "03", en: "FLIGHTS", zh: "機票與轉機", text: "從台灣出發的航線、轉機與行李安排。", slug: "flights" },
   { n: "04", en: "ITINERARY", zh: "行程天數與路線", text: "經典初訪、完整環線與深度攝影三種規劃。", slug: "itinerary" },

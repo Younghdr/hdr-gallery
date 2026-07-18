@@ -8,7 +8,7 @@ import "./visa-guide.css";
 
 export const metadata: Metadata = {
   title: "Namibia — Into the Wild",
-  description: "13 天深入納米比亞的沙漠、荒野與星空探險行程。",
+  description: "從台灣出發約 16 天，包含 13 天深入納米比亞沙漠、荒野與星空的探險行程。",
 };
 
 export default function TravelPage() {
