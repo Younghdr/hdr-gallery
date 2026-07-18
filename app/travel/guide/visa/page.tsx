@@ -7,7 +7,7 @@ const steps = [
   { number: "01", title: "進入官方網站", text: "開啟納米比亞移民暨內政部的 E-Services，從 Register 建立申請帳號。", image: "step-1.png" },
   { number: "02", title: "註冊並確認帳號", text: "填寫姓名、電子郵件與密碼後，前往信箱點選確認連結，再回到系統登入。", image: "step-2.png" },
   { number: "03", title: "建立觀光簽證申請", text: "選擇 New Holiday Visa Application，依序填寫個人、護照與行程資料並上傳證明文件。", image: "step-3.png" },
-  { number: "04", title: "送出並等待審核", text: "系統顯示申請成功後，保留參考編號；後續狀態會透過電子郵件與申請平台更新。", image: "step-4.png" },
+  { number: "04", title: "送出並等待審核", text: "保留每個人的申請編號並定期查看狀態。審核時間不固定，即使同行、相近時間送件，進度也可能不同。", image: "step-4.png" },
   { number: "05", title: "核准後線上付款", text: "收到核准通知後登入系統完成付款。畫面可能另列線上交易處理費，請以當下顯示金額為準。", image: "step-5.png" },
   { number: "06", title: "下載電子簽證", text: "付款成功、狀態更新為 Visa Issued 後下載簽證檔案，建議同時保存電子檔與紙本。", image: "step-6.png" },
 ];
@@ -16,10 +16,18 @@ export default function VisaGuidePage() {
   return <main className="guide-page visa-article">
     <header className="guide-nav"><a href={`${BASE_PATH}/travel/guide/`}>← ALL GUIDES</a><a href={`${BASE_PATH}/travel/`}>JOURNEY ↗</a></header>
     <section className="visa-cover"><p>GUIDE / 02 · VISA & ENTRY</p><h1>納米比亞<br />線上觀光簽證</h1><div><span>6 STEPS</span><span>REFERENCE · 2025.09</span></div></section>
-    <section className="visa-lead"><h2>先把簽證，<br />留在出發前完成。</h2><div><p>我們這次使用納米比亞線上觀光簽證系統。流程本身不複雜，真正需要時間的是事前備妥英文文件、確認行程資料，以及等待審核結果。</p><a href="https://eservices.mhaiss.gov.na/holidayvisa-services" target="_blank" rel="noreferrer">OPEN OFFICIAL APPLICATION ↗</a><small>實際資格、費用與文件要求可能變動；送件前請以納米比亞官方網站最新公告為準。</small></div></section>
-    <section className="visa-docs"><div><p>PREPARE / 01</p><h2>送件前，先整理成一個資料夾。</h2></div><ol><li>近三個月護照照片</li><li>護照個人資料頁</li><li>近六個月英文銀行對帳單或財力證明</li><li>英文申請動機信</li><li>來回機票或訂位證明</li><li>住宿與旅行行程證明</li><li>英文旅遊保險證明</li><li>旅行社邀請函或支持文件</li></ol></section>
+    <section className="visa-lead"><h2>先把簽證，<br />留在出發前完成。</h2><div><p>和日本、泰國等常見的免簽旅行不同，納米比亞觀光簽證需要事前送件，並準備財力、機票、住宿與行程等英文證明。文件並非難以取得，但項目多，審核進度也不一定同步；若在短時間內才開始準備，很容易手忙腳亂。</p><p>我們同團成員在相近時間送件，處理速度仍不相同。等待期間也曾請旅行社協助寄信詢問，擔心無法在出發前取得簽證。最重要的經驗只有一件事：儘早整理、儘早送件，為審核與可能的補件留下時間。</p><a href="https://eservices.mhaiss.gov.na/holidayvisa-services" target="_blank" rel="noreferrer">OPEN OFFICIAL APPLICATION ↗</a><small>實際資格、費用與文件要求可能變動；送件前請以納米比亞官方網站最新公告為準。</small></div></section>
+    <section className="visa-docs">
+      <div><p>ONE-PAGE CHECKLIST / 01</p><h2>先準備好，<br />就不會在送件時慌張。</h2><p className="checklist-intro">把每位旅客的文件分開建立資料夾，檔名加上英文姓名。送件前照著這一頁逐項確認即可。</p></div>
+      <div className="checklist-groups">
+        <section><h3>基本文件 <span>REQUIRED</span></h3><ul><li>護照規格照片</li><li>護照個人資料頁</li><li>近六個月英文銀行對帳單或財力證明</li><li>英文申請動機信</li><li>已確認的來回機票</li><li>住宿預訂與完整旅行行程</li></ul></section>
+        <section><h3>旅行社或代理申請 <span>IF APPLICABLE</span></h3><ul><li>旅行社行程確認或支持文件</li><li>每位申請人簽署的 Power of Attorney</li><li>Agent／旅行社聯絡資料</li></ul></section>
+        <section><h3>送件之後 <span>DON'T FORGET</span></h3><ul><li>保存每個人的申請編號</li><li>定期登入查看申請狀態</li><li>長時間沒有更新時主動詢問</li><li>核准後完成付款並下載電子簽證</li></ul></section>
+        <aside><strong>這次不需要良民證</strong><p>良民證不在一般 Holiday Visa 的官方固定文件清單中，不必為了這次申請額外辦理；若系統或承辦單位個別要求，再依通知補件。</p></aside>
+      </div>
+    </section>
     <section className="visa-process"><div className="process-title"><p>APPLICATION / 02</p><h2>六個步驟，完成線上申請。</h2></div>{steps.map(step=><article key={step.number}><div><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></div><figure><img src={`${BASE_PATH}/travel/visa/${step.image}`} alt={`納米比亞簽證申請步驟 ${step.number}：${step.title}`} loading="lazy" /></figure></article>)}</section>
     <aside className="visa-credit"><span>SOURCE &amp; THANKS</span><h2>同行旅伴的申請經驗</h2><p>本章依據旅伴 Elena 於 2025 年申請納米比亞簽證的實際經驗整理。若想查看完整的申請步驟與操作畫面，請參考她的原始教學文章。</p><div><a href="https://blog.elena.tw/apply-online-for-a-namibia-holiday-visa/" target="_blank" rel="noreferrer">閱讀原始簽證教學 ↗</a><a href="https://blog.elena.tw/" target="_blank" rel="noreferrer">VISIT ELENA'S BLOG ↗</a></div></aside>
-    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>LAST REVIEWED · 2025.09</span></footer>
+    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>EXPERIENCE · 2025.09 / REVIEWED · 2026.07</span></footer>
   </main>;
 }
