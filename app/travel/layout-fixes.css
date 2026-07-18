@@ -77,8 +77,33 @@
 .poster-play em { color: #fff; font: 700 9px monospace; font-style: normal; letter-spacing: .22em; text-shadow: 0 2px 8px #000; }
 .video-poster:hover .poster-play i { transform: scale(1.08); }
 
+.film-afterword {
+  max-width: 920px;
+  margin: 70px auto 0;
+  padding: 0 4vw 75px;
+  border-bottom: 1px solid #34352d;
+  text-align: center;
+}
+
+.film-afterword p {
+  margin: 0;
+  color: #ede5d5;
+  font: italic 400 clamp(2rem, 4.4vw, 4.6rem)/1.35 Georgia, serif;
+}
+
+.film-afterword span {
+  display: block;
+  margin-top: 24px;
+  color: #999b90;
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: .05em;
+}
+
 @media (max-width: 600px) {
   .namibia-hero { background-position: 76% center !important; }
   .poster-play i { width: 56px; height: 56px; }
   .poster-label b { font-size: 2.2rem; }
+  .film-afterword { margin-top: 52px; padding: 0 0 58px; }
+  .film-afterword p { font-size: 2.2rem; }
 }

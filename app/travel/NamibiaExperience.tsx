@@ -74,7 +74,7 @@ export default function NamibiaExperience() {
         <div className="journal-heading">
           <p className="section-label">TRAVEL JOURNAL / 02</p>
           <h2>有些旅程，<br />在回家之後才抵達。</h2>
-          <p className="journal-deck">一段 8 分鐘的影像，與一張走了三個月才抵達台灣的明信片。</p>
+          <p className="journal-deck">一部八分鐘的 8K HDR 影像紀錄，與一張走了三個月才抵達台灣的明信片。</p>
         </div>
 
         <div className="journal-video">
@@ -96,6 +96,11 @@ export default function NamibiaExperience() {
             )}
           </div>
           <div className="video-caption"><span>FILM 01</span><strong>NAMIBIA · 8K HDR</strong><a href="https://youtu.be/cAJiCyvlY7E" target="_blank" rel="noreferrer">WATCH ON YOUTUBE ↗</a></div>
+        </div>
+
+        <div className="film-afterword">
+          <p>這趟旅程沒有旁白，畫面會說話。</p>
+          <span>八分鐘，帶你走進一個大部分人一生不會踏上的地方。</span>
         </div>
 
         <article className="postcard-story">
@@ -126,7 +131,6 @@ export default function NamibiaExperience() {
               <li><b>1,000 YEARS</b><span>枯樹站在白色鹽地裡，已經站了近千年。</span></li>
             </ul>
             <p>象群學會了在沙漠裡行走與生活，全世界只有這裡。有些地方，安靜到你會開始聽見自己。</p>
-            <p className="film-line">這趟旅程沒有旁白。畫面會說話。<br />8 分鐘，帶你去一個大部分人一生不會踏上的地方。</p>
           </div>
         </article>
 
