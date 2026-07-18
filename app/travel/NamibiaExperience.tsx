@@ -18,6 +18,7 @@ const stops = [
 
 export default function NamibiaExperience() {
   const [active, setActive] = useState(0);
+  const [videoOpen, setVideoOpen] = useState(false);
   const selected = stops[active];
 
   return (
@@ -78,13 +79,21 @@ export default function NamibiaExperience() {
 
         <div className="journal-video">
           <div className="video-frame">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/cAJiCyvlY7E?rel=0&modestbranding=1"
-              title="Namibia 8K HDR 旅遊紀錄"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              loading="lazy"
-            />
+            {videoOpen ? (
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/cAJiCyvlY7E?autoplay=1&rel=0&modestbranding=1"
+                title="Namibia 8K HDR 旅遊紀錄"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            ) : (
+              <button className="video-poster" type="button" onClick={() => setVideoOpen(true)} aria-label="播放 Namibia 8K HDR 影片">
+                <img src={`${BASE_PATH}/Photo/2Y6A7079-1781977032501.avif`} alt="Deadvlei 納米比亞死亡谷" loading="lazy" />
+                <span className="poster-shade" />
+                <span className="poster-label"><small>AN 8K HDR FILM</small><b>NAMIBIA</b></span>
+                <span className="poster-play"><i>▶</i><em>PLAY FILM</em></span>
+              </button>
+            )}
           </div>
           <div className="video-caption"><span>FILM 01</span><strong>NAMIBIA · 8K HDR</strong><a href="https://youtu.be/cAJiCyvlY7E" target="_blank" rel="noreferrer">WATCH ON YOUTUBE ↗</a></div>
         </div>
