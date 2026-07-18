@@ -72,7 +72,15 @@ export default function NamibiaExperience() {
 
       <section className="guide-teaser" id="guide">
         <p className="section-label">BEFORE YOU GO / GUIDE</p>
-        <div><h2>準備前往<br />納米比亞？</h2><p>從簽證、航班與路線規劃，到攝影器材與荒野安全，把真正用得到的資訊整理成一套旅行指南。</p><a href={`${BASE_PATH}/travel/guide/`}>進入納米比亞旅行攻略 <span>↗</span></a></div>
+        <div>
+          <a className="guide-title-link" href={`${BASE_PATH}/travel/guide/`} aria-label="進入納米比亞旅行攻略">
+            <h2>準備前往<br />納米比亞？</h2>
+          </a>
+          <div className="guide-teaser-copy">
+            <p>從簽證、航班與路線規劃，到攝影器材與荒野安全，把真正用得到的資訊整理成一套旅行指南。</p>
+            <a className="guide-teaser-cta" href={`${BASE_PATH}/travel/guide/`}><span>開始準備這趟旅行</span><b>→</b></a>
+          </div>
+        </div>
       </section>
 
       <section className="travel-journal" id="journal">
