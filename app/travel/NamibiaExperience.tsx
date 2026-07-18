@@ -122,6 +122,10 @@ export default function NamibiaExperience() {
             <p className="story-chapter">三個月後抵達的明信片</p>
             <h3>最近收到了一張明信片。</h3>
             <p className="story-lead">準確來說，是一張三個月前從納米比亞寄出的明信片。我早已放棄它會抵達的希望，甚至忘記了自己寄過這張卡片。</p>
+            <figure className="postcard-photo">
+              <img src={`${BASE_PATH}/travel/namibia-postcard.jpg`} alt="從納米比亞寄回台灣、寫滿同行旅伴留言與簽名的明信片" loading="lazy" />
+              <figcaption><span>THE CARD THAT MADE IT HOME</span><b>NAMIBIA → TAIWAN · 3 MONTHS</b></figcaption>
+            </figure>
             <p>打開信箱的那一刻，我看著上面模糊的郵戳，開始思考：是旅遊嚮導忘了幫我寄？還是它在某個非洲小鎮的郵局裡躺了三個月，才終於啟程前往台灣？</p>
 
             <hr />
