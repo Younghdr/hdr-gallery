@@ -216,6 +216,9 @@ export function Hero({ image, alt }: { image: string; alt?: string }) {
           <Link className="secondary-cta text-sm font-semibold text-pearl transition hover:text-gold" href="/tests">
             {copy.hero.tertiary}
           </Link>
+          <Link className="secondary-cta text-sm font-semibold text-pearl transition hover:text-gold" href="/travel">
+            Travel
+          </Link>
         </div>
       </motion.div>
     </section>
