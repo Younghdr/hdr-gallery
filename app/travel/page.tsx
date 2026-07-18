@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MusicPlayer } from "@/components/music-player";
 import NamibiaExperience from "./NamibiaExperience";
 import "./travel.css";
 import "./real-map.css";
@@ -12,5 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function TravelPage() {
-  return <NamibiaExperience />;
+  return <>
+    <NamibiaExperience />
+    <MusicPlayer playlist={[{ title: "砂漠 · Namibia", src: "/travel/namibia-desert-theme.mp3" }]} />
+  </>;
 }
