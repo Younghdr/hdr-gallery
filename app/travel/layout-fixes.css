@@ -175,8 +175,8 @@
   display: block;
   margin-top: 24px;
   color: #999b90;
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: clamp(17px, 1.05vw, 21px);
+  line-height: 1.75;
   letter-spacing: .05em;
 }
 
@@ -186,4 +186,5 @@
   .poster-label b { font-size: 2.2rem; }
   .film-afterword { margin-top: 52px; padding: 0 0 58px; }
   .film-afterword p { font-size: 2.2rem; }
+  .film-afterword span { margin-top: 20px; font-size: 16px; line-height: 1.7; letter-spacing: .025em; }
 }

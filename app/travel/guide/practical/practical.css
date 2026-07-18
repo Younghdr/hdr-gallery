@@ -1,0 +1,175 @@
+.game-guide {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+}
+
+.game-guide li {
+  padding: 16px 0;
+  border-top: 1px solid rgba(233, 225, 210, 0.17);
+  color: #b3b1a7;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.game-guide strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #ff7a3d;
+  font-size: 18px;
+}
+
+.field-picks .field-grid article {
+  color: #e9e1d2;
+}
+
+.field-picks .field-grid h3 {
+  color: #f2eadb;
+}
+
+.field-picks .field-grid p,
+.field-picks .game-guide li {
+  color: #c8c3b8;
+}
+
+@media (min-width: 1800px) {
+  .game-guide li {
+    font-size: 20px;
+  }
+
+  .game-guide strong {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 560px) {
+  .game-guide li {
+    font-size: 16px;
+  }
+}
+
+.medicine-block {
+  margin-top: 70px;
+}
+
+.medicine-block > span {
+  color: #d96a38;
+  font: 700 15px/1.5 monospace;
+  letter-spacing: 0.16em;
+}
+
+.medicine-block > h3 {
+  margin: 22px 0 36px;
+  font: 400 clamp(2rem, 3.2vw, 3.8rem)/1.2 Georgia, "Noto Serif TC", serif;
+}
+
+.medicine-block > p {
+  max-width: 980px;
+  margin-top: 28px;
+  color: #575850;
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+.medicine-table {
+  border-top: 1px solid #bdb5a8;
+}
+
+.medicine-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1.1fr 1.15fr 1.45fr;
+  border-bottom: 1px solid #c9c1b4;
+}
+
+.medicine-row > * {
+  margin: 0;
+  padding: 24px 22px;
+  border-left: 1px solid #d1c9bd;
+  color: #4c4d46;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.medicine-row > *:first-child {
+  border-left: 0;
+}
+
+.medicine-row strong {
+  color: #20211d;
+  font-size: 18px;
+}
+
+.medicine-row small {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.medicine-head b {
+  color: #d96a38;
+  font: 700 14px/1.5 monospace;
+  letter-spacing: 0.12em;
+}
+
+.child-note {
+  display: grid;
+  grid-template-columns: 0.8fr 3.7fr;
+  gap: 22px;
+  padding: 26px 22px;
+  border-bottom: 1px solid #c9c1b4;
+}
+
+.child-note b {
+  color: #d96a38;
+  font: 700 14px/1.6 monospace;
+  letter-spacing: 0.1em;
+}
+
+.child-note p {
+  margin: 0;
+  color: #4c4d46;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+@media (min-width: 1800px) {
+  .medicine-block > span,
+  .medicine-head b {
+    font-size: 17px;
+  }
+
+  .medicine-block > p,
+  .medicine-row > * {
+    font-size: 20px;
+  }
+
+  .medicine-row strong {
+    font-size: 22px;
+  }
+
+  .child-note b,
+  .child-note p {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 800px) {
+  .medicine-row {
+    grid-template-columns: 1fr;
+    padding: 18px 0;
+  }
+
+  .medicine-head {
+    display: none;
+  }
+
+  .medicine-row > * {
+    padding: 8px 0;
+    border-left: 0;
+  }
+
+  .child-note {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-inline: 0;
+  }
+}

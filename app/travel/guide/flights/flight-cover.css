@@ -1,0 +1,370 @@
+.flight-cover h1 {
+  max-width: 1500px;
+  margin: 35px 0 28px;
+  line-height: .9;
+}
+
+.flight-cover h1 span,
+.flight-cover h1 em {
+  display: block;
+}
+
+.flight-cover h1 em {
+  max-width: 1200px;
+  margin-top: .14em;
+  margin-left: 8vw;
+  color: #d96a38;
+  font-size: .78em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -.045em;
+  -webkit-text-stroke: 0;
+}
+
+.flight-cover > div:not(.cover-route) {
+  margin-top: 48px;
+}
+
+.flight-cover .cover-route {
+  display: grid;
+  grid-template-columns: auto minmax(140px, 520px) auto;
+  align-items: center;
+  gap: 18px;
+  width: min(720px, 65vw);
+  margin-left: 8vw;
+  color: #c5bcae;
+  font: 700 11px/1 monospace;
+  letter-spacing: .18em;
+}
+
+.cover-route i {
+  position: relative;
+  height: 1px;
+  background: rgba(236, 229, 215, .5);
+}
+
+.cover-route i::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #d96a38;
+  border-radius: 50%;
+  background: #201c17;
+}
+
+.cover-route i::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #d96a38;
+  border-right: 1px solid #d96a38;
+  transform: rotate(45deg);
+}
+
+.cover-route b,
+.cover-route strong {
+  font-weight: 700;
+}
+
+.route-legs {
+  display: grid;
+  margin-top: 28px;
+  border-top: 1px solid #383a32;
+}
+
+.route-legs span {
+  padding: 20px 0 12px;
+  color: #ff7034;
+  font: 700 11px/1.5 monospace;
+  letter-spacing: .13em;
+}
+
+.route-legs b {
+  padding: 10px 0;
+  border-top: 1px solid #30312b;
+  color: #c7c5bb;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.route-time-cost {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 24px;
+  background: #383a32;
+}
+
+.route-time-cost div {
+  padding: 18px 14px;
+  background: #24251f;
+}
+
+.route-time-cost span,
+.route-time-cost strong {
+  display: block;
+}
+
+.route-time-cost span {
+  color: #8f9187;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.route-time-cost strong {
+  margin-top: 9px;
+  color: #f0e7d7;
+  font: 400 21px/1 Georgia, serif;
+}
+
+.transfer-risk {
+  padding: 120px 7vw 140px;
+  background: #11120f;
+}
+
+.transfer-risk > header {
+  display: grid;
+  grid-template-columns: .55fr 1.45fr;
+  gap: 7vw;
+  align-items: start;
+}
+
+.transfer-risk > header > span {
+  color: #ff7034;
+  font: 700 13px/1.5 monospace;
+  letter-spacing: .2em;
+}
+
+.transfer-risk h2 {
+  margin: 0;
+  font: 400 clamp(3rem, 5vw, 5.8rem)/1.04 Georgia, "Noto Serif TC", serif;
+  letter-spacing: -.04em;
+}
+
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 80px;
+  background: #3b3c34;
+  border: 1px solid #3b3c34;
+}
+
+.risk-grid article {
+  min-height: 280px;
+  padding: 38px;
+  background: #1c1d18;
+}
+
+.risk-grid b {
+  color: #ff7034;
+  font: 700 11px/1.5 monospace;
+  letter-spacing: .14em;
+}
+
+.risk-grid h3 {
+  max-width: 520px;
+  margin: 42px 0 20px;
+  font: 400 27px/1.3 Georgia, "Noto Serif TC", serif;
+}
+
+.risk-grid p {
+  max-width: 620px;
+  margin: 0;
+  color: #a6a79e;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.time-tradeoff {
+  display: grid;
+  grid-template-columns: .42fr 1.58fr;
+  gap: 7vw;
+  padding: 105px 7vw 120px;
+  background: #d96a38;
+  color: #171813;
+}
+
+.time-tradeoff > span {
+  font: 700 13px/1.5 monospace;
+  letter-spacing: .2em;
+}
+
+.time-tradeoff h2 {
+  max-width: 1000px;
+  margin: 0 0 45px;
+  font: 400 clamp(3rem, 5.2vw, 6rem)/1.03 Georgia, "Noto Serif TC", serif;
+  letter-spacing: -.04em;
+}
+
+.time-tradeoff p {
+  max-width: 820px;
+  margin: 0 0 22px;
+  font-size: 18px;
+  line-height: 1.95;
+}
+
+.booking-checklist h2 i,
+.safety-story h2 i {
+  display: block;
+  font-style: normal;
+}
+
+@media (min-width: 901px) {
+  .booking-checklist h2 i,
+  .safety-story h2 i {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1800px) {
+  .flight-cover .cover-route {
+    grid-template-columns: auto minmax(280px, 900px) auto;
+    gap: 30px;
+    width: min(1180px, 62vw);
+    font-size: 19px;
+    letter-spacing: .2em;
+  }
+
+  .cover-route i {
+    height: 2px;
+  }
+
+  .cover-route i::before {
+    left: -5px;
+    top: -5px;
+    width: 11px;
+    height: 11px;
+    border-width: 2px;
+  }
+
+  .cover-route i::after {
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+  }
+
+  .booking-checklist {
+    grid-template-columns: .88fr 1.12fr;
+    gap: 7vw;
+  }
+
+  .booking-checklist h2 {
+    font-size: 5.6rem;
+    line-height: 1.08;
+  }
+
+  .safety-story {
+    grid-template-columns: .88fr 1.12fr;
+    gap: 7vw;
+  }
+
+  .safety-story h2 {
+    font-size: 5.6rem;
+    line-height: 1.08;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1600px) {
+  .route-study h2,
+  .price-snapshot h2 {
+    font-size: clamp(3rem, 4.8vw, 5rem);
+  }
+
+  .south-africa-story,
+  .safety-story {
+    grid-template-columns: .95fr 1.05fr;
+    gap: 7vw;
+  }
+
+  .booking-checklist {
+    grid-template-columns: .9fr 1.1fr;
+    gap: 7vw;
+  }
+
+  .story-title h2,
+  .safety-story h2,
+  .booking-checklist h2 {
+    font-size: clamp(2.8rem, 4.2vw, 4.4rem);
+    line-height: 1.06;
+  }
+
+  .time-tradeoff h2 {
+    font-size: clamp(3rem, 4.6vw, 5rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .transfer-risk {
+    padding: 95px 6vw;
+  }
+
+  .transfer-risk > header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .time-tradeoff {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 85px 6vw;
+  }
+}
+
+@media (max-width: 560px) {
+  .flight-cover h1 {
+    line-height: .98;
+  }
+
+  .flight-cover h1 em {
+    margin-top: .22em;
+    margin-left: 0;
+    font-size: .72em;
+    line-height: 1.08;
+  }
+
+  .flight-cover .cover-route {
+    grid-template-columns: auto minmax(70px, 1fr) auto;
+    width: 100%;
+    margin: 30px 0 0;
+    gap: 12px;
+  }
+
+  .flight-cover > div:not(.cover-route) {
+    margin-top: 38px;
+  }
+
+  .route-time-cost {
+    grid-template-columns: 1fr;
+  }
+
+  .transfer-risk h2 {
+    font-size: 2.75rem;
+  }
+
+  .risk-grid {
+    grid-template-columns: 1fr;
+    margin-inline: -6vw;
+  }
+
+  .risk-grid article {
+    min-height: 0;
+    padding: 36px 6vw;
+  }
+
+  .time-tradeoff h2 {
+    font-size: 2.75rem;
+  }
+
+  .time-tradeoff p {
+    font-size: 17px;
+  }
+}

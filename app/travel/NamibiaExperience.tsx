@@ -41,30 +41,23 @@ export default function NamibiaExperience() {
 
       <section className="country-portrait" aria-labelledby="country-portrait-title">
         <div className="portrait-heading">
-          <p className="section-label">QUICK PORTRAIT / 01</p>
-          <h2 id="country-portrait-title">快速認識<br />納米比亞</h2>
-          <strong>這裡不只有動物</strong>
-          <p>很多人想到非洲，第一個想到的是 Safari。</p>
-          <p>但納米比亞真正令人難忘的，是一片經過數千萬年形成的沙漠、直抵大西洋的巨大沙丘、在乾旱中學會生存的生命，以及城市之外幾乎沒有人工照明的黑夜。</p>
-          <p>這個人口不多的國家，卻擁有大得難以想像的土地。</p>
-          <figure className="portrait-scale-figure">
-            <img src={`${BASE_PATH}/travel/namibia-taiwan-scale-preview.webp`} alt="納米比亞與台灣面積約二十三倍的比例概念圖" loading="lazy" />
-            <figcaption><span>SCALE STUDY / PREVIEW</span><b>約 23 個台灣的面積</b><small>概念示意，非精確排列</small></figcaption>
-          </figure>
+          <p className="section-label">BEFORE THE ROUTE / 01</p>
+          <h2 id="country-portrait-title">非洲西南方，<br />旅程從這裡開始。</h2>
+          <strong>納米比亞不是只有 Safari。</strong>
+          <p>從台灣飛到非洲西南端，首先遇見的不是動物，而是距離：城市之間隔著數百公里，沙漠一路延伸到大西洋，夜晚則幾乎沒有人工光線。</p>
+          <p>當一個國家約有二十三個台灣大，人口卻只有約三百萬，距離、歷史與日常，也會重新定義一趟旅行的尺度。</p>
         </div>
         <div className="portrait-list">
-          <article><span>01 / TIME</span><h3>古老沙漠與千年活化石</h3><p>納米布沙漠歷經數千萬年的風、洋流與地質變化；外形奇特的千歲蘭一生只長出兩片葉子，部分植株能在沙漠中存活超過千年。</p></article>
-          <article><span>02 / SCALE</span><h3>一個納米比亞，約等於二十三個台灣</h3><p>納米比亞人口僅約三百萬，國土面積卻約為台灣的二十三倍；光是 Etosha 國家公園，就接近台灣的三分之二大。</p></article>
-          <article><span>03 / LIFE</span><h3>獵豹、沙漠象與沙漠獅</h3><p>納米比亞擁有全球規模最大的自由活動獵豹族群；在 Etosha 與西北部荒野，也能看見適應乾旱環境的象、獅與其他野生動物。</p></article>
-          <article><span>04 / CULTURE</span><h3>世界遺產與多層次文化</h3><p>Twyfelfontein 保存兩千多幅古老岩刻；Spitzkoppe 的桑人岩畫、不同族群的傳統，以及 Swakopmund 的德國殖民痕跡，也留下不同時代的人文記憶。</p></article>
-          <article><span>05 / LAND & LIGHT</span><h3>花崗岩群峰、沙海與星空</h3><p>Spitzkoppe 的花崗岩巨石與天然拱門從平原升起；Sandwich Harbour 的沙丘直接落入大西洋。遠離城市後，幾乎沒有人工照明的黑夜，則讓銀河成為地景的一部分。</p></article>
-          <div className="portrait-link"><p>這些不是散落的景點，而是這趟旅程即將穿越的土地。</p><a href={`${BASE_PATH}/travel/guide/`}>完整認識納米比亞 <b>→</b></a></div>
+          <article><span>01 / LAND</span><h3>兩片沙漠，把距離拉得很長</h3><p>西側是貼著大西洋延伸的納米布沙漠，東側是跨越國界的喀拉哈里沙漠；中央高原與漫長公路，把城市、動物與地景連在一起。</p></article>
+          <article><span>02 / LIFE</span><h3>動物不一定成群出場</h3><p>東非讓人追著獸群移動；在納米比亞，生命分散在更乾燥的土地上。找到水塘、乾河床與微小植被，才看得懂動物如何留下來。</p></article>
+          <article><span>03 / LIGHT</span><h3>海岸有霧，沙漠有星空</h3><p>寒冷洋流把霧送進沙漠，Sandwich Harbour 的沙丘則直接落入海面；離開城市後，沒有光害競爭的銀河成為另一種地景。</p></article>
+          <div className="portrait-link"><p>先理解這片土地，再回到我們真正走過的路線。</p><a href={`${BASE_PATH}/travel/guide/overview/`}>閱讀國家速寫 <b>→</b></a></div>
         </div>
       </section>
 
       <section className="route-intro" id="route">
-        <div><p className="section-label">THE ROUTE / 01</p><h2>2,000 公里，<br />深入荒野核心。</h2></div>
-        <p>從溫得和克出發，穿越埃托沙邊緣、達馬拉蘭岩峰與大西洋霧岸，最後抵達索蘇斯維來的紅色沙海。這不是觀光路線，而是一條沿著地貌、野生動物與星空前進的探險軌跡。</p>
+        <div><p className="section-label">THE ROUTE / 02</p><h2>2,000 公里的路，<br />從荒野走到沙海。</h2></div>
+        <p>從溫得和克出發，向北抵達埃托沙，再穿過達馬拉蘭岩峰、大西洋霧岸、索蘇斯維來與喀拉哈里。這裡開始的不是另一段介紹，而是我們真正走過的八個停留點。</p>
       </section>
 
       <section className="expedition-map">
@@ -94,7 +87,7 @@ export default function NamibiaExperience() {
       </section>
 
       <section className="guide-teaser" id="guide">
-        <p className="section-label">BEFORE YOU GO / GUIDE</p>
+        <p className="section-label">BEFORE YOU GO / 03</p>
         <div>
           <a className="guide-title-link" href={`${BASE_PATH}/travel/guide/`} aria-label="進入納米比亞旅行攻略">
             <h2>準備前往<br />納米比亞？</h2>
@@ -108,7 +101,7 @@ export default function NamibiaExperience() {
 
       <section className="travel-journal" id="journal">
         <div className="journal-heading">
-          <p className="section-label">TRAVEL JOURNAL / 02</p>
+          <p className="section-label">TRAVEL JOURNAL / 04</p>
           <h2>有些旅程，<br />在回家之後才抵達。</h2>
           <p className="journal-deck">一部八分鐘的 8K HDR 影像紀錄，與一張走了三個月才抵達台灣的明信片。</p>
         </div>
@@ -170,7 +163,7 @@ export default function NamibiaExperience() {
       </section>
 
       <section className="field-notes" id="field-notes">
-        <p className="section-label">FIELD NOTES / 03</p>
+        <p className="section-label">FIELD NOTES / 05</p>
         <div className="notes-grid">
           <article><span>01</span><h3>沙漠不是空無</h3><p>風、光線和溫度持續改寫沙丘。清晨出發，才能看見它最銳利的輪廓。</p></article>
           <article><span>02</span><h3>保持距離</h3><p>荒野的規則很簡單：我們是訪客。所有觀察都以不干擾動物為前提。</p></article>
@@ -178,7 +171,7 @@ export default function NamibiaExperience() {
         </div>
       </section>
 
-      <footer className="travel-footer"><p>NAMIBIA · PRIVATE EXPEDITION</p><h2>荒野正在等待。</h2><a href={`${BASE_PATH}/contact/`}>START THE JOURNEY <span>↗</span></a><small>FIRST CONCEPT · ADVENTURE EDITION</small></footer>
+      <footer className="travel-footer"><p>NAMIBIA · A JOURNEY REMEMBERED</p><h2>旅程結束了，<br />故事還在路上。</h2><a href={`${BASE_PATH}/travel/guide/`}>CONTINUE EXPLORING <span>↗</span></a><small>NAMIBIA · 2025 / TRAVEL NOTES · 2026</small></footer>
     </main>
   );
 }

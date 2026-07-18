@@ -1,0 +1,50 @@
+.pick-layout img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.pick-layout figcaption {
+  max-width: 42rem;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.pick-story {
+  align-self: center;
+}
+
+.pick-story p:first-child {
+  margin-top: 0;
+}
+
+.pick-story b {
+  color: #1c1d19;
+}
+
+.field-picks p {
+  color: #25251f;
+}
+
+.field-picks figcaption {
+  color: rgba(28, 29, 25, 0.78);
+}
+
+@media (min-width: 1800px) {
+  .pick-layout figcaption {
+    max-width: 52rem;
+    font-size: 21px;
+  }
+
+  .pick-story p {
+    font-size: 23px;
+    line-height: 1.9;
+  }
+}
+
+@media (max-width: 560px) {
+  .pick-layout figcaption {
+    margin-top: 14px;
+    font-size: 16px;
+  }
+}

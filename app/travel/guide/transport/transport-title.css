@@ -1,0 +1,218 @@
+.transport-cover h1 {
+  font-size: clamp(3.4rem, 6.8vw, 8rem);
+  line-height: 0.98;
+}
+
+.transport-cover h1 i:nth-child(2) {
+  margin-left: 6vw;
+}
+
+.transport-cover h1 i:nth-child(3) {
+  margin-left: 12vw;
+  font-size: 0.88em;
+}
+
+@media (max-width: 900px) {
+  .transport-cover h1 i:nth-child(2),
+  .transport-cover h1 i:nth-child(3) {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .transport-cover h1 {
+    font-size: clamp(2.75rem, 13vw, 3.4rem);
+    line-height: 1.06;
+  }
+
+  .transport-cover h1 i:nth-child(3) {
+    font-size: 0.82em;
+  }
+}
+
+/* Readability pass for desktop and high-resolution displays. */
+.transport-cover > p,
+.transport-opening > span,
+.park-stay header > span,
+.guide-value header > span,
+.operator-study header > span,
+.operator-stories article > span,
+.vehicle-choice header > span,
+.transport-ending > span,
+.transport-source > span {
+  font-size: 15px;
+}
+
+.operator-study > header p,
+.scale-note,
+.transport-source p {
+  font-size: 18px;
+}
+
+.operator-cards p {
+  font-size: 20px;
+}
+
+.operator-cards article > span,
+.park-grid b,
+.vehicle-checks b,
+.operator-stories a {
+  font-size: 16px;
+}
+
+.operator-cards dt {
+  font-size: 15px;
+}
+
+.operator-cards dd {
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.operator-cards article > strong {
+  font-size: 56px;
+}
+
+.operator-cards p {
+  line-height: 1.9;
+}
+
+.scale-note {
+  max-width: 1100px;
+  line-height: 1.9;
+}
+
+.payment-note {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr 1.45fr;
+  gap: 5vw;
+  margin-top: 80px;
+  padding: 55px 0;
+  border-top: 1px solid #4a4b42;
+  border-bottom: 1px solid #4a4b42;
+}
+
+.payment-note > span {
+  color: #ff7034;
+  font: 700 15px/1.6 monospace;
+  letter-spacing: 0.16em;
+}
+
+.payment-note h3 {
+  margin: 0;
+  font: 400 clamp(2rem, 3vw, 3.6rem)/1.2 Georgia, "Noto Serif TC", serif;
+}
+
+.payment-note p {
+  margin: 0 0 20px;
+  color: #aaa99f;
+  font-size: 18px;
+  line-height: 1.95;
+}
+
+.lodge-wild {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr 1.45fr;
+  gap: 5vw;
+  margin-top: 90px;
+  padding: 60px 0;
+  border-top: 1px solid #4a4b42;
+  border-bottom: 1px solid #4a4b42;
+}
+
+.lodge-wild > span {
+  color: #ff7034;
+  font: 700 15px/1.6 monospace;
+  letter-spacing: 0.16em;
+}
+
+.lodge-wild h3 {
+  margin: 0;
+  font: 400 clamp(2rem, 3vw, 3.6rem)/1.2 Georgia, "Noto Serif TC", serif;
+}
+
+.lodge-wild p {
+  margin: 0 0 20px;
+  color: #aaa99f;
+  font-size: 18px;
+  line-height: 1.95;
+}
+
+@media (min-width: 1800px) {
+  .transport-cover > p,
+  .transport-opening > span,
+  .park-stay header > span,
+  .guide-value header > span,
+  .operator-study header > span,
+  .operator-stories article > span,
+  .vehicle-choice header > span,
+  .transport-ending > span,
+  .transport-source > span {
+    font-size: 17px;
+  }
+
+  .operator-study > header p,
+  .scale-note,
+  .transport-source p {
+    font-size: 21px;
+  }
+
+  .operator-cards p {
+    font-size: 23px;
+  }
+
+  .operator-cards article > span {
+    font-size: 19px;
+  }
+
+  .operator-cards dt {
+    font-size: 17px;
+  }
+
+  .operator-cards dd {
+    font-size: 21px;
+  }
+
+  .operator-cards article > strong {
+    font-size: 64px;
+  }
+
+  .payment-note > span {
+    font-size: 17px;
+  }
+
+  .payment-note p {
+    font-size: 21px;
+  }
+
+  .lodge-wild > span {
+    font-size: 17px;
+  }
+
+  .lodge-wild p {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 900px) {
+  .payment-note,
+  .lodge-wild {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 560px) {
+  .operator-cards p {
+    font-size: 17px;
+  }
+
+  .operator-cards article > span,
+  .operator-cards dt {
+    font-size: 13px;
+  }
+
+  .operator-cards dd {
+    font-size: 16px;
+  }
+}
