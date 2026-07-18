@@ -4,6 +4,7 @@ import "./travel.css";
 import "./real-map.css";
 import "./story.css";
 import "./layout-fixes.css";
+import "./visa-guide.css";
 
 export const metadata: Metadata = {
   title: "Namibia — Into the Wild",

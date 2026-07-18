@@ -16,6 +16,15 @@ const stops = [
   { day: "12–13", place: "Kalahari", stay: "Teufelskrallen Lodge", nights: "1 NIGHT", distance: "252 KM", drive: "3H 09M", lat: -24.1508, lng: 18.0015, note: "在喀拉哈里紅土與草原間收束旅程，最後一次迎接荒野日落。" },
 ];
 
+const visaSteps = [
+  { number: "01", title: "進入官方網站", text: "開啟納米比亞移民暨內政部的 E-Services，從 Register 建立申請帳號。", image: "step-1.png" },
+  { number: "02", title: "註冊並確認帳號", text: "填寫姓名、電子郵件與密碼後，前往信箱點選確認連結，再回到系統登入。", image: "step-2.png" },
+  { number: "03", title: "建立觀光簽證申請", text: "選擇 New Holiday Visa Application，依序填寫個人、護照與行程資料並上傳證明文件。", image: "step-3.png" },
+  { number: "04", title: "送出並等待審核", text: "系統顯示申請成功後，保留參考編號；後續狀態會透過電子郵件與申請平台更新。", image: "step-4.png" },
+  { number: "05", title: "核准後線上付款", text: "收到核准通知後登入系統完成付款。畫面可能另列線上交易處理費，請以當下顯示金額為準。", image: "step-5.png" },
+  { number: "06", title: "下載電子簽證", text: "付款成功、狀態更新為 Visa Issued 後下載簽證檔案，建議同時保存電子檔與紙本。", image: "step-6.png" },
+];
+
 export default function NamibiaExperience() {
   const [active, setActive] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
@@ -25,7 +34,7 @@ export default function NamibiaExperience() {
     <main className="travel-page">
       <header className="travel-nav">
         <a className="travel-mark" href={`${BASE_PATH}/`} aria-label="返回 Young HDR Gallery 首頁"><span>YH</span><b>EXPEDITIONS</b></a>
-        <nav aria-label="旅遊頁導覽"><a href="#route">ROUTE</a><a href="#journal">JOURNAL</a><a href="#field-notes">FIELD NOTES</a></nav>
+        <nav aria-label="旅遊頁導覽"><a href="#route">ROUTE</a><a href="#guide">GUIDE</a><a href="#journal">JOURNAL</a><a href="#field-notes">FIELD NOTES</a></nav>
         <a className="nav-cta" href="#route">EXPLORE</a>
       </header>
 
@@ -67,6 +76,50 @@ export default function NamibiaExperience() {
             ))}
           </div>
           <div className="travel-stats"><div><small>FROM PREVIOUS</small><b>{selected.distance}</b></div><div><small>EST. DRIVE</small><b>{selected.drive}</b></div><div><small>MODE</small><b>4×4</b></div></div>
+        </div>
+      </section>
+
+      <section className="visa-guide" id="guide">
+        <div className="visa-guide-hero">
+          <div>
+            <p className="section-label">BEFORE YOU GO / VISA</p>
+            <h2>先把簽證，<br />留在出發前完成。</h2>
+          </div>
+          <div className="visa-intro">
+            <p>我們這次使用納米比亞線上觀光簽證系統。流程本身不複雜，真正需要時間的是事前備妥英文文件、確認行程資料，以及等待審核結果。</p>
+            <a href="https://eservices.mhaiss.gov.na/holidayvisa-services" target="_blank" rel="noreferrer">OPEN OFFICIAL APPLICATION ↗</a>
+            <small>實際資格、費用與文件要求可能變動；送件前請以納米比亞官方網站最新公告為準。流程資料參考日期：2025.09。</small>
+          </div>
+        </div>
+
+        <div className="visa-prep">
+          <div><p className="visa-label">準備文件</p><h3>送件前，先整理成一個資料夾。</h3></div>
+          <ul>
+            <li><span>01</span>近三個月護照照片，檔案不超過系統限制</li>
+            <li><span>02</span>護照個人資料頁</li>
+            <li><span>03</span>近六個月英文銀行對帳單或財力證明</li>
+            <li><span>04</span>英文申請動機信</li>
+            <li><span>05</span>來回機票或訂位證明</li>
+            <li><span>06</span>住宿與旅行行程證明</li>
+            <li><span>07</span>英文旅遊保險證明</li>
+            <li><span>08</span>旅行社邀請函或相關支持文件</li>
+          </ul>
+        </div>
+
+        <div className="visa-flow-head"><p className="visa-label">APPLICATION FLOW</p><h3>六個步驟，完成線上申請。</h3></div>
+        <div className="visa-steps">
+          {visaSteps.map((step) => (
+            <article className="visa-step" key={step.number}>
+              <div className="visa-step-copy"><span>{step.number}</span><h4>{step.title}</h4><p>{step.text}</p></div>
+              <div className="visa-step-image"><img src={`${BASE_PATH}/travel/visa/${step.image}`} alt={`納米比亞簽證申請步驟 ${step.number}：${step.title}`} loading="lazy" /></div>
+            </article>
+          ))}
+        </div>
+
+        <div className="visa-source">
+          <span>同行者的實際申請紀錄</span>
+          <p>本章流程與申請畫面，依同行旅伴 Elena 的 2025 年實際申請紀錄重新整理。若希望查看更完整的逐頁畫面，可前往原始教學文章。</p>
+          <div><a href="https://blog.elena.tw/apply-online-for-a-namibia-holiday-visa/" target="_blank" rel="noreferrer">閱讀原始簽證教學 ↗</a><a href="https://blog.elena.tw/" target="_blank" rel="noreferrer">VISIT ELENA'S BLOG ↗</a></div>
         </div>
       </section>
 
