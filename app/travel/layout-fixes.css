@@ -78,6 +78,7 @@
 .video-poster:hover .poster-play i { transform: scale(1.08); }
 
 @media (max-width: 600px) {
+  .namibia-hero { background-position: 76% center !important; }
   .poster-play i { width: 56px; height: 56px; }
   .poster-label b { font-size: 2.2rem; }
 }
