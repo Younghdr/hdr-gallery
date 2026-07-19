@@ -1,0 +1,4 @@
+.power-plug-figure{width:min(100%,1080px);margin:clamp(2.5rem,5vw,5rem) auto 0;text-align:center}
+.power-plug-figure img{display:block;width:100%;height:auto;border:1px solid rgba(48,48,43,.14);background:#eee8dc}
+.power-plug-figure figcaption{margin-top:.85rem;color:#5d625f;font-size:clamp(.9rem,1vw,1.05rem);letter-spacing:.02em}
+@media (min-width:2200px){.power-plug-figure{width:min(100%,1320px)}.power-plug-figure figcaption{font-size:1.15rem}}

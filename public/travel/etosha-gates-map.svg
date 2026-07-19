@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Etosha National Park entrance gates</title>
+  <desc id="desc">A simplified schematic map of Etosha National Park showing Galton Gate in the west, Andersson Gate in the south, Von Lindequist Gate in the east, and King Nehale Mpangena Gate in the northeast.</desc>
+  <rect width="1600" height="900" fill="#eee8dc"/>
+  <g fill="none" stroke="#2b2d28" stroke-linejoin="round">
+    <path d="M145 412 L230 305 L478 284 L668 342 L724 184 L1120 166 L1265 236 L1433 314 L1481 472 L1430 595 L1336 673 L1178 718 L1036 676 L880 700 L705 645 L526 651 L378 608 L242 565 Z" fill="#c7c29b" stroke-width="9"/>
+    <path d="M590 392 C688 300 856 274 1048 298 C1168 314 1275 366 1322 443 C1263 499 1164 529 1040 536 C873 549 726 531 614 476 C580 458 568 427 590 392 Z" fill="#e7dfc9" stroke="#a79f86" stroke-width="4"/>
+  </g>
+  <g fill="#d96a38" stroke="#2b2d28" stroke-width="5">
+    <circle cx="252" cy="565" r="15"/><circle cx="832" cy="686" r="15"/><circle cx="1430" cy="402" r="15"/><circle cx="1268" cy="242" r="15"/>
+  </g>
+  <g fill="#2b2d28" font-family="Georgia, serif">
+    <text x="90" y="112" font-size="78" letter-spacing="4">ETOSHA</text>
+    <text x="94" y="158" font-family="monospace" font-size="25" letter-spacing="4" fill="#d96a38">ENTRANCE GATES · SCHEMATIC MAP</text>
+  </g>
+  <g fill="none" stroke="#d96a38" stroke-width="5" stroke-linecap="round">
+    <path d="M250 565 L120 648 L55 648"/><path d="M832 686 L832 794"/><path d="M1430 402 L1510 446 L1542 446"/><path d="M1268 242 L1280 105 L1410 105"/>
+  </g>
+  <g fill="#2b2d28" font-family="Arial, sans-serif" font-weight="700" font-size="31">
+    <text x="54" y="630">GALTON GATE</text>
+    <text x="706" y="842">ANDERSSON GATE</text>
+    <text x="1240" y="486">VON LINDEQUIST GATE</text>
+    <text x="1080" y="92">KING NEHALE / MPANGENA GATE</text>
+  </g>
+  <g fill="#5d625f" font-family="Georgia, serif" font-size="29">
+    <text x="710" y="430">Etosha Pan</text>
+    <text x="93" y="800">Not to scale · entrance positions shown for trip planning</text>
+  </g>
+  <g fill="#657556" opacity=".92">
+    <path d="M370 370 l14 -30 14 30h-11v19h-7v-19zM1164 600l14-30 14 30h-11v19h-7v-19zM1035 236l14-30 14 30h-11v19h-7v-19zM515 528l14-30 14 30h-11v19h-7v-19z"/>
+  </g>
+</svg>
