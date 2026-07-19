@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { guideMetadata } from "@/lib/travel-guide-seo";
 import "../guide-pages.css";
 import "../cta.css";
 import "../cta-4k.css";
@@ -7,7 +8,7 @@ import "./transport-title.css";
 import "./vehicle-alert.css";
 import "../photo-inserts.css";
 
-export const metadata: Metadata = { title: "移動與住宿｜Namibia Travel Guide", description: "旅行社、車輛、嚮導與國家公園內外住宿的實際比較。", alternates: { canonical: "/travel/guide/transport/" } };
+export const metadata: Metadata = guideMetadata({ title: "納米比亞 Safari 交通與住宿｜車輛、嚮導與行李建議", description: "比較納米比亞 Safari 車、嚮導、園內外住宿與行李空間，規劃 Etosha 的清晨與夜間觀察。", path: "/travel/guide/transport/" });
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const operators = [

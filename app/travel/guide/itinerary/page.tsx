@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
+import { guideMetadata } from "@/lib/travel-guide-seo";
 import "../guide-pages.css";
 import "../cta.css";
 import "../cta-4k.css";
 import "./itinerary.css";
 
-export const metadata: Metadata = {
-  title: "行程天數與路線｜Namibia Travel Guide",
-  description: "十三天的納米比亞環線、順逆時針選擇，以及峽谷、箭袋樹與熱氣球之間的取捨。",
-  alternates: { canonical: "/travel/guide/itinerary/" },
-};
+export const metadata: Metadata = guideMetadata({ title: "納米比亞行程規劃｜12 到 17 天路線與天數建議", description: "納米比亞行程怎麼排？比較 12、15、17 天的節奏，串連 Etosha、海岸、Spitzkoppe 與 Sossusvlei。", path: "/travel/guide/itinerary/" });
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

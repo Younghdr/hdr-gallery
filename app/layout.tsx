@@ -3,10 +3,11 @@ import { Analytics } from "@/components/analytics";
 import "./globals.css";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const SITE_ORIGIN = "https://younghdr.github.io";
 const OG_IMAGE = `${BASE_PATH}/opengraph-image`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://younghdr.github.io"),
+  metadataBase: new URL(`${SITE_ORIGIN}${BASE_PATH}/`),
   title: {
     default: "Young HDR Gallery | HDR 影像作品集",
     template: "%s | Young HDR Gallery",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     "Young HDR Gallery",
   ],
   alternates: {
-    canonical: `${BASE_PATH}/`,
+    canonical: "/",
   },
   openGraph: {
     type: "website",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     title: "Young HDR Gallery | HDR 影像作品集",
     description:
       "探索 HDR 旅行、重機與科技影片，以及免費 HDR 顯示器測試工具。",
-    url: `${BASE_PATH}/`,
+    url: "/",
     images: {
       url: OG_IMAGE,
       alt: "Young HDR Gallery",
@@ -53,6 +54,17 @@ export const metadata: Metadata = {
       alt: "Young HDR Gallery",
       width: 1200,
       height: 630,
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
   other: {

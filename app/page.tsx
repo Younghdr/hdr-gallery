@@ -21,6 +21,7 @@ export default function HomePage() {
             {
               "@type": "WebSite",
               name: "Young HDR Gallery",
+              alternateName: ["Young HDR", "Young Hung HDR Studio"],
               url: absUrl("/"),
               description:
                 "探索 HDR 旅行、重機與科技影片，以及免費 HDR 顯示器測試工具。",

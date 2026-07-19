@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { guideMetadata } from "@/lib/travel-guide-seo";
 import "../guide-pages.css";
 import "../field-notes.css";
 import "../field-notes-footer.css";
@@ -6,7 +7,7 @@ import "../cta.css";
 import "../cta-4k.css";
 import "./money-shopping.css";
 
-export const metadata: Metadata = { title: "換錢、付款與購物｜Namibia Travel Guide", description: "納米比亞貨幣、刷卡、現金、議價與實際購物紀錄。", alternates: { canonical: "/travel/guide/money-shopping/" } };
+export const metadata: Metadata = guideMetadata({ title: "納米比亞換錢與購物｜現金、刷卡、市集與伴手禮", description: "納米比亞旅遊的換匯、刷卡、現金、市集議價與伴手禮建議，涵蓋 Windhoek 與 Swakopmund。", path: "/travel/guide/money-shopping/" });
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function MoneyShoppingPage(){return <main className="field-page money-shopping-page">

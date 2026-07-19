@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { guideMetadata } from "@/lib/travel-guide-seo";
 import "../guide-pages.css";
 import "../field-notes.css";
 import "../field-notes-footer.css";
@@ -11,11 +12,7 @@ import "./jetty-card.css";
 import "./power-plug.css";
 import "./practical.css";
 
-export const metadata: Metadata = {
-  title: "氣候、網路與途中日常｜Namibia Travel Guide",
-  description: "納米比亞海岸氣候、特殊插座、MTC 網路、偏遠旅行與沿途必吃整理。",
-  alternates: { canonical: "/travel/guide/practical/" },
-};
+export const metadata: Metadata = guideMetadata({ title: "納米比亞實用準備｜插座、網路、天氣與飲食", description: "出發納米比亞前的實用清單：Type M 插座、MTC 網路、夜間裝備、天氣、飲食與生蠔。", path: "/travel/guide/practical/" });
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

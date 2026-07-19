@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { guideMetadata } from "@/lib/travel-guide-seo";
 import "../guide-pages.css";
 import "../field-notes.css";
 import "../field-notes-footer.css";
@@ -8,7 +9,7 @@ import "../video-overrides.css";
 import "../photo-inserts.css";
 import "./etosha-map.css";
 
-export const metadata: Metadata = { title: "荒野攝影與 8K HDR｜Namibia Travel Guide", description: "納米比亞野生動物、星空、強風縮時、夜間 Safari 與 8K HDR 的實戰準備。", alternates: { canonical: "/travel/guide/photography/" } };
+export const metadata: Metadata = guideMetadata({ title: "納米比亞攝影攻略｜Etosha Safari、600mm 與 8K HDR", description: "納米比亞野生動物與星空攝影實戰：Etosha Safari、600mm 長焦、夜拍、風沙防護與 8K HDR 備份。", path: "/travel/guide/photography/" });
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function PhotographyPage(){return <main className="field-page">

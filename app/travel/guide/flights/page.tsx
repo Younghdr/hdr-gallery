@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { guideMetadata } from "@/lib/travel-guide-seo";
 import "../guide-pages.css";
 import "../cta.css";
 import "../cta-4k.css";
 import "./flights.css";
 import "./flight-cover.css";
 
-export const metadata: Metadata = {
-  title: "納米比亞機票與轉機｜Namibia Travel Guide",
-  description: "從台灣前往納米比亞的航線比較，以及我們放棄南非轉機、改走阿迪斯阿貝巴的真實考量。",
-  alternates: { canonical: "/travel/guide/flights/" },
-};
+export const metadata: Metadata = guideMetadata({ title: "納米比亞航班與轉機｜從台灣出發的航線規劃", description: "從台灣前往納米比亞的航班與轉機選擇、行李安排、抵達 Windhoek 後的交通銜接。", path: "/travel/guide/flights/" });
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
