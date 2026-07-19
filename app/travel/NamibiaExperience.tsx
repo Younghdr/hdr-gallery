@@ -124,7 +124,7 @@ export default function NamibiaExperience() {
               </button>
             )}
           </div>
-          <div className="video-caption"><span>FILM 01</span><strong>NAMIBIA · 8K HDR</strong><a href="https://youtu.be/cAJiCyvlY7E" target="_blank" rel="noreferrer">WATCH ON YOUTUBE ↗</a></div>
+          <div className="video-caption"><span>FILM 01</span><strong>NAMIBIA · 8K HDR</strong><a href="https://youtu.be/cAJiCyvlY7E" target="_blank" rel="noreferrer">FOR BEST HDR · WATCH ON YOUTUBE ↗</a></div>
         </div>
 
         <div className="film-afterword">
