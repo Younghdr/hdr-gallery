@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import "../guide-pages.css";
+import "../cta.css";
+import "../cta-4k.css";
 import "./transport.css";
 import "./transport-title.css";
+import "./vehicle-alert.css";
+import "../photo-inserts.css";
 
-export const metadata: Metadata = { title: "移動與住宿｜Namibia Travel Guide", description: "旅行社、車輛、嚮導與國家公園內外住宿的實際比較。" };
+export const metadata: Metadata = { title: "移動與住宿｜Namibia Travel Guide", description: "旅行社、車輛、嚮導與國家公園內外住宿的實際比較。", alternates: { canonical: "/travel/guide/transport/" } };
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const operators = [
@@ -28,10 +32,12 @@ export default function TransportGuidePage() {
 
     <section className="operator-stories"><article><span>SIMBA TRAVEL</span><h3>中文很方便，<br />但行程沒有真正開始。</h3><p>Simba 可以中文溝通，卻是三間當地業者中回覆較慢的一間。確認出發年份後，對方表示已沒有足夠空間安排，因此未進入車輛、住宿與攝影需求的正式報價。</p></article><article><span>CHAMELEON SAFARIS</span><h3>台灣旅客熟悉，<br />方案也容易看懂。</h3><p>Chameleon 是台灣旅客規劃納米比亞時常見的當地團選擇。方案使用一台平常承載散客拼團的大型 4WD Safari 車，車身很大，足以容納整團乘客與行李，並包含英文嚮導、燃油、門票與活動。不過九人仍是共乘同一台車，攝影器材、窗邊位置與臨時停車的彈性，和分坐兩台 Land Cruiser 不完全相同；前三晚採露營，也不能只用總價和 Nature 的全程 Lodge 方案相比。</p></article><article><span>NATURE TRAVEL NAMIBIA</span><h3>不只熟悉道路，<br />也知道動物在哪裡。</h3><p>專業嚮導會從足跡、水塘、動物習性、其他車輛的停留與嚮導間的回報判斷下一段方向，不必只靠運氣在園區裡繞行。Nature 安排兩台 Toyota Land Cruiser，車輛等級較高並採可開式車頂，進入國家公園後方便站立觀察與拍攝；分散乘坐也保留器材、窗邊視野與活動空間。行程能依攝影、攀爬與健行需求客製，遇到地形、天候或動物狀況改變時，則由嚮導臨場調整路線並判斷安全。</p></article><article><span>TAIWAN TRAVEL AGENCY</span><h3>最輕鬆，<br />也最貴。</h3><p>台灣旅行社的團體行程，通常會把國際機票、簽證、住宿、餐食、門票、領隊、導遊與司機小費整合在同一份契約。旅客不必重做我們做過的工作，但中文服務與台灣責任窗口也會反映在價格上。</p><a href="https://www.sundaytour.com.tw/zh-tw/tours/itinerary.php?tfid=1157&tpid=20861" target="_blank" rel="noreferrer">查看行程範例 ↗</a></article></section>
 
-    <section className="vehicle-choice"><header><span>04 / TWO VEHICLES</span><h2><i>一輛車坐滿最省，</i><i>為什麼我們仍選擇兩輛？</i></h2></header><div className="vehicle-copy"><p>私人小團的車輛、嚮導與燃油多半是固定成本。人數愈接近滿載，每個人分攤的費用愈低；但乘客、行李與器材愈多，窗邊視野與拍攝空間也愈少。</p><p>我們共有八位成人與一位兒童，還有大型行李、相機與長鏡頭。最後使用兩輛車、兩位嚮導，兩位英文較流利的團員分坐兩車，再以對講機保持聯絡。</p></div><div className="vehicle-checks">{["每排座位能否看見窗外？","每車能放下多少大型行李？","器材能否留在座位附近？","是否有 USB 或車充電源？","安全帶形式是否適合兒童？","兩車如何即時保持聯絡？"].map((text,index)=><article key={text}><b>0{index+1}</b><p>{text}</p></article>)}</div><blockquote>四輪驅動決定車能不能通過某些路段；<br />空間、視野與通訊，才決定車上的人如何完成十三天。</blockquote></section>
+    <section className="vehicle-choice"><header><span>04 / TWO VEHICLES</span><h2><i>一輛車坐滿最省，</i><i>為什麼我們仍選擇兩輛？</i></h2></header><div className="vehicle-copy"><p>私人小團的車輛、嚮導與燃油多半是固定成本。人數愈接近滿載，每個人分攤的費用愈低；但乘客、行李與器材愈多，窗邊視野與拍攝空間也愈少。</p><p>我們共有八位成人與一位兒童，還有大型行李、相機與長鏡頭。最後使用兩輛車、兩位嚮導，兩位英文較流利的團員分坐兩車，再以對講機保持聯絡。</p><p className="vehicle-luggage-alert"><strong>行李與器材提醒</strong>這趟不是把行李放上巴士貨艙，而是攝影器材與行李箱都跟著狩獵車一起走。車上空間有限，Safari 車沒有坐滿時，硬殼行李箱仍可接受；但如果是滿車或共乘，硬箱不容易堆疊，也比較難塞進不規則空間。建議改用軟袋、登山袋或可壓縮行李，並在出發前先向旅行社確認每人可帶的件數與尺寸。</p></div><div className="vehicle-checks">{["每排座位能否看見窗外？","每車能放下多少大型行李？","硬箱尺寸是否會卡住空間？","器材能否留在座位附近？","是否有 USB 或車充電源？","安全帶形式是否適合兒童？","兩車如何即時保持聯絡？"].map((text,index)=><article key={text}><b>0{index+1}</b><p>{text}</p></article>)}</div><blockquote>四輪驅動決定車能不能通過某些路段；<br />空間、視野與通訊，才決定車上的人如何完成十三天。</blockquote></section>
 
-    <section className="transport-ending"><span>THE REAL COMPARISON</span><h2><i>最便宜的方式，</i><i>需要旅客投入最多時間。</i></h2><p>Chameleon 較省，但包含露營，也需要自己處理機票、簽證、付款與英文溝通。Nature 稍高，換來全程 Lodge、兩輛車、兩位嚮導與高度客製。台灣旅行社價格最高，卻把航班、簽證、領隊與責任窗口全部整合起來。</p><blockquote>最適合的方案，不一定是第一封信回得最快，也不一定是報價最低。<br />而是哪一種安排，能保住這趟旅行最想看見的東西。</blockquote></section>
+    <section className="transport-ending"><span>THE REAL COMPARISON</span><h2><i>最便宜的方式，</i><i>需要旅客投入最多時間。</i></h2><div className="transport-summary"><p><b>Chameleon：</b>預算較省，但包含露營，且需自行處理機票、簽證、付款與英文溝通。</p><p><b>Nature：</b>預算較高，換來全程 Lodge、兩輛車、兩位嚮導與較高客製彈性。</p><p><b>台灣旅行社：</b>價格最高，但把航班、簽證、領隊與責任窗口整合在同一份安排裡。</p></div><blockquote>最適合的方案，不一定是第一封信回得最快，也不一定是報價最低。<br />而是哪一種安排，能保住這趟旅行最想看見的東西。</blockquote><a className="transport-cta" href={`${BASE_PATH}/travel/guide/practical/`}>下一步：查看出發前實用準備 →</a></section>
     <aside className="transport-source"><span>SOURCE &amp; CONTEXT</span><p>業者差異依 2025 年實際詢價郵件整理；團體產品則參考台灣旅行社公開的納米比亞行程。不同年份、天數、房況與包含項目均可能改變價格與安排。</p></aside>
+    <section className="photo-insert"><span>FIELD NOTE / STAY</span><h2>住宿不是只有一張床，<br />也是每天重新整理器材的地方。</h2><p>城市 Lodge、沙漠帳篷與公共空間的差異，會直接影響充電、備份、收納與隔天出發的節奏。</p><div className="photo-insert-grid"><figure><img src="/travel/lodge-room.avif" alt="納米比亞 Lodge 房間"/><figcaption>房間：整理器材與完成備份。</figcaption></figure><figure><img src="/travel/safari-tent.avif" alt="納米比亞 Safari 帳篷內部"/><figcaption>帳篷：更貼近荒野，也更需要收納有秩序。</figcaption></figure><figure><img src="/travel/lodge-lounge.avif" alt="納米比亞 Lodge 公共空間"/><figcaption>公共空間：等待、充電與重新出發。</figcaption></figure></div></section>
+    <nav className="guide-related-links" aria-label="相關旅行攻略"><span>READ NEXT</span><a href={`${BASE_PATH}/travel/guide/itinerary/`}>行程天數與路線</a><a href={`${BASE_PATH}/travel/guide/photography/`}>荒野攝影準備</a></nav>
     <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>← 回到準備旅行</a><span>EXPERIENCE · 2025</span></footer>
   </main>;
 }

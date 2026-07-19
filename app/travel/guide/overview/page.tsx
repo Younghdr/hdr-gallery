@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import "../guide-pages.css";
+import "../cta.css";
+import "../cta-4k.css";
 import "./overview.css";
+import "./coast-city.css";
 import MapSecretLink from "./MapSecretLink";
 
 export const metadata: Metadata = {
   title: "快速認識納米比亞",
   description: "從古老沙漠、國土尺度、野生動物、世界遺產到低光害星空，快速認識納米比亞。",
+  alternates: { canonical: "/travel/guide/overview/" },
 };
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -109,7 +113,7 @@ export default function NamibiaOverviewPage() {
       <div className="overview-opening-copy">
         <p>很多人想到非洲，第一個想到的是 Safari。</p>
         <p>但納米比亞真正令人難忘的，是一片經過數千萬年形成的沙漠、直抵大西洋的巨大沙丘、在乾旱中學會生存的生命，以及城市之外幾乎沒有人工照明的黑夜。</p>
-        <p>在非洲旅遊目的地中，納米比亞給人的感受相對穩定而整潔；Windhoek 與 Swakopmund 的德國殖民建築、咖啡館和街廓，也讓部分城市帶著鮮明的歐洲街景感。一路上，嚮導總說這裡很安全，但到大賣場採買時，我們仍會輪流留人在車旁看顧行李；真正安排夜間移動時，他們也相對保守，不隨意步行、不臨時改道。這裡的安全感，仍建立在警覺與妥善安排之上，尤其是在入夜後的城市與通訊不穩的偏遠道路上。</p>
+        <p>在非洲旅遊目的地中，納米比亞給人的感受相對穩定而整潔，這也是我們選擇這裡的原因之一。Windhoek 與 Swakopmund 的德國殖民建築、咖啡館與街廓，也讓部分城市帶著鮮明的歐洲街景感。一路上，嚮導總說這裡很安全，但到大賣場採買時，我們仍會輪流留人在車旁看顧行李；真正安排夜間移動時，他們也相對保守，不隨意步行、不臨時改道。這裡的安全感，仍建立在警覺與妥善安排之上，尤其是在入夜後的城市與通訊不穩的偏遠道路上。</p>
         <p>這個人口不多的國家，卻擁有大得難以想像的土地。</p>
       </div>
     </section>
@@ -160,13 +164,13 @@ export default function NamibiaOverviewPage() {
         <article><span>01 / CAPITAL</span><h3>Windhoek<br />溫得和克</h3><p>位於中央高原的首都，也是政府、商業、航空與公路交通中心。多數國際旅程從這裡開始整備，再向北部國家公園或西部沙漠出發。</p></article>
         <article><span>02 / NATIONAL PARK</span><h3>Etosha<br />埃托沙國家公園</h3><p>它是一座以野生動物保育為核心的國家公園，面積接近台灣的三分之二。旱季時，大象、長頸鹿、犀牛、獅子與羚羊會集中到少數水源周圍。</p></article>
         <article><span>03 / ROCK & HERITAGE</span><h3>Brandberg · Spitzkoppe<br />岩峰與古老痕跡</h3><p>離開 Etosha 後，路線進入乾涸河床與花崗岩荒原。Brandberg 的岩畫、Spitzkoppe 的天然拱門與營地星空，讓地貌與人類留下的痕跡在同一段路上相遇。</p></article>
-        <article><span>04 / COAST</span><h3>Swakopmund · Walvis Bay<br />海岸城市</h3><p>Swakopmund 的德國殖民建築與咖啡館，是荒野路線中少見的城市停頓；Walvis Bay 則是重要港口、潟湖及前往 Sandwich Harbour 的入口。</p></article>
+        <article className="coast-city-card"><span>04 / COAST</span><h3>Swakopmund · Walvis Bay<br />海岸城市</h3><p className="coast-city-lead">從未想過，這是非洲。</p><img src="/travel/swakopmund-european-streets.avif" alt="Swakopmund 的德國殖民建築街景"/><p>Swakopmund 的德國殖民建築與咖啡館，是荒野路線中少見的城市停頓；Walvis Bay 則是重要港口、潟湖及前往 Sandwich Harbour 的入口。</p></article>
         <article><span>05 / NAMIB</span><h3>Namib · Sossusvlei<br />納米布沙漠</h3><p>世界最古老的沙漠之一。巨大的紅色沙丘、Sossusvlei 鹽沼與 Deadvlei 枯樹，構成納米比亞最具代表性的地貌。</p></article>
         <article><span>06 / KALAHARI</span><h3>Kalahari<br />喀拉哈里</h3><p>位於旅程尾聲的紅色沙地與稀疏草原。它比納米布沙漠多了一些植被與生命，也讓旅程從巨大沙丘慢慢回到有人活動的土地。</p></article>
       </div>
     </section>
 
-    <section className="overview-ending"><p>理解了這片土地，<br />再回到我們真正走過的十三天。</p><a href={`${BASE_PATH}/travel/#route`}>查看完整納米比亞路線 →</a></section>
+    <section className="overview-ending"><p>理解了這片土地，<br />再開始安排真正走過的十三天。</p><a href={`${BASE_PATH}/travel/guide/visa/`}>下一步：確認簽證與入境準備 →</a></section>
     <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>EXPERIENCE · 2025.09 / REVIEWED · 2026.07</span></footer>
   </main>;
 }

@@ -1,0 +1,4 @@
+.itinerary-cta,.transport-cta,.guide-next-cta,.guide-related-links a,.guide-related-links span{font-size:clamp(14px,1vw,18px);line-height:1.6;letter-spacing:.1em}
+.itinerary-cta,.transport-cta,.guide-next-cta{padding-bottom:10px}
+@media(min-width:1800px){.itinerary-cta,.transport-cta,.guide-next-cta,.guide-related-links a,.guide-related-links span{font-size:20px;line-height:1.65}.itinerary-cta,.transport-cta,.guide-next-cta{padding-bottom:12px}}
+@media(max-width:800px){.itinerary-cta,.transport-cta,.guide-next-cta,.guide-related-links a,.guide-related-links span{font-size:14px;letter-spacing:.06em}}

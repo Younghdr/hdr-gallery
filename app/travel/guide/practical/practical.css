@@ -119,12 +119,16 @@
 }
 
 .child-note b {
+  grid-column: 1;
+  grid-row: 1 / span 12;
+  align-self: start;
   color: #d96a38;
   font: 700 14px/1.6 monospace;
   letter-spacing: 0.1em;
 }
 
 .child-note p {
+  grid-column: 2;
   margin: 0;
   color: #4c4d46;
   font-size: 16px;
@@ -171,5 +175,11 @@
     grid-template-columns: 1fr;
     gap: 8px;
     padding-inline: 0;
+  }
+
+  .child-note b,
+  .child-note p {
+    grid-column: 1;
+    grid-row: auto;
   }
 }

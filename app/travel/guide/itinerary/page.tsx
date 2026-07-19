@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import "../guide-pages.css";
+import "../cta.css";
+import "../cta-4k.css";
 import "./itinerary.css";
 
 export const metadata: Metadata = {
   title: "行程天數與路線｜Namibia Travel Guide",
   description: "十三天的納米比亞環線、順逆時針選擇，以及峽谷、箭袋樹與熱氣球之間的取捨。",
+  alternates: { canonical: "/travel/guide/itinerary/" },
 };
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -101,11 +104,14 @@ export default function ItineraryGuidePage() {
       <span>WHAT WE LEFT BEHIND</span>
       <h2><i>這次沒有完成的，</i><i>留給下一趟。</i></h2>
       <p>刪除行程，不是規劃失敗，而是旅程真正開始成形的時刻。</p>
-      <p>Fish River Canyon、箭袋樹下的銀河、熱氣球，以及更多來不及深入的地方，最後都沒有被勉強塞進十三天。這讓我們保住了 Etosha 的等待、海岸的停留，也保住了走進 Deadvlei 的那個清晨。</p>
+      <p>Fish River Canyon、箭袋樹下的銀河、熱氣球，以及更多來不及深入的地方，最後都沒有被勉強塞進十三天。</p>
+      <p>這讓我們保住了 Etosha 的等待、海岸的停留，也保住了走進 Deadvlei 的那個清晨。</p>
       <blockquote>納米比亞大得不適合用景點數量來衡量。<br />有時候，少去一個地方，才有時間真正看見已經抵達的地方。</blockquote>
+      <a className="itinerary-cta" href={`${BASE_PATH}/travel/guide/transport/`}>下一步：比較移動方式與住宿 →</a>
     </section>
 
     <aside className="itinerary-source"><span>ROAD DATA</span><p>道路里程與路面類型參考 Namibia Roads Authority 公開資料。實際車程仍會受到路況、季節、停留與行車安全影響。</p><a href="https://www.ra.org.na/weighbridge" target="_blank" rel="noreferrer">NAMIBIA ROADS AUTHORITY ↗</a></aside>
+    <nav className="guide-related-links" aria-label="相關旅行攻略"><span>READ NEXT</span><a href={`${BASE_PATH}/travel/guide/flights/`}>台灣出發航線</a><a href={`${BASE_PATH}/travel/guide/transport/`}>移動與住宿</a></nav>
 
     <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>← 回到準備旅行</a><span>EXPERIENCE · 2025</span></footer>
   </main>;

@@ -48,3 +48,10 @@
     font-size: 16px;
   }
 }
+
+.city-wildlife-note{margin:48px 0 58px}.city-wildlife-note img{display:block;width:min(100%,820px);height:auto;max-height:560px;object-fit:cover}.city-wildlife-note figcaption{margin-top:14px;color:#77786f;font:500 15px/1.7 sans-serif;letter-spacing:.04em}
+@media(min-width:1800px){.city-wildlife-note{margin:62px 0 74px}.city-wildlife-note img{width:900px}.city-wildlife-note figcaption{font-size:18px}}
+.money-shopping-page .field-section:nth-of-type(3) .field-copy{max-width:1050px;margin:70px auto 0}
+.money-shopping-page .field-section:nth-of-type(3) .city-wildlife-note{margin-left:auto;margin-right:auto}
+.money-shopping-page .field-light .field-copy{width:min(100%,1050px)!important;max-width:1050px!important;margin:70px auto 0!important}
+.money-shopping-page .field-light .city-wildlife-note{width:min(100%,900px);margin-left:auto!important;margin-right:auto!important}

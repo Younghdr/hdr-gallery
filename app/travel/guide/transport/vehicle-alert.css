@@ -1,0 +1,7 @@
+.vehicle-luggage-alert{grid-column:1/-1!important;max-width:none!important;margin-top:18px!important;padding:28px 34px 30px;border-left:4px solid #ff7034;background:#292a23;color:#e9e1d2!important}
+.vehicle-luggage-alert strong{display:block;margin-bottom:14px;color:#ff7034;font:700 13px/1.5 monospace;letter-spacing:.16em}
+@media(max-width:900px){.vehicle-luggage-alert{padding:24px 22px 25px}}
+.transport-ending>span{color:#181914!important}
+.transport-ending h2{color:#181914}
+.transport-ending .transport-cta{font-size:clamp(16px,1.1vw,22px);line-height:1.6;letter-spacing:.08em;color:#181914;border-color:#181914}
+@media(min-width:1800px){.transport-ending>span{font-size:18px}.transport-ending .transport-cta{font-size:22px}}

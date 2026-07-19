@@ -307,6 +307,41 @@ h1 {
   scroll-margin-top: 96px;
 }
 
+.coming-note {
+  display: grid;
+  gap: 12px;
+  max-width: 620px;
+  margin-top: 18px;
+  padding: 28px 30px;
+  border-left: 2px solid var(--amber);
+  background: linear-gradient(110deg, rgba(255, 196, 74, 0.08), rgba(255, 255, 255, 0.025));
+}
+
+.coming-note-label,
+.coming-note-status {
+  color: var(--amber);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.coming-note h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+}
+
+.coming-note p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.coming-note-status {
+  color: var(--text-soft);
+  font-size: 0.64rem;
+}
+
 .switch-row {
   display: flex;
   flex-wrap: wrap;

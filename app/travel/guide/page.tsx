@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import "./guide-pages.css";
 
-export const metadata: Metadata = { title: "Namibia Travel Guide", description: "納米比亞簽證、航班、行程、交通、住宿與攝影旅行攻略。" };
+export const metadata: Metadata = {
+  title: "納米比亞旅遊攻略｜簽證、行程、交通與實用準備",
+  description: "給台灣旅客的納米比亞旅遊攻略：簽證、航班、13 天行程、交通、住宿、攝影與途中實用準備。",
+  alternates: { canonical: "/travel/guide/" },
+  openGraph: {
+    title: "納米比亞旅遊攻略｜出發前完整指南",
+    description: "簽證、航班、行程、交通與荒野旅行準備，一次整理。",
+    url: "/travel/guide/",
+    images: [{ url: "/travel/namibia-hero.png", alt: "納米比亞旅行攻略" }],
+  },
+};
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const guides = [

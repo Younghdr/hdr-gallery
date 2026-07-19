@@ -13,6 +13,16 @@ const ROUTES = [
   { path: "journal", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "about", priority: 0.5, changeFrequency: "monthly" as const },
   { path: "contact", priority: 0.5, changeFrequency: "monthly" as const },
+  { path: "travel", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "travel/guide", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "travel/guide/overview", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "travel/guide/visa", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "travel/guide/flights", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "travel/guide/itinerary", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "travel/guide/transport", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "travel/guide/practical", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "travel/guide/photography", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "travel/guide/money-shopping", priority: 0.7, changeFrequency: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

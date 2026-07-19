@@ -1,0 +1,14 @@
+.field-video-note{padding-bottom:clamp(90px,10vw,170px)}
+.field-video-note{background:#20211d;color:#e9e1d2}
+.field-video-note>span{display:block;text-align:center}
+.field-video-note header{display:block;text-align:center;margin-top:28px}
+.field-video-note .field-copy{display:block;max-width:820px;margin:0 auto;text-align:center}
+.field-video-note .field-copy p{font-size:clamp(1.25rem,1.35vw,1.8rem);line-height:1.8;color:#e9e1d2!important}
+.field-video-note .guide-video-embed{margin:48px auto 0;transform:none;clip-path:none;border-radius:0}
+.field-video-note .field-video-caption{margin:16px auto 0;max-width:1050px}
+.field-video-caption{font:500 13px/1.6 sans-serif;letter-spacing:.04em}
+.field-page>.guide-related-links{font-size:clamp(14px,1vw,18px);gap:14px 28px}
+.field-page>.guide-next-cta{font-size:clamp(15px,1.05vw,20px);line-height:1.6}
+.field-page>.field-footer{font-size:clamp(14px,1vw,18px);letter-spacing:.12em}
+@media(min-width:1800px){.field-page>.guide-related-links{font-size:18px}.field-page>.guide-next-cta{font-size:20px}.field-page>.field-footer{font-size:20px;letter-spacing:.14em}}
+@media(max-width:800px){.field-video-note .field-copy{margin:0 auto}.field-video-note .field-copy p{font-size:1.2rem}}

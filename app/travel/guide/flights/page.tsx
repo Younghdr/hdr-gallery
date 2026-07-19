@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import "../guide-pages.css";
+import "../cta.css";
+import "../cta-4k.css";
 import "./flights.css";
 import "./flight-cover.css";
 
 export const metadata: Metadata = {
   title: "納米比亞機票與轉機｜Namibia Travel Guide",
   description: "從台灣前往納米比亞的航線比較，以及我們放棄南非轉機、改走阿迪斯阿貝巴的真實考量。",
+  alternates: { canonical: "/travel/guide/flights/" },
 };
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -147,6 +150,8 @@ export default function FlightsGuidePage() {
       <div><a href="https://dirco.gov.za/japan/frequently-asked-questions/" target="_blank" rel="noreferrer">南非轉機簽證說明 ↗</a><a href="https://www.gov.uk/foreign-travel-advice/south-africa/safety-and-security" target="_blank" rel="noreferrer">南非安全建議 ↗</a><a href="https://www.expedia.com/Johannesburg-Hotels-City-Lodge-Hotel-At-OR-Tambo-International-Airport.h8403573.Hotel-Information" target="_blank" rel="noreferrer">機場旅館房價參考 ↗</a></div>
     </aside>
 
+    <nav className="guide-related-links" aria-label="相關旅行攻略"><span>READ NEXT</span><a href={`${BASE_PATH}/travel/guide/visa/`}>簽證與入境</a><a href={`${BASE_PATH}/travel/guide/itinerary/`}>行程天數與路線</a></nav>
+    <a className="guide-next-cta" href={`${BASE_PATH}/travel/guide/itinerary/`}>下一步：規劃納米比亞行程天數 →</a>
     <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>EXPERIENCE · 2025.09 / REVIEWED · 2026.07</span></footer>
   </main>;
 }

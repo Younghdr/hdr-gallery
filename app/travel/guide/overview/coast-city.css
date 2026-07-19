@@ -1,0 +1,3 @@
+.coast-city-card img{display:block;width:100%;height:auto;margin:28px 0 24px;aspect-ratio:16/9;object-fit:cover;filter:saturate(.9)}
+.coast-city-lead{margin:28px 0 0!important;color:#171813!important;font:italic 400 24px/1.5 Georgia,"Noto Serif TC",serif!important}
+@media(min-width:1800px){.coast-city-card img{margin-top:34px}.coast-city-lead{font-size:30px!important}}

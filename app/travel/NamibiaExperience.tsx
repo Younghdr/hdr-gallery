@@ -164,6 +164,7 @@ export default function NamibiaExperience() {
 
       <section className="field-notes" id="field-notes">
         <p className="section-label">FIELD NOTES / 05</p>
+        <p>旅遊專題持續建構中，更多關於追光、等待與發現的現場筆記，將陸續整理。</p>
         <div className="notes-grid">
           <article><span>01</span><h3>沙漠不是空無</h3><p>風、光線和溫度持續改寫沙丘。清晨出發，才能看見它最銳利的輪廓。</p></article>
           <article><span>02</span><h3>保持距離</h3><p>荒野的規則很簡單：我們是訪客。所有觀察都以不干擾動物為前提。</p></article>
