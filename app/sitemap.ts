@@ -14,6 +14,8 @@ const ROUTES = [
   { path: "about", priority: 0.5, changeFrequency: "monthly" as const },
   { path: "contact", priority: 0.5, changeFrequency: "monthly" as const },
   { path: "travel", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "travel/namibia", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "travel/canada", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "travel/guide", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "travel/guide/overview", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "travel/guide/visa", priority: 0.8, changeFrequency: "monthly" as const },

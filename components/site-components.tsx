@@ -82,6 +82,7 @@ export function SiteFrame({ children, music }: { children: React.ReactNode; musi
 function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [travelMenuOpen, setTravelMenuOpen] = React.useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const normalizedPathname = pathname.replace(basePath, "") || "/";
 
@@ -100,6 +101,28 @@ function Header() {
         <nav className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => {
             const active = item.href === "/" ? normalizedPathname === "/" : normalizedPathname.startsWith(item.href);
+            if (item.href === "/travel") {
+              return (
+                <div className="relative" key={item.href}>
+                  <button
+                    type="button"
+                    className={`${navLinkClass(active)} inline-flex items-center gap-2`}
+                    aria-haspopup="menu"
+                    aria-expanded={travelMenuOpen}
+                    onClick={() => setTravelMenuOpen((open) => !open)}
+                  >
+                    {item.label}<span aria-hidden="true" className={`text-[10px] transition ${travelMenuOpen ? "rotate-180" : ""}`}>▼</span>
+                  </button>
+                  {travelMenuOpen ? (
+                    <div role="menu" className="absolute left-1/2 top-[calc(100%+14px)] w-64 -translate-x-1/2 overflow-hidden rounded-2xl border border-white/12 bg-ink/95 p-2 shadow-2xl backdrop-blur-2xl">
+                      <Link role="menuitem" href="/travel/namibia/" className="block rounded-xl px-4 py-3 transition hover:bg-white/8" onClick={() => setTravelMenuOpen(false)}><small className="block text-[10px] tracking-[.18em] text-gold">2025 · AFRICA</small><b className="mt-1 block text-sm font-medium text-pearl">NAMIBIA · 納米比亞</b></Link>
+                      <Link role="menuitem" href="/travel/canada/" className="block rounded-xl px-4 py-3 transition hover:bg-white/8" onClick={() => setTravelMenuOpen(false)}><small className="block text-[10px] tracking-[.18em] text-emerald-300">2024 · NORTH</small><b className="mt-1 block text-sm font-medium text-pearl">CANADA · 加拿大</b></Link>
+                      <Link role="menuitem" href="/travel/" className="mt-1 block border-t border-white/10 px-4 py-3 text-xs tracking-[.12em] text-mist transition hover:text-pearl" onClick={() => setTravelMenuOpen(false)}>VIEW ALL JOURNEYS →</Link>
+                    </div>
+                  ) : null}
+                </div>
+              );
+            }
             return (
               <Link key={item.href} href={item.href} className={navLinkClass(active)}>
                 {item.label}
@@ -139,6 +162,14 @@ function Header() {
           <div className="flex flex-col gap-1">
             {navItems.map((item) => {
               const active = item.href === "/" ? normalizedPathname === "/" : normalizedPathname.startsWith(item.href);
+              if (item.href === "/travel") {
+                return (
+                  <div key={item.href} className="rounded-lg border border-white/10 p-2">
+                    <button type="button" className="flex w-full items-center justify-between px-2 py-2 text-sm text-pearl" aria-expanded={travelMenuOpen} onClick={() => setTravelMenuOpen((open) => !open)}><span>{item.label}</span><span aria-hidden="true">{travelMenuOpen ? "−" : "+"}</span></button>
+                    {travelMenuOpen ? <div className="mt-1 grid gap-1 border-t border-white/10 pt-2"><Link href="/travel/namibia/" className="rounded-lg px-3 py-3 text-sm text-mist hover:bg-white/8 hover:text-pearl" onClick={() => setMenuOpen(false)}>NAMIBIA · 納米比亞</Link><Link href="/travel/canada/" className="rounded-lg px-3 py-3 text-sm text-mist hover:bg-white/8 hover:text-pearl" onClick={() => setMenuOpen(false)}>CANADA · 加拿大</Link><Link href="/travel/" className="rounded-lg px-3 py-2 text-xs tracking-[.12em] text-mist hover:text-pearl" onClick={() => setMenuOpen(false)}>ALL JOURNEYS →</Link></div> : null}
+                  </div>
+                );
+              }
               return (
                 <Link
                   key={item.href}

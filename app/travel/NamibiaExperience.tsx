@@ -25,7 +25,7 @@ export default function NamibiaExperience() {
     <main className="travel-page">
       <header className="travel-nav">
         <a className="travel-mark" href={`${BASE_PATH}/`} aria-label="返回 Young HDR Gallery 首頁"><span>YH</span><b>EXPEDITIONS</b></a>
-        <nav aria-label="旅遊頁導覽"><a href="#route">ROUTE</a><a href="#guide">GUIDE</a><a href="#journal">JOURNAL</a><a href="#field-notes">FIELD NOTES</a></nav>
+        <nav aria-label="旅遊頁導覽"><a href={`${BASE_PATH}/travel/`}>ALL JOURNEYS</a><a className="destination-link" href={`${BASE_PATH}/travel/canada/`}>CANADA</a><a href="#route">ROUTE</a><a href="#guide">GUIDE</a><a href="#journal">JOURNAL</a></nav>
         <a className="nav-cta" href="#route">EXPLORE</a>
       </header>
 
@@ -38,6 +38,12 @@ export default function NamibiaExperience() {
         </div>
         <div className="scroll-cue"><i />SCROLL TO EXPLORE</div>
       </section>
+
+      <aside className="journey-switcher" aria-label="切換旅程">
+        <span>EXPEDITIONS</span>
+        <strong>NAMIBIA · 2025</strong>
+        <a href={`${BASE_PATH}/travel/canada/`}><small>NEW JOURNEY</small>CANADA · 2024 <b>→</b></a>
+      </aside>
 
       <section className="country-portrait" aria-labelledby="country-portrait-title">
         <div className="portrait-heading">
@@ -172,6 +178,11 @@ export default function NamibiaExperience() {
         </div>
       </section>
 
+      <section className="next-expedition">
+        <p>NEXT JOURNEY · CANADA</p>
+        <h2>從沙漠的光，<br />走進北方的夜。</h2>
+        <a href={`${BASE_PATH}/travel/canada/`}>ENTER CANADA JOURNAL <span>↗</span></a>
+      </section>
       <footer className="travel-footer"><p>NAMIBIA · A JOURNEY REMEMBERED</p><h2>旅程結束了，<br />故事還在路上。</h2><a href={`${BASE_PATH}/travel/guide/`}>CONTINUE EXPLORING <span>↗</span></a><small>NAMIBIA · 2025 / TRAVEL NOTES · 2026</small></footer>
     </main>
   );
