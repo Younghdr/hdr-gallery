@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./canada.css";
+import "./mobile-hero.css";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
