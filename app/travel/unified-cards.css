@@ -1,0 +1,218 @@
+/* Country index: one shared visual system for every destination card. */
+.destination-grid .destination-card {
+  --card-accent: #e8c98f;
+  grid-column: auto;
+  min-height: 720px;
+  background-position: center;
+}
+
+.destination-grid .destination-card.canada {
+  --card-accent: #a5e6c4;
+}
+
+.destination-grid .destination-card.italy {
+  --card-accent: #c9d58f;
+}
+
+.destination-grid .destination-card.iceland {
+  --card-accent: #ff6848;
+}
+
+.destination-grid .destination-card.bolivia {
+  --card-accent: #f1a998;
+}
+
+.destination-grid .destination-card.turkiye {
+  --card-accent: #ffc58f;
+}
+
+.destination-grid .destination-card.peru {
+  --card-accent: #f2c768;
+}
+
+.destination-grid .destination-card.montenegro {
+  --card-accent: #ef7653;
+}
+
+.destination-grid .destination-card.montenegro h2 {
+  font-size: clamp(2.7rem, 5vw, 6.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+  white-space: nowrap;
+}
+
+.destination-grid .destination-card > div {
+  width: min(100%, 620px);
+}
+
+.destination-grid .destination-card small {
+  display: block;
+  color: #d7d8d1;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+}
+
+.destination-grid .destination-card h2,
+.destination-grid .destination-card.turkiye h2 {
+  margin: 24px 0 16px;
+  color: #eeeae0;
+  font-size: clamp(4rem, 7vw, 9rem);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+}
+
+.destination-grid .destination-card p {
+  min-height: 1.4em;
+  margin: 0 0 38px;
+  color: #c8cdc8;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+}
+
+.destination-grid .destination-card b,
+.destination-grid .destination-card.canada b,
+.destination-grid .destination-card.iceland b,
+.destination-grid .destination-card.bolivia b {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 72%, transparent);
+  color: var(--card-accent);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  transition: color 220ms ease, background 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.destination-grid .destination-card b::after {
+  content: "↗";
+  font: 400 14px/1 Arial, sans-serif;
+  transition: transform 220ms ease;
+}
+
+.destination-grid .destination-card:hover b {
+  transform: translateY(-3px);
+}
+
+.destination-grid .destination-card:hover b::after {
+  transform: translate(3px, -3px);
+}
+
+/* Each journey receives its own field-mark instead of a repeated button. */
+.destination-grid .destination-card.namibia b {
+  border-width: 1px 0;
+  padding-inline: 0;
+}
+.destination-grid .destination-card.namibia b::before { content: "✦"; font-size: 15px; }
+
+.destination-grid .destination-card.canada b {
+  border: 0;
+  border-radius: 999px;
+  background: rgba(165,230,196,.12);
+  box-shadow: inset 0 0 22px rgba(165,230,196,.12);
+}
+.destination-grid .destination-card.canada b::before { content: "◒"; font-size: 17px; }
+
+.destination-grid .destination-card.italy b {
+  position: relative;
+  border-style: dashed;
+  background: rgba(25,30,22,.38);
+  transform: rotate(-1deg);
+}
+.destination-grid .destination-card.italy b::before { content: "IT"; font: 700 9px/1 Georgia,serif; }
+
+.destination-grid .destination-card.iceland b {
+  border: 0;
+  border-left: 3px solid var(--card-accent);
+  background: linear-gradient(90deg,rgba(255,104,72,.2),transparent);
+}
+.destination-grid .destination-card.iceland b::before { content: "△"; font-size: 17px; }
+
+.destination-grid .destination-card.bolivia b {
+  padding: 0 0 9px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.destination-grid .destination-card.bolivia b::before { content: "↑"; font-size: 17px; }
+
+.destination-grid .destination-card.turkiye b {
+  border-radius: 22px 22px 3px 3px;
+  background: rgba(67,38,21,.34);
+}
+.destination-grid .destination-card.turkiye b::before { content: "◐"; font-size: 16px; }
+
+.destination-grid .destination-card.peru b {
+  border: 1px solid var(--card-accent);
+  box-shadow: 4px 4px 0 rgba(242,199,104,.28);
+  transform: rotate(1deg);
+}
+.destination-grid .destination-card.peru b::before { content: "PER"; font: 700 8px/1 ui-monospace,monospace; letter-spacing:.06em; }
+
+.destination-grid .destination-card.montenegro b {
+  padding-left: 10px;
+  border: 0;
+  border-bottom: 1px solid var(--card-accent);
+  background: rgba(9,21,24,.5);
+}
+.destination-grid .destination-card.montenegro b::before {
+  content: "25";
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font: 700 8px/1 ui-monospace,monospace;
+}
+
+.destination-grid .destination-card i,
+.destination-grid .destination-card.canada i,
+.destination-grid .destination-card.iceland i,
+.destination-grid .destination-card.bolivia i {
+  color: var(--card-accent) !important;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+}
+
+.destination-grid .destination-card .card-shade,
+.destination-grid .destination-card.bolivia .card-shade {
+  background:
+    linear-gradient(0deg, rgba(5, 8, 7, 0.91), rgba(5, 8, 7, 0.12) 68%),
+    linear-gradient(90deg, rgba(5, 8, 7, 0.36), transparent);
+}
+
+.destination-grid .destination-card {
+  transition: filter 240ms ease;
+}
+
+.destination-grid .destination-card:hover {
+  filter: brightness(1.06);
+}
+
+@media (max-width: 800px) {
+  .destination-grid .destination-card,
+  .destination-grid .destination-card.turkiye {
+    grid-column: auto;
+    min-height: 70svh;
+  }
+
+  .destination-grid .destination-card h2,
+  .destination-grid .destination-card.turkiye h2 {
+    font-size: clamp(3.6rem, 18vw, 6rem);
+  }
+
+  .destination-grid .destination-card.montenegro h2 {
+    font-size: clamp(2.65rem, 11.5vw, 5.2rem);
+  }
+}

@@ -1,0 +1,14 @@
+/* Large-format desktop composition: 2560px–4K displays */
+@media (min-width:2000px){
+  .ice-nav{height:132px;padding-inline:5vw;font-size:14px}.ice-brand{gap:22px}.ice-brand span{width:54px;height:54px}.ice-brand b{font-size:14px}.ice-nav nav{gap:54px}.ice-nav>p{font-size:12px;line-height:1.7}
+  .ice-hero:after{inset:132px 5vw 54px}.ice-issue{left:5vw;top:205px}.ice-issue span{font-size:13px}.ice-issue b{font-size:70px}.ice-issue i{width:52px}.ice-title{left:8.5vw;bottom:10vh}.ice-title>p{margin-bottom:24px;font-size:14px}.ice-title h1{font-size:clamp(15rem,15vw,35rem)}.ice-title>div{margin-top:64px;gap:6vw}.ice-title>div b{font-size:28px}.ice-title>div p{font-size:22px;line-height:1.85}.ice-scroll{right:5.7vw;bottom:60px;font-size:13px}
+  .ice-manifesto{min-height:900px;padding:clamp(180px,12vw,300px) 8.5vw;grid-template-columns:.58fr 1.42fr;gap:7vw;align-content:center}.ice-kicker{font-size:14px;letter-spacing:.22em}.ice-manifesto h2{max-width:2350px;font-size:clamp(8rem,7vw,17rem);line-height:1.01}.ice-manifesto-copy{max-width:1500px;gap:7vw;font-size:23px;line-height:2}
+  .ice-index article{min-height:520px;padding:65px 5vw}.ice-index small,.ice-index span{font-size:13px}.ice-index b{font-size:clamp(6rem,5.8vw,13rem)}
+  .golden-circle{padding:clamp(180px,11vw,300px) 8.5vw}.golden-heading{grid-template-columns:.48fr 1.52fr;gap:7vw;margin-bottom:150px}.golden-heading>p{font-size:14px}.golden-heading h2{font-size:clamp(7.5rem,6.2vw,15rem)}.golden-heading>span{max-width:1200px;font-size:23px;line-height:2}.golden-card{min-height:650px;padding:75px 0;grid-template-columns:.36fr 1.64fr}.golden-card:after{top:75px;height:calc(100% - 150px);width:35%}.golden-number{font-size:clamp(7rem,7vw,16rem)}.golden-card small{font-size:13px}.golden-card h3{margin-top:34px;font-size:clamp(7rem,6.6vw,15rem)}.golden-card b{font-size:26px}.golden-card p{max-width:900px;margin-top:46px;font-size:22px;line-height:1.9}.data-pending{margin-top:32px;padding:12px 16px;font-size:11px}
+  .ice-route{min-height:1250px;grid-template-columns:.82fr 1.18fr}.ice-route-label{padding:100px 6vw;font-size:14px}.ice-route-copy{padding:clamp(170px,10vw,270px) 8vw}.ice-route-copy small{font-size:14px}.ice-route-copy h2{margin:56px 0 100px;font-size:clamp(7.5rem,6.3vw,15rem)}.ice-route-copy>p{max-width:1100px;font-size:25px;line-height:2}.ice-route dl{margin-top:130px}.ice-route dl div{padding:28px 0}.ice-route dt,.ice-route dd{font-size:14px}
+  .ice-footer{padding:65px 5vw;font-size:13px}
+}
+
+@media (min-width:3200px){
+  .ice-manifesto,.golden-circle{padding-inline:10vw}.ice-manifesto{grid-template-columns:.5fr 1.5fr}.ice-manifesto-copy{max-width:1700px}.golden-heading{grid-template-columns:.42fr 1.58fr}.ice-route-copy{padding-inline:9vw}
+}

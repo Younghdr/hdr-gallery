@@ -110,6 +110,6 @@ export default function ItineraryGuidePage() {
     <aside className="itinerary-source"><span>ROAD DATA</span><p>道路里程與路面類型參考 Namibia Roads Authority 公開資料。實際車程仍會受到路況、季節、停留與行車安全影響。</p><a href="https://www.ra.org.na/weighbridge" target="_blank" rel="noreferrer">NAMIBIA ROADS AUTHORITY ↗</a></aside>
     <nav className="guide-related-links" aria-label="相關旅行攻略"><span>READ NEXT</span><a href={`${BASE_PATH}/travel/guide/flights/`}>台灣出發航線</a><a href={`${BASE_PATH}/travel/guide/transport/`}>移動與住宿</a></nav>
 
-    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>← 回到準備旅行</a><span>EXPERIENCE · 2025</span></footer>
+    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>← 回到準備旅行</a><span>TRAVEL EXPERIENCE</span></footer>
   </main>;
 }

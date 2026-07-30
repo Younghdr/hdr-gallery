@@ -149,6 +149,18 @@ export default function NamibiaOverviewPage() {
       </div>
     </section>
 
+    <section className="overview-coast-feature" aria-labelledby="coast-feature-title">
+      <div className="overview-coast-feature-head">
+        <span>SANDWICH HARBOUR / COASTAL DESERT</span>
+        <h2 id="coast-feature-title">沙丘一路落進大西洋。</h2>
+        <p>在 Sandwich Harbour，納米布沙漠的沙丘直接抵達海岸。這不是地圖上的抽象線條，而是沙與海在同一個畫面裡相遇。</p>
+      </div>
+      <figure>
+        <img src={`${BASE_PATH}/travel/sandwich-harbour.avif`} alt="Sandwich Harbour 沙丘與大西洋相連的海岸景觀" />
+        <figcaption><span>SANDWICH HARBOUR · WALVIS BAY</span><b>沙海相連奇景</b></figcaption>
+      </figure>
+    </section>
+
     <section className="overview-chapters">
       {chapters.map((chapter) => <article className="overview-chapter" key={chapter.number}>
         <header><span>{chapter.number}</span><small>{chapter.label}</small></header>
@@ -171,6 +183,6 @@ export default function NamibiaOverviewPage() {
     </section>
 
     <section className="overview-ending"><p>理解了這片土地，<br />再開始安排真正走過的十三天。</p><a href={`${BASE_PATH}/travel/guide/visa/`}>下一步：確認簽證與入境準備 →</a></section>
-    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>EXPERIENCE · 2025.09 / REVIEWED · 2026.07</span></footer>
+    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>TRAVEL EXPERIENCE / REVIEWED</span></footer>
   </main>;
 }

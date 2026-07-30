@@ -34,15 +34,15 @@ export default function NamibiaExperience() {
         <div className="hero-copy">
           <p className="kicker">TAIWAN ↔ NAMIBIA · 16 DAYS TOTAL · 13 DAYS IN NAMIBIA</p>
           <h1>INTO THE<br /><em>WILD</em></h1>
-          <div className="hero-meta"><span>NAMIBIA</span><span>22°34′S 17°05′E</span><span>SEP — OCT 2025</span></div>
+          <div className="hero-meta"><span>NAMIBIA</span><span>22°34′S 17°05′E</span><span>SEP — OCT</span></div>
         </div>
         <div className="scroll-cue"><i />SCROLL TO EXPLORE</div>
       </section>
 
       <aside className="journey-switcher" aria-label="切換旅程">
         <span>EXPEDITIONS</span>
-        <strong>NAMIBIA · 2025</strong>
-        <a href={`${BASE_PATH}/travel/canada/`}><small>NEW JOURNEY</small>CANADA · 2024 <b>→</b></a>
+        <strong>NAMIBIA</strong>
+        <a href={`${BASE_PATH}/travel/canada/`}><small>NEW JOURNEY</small>CANADA <b>→</b></a>
       </aside>
 
       <section className="country-portrait" aria-labelledby="country-portrait-title">
@@ -139,7 +139,7 @@ export default function NamibiaExperience() {
         </div>
 
         <article className="postcard-story">
-          <aside><span>POSTCARD / 2025</span><b>FROM NAMIBIA<br />TO TAIWAN</b><i>3 MONTHS<br />IN TRANSIT</i></aside>
+          <aside><span>POSTCARD</span><b>FROM NAMIBIA<br />TO TAIWAN</b><i>3 MONTHS<br />IN TRANSIT</i></aside>
           <div className="story-copy">
             <p className="story-chapter">三個月後抵達的明信片</p>
             <h3>最近收到了一張明信片。</h3>
@@ -164,7 +164,7 @@ export default function NamibiaExperience() {
           <span>WITH GRATITUDE</span>
           <p>Albert Hu · 賴小豬 · Nai-Wei Chen · 許世傑 · Wen Chang · Angel Pig · Rick Hsu · Stefan Shih · David Mr.T · Nature Travel Namibia</p>
           <strong>沒有你，這趟旅程少了一半的重量。</strong>
-          <small>📍 NAMIBIA, 2025 · 紀念</small>
+          <small>📍 NAMIBIA · 紀念</small>
         </div>
       </section>
 
@@ -183,7 +183,7 @@ export default function NamibiaExperience() {
         <h2>從沙漠的光，<br />走進北方的夜。</h2>
         <a href={`${BASE_PATH}/travel/canada/`}>ENTER CANADA JOURNAL <span>↗</span></a>
       </section>
-      <footer className="travel-footer"><p>NAMIBIA · A JOURNEY REMEMBERED</p><h2>旅程結束了，<br />故事還在路上。</h2><a href={`${BASE_PATH}/travel/guide/`}>CONTINUE EXPLORING <span>↗</span></a><small>NAMIBIA · 2025 / TRAVEL NOTES · 2026</small></footer>
+      <footer className="travel-footer"><p>NAMIBIA · A JOURNEY REMEMBERED</p><h2>旅程結束了，<br />故事還在路上。</h2><a href={`${BASE_PATH}/travel/guide/`}>CONTINUE EXPLORING <span>↗</span></a><small>NAMIBIA / TRAVEL NOTES</small></footer>
     </main>
   );
 }

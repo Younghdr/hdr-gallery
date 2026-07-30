@@ -33,7 +33,7 @@ export default function VisaGuidePage() {
       { question: "納米比亞簽證何時開始準備？", answer: "建議儘早整理並送件，為審核時間與可能的補件留下餘裕；本頁提供送件前的文件檢查清單與六步流程。" },
     ]} />
     <header className="guide-nav"><a href={`${BASE_PATH}/travel/guide/`}>← ALL GUIDES</a><a href={`${BASE_PATH}/travel/`}>JOURNEY ↗</a></header>
-    <section className="visa-cover"><p>GUIDE / 02 · VISA & ENTRY</p><h1>納米比亞<br />線上觀光簽證</h1><div><span>6 STEPS</span><span>REFERENCE · 2025.09</span></div></section>
+    <section className="visa-cover"><p>GUIDE / 02 · VISA & ENTRY</p><h1>納米比亞<br />線上觀光簽證</h1><div><span>6 STEPS</span><span>TRAVEL REFERENCE</span></div></section>
     <section className="visa-lead"><h2>先把簽證，<br />留在出發前完成。</h2><div><p>和日本、泰國等常見的免簽旅行不同，納米比亞觀光簽證需要事前送件，並準備財力、機票、住宿與行程等英文證明。文件並非難以取得，但項目多，審核進度也不一定同步；若在短時間內才開始準備，很容易手忙腳亂。</p><p>我們同團成員在相近時間送件，處理速度仍不相同。等待期間也曾請旅行社協助寄信詢問，擔心無法在出發前取得簽證。最重要的經驗只有一件事：儘早整理、儘早送件，為審核與可能的補件留下時間。</p><a href="https://eservices.mhaiss.gov.na/holidayvisa-services" target="_blank" rel="noreferrer">OPEN OFFICIAL APPLICATION ↗</a><small>實際資格、費用與文件要求可能變動；送件前請以納米比亞官方網站最新公告為準。</small></div></section>
     <section className="visa-docs">
       <div><p>ONE-PAGE CHECKLIST / 01</p><h2>先準備好，<br />就不會在送件時慌張。</h2><p className="checklist-intro">把每位旅客的文件分開建立資料夾，檔名加上英文姓名。送件前照著這一頁逐項確認即可。</p></div>
@@ -44,9 +44,9 @@ export default function VisaGuidePage() {
       </div>
     </section>
     <section className="visa-process"><div className="process-title"><p>APPLICATION / 02</p><h2>六個步驟，完成線上申請。</h2></div>{steps.map(step=><article key={step.number}><div><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></div><figure><img src={`${BASE_PATH}/travel/visa/${step.image}`} alt={`納米比亞簽證申請步驟 ${step.number}：${step.title}`} loading="lazy" /></figure></article>)}</section>
-    <aside className="visa-credit"><span>SOURCE &amp; THANKS</span><h2>同行旅伴的申請經驗</h2><p>本章依據旅伴 Elena 於 2025 年申請納米比亞簽證的實際經驗整理。若想查看完整的申請步驟與操作畫面，請參考她的原始教學文章。</p><div><a href="https://blog.elena.tw/apply-online-for-a-namibia-holiday-visa/" target="_blank" rel="noreferrer">閱讀原始簽證教學 ↗</a><a href="https://blog.elena.tw/" target="_blank" rel="noreferrer">VISIT ELENA'S BLOG ↗</a></div></aside>
+    <aside className="visa-credit"><span>SOURCE &amp; THANKS</span><h2>同行旅伴的申請經驗</h2><p>本章依據旅伴 Elena 申請納米比亞簽證的實際經驗整理。若想查看完整的申請步驟與操作畫面，請參考她的原始教學文章。</p><div><a href="https://blog.elena.tw/apply-online-for-a-namibia-holiday-visa/" target="_blank" rel="noreferrer">閱讀原始簽證教學 ↗</a><a href="https://blog.elena.tw/" target="_blank" rel="noreferrer">VISIT ELENA'S BLOG ↗</a></div></aside>
     <nav className="guide-related-links" aria-label="相關旅行攻略"><span>READ NEXT</span><a href={`${BASE_PATH}/travel/guide/flights/`}>台灣出發航線</a><a href={`${BASE_PATH}/travel/guide/itinerary/`}>行程天數與路線</a></nav>
     <a className="guide-next-cta" href={`${BASE_PATH}/travel/guide/flights/`}>下一步：比較台灣出發的航線 →</a>
-    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>EXPERIENCE · 2025.09 / REVIEWED · 2026.07</span></footer>
+    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>TRAVEL EXPERIENCE / REVIEWED</span></footer>
   </main>;
 }

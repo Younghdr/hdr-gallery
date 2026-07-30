@@ -1,0 +1,20 @@
+.destination-card.bolivia {
+  background-position: center;
+}
+
+.destination-card.bolivia b,
+.destination-card.bolivia i {
+  color: #f1a998;
+}
+
+.destination-card.bolivia .card-shade {
+  background:
+    linear-gradient(0deg, rgba(13, 27, 48, 0.92), rgba(13, 27, 48, 0.08) 70%),
+    linear-gradient(90deg, rgba(13, 27, 48, 0.28), transparent);
+}
+
+@media (max-width: 800px) {
+  .destination-card.bolivia {
+    background-position: 61% center;
+  }
+}

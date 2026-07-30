@@ -12,7 +12,7 @@ export const metadata: Metadata = guideMetadata({ title: "納米比亞 Safari �
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const operators = [
-  { name: "Simba Travel", price: "—", load: "$$", setup: "未進入正式安排", custom: "—", copy: "可中文溝通，但回覆較慢；確認為 2025 年後表示房況已滿，建議至少提前一年。" },
+  { name: "Simba Travel", price: "—", load: "$$", setup: "未進入正式安排", custom: "—", copy: "可中文溝通，但回覆較慢；確認出發時段後表示房況已滿，建議至少提前一年。" },
   { name: "Chameleon Safaris", price: "$$", load: "$$$", setup: "一台散客團大型 4WD Safari 車", custom: "$$$", copy: "使用平常承載散客拼團的大型車；首次回覆最快、報價清楚，但九人共乘的拍攝空間仍和兩車方案不同。" },
   { name: "Nature Travel Namibia", price: "$$$", load: "$$", setup: "兩台 Toyota Land Cruiser · 可開式車頂", custom: "$$$$", copy: "車輛等級較高，專業嚮導也擅長尋找動物；能依攝影、攀爬健行與安全需求臨場調整。", chosen: true },
   { name: "台灣旅行社", price: "$$$$", load: "$", setup: "機票 · 住宿 · 中文領隊", custom: "$$", copy: "最輕鬆也最貴；把簽證、付款、領隊與台灣端責任窗口整合在同一份契約。" },
@@ -21,11 +21,11 @@ const operators = [
 export default function TransportGuidePage() {
   return <main className="guide-page transport-page">
     <header className="guide-nav"><a href={`${BASE_PATH}/travel/guide/`}>← ALL GUIDES</a><a href={`${BASE_PATH}/travel/`}>JOURNEY →</a></header>
-      <section className="transport-cover"><p>GUIDE / 05 · HOW TO TRAVEL</p><h1><i>自由行自駕、</i><i>參加當地團，</i><i>還是從台灣跟團？</i></h1><div><span>SELF-DRIVE · LOCAL TOUR · TAIWAN GROUP</span><span>NAMIBIA · 2025</span></div></section>
+      <section className="transport-cover"><p>GUIDE / 05 · HOW TO TRAVEL</p><h1><i>自由行自駕、</i><i>參加當地團，</i><i>還是從台灣跟團？</i></h1><div><span>SELF-DRIVE · LOCAL TOUR · TAIWAN GROUP</span><span>NAMIBIA</span></div></section>
 
       <section className="transport-opening"><span>ONE DECISION</span><div><p className="lead">住在哪裡，也決定了怎麼走。</p><p>在納米比亞，車輛、嚮導、住宿位置與每天能看見什麼，幾乎是同一個決定。住宿離國家公園入口多遠，決定隔天幾點能開始 Safari；一輛車坐幾個人，影響行李、攝影器材與每個人的視野；有沒有熟悉動物與道路的嚮導，更直接決定一整天是在荒野裡尋找，還是真的能看見什麼。</p><blockquote>我們最後不是先選車，再選住宿。<br />而是把每天想留下的時間，一起放進同一張行程表。</blockquote></div></section>
 
-    <section className="park-stay"><header><span>01 / TOO LATE</span><h2><i>園內住宿很少，</i><i>晚一點決定，選擇就不再完全屬於自己。</i></h2></header><div className="park-grid"><article><b>BOOKING</b><h3>至少提前一年？</h3><p>我們在出發前幾個月才正式確認。Simba 得知旅行年份為 2025 年後，表示當年度幾乎已滿。Etosha 園內房間本來就少，熱門季節還要同時面對自駕旅客與海外團體。</p></article><article><b>EVERY MORNING</b><h3>園外住宿的時間成本</h3><p>最後我們住在 Etosha 外圍。每天除了前往入口的車程，還要排隊、登記與檢查。依實際經驗，完成進出流程最少多抓一個小時；這一小時往往正好落在動物最活躍的清晨。</p></article></div><blockquote>便宜一些的房間，如果每天少掉一至兩個小時的 Safari，真正的價格就不只寫在帳單上。</blockquote><aside className="lodge-wild"><span>LODGE / INSIDE THE WILD</span><h3>住進高級 Lodge，<br />也沒有離開荒野。</h3><div><p>靠近國家公園入口、位於園內或私人保護區內的 Lodge，通常位置更稀缺，服務、餐食與活動也較完整，因此價格與住宿等級往往更高。旅客付的不只是房間，而是清晨進入荒野的時間，以及動物可能直接出現在 Lodge 周圍的距離。</p><p>更好的設施仍不代表把自然完全隔絕在門外。昆蟲、壁虎與其他小型生物可能進入房間；餐廳、步道或房門附近，也可能近距離巧遇野生動物。夜間不要獨自行動，應遵守 Lodge 規定的步行範圍；若天黑後必須由工作人員接送，就不要因為看起來只有一小段路而自行走回房間。</p></div></aside></section>
+    <section className="park-stay"><header><span>01 / TOO LATE</span><h2><i>園內住宿很少，</i><i>晚一點決定，選擇就不再完全屬於自己。</i></h2></header><div className="park-grid"><article><b>BOOKING</b><h3>至少提前一年？</h3><p>我們在出發前幾個月才正式確認。Simba 得知旅行時段後，表示當期房況幾乎已滿。Etosha 園內房間本來就少，熱門季節還要同時面對自駕旅客與海外團體。</p></article><article><b>EVERY MORNING</b><h3>園外住宿的時間成本</h3><p>最後我們住在 Etosha 外圍。每天除了前往入口的車程，還要排隊、登記與檢查。依實際經驗，完成進出流程最少多抓一個小時；這一小時往往正好落在動物最活躍的清晨。</p></article></div><blockquote>便宜一些的房間，如果每天少掉一至兩個小時的 Safari，真正的價格就不只寫在帳單上。</blockquote><aside className="lodge-wild"><span>LODGE / INSIDE THE WILD</span><h3>住進高級 Lodge，<br />也沒有離開荒野。</h3><div><p>靠近國家公園入口、位於園內或私人保護區內的 Lodge，通常位置更稀缺，服務、餐食與活動也較完整，因此價格與住宿等級往往更高。旅客付的不只是房間，而是清晨進入荒野的時間，以及動物可能直接出現在 Lodge 周圍的距離。</p><p>更好的設施仍不代表把自然完全隔絕在門外。昆蟲、壁虎與其他小型生物可能進入房間；餐廳、步道或房門附近，也可能近距離巧遇野生動物。夜間不要獨自行動，應遵守 Lodge 規定的步行範圍；若天黑後必須由工作人員接送，就不要因為看起來只有一小段路而自行走回房間。</p></div></aside></section>
 
     <section className="guide-value"><header><span>02 / FINDING WILDLIFE</span><h2><i>自己開車，</i><i>也能找到動物嗎？</i></h2></header><div><p>可以，只是不一定容易。Etosha 面積廣大，熟悉園區的嚮導會觀察足跡、水塘、其他車輛停留的位置與嚮導之間的回報，再判斷下一段路該往哪裡走。</p><p>駕駛者同時要注意碎石、坑洞與突然穿越道路的動物，很難長時間掃視遠方。如果只有一個人負責開車，他往往也是全車最難專心找動物的人。</p><blockquote>選擇嚮導，不是因為自己完全不能開。<br />而是不想把最珍貴的 Safari，變成一場邊開車、邊猜方向的練習。</blockquote></div></section>
 
@@ -36,9 +36,9 @@ export default function TransportGuidePage() {
     <section className="vehicle-choice"><header><span>04 / TWO VEHICLES</span><h2><i>一輛車坐滿最省，</i><i>為什麼我們仍選擇兩輛？</i></h2></header><div className="vehicle-copy"><p>私人小團的車輛、嚮導與燃油多半是固定成本。人數愈接近滿載，每個人分攤的費用愈低；但乘客、行李與器材愈多，窗邊視野與拍攝空間也愈少。</p><p>我們共有八位成人與一位兒童，還有大型行李、相機與長鏡頭。最後使用兩輛車、兩位嚮導，兩位英文較流利的團員分坐兩車，再以對講機保持聯絡。</p><p className="vehicle-luggage-alert"><strong>行李與器材提醒</strong>這趟不是把行李放上巴士貨艙，而是攝影器材與行李箱都跟著狩獵車一起走。車上空間有限，Safari 車沒有坐滿時，硬殼行李箱仍可接受；但如果是滿車或共乘，硬箱不容易堆疊，也比較難塞進不規則空間。建議改用軟袋、登山袋或可壓縮行李，並在出發前先向旅行社確認每人可帶的件數與尺寸。</p></div><div className="vehicle-checks">{["每排座位能否看見窗外？","每車能放下多少大型行李？","硬箱尺寸是否會卡住空間？","器材能否留在座位附近？","是否有 USB 或車充電源？","安全帶形式是否適合兒童？","兩車如何即時保持聯絡？"].map((text,index)=><article key={text}><b>0{index+1}</b><p>{text}</p></article>)}</div><blockquote>四輪驅動決定車能不能通過某些路段；<br />空間、視野與通訊，才決定車上的人如何完成十三天。</blockquote></section>
 
     <section className="transport-ending"><span>THE REAL COMPARISON</span><h2><i>最便宜的方式，</i><i>需要旅客投入最多時間。</i></h2><div className="transport-summary"><p><b>Chameleon：</b>預算較省，但包含露營，且需自行處理機票、簽證、付款與英文溝通。</p><p><b>Nature：</b>預算較高，換來全程 Lodge、兩輛車、兩位嚮導與較高客製彈性。</p><p><b>台灣旅行社：</b>價格最高，但把航班、簽證、領隊與責任窗口整合在同一份安排裡。</p></div><blockquote>最適合的方案，不一定是第一封信回得最快，也不一定是報價最低。<br />而是哪一種安排，能保住這趟旅行最想看見的東西。</blockquote><a className="transport-cta" href={`${BASE_PATH}/travel/guide/practical/`}>下一步：查看出發前實用準備 →</a></section>
-    <aside className="transport-source"><span>SOURCE &amp; CONTEXT</span><p>業者差異依 2025 年實際詢價郵件整理；團體產品則參考台灣旅行社公開的納米比亞行程。不同年份、天數、房況與包含項目均可能改變價格與安排。</p></aside>
+    <aside className="transport-source"><span>SOURCE &amp; CONTEXT</span><p>業者差異依當時實際詢價郵件整理；團體產品則參考台灣旅行社公開的納米比亞行程。不同時段、天數、房況與包含項目均可能改變價格與安排。</p></aside>
     <section className="photo-insert"><span>FIELD NOTE / STAY</span><h2>住宿不是只有一張床，<br />也是每天重新整理器材的地方。</h2><p>城市 Lodge、沙漠帳篷與公共空間的差異，會直接影響充電、備份、收納與隔天出發的節奏。</p><div className="photo-insert-grid"><figure><img src={`${BASE_PATH}/travel/lodge-room.avif`} alt="納米比亞 Lodge 房間"/><figcaption>房間：整理器材與完成備份。</figcaption></figure><figure><img src={`${BASE_PATH}/travel/safari-tent.avif`} alt="納米比亞 Safari 帳篷內部"/><figcaption>帳篷：更貼近荒野，也更需要收納有秩序。</figcaption></figure><figure><img src={`${BASE_PATH}/travel/lodge-lounge.avif`} alt="納米比亞 Lodge 公共空間"/><figcaption>公共空間：等待、充電與重新出發。</figcaption></figure></div></section>
     <nav className="guide-related-links" aria-label="相關旅行攻略"><span>READ NEXT</span><a href={`${BASE_PATH}/travel/guide/itinerary/`}>行程天數與路線</a><a href={`${BASE_PATH}/travel/guide/photography/`}>荒野攝影準備</a></nav>
-    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>← 回到準備旅行</a><span>EXPERIENCE · 2025</span></footer>
+    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>← 回到準備旅行</a><span>TRAVEL EXPERIENCE</span></footer>
   </main>;
 }

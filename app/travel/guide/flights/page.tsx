@@ -19,7 +19,7 @@ const routes = [
     outbound: "約 22H 30M",
     returning: "約 40H 20M",
     price: "初期約 NT$36,169–37,091",
-    note: "2025 規劃初期報價；接近出發時價格已上漲，但沒有留下最後金額。回程在 JNB 等待約 19 小時，需另抓一晚機場旅館：每房約 NT$4,500–5,500，兩人分攤約每人 NT$2,250–2,750。",
+    note: "規劃初期報價；接近出發時價格已上漲，但沒有留下最後金額。回程在 JNB 等待約 19 小時，需另抓一晚機場旅館：每房約 NT$4,500–5,500，兩人分攤約每人 NT$2,250–2,750。",
     legs: [],
     timeCosts: [],
   },
@@ -31,7 +31,7 @@ const routes = [
     outbound: "約 22H 35M",
     returning: "約 23H 30M",
     price: "NT$42,562",
-    note: "2025 實際採用方案；最快銜接組往返共 46H 05M，其中 9H 35M 花在轉機等待。部分團員因前段班機不同，單程總時間超過 33 小時。",
+    note: "實際採用方案；最快銜接組往返共 46H 05M，其中 9H 35M 花在轉機等待。部分團員因前段班機不同，單程總時間超過 33 小時。",
     legs: [
       "TPE → BKK｜飛行 3H 45M",
       "BKK｜轉機 2H 20M",
@@ -56,7 +56,7 @@ export default function FlightsGuidePage() {
       <p>GUIDE / 03 · FLIGHTS</p>
       <h1><span>不是最短的航線，</span><em>而是少一點不確定性。</em></h1>
       <div className="cover-route" aria-hidden="true"><b>TPE</b><i /><strong>WDH</strong></div>
-      <div><span>TAIWAN → NAMIBIA</span><span>EXPERIENCE · 2025</span></div>
+      <div><span>TAIWAN → NAMIBIA</span><span>TRAVEL EXPERIENCE</span></div>
     </section>
 
     <section className="flight-opening">
@@ -69,7 +69,7 @@ export default function FlightsGuidePage() {
     </section>
 
     <section className="route-study">
-      <header><span>2025 / ROUTE STUDY</span><h2>兩條路，<br />差的不只是五分鐘。</h2><p>以下依當時共同試算表的班次重新計算。總時間包含轉機，並以各段出發地與目的地時區換算。</p></header>
+      <header><span>ROUTE STUDY</span><h2>兩條路，<br />差的不只是五分鐘。</h2><p>以下依當時共同試算表的班次重新計算。總時間包含轉機，並以各段出發地與目的地時區換算。</p></header>
       <div className="route-cards">
         {routes.map(route => <article key={route.no}>
           <div className="route-card-head"><span>{route.no} / {route.label}</span><b>{route.path}</b></div>
@@ -123,7 +123,7 @@ export default function FlightsGuidePage() {
     </section>
 
     <section className="price-snapshot">
-      <header><span>ONLINE SNAPSHOT / 2026.07</span><h2>現在查到的最低價，<br />不能直接和當年<br />畫上等號。</h2></header>
+      <header><span>ONLINE SNAPSHOT</span><h2>現在查到的最低價，<br />不能直接和當時<br />畫上等號。</h2></header>
       <div className="snapshot-grid">
         <article><span>CATHAY PACIFIC</span><strong>FROM NT$34,828</strong><p>台北—約翰尼斯堡經濟艙來回參考價，尚未包含約翰尼斯堡—Windhoek 的區域航班。</p><a href="https://flights.cathaypacific.com/destinations/en_TW/flights-from-taipei-to-johannesburg" target="_blank" rel="noreferrer">查看航空公司即時票價 ↗</a></article>
         <article><span>GOOGLE FLIGHTS</span><strong>FROM NT$23,784</strong><p>台北—Windhoek 當期最低單程搜尋結果，需轉機兩次、總時間約 48 小時；不可直接與來回票比較。</p><a href="https://www.google.com/travel/flights/flights-from-taipei-city-to-windhoek.html?gl=TW&hl=zh-TW" target="_blank" rel="noreferrer">重新搜尋目前日期 ↗</a></article>
@@ -143,12 +143,12 @@ export default function FlightsGuidePage() {
 
     <aside className="flight-source">
       <span>DATA &amp; CONTEXT</span>
-      <p>航班、座位與 2025 報價依同行者共同試算表整理；現行轉機及安全資訊可能變動，訂票前請再次向航空公司與官方單位確認。</p>
+      <p>航班、座位與當時報價依同行者共同試算表整理；現行轉機及安全資訊可能變動，訂票前請再次向航空公司與官方單位確認。</p>
       <div><a href="https://dirco.gov.za/japan/frequently-asked-questions/" target="_blank" rel="noreferrer">南非轉機簽證說明 ↗</a><a href="https://www.gov.uk/foreign-travel-advice/south-africa/safety-and-security" target="_blank" rel="noreferrer">南非安全建議 ↗</a><a href="https://www.expedia.com/Johannesburg-Hotels-City-Lodge-Hotel-At-OR-Tambo-International-Airport.h8403573.Hotel-Information" target="_blank" rel="noreferrer">機場旅館房價參考 ↗</a></div>
     </aside>
 
     <nav className="guide-related-links" aria-label="相關旅行攻略"><span>READ NEXT</span><a href={`${BASE_PATH}/travel/guide/visa/`}>簽證與入境</a><a href={`${BASE_PATH}/travel/guide/itinerary/`}>行程天數與路線</a></nav>
     <a className="guide-next-cta" href={`${BASE_PATH}/travel/guide/itinerary/`}>下一步：規劃納米比亞行程天數 →</a>
-    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>EXPERIENCE · 2025.09 / REVIEWED · 2026.07</span></footer>
+    <footer className="guide-footer"><a href={`${BASE_PATH}/travel/guide/`}>查看所有旅行攻略 ↗</a><span>TRAVEL EXPERIENCE / REVIEWED</span></footer>
   </main>;
 }

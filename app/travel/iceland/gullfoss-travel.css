@@ -1,0 +1,3 @@
+.gullfoss-hdr-frame{margin:0}.gullfoss-hdr-frame picture{display:block}.gullfoss-hdr-frame img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}.gullfoss-hdr-frame figcaption{display:flex;justify-content:space-between;gap:30px;padding:18px 8px 8px;color:#d9ddda;font:9px "DM Mono";letter-spacing:.1em}.gullfoss-hdr-frame figcaption b{color:#ff6848;font-weight:500}
+@media(max-width:760px){.gullfoss-hdr-frame figcaption{display:block;line-height:1.8}.gullfoss-hdr-frame figcaption span{display:block}.gullfoss-hdr-badge{bottom:58px}}
+@media(min-width:2000px){.gullfoss-hdr-frame figcaption{padding:28px 12px 12px;font-size:13px}}

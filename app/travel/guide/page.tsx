@@ -28,7 +28,7 @@ const guides = [
 export default function GuideHomePage() {
   return <main className="guide-page">
     <header className="guide-nav"><a href={`${BASE_PATH}/travel/`}>← RETURN TO JOURNEY</a><span>NAMIBIA · FIELD GUIDE</span></header>
-    <section className="guide-cover"><p>BEFORE YOU GO</p><h1>THE<br /><em>FIELD</em><br />GUIDE</h1><div><span>8 CHAPTERS</span><span>NAMIBIA · 2025</span></div></section>
+    <section className="guide-cover"><p>BEFORE YOU GO</p><h1>THE<br /><em>FIELD</em><br />GUIDE</h1><div><span>8 CHAPTERS</span><span>NAMIBIA</span></div></section>
     <section className="guide-opening"><p>準備旅行</p><div><h2>把不確定，<br />留在出發之前。</h2><p>從簽證與航班，到砂石路、星空、鏡頭和行李。這裡收錄的是我們真正走過之後，認為值得先知道的事情。</p></div></section>
     <section className="guide-grid">
       {guides.map((guide) => guide.ready ? <a className="guide-card is-ready" key={guide.n} href={`${BASE_PATH}/travel/guide/${guide.slug}/`}><span>{guide.n}</span><small>{guide.en}</small><h3>{guide.zh}</h3><p>{guide.text}</p><b>READ GUIDE ↗</b></a> : <article className="guide-card" key={guide.n}><span>{guide.n}</span><small>{guide.en}</small><h3>{guide.zh}</h3><p>{guide.text}</p><b>IN PREPARATION</b></article>)}
