@@ -198,7 +198,8 @@ function Footer() {
         <div>
           <p className="text-sm font-semibold tracking-[0.22em] text-gold">{brand.name}</p>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-mist">{copy.footer.zh}</p>
-          <p className="mt-2 max-w-2xl text-sm leading-7 text-mist">{copy.footer.en}</p>
+          <p className="mt-2 max-w-2xl text-sm italic leading-7 text-mist/80">{copy.footer.en}</p>
+          <p className="mt-5 text-xs tracking-[0.2em] text-gold">{copy.footer.themesZh} <span className="mx-2 text-mist/40">/</span> {copy.footer.themesEn}</p>
         </div>
         <div className="flex flex-wrap gap-3 md:justify-end">
           {navItems.map((item) => (

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "PERU — 沿著安地斯山脈向上",
     description: "一條從古城走向雲端的安地斯高原路線。",
     url: "/travel/peru/",
-    images: [{ url: "/travel/peru/machu-picchu.jpg", alt: "雲霧中的馬丘比丘與安地斯山脈" }],
+    images: [{ url: "/travel/peru/machu-picchu-authored-hero-1920.webp", alt: "雲霧中的馬丘比丘與安地斯山脈" }],
   },
 };
 
@@ -31,7 +31,12 @@ export default function PeruTravelPage() {
         <nav aria-label="秘魯旅程導覽"><a href={`${BASE_PATH}/travel/`}>ALL JOURNEYS</a><a href="#route">ROUTE</a><a href="#notes">FIELD NOTES</a></nav>
       </header>
       <section className="peru-hero">
-        <img src={`${BASE_PATH}/travel/peru/machu-picchu.jpg`} alt="清晨雲霧環繞的馬丘比丘" />
+        <img
+          src={`${BASE_PATH}/travel/peru/machu-picchu-authored-hero-1920.webp`}
+          srcSet={`${BASE_PATH}/travel/peru/machu-picchu-authored-hero-1920.webp 1920w, ${BASE_PATH}/travel/peru/machu-picchu-authored-hero-4k.webp 3840w`}
+          sizes="100vw"
+          alt="清晨雲霧環繞的馬丘比丘"
+        />
         <div className="peru-hero-wash" />
         <div className="peru-title">
           <p>13°09′48″S · 72°32′44″W</p><h1>PERU</h1>

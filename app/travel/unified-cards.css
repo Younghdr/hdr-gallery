@@ -34,6 +34,35 @@
   --card-accent: #ef7653;
 }
 
+.destination-grid .destination-card.cebu {
+  --card-accent: #73ddd0;
+}
+
+.destination-grid .destination-card.croatia { --card-accent: #8fd8db; }
+.destination-grid .destination-card.croatia b { border: 0; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; background: rgba(7,35,48,.44); }
+.destination-grid .destination-card.croatia b::before { content: "HR"; display:grid; place-items:center; width:27px; height:18px; background:linear-gradient(#c84e43 0 33%,#f1eee7 33% 66%,#284a8a 66%); color:transparent; }
+
+.destination-grid .destination-card.slovenia {
+  --card-accent: #b7ddcd;
+}
+
+.destination-grid .destination-card.slovenia h2 {
+  font-size: clamp(3.2rem, 6vw, 7.6rem);
+  white-space: nowrap;
+}
+
+.destination-grid .destination-card.slovenia b {
+  border: 0;
+  border-left: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  background: rgba(9, 28, 28, .42);
+}
+
+.destination-grid .destination-card.slovenia b::before {
+  content: "46°N";
+  font: 700 8px/1 ui-monospace, monospace;
+}
+
 .destination-grid .destination-card.montenegro h2 {
   font-size: clamp(2.7rem, 5vw, 6.5rem);
   line-height: 0.88;
@@ -214,5 +243,9 @@
 
   .destination-grid .destination-card.montenegro h2 {
     font-size: clamp(2.65rem, 11.5vw, 5.2rem);
+  }
+
+  .destination-grid .destination-card.slovenia h2 {
+    font-size: clamp(2.8rem, 13vw, 5.5rem);
   }
 }

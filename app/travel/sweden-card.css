@@ -1,0 +1,5 @@
+.destination-card.sweden{grid-column:1/-1;min-height:min(88vh,1040px)}
+.destination-card.sweden .card-shade{background:linear-gradient(0deg,rgba(6,24,39,.94),rgba(6,24,39,.03) 65%),linear-gradient(90deg,rgba(6,24,39,.48),transparent)}
+.destination-card.sweden h2{font-family:Georgia,"Noto Serif TC",serif;letter-spacing:-.04em}
+.destination-card.sweden b,.destination-card.sweden i{color:#ff9d8d}
+@media(max-width:800px){.destination-card.sweden{grid-column:auto;min-height:72svh}.destination-card.sweden h2{font-size:clamp(3.4rem,15vw,5.7rem)}}

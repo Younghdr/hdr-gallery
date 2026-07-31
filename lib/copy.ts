@@ -3,7 +3,7 @@ export const brand = {
   shortName: "Young Hung HDR Studio",
   taglineZh: "以光為線索，走向更深的影像層次。",
   taglineEn: "Following light into deeper visual silence.",
-  keywords: "HDR / Light / Travel / Silence / Nature / Storytelling",
+  keywords: "HDR PHOTOGRAPHY · NATURE · TRAVEL · MOTORCYCLES / LIGHT · STORY",
 };
 
 export const navItems = [
@@ -237,7 +237,9 @@ export const copy = {
     bodyEn: "If you are looking for imagery shaped by nature, travel, and high dynamic range, I would be glad to hear about your project.",
   },
   footer: {
-    zh: "以 HDR 觀看光的深處。從自然、旅行與靜默之間，建立屬於影像的敘事。",
-    en: "Seeing deeper into light through HDR. Building visual stories between nature, travel, and silence.",
+    zh: "用影像，留住光消失前的那一刻。以 HDR 觀看光的深處，在自然、旅行與重機旅程之間，建立屬於影像的敘事。",
+    en: "Holding the moment before light disappears. Seeing deeper into light through HDR, building visual stories through nature, travel, and motorcycle journeys.",
+    themesZh: "HDR 攝影 · 自然 · 旅行 · 重機",
+    themesEn: "HDR Photography · Nature · Travel · Motorcycles",
   },
 };

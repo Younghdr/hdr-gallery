@@ -1,0 +1,37 @@
+/* Bright, photography-led treatment for the original Uyuni image. */
+.bolivia-page .bolivia-nav {
+  border-bottom-color: rgba(23, 37, 58, 0.22);
+  color: #17253a;
+  text-shadow: 0 1px 16px rgba(255, 255, 255, 0.75);
+}
+
+.bolivia-page .bolivia-hero {
+  color: #17253a;
+  background-position: center 52%;
+}
+
+.bolivia-page .bolivia-hero-wash {
+  background:
+    linear-gradient(0deg, rgba(235, 243, 247, 0.82), transparent 46%),
+    linear-gradient(90deg, rgba(230, 240, 246, 0.28), transparent 58%);
+}
+
+.bolivia-page .bolivia-kicker span + span {
+  border-left-color: rgba(23, 37, 58, 0.34);
+}
+
+.bolivia-page .bolivia-title h1 {
+  text-shadow: 0 2px 28px rgba(238, 247, 250, 0.5);
+}
+
+@media (max-width: 800px) {
+  .bolivia-page .bolivia-hero {
+    background-position: 62% center;
+  }
+
+  .bolivia-page .bolivia-hero-wash {
+    background:
+      linear-gradient(0deg, rgba(235, 243, 247, 0.9), transparent 58%),
+      linear-gradient(90deg, rgba(230, 240, 246, 0.2), transparent 68%);
+  }
+}
