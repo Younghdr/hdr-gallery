@@ -7,6 +7,7 @@ import "./gullfoss-travel.css";
 import "./layout-preferences.css";
 import "./weather-and-heat.css";
 import "./golden-photo.css";
+import "./weather-full.css";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -51,8 +52,7 @@ export default function IcelandPage() {
     <section className="weather-chapter" id="weather">
       <header className="weather-heading"><small>02 / WEATHER</small><h2>一天之內，四季輪流經過。</h2><p>冰島的天氣不是旅程背景，而是每天都在改寫路線的主角。剛才還有陽光，下一個彎道可能已經落進橫雨、濃霧，甚至突如其來的冰雪。</p></header>
       <div className="weather-gallery">
-        <figure className="weather-wide"><img src={`${BASE_PATH}/travel/iceland/thingvellir-weather.avif`} alt="雨霧中的辛格韋德利裂谷與遠方湖泊"/><figcaption><b>ÞINGVELLIR</b><span>雨水沿著板塊裂谷留下來，遠方景色很快消失在霧裡。</span></figcaption></figure>
-        <figure className="weather-tall"><img src={`${BASE_PATH}/travel/iceland/hallgrimskirkja-storm.avif`} alt="暴風雨中的哈爾格林姆教堂"/><figcaption><b>REYKJAVÍK</b><span>城市也躲不過橫著吹來的雨。</span></figcaption></figure>
+        <figure className="weather-full"><img src={`${BASE_PATH}/travel/iceland/hallgrimskirkja-storm.avif`} alt="暴風雨中的哈爾格林姆教堂"/><figcaption><b>HALLGRÍMSKIRKJA / REYKJAVÍK</b><span>城市也躲不過橫著吹來的雨。教堂在低雲裡，只剩一道安靜的輪廓。</span></figcaption></figure>
       </div>
       <blockquote className="weather-quote"><p>「如果你不喜歡現在的天氣，那就等十五分鐘。」</p><cite>— 冰島常聽見的一句話</cite></blockquote>
       <div className="wind-note"><span>WIND IS NOT A DETAIL</span><h3>冰島的風，是真的能把車門吹壞。</h3><p>開門前先確認風向，停車時盡量讓車頭迎風，並用雙手控制車門。這不是誇張的旅行警語，而是租車公司會認真提醒的日常。</p></div>
@@ -71,7 +71,7 @@ export default function IcelandPage() {
       </section>
       <div className="golden-stops">
         <article className="golden-card geysir"><div className="golden-number">02</div><div><small>HEAT / STEAM</small><h3>Geysir</h3><b>蓋歇爾地熱區</b><p>熱水、蒸氣與硫磺色礦物把地表變成另一種尺度。等待噴發，也是金環旅程裡最有節奏的一段。</p><span className="data-pending">TRAVEL NOTES — TO BE ADDED</span></div><figure className="golden-card-photo"><img src={`${BASE_PATH}/travel/iceland/strokkur-eruption.avif`} alt="冰島 Strokkur 間歇泉噴發"/><figcaption>STROKKUR / THE MOMENT OF ERUPTION</figcaption></figure></article>
-        <article className="golden-card thingvellir"><div className="golden-number">03</div><div><small>EARTH / TIME</small><h3>Þingvellir</h3><b>辛格韋德利國家公園</b><p>北美與歐亞板塊在這裡緩慢分離。裂谷、低矮植被與遠方水面，讓地質變成可以直接走進去的風景。</p><span className="data-pending">TRAVEL NOTES — TO BE ADDED</span></div></article>
+        <article className="golden-card thingvellir"><div className="golden-number">03</div><div><small>EARTH / TIME</small><h3>Þingvellir</h3><b>辛格韋德利國家公園</b><p>北美與歐亞板塊在這裡緩慢分離。裂谷、低矮植被與遠方水面，讓地質變成可以直接走進去的風景。</p><span className="data-pending">TRAVEL NOTES — TO BE ADDED</span></div><figure className="golden-card-photo thingvellir-photo"><img src={`${BASE_PATH}/travel/iceland/thingvellir-weather.avif`} alt="雨霧中的辛格韋德利裂谷與遠方湖泊"/><figcaption>ÞINGVELLIR / BETWEEN TWO CONTINENTS</figcaption></figure></article>
       </div>
     </section>
 

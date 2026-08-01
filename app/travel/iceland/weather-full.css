@@ -1,0 +1,3 @@
+.weather-gallery{display:block}.weather-full{height:min(68vw,1100px);min-height:640px;margin-inline:-7vw!important}.weather-full img{object-position:center 46%}.thingvellir-photo img{object-position:center 42%}
+@media(max-width:900px){.weather-full{height:78svh;min-height:520px;margin-inline:-24px!important}}
+@media(min-width:2000px){.weather-full{height:min(62vw,1650px);margin-inline:-8vw!important}.weather-full figcaption{padding-inline:8vw}}
