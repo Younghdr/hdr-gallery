@@ -1,0 +1,6 @@
+.ks-pier-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ks-pier-grid figure.is-featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:28px;align-items:end}
+.ks-pier-grid figure.is-featured img{aspect-ratio:16/8;max-height:620px}
+.ks-pier-grid figure.is-featured figcaption{padding-bottom:22px;border-bottom:0}
+@media(max-width:1000px){.ks-pier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ks-pier-grid figure.is-featured{grid-column:1/-1;grid-template-columns:1fr}.ks-pier-grid figure.is-featured figcaption{padding:16px 0;border-bottom:1px solid #a99f8c}}
+@media(max-width:600px){.ks-pier-grid{grid-template-columns:1fr}.ks-pier-grid figure.is-featured img{aspect-ratio:1/1.08}}

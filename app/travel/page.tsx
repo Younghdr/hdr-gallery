@@ -97,7 +97,7 @@ export default function TravelPage() {
           <div><small>EXPEDITION 09</small><h2>SLOVENIA</h2><p>BETWEEN ALPS AND ADRIATIC</p><b>走進湖光與群峰之間</b></div>
           <i>EUROPE / JULIAN ALPS</i>
         </a>
-        <a className="destination-card koh-samui" href={`${BASE_PATH}/travel/koh-samui/`} style={{ backgroundImage: `url('${BASE_PATH}/travel/koh-samui-hero.png')`, backgroundPosition: "center 52%" }}>
+        <a className="destination-card koh-samui" href={`${BASE_PATH}/travel/koh-samui/`} style={{ backgroundImage: `url('${BASE_PATH}/travel/koh-samui-original.avif')`, backgroundPosition: "center 52%" }}>
           <span className="card-shade" />
           <div><small>EXPEDITION 10</small><h2>KOH SAMUI</h2><p>BETWEEN THE TIDES</p><b>潮汐讓時間慢下來</b></div>
           <i>THAILAND / GULF COAST</i>
