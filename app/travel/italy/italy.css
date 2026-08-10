@@ -30,7 +30,7 @@
   .italy-hdr-archive{padding:90px 22px 110px}
   .italy-hdr-intro{grid-template-columns:1fr;gap:36px}
   .italy-hdr-intro h2 br{display:none}
-  .italy-hdr-lead img{height:66vh;min-height:480px}
+  .italy-hdr-lead img{height:auto;min-height:0;aspect-ratio:auto;object-fit:contain;object-position:center}
   .italy-hdr-archive>.italy-hdr-group{width:100%;margin-top:75px}
   .italy-hdr-rome-grid{grid-template-columns:1fr;gap:42px;margin-top:75px}
   .italy-hdr-notes{margin-top:90px;margin-bottom:75px}
