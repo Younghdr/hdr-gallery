@@ -15,3 +15,17 @@
 .fi-photo-study blockquote span{display:block}.fi-photo-study blockquote span:first-child{margin-bottom:.2em}
 @media(max-width:700px){.fi-photo-study blockquote{font-size:1.72rem;line-height:1.55}.fi-photo-study blockquote span{white-space:nowrap}}
 @media(min-width:1001px){.fi-photo-study{grid-template-columns:minmax(0,1.5fr) minmax(360px,.5fr);grid-template-rows:auto;align-items:stretch}.fi-photo-main{grid-column:1}.fi-photo-main img{height:100%;object-fit:cover;object-position:center 48%}.fi-photo-study blockquote{grid-column:2;min-height:0}}
+
+/* 手機直式：影像與文字改為自然文件流，避免固定高度裁切及字卡覆蓋照片。 */
+@media(max-width:700px){
+  .fi-page{overflow-x:hidden;overflow-y:visible}
+  .fi-photo-study,.fi-faith-images,.fi-sibelius-grid,.fi-market-images{display:grid;grid-template-columns:1fr;grid-template-rows:auto;gap:8px}
+  .fi-photo-study figure,.fi-faith figure,.fi-sibelius-grid figure,.fi-market-images figure{grid-column:1;grid-row:auto!important;height:auto!important;min-height:0!important;aspect-ratio:auto;align-self:auto;overflow:visible}
+  .fi-photo-study img,.fi-faith img,.fi-rock-panorama img,.fi-sibelius-grid img,.fi-sibelius-grid figure:nth-child(2) img,.fi-market-images img{display:block;width:100%;height:auto!important;min-height:0;max-height:none;object-fit:contain;object-position:center;transform:none}
+  .fi-photo-study figcaption,.fi-faith figcaption,.fi-sibelius-grid figcaption,.fi-market-images figcaption{position:static;display:block;width:100%;max-width:none;margin:0;padding:12px 14px;background:#eef0eb;color:#233633;font-size:10px;line-height:1.65}
+  .fi-photo-study blockquote,.fi-sibelius-grid blockquote{grid-column:1;grid-row:auto!important;display:block;height:auto;min-height:0;padding:56px max(24px,8vw);overflow:visible}
+  .fi-photo-study blockquote span{white-space:normal}
+  .fi-faith>header,.fi-market>header,.fi-sound>header{margin-bottom:42px}
+  .fi-faith header h2,.fi-market header h2,.fi-sound h2{font-size:clamp(2rem,9.5vw,2.45rem);line-height:1.3}
+  .fi-faith header span,.fi-market header span,.fi-sound header p{font-size:15px;line-height:1.9}
+}
