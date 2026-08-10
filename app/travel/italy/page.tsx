@@ -7,7 +7,7 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export const metadata: Metadata = {
   title: "ITALIA — 義大利旅行相片紀錄",
-  description: "沿著羅馬、托斯卡尼與威尼斯，收藏一段義大利夏日的光影、街道與慢速日常。",
+  description: "沿著羅馬、聖吉米尼亞諾、托斯卡尼與威尼斯，以 10-bit AVIF 收藏義大利的光影、街道與慢速日常。",
 };
 
 const chapters = [
@@ -65,6 +65,264 @@ export default function ItalyPage() {
             <figcaption><b>ROMA, LAZIO</b><span>FRAME 01 — 18:42</span></figcaption>
           </figure>
           <blockquote>「城市不急著解釋自己，<br />它只是讓光，一層一層地落下。」</blockquote>
+        </section>
+
+        <section className="italy-hdr-archive" aria-labelledby="italy-hdr-title">
+          <header className="italy-hdr-intro">
+            <div>
+              <span className="italy-hdr-kicker">NUOVI FOTOGRAMMI / 10-BIT AVIF</span>
+              <h2 id="italy-hdr-title">從城牆之上，<br />回到羅馬街心。</h2>
+            </div>
+            <p>從聖吉米尼亞諾風雨交界的塔樓開始，穿過羅馬、梵蒂岡與佛羅倫斯，在白色大理石、金色穹頂、街角櫥窗與午後逆光之間，重新走過旅程裡明暗最豐富的一段。</p>
+          </header>
+
+          <figure className="italy-hdr-lead">
+            <img
+              src={`${BASE_PATH}/travel/italy/san-gimignano-aerial-hdr.avif`}
+              alt="暴雨雲下俯瞰聖吉米尼亞諾塔樓與托斯卡尼丘陵"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><b>SAN GIMIGNANO · TOSCANA</b><span>HDR FRAME 01 / 10-BIT AVIF</span></figcaption>
+          </figure>
+
+          <figure className="italy-hdr-group">
+            <img
+              src={`${BASE_PATH}/travel/italy/rome-pantheon-group-hdr.avif`}
+              alt="旅伴在羅馬萬神殿前的團體合照"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption><b>PANTHEON</b><span>ROMA / 02</span></figcaption>
+          </figure>
+
+          <div className="italy-hdr-rome-grid">
+            <figure>
+              <img
+                src={`${BASE_PATH}/travel/italy/rome-trevi-fountain-hdr.avif`}
+                alt="羅馬特萊維噴泉正面雕像與水池全景"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><b>FONTANA DI TREVI</b><span>ROMA / 03</span></figcaption>
+            </figure>
+            <figure>
+              <img
+                src={`${BASE_PATH}/travel/italy/rome-trevi-detail-hdr.avif`}
+                alt="羅馬特萊維噴泉旁帶有天使雕像的街角聖龕"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><b>TREVI</b><span>04</span></figcaption>
+            </figure>
+            <figure>
+              <img
+                src={`${BASE_PATH}/travel/italy/rome-salumeria-hdr.avif`}
+                alt="羅馬熟食店櫥窗裡的火腿、起司與酒瓶"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><b>SALUMERIA</b><span>05</span></figcaption>
+            </figure>
+            <figure>
+              <img
+                src={`${BASE_PATH}/travel/italy/rome-street-light-hdr.avif`}
+                alt="午後逆光中的羅馬石板街道與同行旅人"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><b>VIA DI ROMA</b><span>06</span></figcaption>
+            </figure>
+          </div>
+
+          <div className="italy-hdr-notes">
+            <p><span>ROMA · MEZZOGIORNO</span>正午的光落在大理石上，亮部仍保留雕刻的層次；轉進巷裡，櫥窗反射、石板路與行人的影子又把城市拉回日常。</p>
+          </div>
+
+          <section className="italy-vatican-story" aria-labelledby="italy-vatican-title">
+            <header>
+              <span>SEQUENZA 02 / CITTÀ DEL VATICANO</span>
+              <div>
+                <h3 id="italy-vatican-title">金色穹頂下，<br />光有自己的秩序。</h3>
+                <p>走進聖伯多祿大殿，尺度先消失，聲音才慢慢安靜下來。窗光穿過圓頂，落在青銅華蓋、石柱與長廊上；每一次抬頭，都像重新測量一次空間。</p>
+              </div>
+            </header>
+
+            <figure className="italy-vatican-lead">
+              <img
+                src={`${BASE_PATH}/travel/italy/vatican-st-peters-baldachin-hdr.avif`}
+                alt="聖伯多祿大殿金色圓頂與貝尼尼青銅華蓋"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><b>BASILICA DI SAN PIETRO</b><span>VATICANO / 07</span></figcaption>
+            </figure>
+
+            <div className="italy-vatican-details">
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/vatican-basilica-nave-hdr.avif`}
+                  alt="聖伯多祿大殿高聳的大理石柱與金色長廊"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>NAVATA</b><span>08</span></figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/vatican-basilica-chapel-hdr.avif`}
+                  alt="聖伯多祿大殿側殿的壁畫、石柱與金色拱頂"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>CAPPELLA</b><span>09</span></figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/vatican-basilica-dome-hdr.avif`}
+                  alt="聖伯多祿大殿圓頂、雕像與青銅華蓋的仰視景觀"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>CUPOLA</b><span>10</span></figcaption>
+              </figure>
+            </div>
+
+            <figure className="italy-vatican-exit">
+              <img
+                src={`${BASE_PATH}/travel/italy/vatican-via-della-conciliazione-hdr.avif`}
+                alt="陰雲下從協和大道望向聖伯多祿大殿圓頂"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><b>VIA DELLA CONCILIAZIONE</b><span>USCITA / 11</span></figcaption>
+            </figure>
+          </section>
+
+          <section className="italy-between-cities" aria-labelledby="italy-between-title">
+            <header>
+              <span>SEQUENZA 03 / LAZIO · FIRENZE · ROMA</span>
+              <h3 id="italy-between-title">城與城之間，<br />路把記憶接起來。</h3>
+            </header>
+
+            <div className="italy-city-landmarks">
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/civita-di-bagnoregio-hdr.avif`}
+                  alt="山谷與惡地地形之上的白露里治奧古城及長橋"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>CIVITA DI BAGNOREGIO · LAZIO</b><span>12</span></figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/florence-duomo-aerial-hdr.avif`}
+                  alt="俯瞰佛羅倫斯聖母百花大教堂圓頂與城市屋頂"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>DUOMO DI FIRENZE</b><span>13</span></figcaption>
+              </figure>
+            </div>
+
+            <div className="italy-central-sequence">
+              <figure className="italy-civita-bridge">
+                <img
+                  src={`${BASE_PATH}/travel/italy/civita-bridge-approach-hdr.avif`}
+                  alt="從長橋正面走向山巔上的白露里治奧古城"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>PONTE DI CIVITA</b><span>LAZIO / 14</span></figcaption>
+              </figure>
+
+              <div className="italy-civita-moments">
+                <figure>
+                  <img
+                    src={`${BASE_PATH}/travel/italy/civita-street-walk-hdr.avif`}
+                    alt="旅伴走在白露里治奧古城的石板街巷"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption><b>VIA DI CIVITA</b><span>15</span></figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src={`${BASE_PATH}/travel/italy/civita-couple-viewpoint-hdr.avif`}
+                    alt="旅伴在白露里治奧觀景處與山巔古城合照"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption><b>BELVEDERE DI CIVITA</b><span>16</span></figcaption>
+                </figure>
+              </div>
+
+              <div className="italy-art-cities">
+                <figure>
+                  <img
+                    src={`${BASE_PATH}/travel/italy/siena-cathedral-couple-hdr.avif`}
+                    alt="旅伴在錫耶納主教座堂哥德式立面前合照"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption><b>DUOMO DI SIENA</b><span>TOSCANA / 17</span></figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src={`${BASE_PATH}/travel/italy/florence-uffizi-tribuna-hdr.avif`}
+                    alt="佛羅倫斯烏菲茲美術館八角形展廳內的雕塑與畫作"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption><b>TRIBUNA DEGLI UFFIZI</b><span>FIRENZE / 18</span></figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div className="italy-rome-coda">
+              <div className="italy-rome-coda-copy">
+                <span>ULTIMI FOTOGRAMMI / ROMA</span>
+                <p>一杯啤酒、一起走路的人、排隊穿過古蹟的午後，最後都成為旅程的尺度。</p>
+              </div>
+              <figure className="italy-rome-bar">
+                <img
+                  src={`${BASE_PATH}/travel/italy/rome-porretti-bar-hdr.avif`}
+                  alt="羅馬酒吧裡排列整齊的啤酒龍頭與倒掛酒杯"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>BIRRIFICIO ANGELO PORETTI</b><span>19</span></figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/rome-travel-companions-hdr.avif`}
+                  alt="同行旅人在羅馬街頭迎著陽光步行"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>COMPAGNI DI VIAGGIO</b><span>20</span></figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/rome-arch-of-constantine-hdr.avif`}
+                  alt="從高處俯瞰羅馬君士坦丁凱旋門與廣場人群"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>ARCO DI COSTANTINO</b><span>21</span></figcaption>
+              </figure>
+              <figure className="italy-colosseum-frame">
+                <img
+                  src={`${BASE_PATH}/travel/italy/rome-colosseum-interior-hdr.avif`}
+                  alt="積雲天空下的羅馬競技場內部全景"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>COLOSSEO</b><span>22 / FINE RULLINO</span></figcaption>
+              </figure>
+            </div>
+          </section>
         </section>
 
         <section className="italy-chapter italy-tuscany" id="toscana">

@@ -1,2 +1,99 @@
 .italy-page{--paper:#efe8d8;--ink:#1c1d18;--tomato:#b7472d;--olive:#59604a;--line:rgba(28,29,24,.22);background:var(--paper);color:var(--ink);font-family:Arial,"Noto Sans TC",sans-serif;overflow:hidden}.italy-page img{display:block;width:100%;object-fit:cover}.italy-hero{position:relative;height:100svh;min-height:680px;background:#30271e}.italy-hero>img{height:100%;filter:saturate(.82) contrast(1.02)}.italy-hero-wash{position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,20,16,.64),transparent 58%),linear-gradient(0deg,rgba(20,16,12,.58),transparent 42%)}.italy-hero-copy{position:absolute;z-index:2;left:5vw;right:5vw;bottom:9vh;color:#f4edde}.italy-hero-copy>p{font-size:10px;font-weight:700;letter-spacing:.34em}.italy-hero-copy h1{margin:.14em 0 0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(7rem,18vw,18rem);font-weight:400;line-height:.7;letter-spacing:-.075em}.italy-title-line{display:flex;align-items:center;gap:28px;margin-top:32px}.italy-title-line:before,.italy-title-line:after{content:"";height:1px;flex:1;background:rgba(255,255,255,.48)}.italy-title-line span{font:10px monospace;letter-spacing:.15em}.italy-title-line b{font-size:clamp(14px,1.4vw,21px);font-weight:400;letter-spacing:.2em;white-space:nowrap}.italy-scroll{position:absolute;z-index:3;right:3vw;bottom:8vh;display:flex;align-items:center;gap:15px;color:#f4edde;font-size:9px;letter-spacing:.2em;writing-mode:vertical-rl}.italy-scroll i{height:54px;width:1px;background:#f4edde}.italy-opening{position:relative;padding:clamp(100px,12vw,190px) 8vw 110px}.italy-stamp{position:absolute;right:8vw;top:100px;display:grid;place-items:center;width:92px;height:92px;border:1px solid var(--tomato);border-radius:50%;color:var(--tomato);transform:rotate(8deg)}.italy-stamp:after{content:"";position:absolute;inset:8px;border:1px dashed currentColor;border-radius:50%}.italy-stamp span{font:700 26px Georgia,serif}.italy-stamp small{margin-top:-22px;font-size:8px;letter-spacing:.16em}.italy-eyebrow,.italy-section-copy>span,.italy-chapter header>span{color:var(--tomato);font-size:10px;font-weight:700;letter-spacing:.28em}.italy-opening h2{max-width:1050px;margin:32px 0 70px;font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(3.4rem,7.2vw,8rem);font-weight:400;line-height:1.1;letter-spacing:-.05em}.italy-opening h2 em{color:var(--tomato);font-weight:400}.italy-opening-copy{display:grid;grid-template-columns:1fr 1fr;gap:8vw;margin-left:26vw}.italy-opening-copy p,.italy-section-copy p{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(16px,1.2vw,20px);line-height:2;color:#4d4b43}.italy-chapters{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.italy-chapters a{display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:22px;padding:34px 3vw;border-right:1px solid var(--line);transition:.3s}.italy-chapters a:last-child{border:0}.italy-chapters a:hover{background:var(--tomato);color:var(--paper)}.italy-chapters>a>span{font:11px monospace}.italy-chapters b{display:block;font:400 25px Georgia,serif;letter-spacing:.03em}.italy-chapters small{display:block;margin-top:9px;font-size:10px;letter-spacing:.1em;opacity:.68}.italy-chapters i{font-style:normal}.italy-chapter{padding:clamp(100px,12vw,190px) 6vw}.italy-rome{background:#20221d;color:var(--paper)}.italy-chapter header{display:grid;grid-template-columns:1fr 2fr;align-items:start;margin-bottom:70px}.italy-chapter header h2,.italy-section-copy h2{margin:0;font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(3rem,6vw,7rem);font-weight:400;line-height:1.13;letter-spacing:-.045em}.italy-wide-photo img{height:min(64vw,880px)}.italy-wide-photo figcaption,.italy-feature-photo figcaption,.italy-portrait-photo figcaption{display:flex;justify-content:space-between;padding-top:16px;border-top:1px solid currentColor;font:10px monospace;letter-spacing:.18em}.italy-wide-photo figcaption{margin-top:18px;color:#aead9f}.italy-rome blockquote{max-width:850px;margin:120px 4vw 20px auto;color:#d4cbbc;font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(2rem,3.5vw,4.3rem);font-weight:400;line-height:1.55}.italy-tuscany{position:relative;display:grid;grid-template-columns:.68fr 1.32fr;gap:8vw;padding-left:8vw;padding-right:0}.italy-section-copy{align-self:center}.italy-section-copy h2{margin:26px 0 45px}.italy-feature-photo img{height:72vw;max-height:980px}.italy-feature-photo figcaption{margin:18px 6vw 0 0}.italy-margin-note{position:absolute;left:8vw;bottom:11vw;width:30vw;padding-top:18px;border-top:1px solid var(--line)}.italy-margin-note small{color:var(--tomato);font:9px monospace;letter-spacing:.18em}.italy-margin-note p{font-family:Georgia,"Noto Serif TC",serif;line-height:1.8;color:#5f5b50}.italy-venice{display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;background:#b84b32;color:#f1e8d9}.italy-portrait-photo img{height:74vw;max-height:1050px}.italy-portrait-photo figcaption{margin-top:18px;color:#efd4c8}.italy-venice .italy-section-copy p{color:#f3ddd2}.italy-venice .italy-section-copy>span{color:#251f1b}.italy-place-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:55px}.italy-place-list span{padding:10px 14px;border:1px solid rgba(255,255,255,.45);font:9px monospace;letter-spacing:.15em}.italy-contact-sheet{padding:clamp(100px,12vw,190px) 6vw;background:#171814;color:#efe8d8}.italy-contact-sheet>div:first-child{display:grid;grid-template-columns:1fr 2fr;align-items:start}.italy-contact-sheet small{color:#9da18d;font:9px monospace;letter-spacing:.2em}.italy-contact-sheet h2{margin:0 0 75px;font:400 clamp(3rem,5.6vw,6.8rem)/1.15 Georgia,"Noto Serif TC",serif;letter-spacing:-.04em}.italy-film-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:18px;background:#090a08}.italy-film-strip figure{position:relative;overflow:hidden}.italy-film-strip img{height:28vw;filter:saturate(.75)}.italy-film-strip span{position:absolute;left:12px;bottom:10px;color:white;font:9px monospace}.italy-contact-sheet>a{display:block;width:max-content;margin:70px 0 0 auto;padding:14px 0;border-bottom:1px solid var(--tomato);font-size:11px;letter-spacing:.18em}.italy-contact-sheet>a span{margin-left:30px;color:var(--tomato)}
 @media(max-width:800px){.italy-hero-copy{bottom:11vh}.italy-hero-copy h1{font-size:27vw}.italy-title-line{gap:12px}.italy-title-line span{display:none}.italy-title-line b{white-space:normal;line-height:1.6}.italy-scroll{display:none}.italy-stamp{top:55px;width:72px;height:72px}.italy-opening{padding-left:22px;padding-right:22px}.italy-opening h2{margin-top:70px}.italy-opening-copy{grid-template-columns:1fr;margin-left:0;gap:10px}.italy-chapters{grid-template-columns:1fr}.italy-chapters a{border-right:0;border-bottom:1px solid var(--line);padding:25px 22px}.italy-chapter{padding:90px 22px}.italy-chapter header{grid-template-columns:1fr;gap:24px}.italy-wide-photo img{height:62vh}.italy-rome blockquote{margin-top:80px}.italy-tuscany,.italy-venice{grid-template-columns:1fr;padding-left:22px;padding-right:22px;gap:55px}.italy-feature-photo{order:-1}.italy-feature-photo img,.italy-portrait-photo img{height:75vh}.italy-feature-photo figcaption{margin-right:0}.italy-margin-note{position:static;width:auto}.italy-contact-sheet{padding-left:22px;padding-right:22px}.italy-contact-sheet>div:first-child{grid-template-columns:1fr;gap:28px}.italy-film-strip{grid-template-columns:1fr;padding:10px}.italy-film-strip img{height:62vw}}
+
+.italy-hdr-archive{padding:clamp(100px,10vw,170px) 6vw;background:#d8d0bf;color:var(--ink)}
+.italy-hdr-intro{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:8vw;align-items:end;margin-bottom:clamp(55px,7vw,110px)}
+.italy-hdr-kicker{display:block;margin-bottom:25px;color:var(--tomato);font:700 10px/1 monospace;letter-spacing:.24em}
+.italy-hdr-intro h2{max-width:1100px;margin:0;font:400 clamp(3rem,5.5vw,6.8rem)/1.12 Georgia,"Noto Serif TC",serif;letter-spacing:-.045em}
+.italy-hdr-intro p,.italy-hdr-notes p{margin:0;color:#4e4a40;font:clamp(16px,1.1vw,20px)/2 Georgia,"Noto Serif TC",serif}
+.italy-hdr-archive figure{margin:0}
+.italy-hdr-archive figcaption{display:flex;justify-content:space-between;gap:24px;padding-top:14px;border-top:1px solid rgba(28,29,24,.42);font:9px/1.4 monospace;letter-spacing:.15em}
+.italy-hdr-archive figcaption b{font-weight:700}
+.italy-hdr-lead img{height:min(63vw,1080px);object-position:center 45%}
+.italy-hdr-lead figcaption{margin-top:18px}
+.italy-hdr-archive>.italy-hdr-group{width:min(82%,1400px);margin:clamp(80px,10vw,170px) auto 0}
+.italy-hdr-group img{height:auto;aspect-ratio:3/2;object-fit:contain}
+.italy-hdr-group figcaption,.italy-hdr-rome-grid figcaption{margin-top:14px}
+.italy-hdr-rome-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(52px,6vw,100px) clamp(22px,4vw,72px);margin-top:clamp(80px,9vw,150px)}
+.italy-hdr-rome-grid img{height:auto;aspect-ratio:3/2;object-fit:contain}
+.italy-hdr-notes{max-width:900px;margin:clamp(80px,10vw,170px) auto}
+.italy-hdr-notes p span{display:block;margin-bottom:18px;color:var(--tomato);font:700 9px/1 monospace;letter-spacing:.22em}
+
+@media(min-width:1800px){
+  .italy-hdr-archive{padding-left:8vw;padding-right:8vw}
+  .italy-hdr-intro{grid-template-columns:minmax(0,1.55fr) minmax(380px,.45fr);gap:6vw}
+  .italy-hdr-intro h2{font-size:clamp(5.5rem,4.6vw,7.5rem)}
+  .italy-hdr-rome-grid{column-gap:20px}
+}
+
+@media(max-width:800px){
+  .italy-hdr-archive{padding:90px 22px 110px}
+  .italy-hdr-intro{grid-template-columns:1fr;gap:36px}
+  .italy-hdr-intro h2 br{display:none}
+  .italy-hdr-lead img{height:66vh;min-height:480px}
+  .italy-hdr-archive>.italy-hdr-group{width:100%;margin-top:75px}
+  .italy-hdr-rome-grid{grid-template-columns:1fr;gap:42px;margin-top:75px}
+  .italy-hdr-notes{margin-top:90px;margin-bottom:75px}
+}
+
+.italy-vatican-story,.italy-between-cities{margin-top:clamp(130px,14vw,230px);padding-top:clamp(70px,7vw,120px);border-top:1px solid rgba(28,29,24,.35)}
+.italy-vatican-story>header{display:grid;grid-template-columns:minmax(190px,.42fr) minmax(0,1.58fr);gap:6vw;align-items:start;margin-bottom:clamp(55px,7vw,110px)}
+.italy-vatican-story>header>span,.italy-between-cities>header>span,.italy-rome-coda-copy>span{color:var(--tomato);font:700 9px/1.4 monospace;letter-spacing:.22em}
+.italy-vatican-story h3,.italy-between-cities h3{margin:0;font:400 clamp(3rem,5vw,6.3rem)/1.12 Georgia,"Noto Serif TC",serif;letter-spacing:-.045em}
+.italy-vatican-story>header p{max-width:740px;margin:38px 0 0 18vw;color:#4e4a40;font:clamp(16px,1.05vw,19px)/2 Georgia,"Noto Serif TC",serif}
+.italy-vatican-lead img{height:min(60vw,1040px);object-position:center 42%}
+.italy-vatican-lead figcaption,.italy-vatican-exit figcaption{margin-top:18px}
+.italy-vatican-details{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:clamp(70px,8vw,130px)}
+.italy-vatican-details img{aspect-ratio:3/2}
+.italy-vatican-details figure:nth-child(2){margin-top:4vw}
+.italy-vatican-details figcaption{margin-top:14px}
+.italy-vatican-story>.italy-vatican-exit{width:100%;margin:clamp(110px,13vw,210px) 0 0}
+.italy-vatican-exit img{height:auto;aspect-ratio:3/2;object-fit:contain;object-position:center}
+.italy-between-cities>header{display:grid;grid-template-columns:minmax(230px,.55fr) minmax(0,1.45fr);gap:6vw;align-items:start;margin-bottom:clamp(65px,8vw,130px)}
+.italy-city-landmarks{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);align-items:start}
+.italy-city-landmarks img{height:auto;aspect-ratio:3/2;object-fit:contain}
+.italy-city-landmarks figcaption{margin-top:14px}
+.italy-central-sequence{margin-top:clamp(100px,11vw,190px)}
+.italy-central-sequence img{height:auto;aspect-ratio:3/2;object-fit:contain}
+.italy-central-sequence figcaption{margin-top:14px}
+.italy-civita-moments,.italy-art-cities{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(24px,4vw,72px)}
+.italy-civita-moments{margin-top:clamp(70px,7vw,120px)}
+.italy-art-cities{margin-top:clamp(100px,11vw,190px)}
+.italy-rome-coda{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2vw,38px);align-items:start;margin-top:clamp(130px,15vw,250px)}
+.italy-rome-coda-copy{grid-column:1/13;display:grid;grid-template-columns:minmax(190px,.52fr) minmax(0,1.48fr);gap:6vw;align-items:start;margin-bottom:clamp(42px,4vw,72px);padding-top:18px;border-top:1px solid rgba(28,29,24,.4)}
+.italy-rome-coda-copy p{max-width:760px;margin:0;color:#4e4a40;font:clamp(16px,1vw,18px)/1.9 Georgia,"Noto Serif TC",serif}
+.italy-rome-coda .italy-rome-bar{grid-column:1/5}
+.italy-rome-coda>figure:nth-of-type(2){grid-column:5/9;margin-top:0}
+.italy-rome-coda>figure:nth-of-type(3){grid-column:9/13;margin-top:0}
+.italy-rome-coda .italy-colosseum-frame{grid-column:1/13;margin-top:clamp(80px,7vw,130px)}
+.italy-rome-coda img{height:auto;aspect-ratio:3/2;object-fit:contain}
+.italy-rome-coda figcaption{margin-top:14px}
+
+@media(min-width:1800px){
+  .italy-vatican-story h3,.italy-between-cities h3{font-size:clamp(5rem,4.2vw,7rem)}
+  .italy-vatican-details{gap:20px}
+  .italy-rome-coda{gap:40px}
+}
+
+@media(max-width:800px){
+  .italy-vatican-story,.italy-between-cities{margin-top:120px;padding-top:70px}
+  .italy-vatican-story>header,.italy-between-cities>header{grid-template-columns:1fr;gap:30px;margin-bottom:55px}
+  .italy-vatican-story h3 br,.italy-between-cities h3 br{display:none}
+  .italy-vatican-story>header p{margin:28px 0 0}
+  .italy-vatican-lead img{height:68vh;min-height:490px}
+  .italy-vatican-details{grid-template-columns:1fr;gap:42px;margin-top:75px}
+  .italy-vatican-details figure:nth-child(2){margin-top:0}
+  .italy-vatican-details img{aspect-ratio:4/3}
+  .italy-vatican-story>.italy-vatican-exit{width:100%;margin-top:85px}
+  .italy-vatican-exit img{height:auto;min-height:0;aspect-ratio:3/2;object-fit:contain}
+  .italy-city-landmarks{grid-template-columns:1fr;gap:48px}
+  .italy-city-landmarks img{height:auto;min-height:0;aspect-ratio:3/2;object-fit:contain}
+  .italy-central-sequence{margin-top:85px}
+  .italy-civita-moments,.italy-art-cities{grid-template-columns:1fr;gap:42px}
+  .italy-civita-moments{margin-top:55px}
+  .italy-art-cities{margin-top:85px}
+  .italy-rome-coda{grid-template-columns:1fr;gap:45px;margin-top:105px}
+  .italy-rome-coda-copy,.italy-rome-coda .italy-rome-bar,.italy-rome-coda>figure:nth-of-type(2),.italy-rome-coda>figure:nth-of-type(3),.italy-rome-coda .italy-colosseum-frame{grid-column:auto;margin-top:0}
+  .italy-rome-coda-copy{grid-template-columns:1fr;gap:18px;margin-bottom:15px}
+  .italy-rome-coda img{aspect-ratio:4/3}
+}

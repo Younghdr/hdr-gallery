@@ -20,3 +20,9 @@
 - Vary section composition according to its content using established travel-editorial patterns: full-width photography, caption rails, route timelines, field-note blocks, maps, or compact single-column essays.
 - On 4K displays, improve line length, spacing, image scale, and information density instead of simply scaling typography up.
 - For three-part editorial headers with a label, Chinese headline, and supporting paragraph, reserve enough width for the headline to keep each complete phrase on one line. Do not allow a short final fragment or punctuation to wrap onto a separate line.
+
+## Editorial tone
+
+- Avoid AI- or system-like emphasis, including viewing instructions, capability reminders, promotional callouts, and explanatory asides that tell readers how to experience the page.
+- Keep travel copy natural and observational. Let photography, captions, place names, frame numbers, and necessary format metadata carry the emphasis.
+- Remove decorative notices that interrupt the photographic narrative unless the user explicitly requests them.
