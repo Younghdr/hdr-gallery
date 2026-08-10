@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EXPEDITION 22 日更台</title>
+    <link rel="stylesheet" href="alpine-admin.css" />
+  </head>
+  <body>
+    <header class="dispatch-bar">
+      <a class="dispatch-brand" href="alpine-admin.html"><b>EXPEDITION 22</b><span>德瑞法現場影像誌</span></a>
+      <nav aria-label="後台導覽">
+        <a href="admin.html">一般相簿後台</a>
+        <a href="http://127.0.0.1:3000/travel/germany-switzerland-france/" target="_blank" rel="noopener">預覽旅程總覽</a>
+      </nav>
+    </header>
+
+    <main class="dispatch-shell">
+      <section class="dispatch-intro">
+        <p>MAC FIELD DESK · SAME DAY EDIT</p>
+        <h1>每天一頁，讓列車沿時間軸前進。</h1>
+        <span>先儲存、再預覽，確認照片、文字與位置資訊後才發佈。僅公開城市與景點，不填飯店或精確住宿位置。</span>
+      </section>
+
+      <section class="workspace">
+        <aside class="day-rail">
+          <label for="daySelect">選擇日次</label>
+          <select id="daySelect" aria-label="選擇日次"></select>
+          <div id="daySummary" class="day-summary" aria-live="polite"></div>
+          <button id="previewButton" class="button secondary" type="button">開啟每日預覽</button>
+          <button id="publishButton" class="button publish" type="button">確認並發佈到 GitHub</button>
+          <p class="rail-note">發佈只會提交德瑞法資料與當日媒體；大型影片請使用 YouTube 網址。</p>
+        </aside>
+
+        <form id="dayForm" class="editor-panel">
+          <div class="section-heading"><p>DAILY ENTRY</p><h2>日誌與狀態</h2></div>
+          <div class="form-grid three">
+            <label>狀態<select name="status"><option value="planned">規劃中</option><option value="editing">整理中</option><option value="published">已發佈</option></select></label>
+            <label>日期<input name="date" type="date" /></label>
+            <label>版面色系<select name="theme"><option value="germany">德國／黑森林綠</option><option value="france">法國／亞爾薩斯酒紅</option><option value="switzerland">瑞士／冰川藍</option></select></label>
+          </div>
+          <div class="form-grid three">
+            <label>國家<input name="country" /></label>
+            <label>國家碼<input name="countryCode" maxlength="3" /></label>
+            <label>城市級位置<input name="city" /></label>
+          </div>
+          <label>本日標題<input name="title" required /></label>
+          <label>路線（以換行或逗號分隔）<textarea name="route" rows="2"></textarea></label>
+          <label>摘要<textarea name="summary" rows="3"></textarea></label>
+          <label>現場筆記<textarea name="note" rows="5"></textarea></label>
+          <label>YouTube SAME DAY EDIT 網址<input name="videoUrl" type="url" placeholder="https://youtu.be/…" /></label>
+
+          <div class="section-heading compact"><p>CAMERA NOTES</p><h2>拍攝資料</h2></div>
+          <div class="form-grid four">
+            <label>相機<input name="camera" /></label>
+            <label>鏡頭<input name="lens" /></label>
+            <label>格式<input name="format" placeholder="HDR / 8K" /></label>
+            <label>拍攝時間<input name="shotAt" /></label>
+          </div>
+          <label>最後發佈時間<input name="publishedAt" type="datetime-local" /></label>
+
+          <div class="actions"><button class="button primary" type="submit">儲存這一天</button><span id="saveState" role="status"></span></div>
+        </form>
+      </section>
+
+      <section class="photo-panel">
+        <div class="section-heading"><p>PHOTO SEQUENCE</p><h2>每日照片與順序</h2></div>
+        <form id="uploadForm" class="upload-row">
+          <label>加入 AVIF 或 Ultra HDR JPEG<input id="photoFiles" name="photos" type="file" accept=".avif,.jpg,.jpeg,image/avif,image/jpeg" multiple /></label>
+          <button class="button secondary" type="submit">上傳照片</button>
+        </form>
+        <p class="file-rule">單檔超過 10 MB 會顯示最佳化提醒；達 100 MB 會阻擋，不接受影片檔。</p>
+        <div id="photoList" class="photo-list"></div>
+      </section>
+
+      <pre id="log" class="dispatch-log" aria-live="polite">等待操作。</pre>
+    </main>
+    <script src="alpine-admin.js"></script>
+  </body>
+</html>

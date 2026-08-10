@@ -14,5 +14,8 @@ github-pages-upload-*.zip
 tmp-*/
 tmp-*
 tools/
-local-tools/
+local-tools/*
+!local-tools/alpine-admin.html
+!local-tools/alpine-admin.js
+!local-tools/alpine-admin.css
 *.log

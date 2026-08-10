@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@/components/analytics";
+import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";

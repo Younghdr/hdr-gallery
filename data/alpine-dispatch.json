@@ -1,0 +1,347 @@
+{
+  "expedition": "22",
+  "season": "SEP–OCT 2026",
+  "slug": "germany-switzerland-france",
+  "titleEn": "ACROSS THE ALPS BY RAIL",
+  "titleZh": "鐵道帶你穿越阿爾卑斯山",
+  "countriesEn": "GERMANY · SWITZERLAND · FRANCE",
+  "region": "EUROPE / ALPINE ROUTE",
+  "heroImage": "/travel/germany-switzerland-france/alpine-hero-sunlit.png",
+  "heroAlt": "晴朗初秋的阿爾卑斯山區，紅色景觀列車沿著湛藍湖岸行駛",
+  "heroCredit": "PRE-TRIP VISUAL · EXPEDITION 22 CONCEPT",
+  "intro": "有些旅程，移動本身就是風景。",
+  "story": [
+    "冰河列車沿著峽谷爬升，黃金列車在湖邊轉彎，萊茵河在船下緩緩流過。德國、瑞士、法國——三個國家，一條鐵道邏輯貫穿始終。",
+    "少女峰的雲還沒散，馬特洪峰的輪廓已經出現在窗外。這裡的光，跟著海拔一起變。"
+  ],
+  "footerLines": [
+    "ACROSS THE ALPS BY RAIL",
+    "THREE COUNTRIES, ONE ROUTE",
+    "WHERE THE TRAIN IS THE DESTINATION"
+  ],
+  "days": [
+    {
+      "day": "01",
+      "date": "",
+      "status": "planned",
+      "theme": "germany",
+      "country": "德國",
+      "countryCode": "DE",
+      "city": "桃園 → 法蘭克福",
+      "route": [
+        "桃園國際機場",
+        "法蘭克福"
+      ],
+      "title": "向歐洲的夜航",
+      "summary": "第一天留給移動。從桃園起飛，穿過時區，把接下來十二天的路線交給清晨的法蘭克福。",
+      "note": "班機日採精簡發報格式；抵達後才公開城市級位置，不顯示航班座位與住宿資訊。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "02",
+      "date": "",
+      "status": "planned",
+      "theme": "germany",
+      "country": "德國",
+      "countryCode": "DE",
+      "city": "法蘭克福 · 萊茵河 · 海德堡",
+      "route": [
+        "法蘭克福",
+        "萊茵河",
+        "海德堡"
+      ],
+      "title": "河谷把旅程帶進古城",
+      "summary": "從萊茵河船上的緩慢視角開始，再走進海德堡的城堡、石橋與大學城街道。",
+      "note": "今日影像會在抵達住宿城市並完成整理後更新。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "03",
+      "date": "",
+      "status": "planned",
+      "theme": "france",
+      "country": "法國",
+      "countryCode": "FR",
+      "city": "史特拉斯堡 · 科瑪",
+      "route": [
+        "海德堡",
+        "史特拉斯堡",
+        "科瑪"
+      ],
+      "title": "穿過邊境，走進亞爾薩斯",
+      "summary": "木筋屋、運河與暖色窗框讓第三天換了一種光。史特拉斯堡與科瑪是三國路線裡最像故事書的一段。",
+      "note": "法國章節以酒紅與暖米色編排，保留老城街道的細節與步行節奏。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "04",
+      "date": "",
+      "status": "planned",
+      "theme": "switzerland",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "city": "伯恩 · 策馬特",
+      "route": [
+        "科瑪",
+        "伯恩",
+        "策馬特"
+      ],
+      "title": "從拱廊走向無車山城",
+      "summary": "伯恩的中世紀拱廊之後，路線繼續向南，直到只能以鐵道進入的策馬特。",
+      "note": "正式發佈只標示城市與景點，不公開住宿位置。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "05",
+      "date": "",
+      "status": "planned",
+      "theme": "switzerland",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "city": "策馬特 · 高納葛拉特",
+      "route": [
+        "策馬特",
+        "高納葛拉特",
+        "馬特洪峰"
+      ],
+      "title": "等待馬特洪峰露出輪廓",
+      "summary": "高納葛拉特登山鐵道把視線帶到三千公尺以上。今天的主角不是抵達，而是雲層何時讓出山峰。",
+      "note": "山區天候變化快，影像順序將依現場光線重新編排。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "06",
+      "date": "",
+      "status": "planned",
+      "theme": "switzerland",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "city": "冰河列車 · 安德瑪特 · 茵特拉根",
+      "route": [
+        "策馬特",
+        "冰河列車",
+        "安德瑪特",
+        "茵特拉根"
+      ],
+      "title": "車窗成為一條移動的取景框",
+      "summary": "列車沿著山谷與峽谷爬升，策馬特在身後縮小，安德瑪特與茵特拉根在鐵道另一端展開。",
+      "note": "今天優先整理車窗、月台與移動中的連續影像。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "07",
+      "date": "",
+      "status": "planned",
+      "theme": "switzerland",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "city": "少女峰 · 艾格快線",
+      "route": [
+        "茵特拉根",
+        "格林德瓦",
+        "艾格快線",
+        "少女峰"
+      ],
+      "title": "雲層以上，阿雷奇冰河向遠方延伸",
+      "summary": "齒軌列車與艾格快線把海拔一段段抬高，最後抵達雪原、冰宮與少女峰觀景台。",
+      "note": "高海拔日保留較短文字，讓雪地亮度、雲層與尺度成為敘事。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "08",
+      "date": "",
+      "status": "planned",
+      "theme": "switzerland",
+      "country": "瑞士",
+      "countryCode": "CH",
+      "city": "黃金列車 · 盧森 · 蘇黎世",
+      "route": [
+        "茵特拉根",
+        "黃金列車",
+        "盧森",
+        "蘇黎世"
+      ],
+      "title": "湖岸在列車轉彎時一再出現",
+      "summary": "從茵特拉根到盧森，景觀列車沿湖而行；卡貝爾橋之後，旅程再轉向蘇黎世。",
+      "note": "以橫向連續畫面表現列車、湖面與城市之間的節奏。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "09",
+      "date": "",
+      "status": "planned",
+      "theme": "germany",
+      "country": "德國",
+      "countryCode": "DE",
+      "city": "蘇黎世 · 蒂蒂湖 · 斯圖加特",
+      "route": [
+        "蘇黎世",
+        "蒂蒂湖",
+        "斯圖加特"
+      ],
+      "title": "回到黑森林的深綠色",
+      "summary": "離開瑞士湖岸後，蒂蒂湖的森林與遊船接手畫面，最後以斯圖加特圖書館的幾何白色收尾。",
+      "note": "自然與建築採兩種不同照片節奏，不使用同一種卡片重複排列。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "10",
+      "date": "",
+      "status": "planned",
+      "theme": "germany",
+      "country": "德國",
+      "countryCode": "DE",
+      "city": "斯圖加特 · 法蘭克福",
+      "route": [
+        "斯圖加特",
+        "法蘭克福"
+      ],
+      "title": "在羅馬廣場收起最後一段街景",
+      "summary": "回到法蘭克福，老城的屋頂、廣場與美茵河把三國路線帶回起點。",
+      "note": "最後一個完整拍攝日，預留旅程總結與跨日片尾素材。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "11",
+      "date": "",
+      "status": "planned",
+      "theme": "germany",
+      "country": "德國",
+      "countryCode": "DE",
+      "city": "法蘭克福 → 桃園",
+      "route": [
+        "法蘭克福",
+        "桃園國際機場"
+      ],
+      "title": "把三國的光帶上返程班機",
+      "summary": "整理最後的記憶卡與片段，從法蘭克福啟程返台。",
+      "note": "返程日以狀態更新與旅程片尾為主。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    },
+    {
+      "day": "12",
+      "date": "",
+      "status": "planned",
+      "theme": "germany",
+      "country": "台灣",
+      "countryCode": "TW",
+      "city": "桃園",
+      "route": [
+        "桃園國際機場",
+        "旅程完成"
+      ],
+      "title": "抵達之後，故事才開始整理",
+      "summary": "班機抵達台灣，SAME DAY EDIT 時間軸完成；完整長篇影像誌將從這十二天繼續展開。",
+      "note": "回國後可繼續補上長版影片、精修圖說與最終旅程總結。",
+      "hero": "",
+      "videoUrl": "",
+      "photos": [],
+      "gear": {
+        "camera": "",
+        "lens": "",
+        "format": "HDR / 8K",
+        "shotAt": ""
+      },
+      "publishedAt": ""
+    }
+  ]
+}

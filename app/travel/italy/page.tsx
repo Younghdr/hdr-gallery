@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 };
 
 const chapters = [
-  { number: "01", place: "ROMA", zh: "羅馬", note: "石牆記得每一道斜陽" },
-  { number: "02", place: "TOSCANA", zh: "托斯卡尼", note: "把時間交給蜿蜒的路" },
-  { number: "03", place: "VENEZIA", zh: "威尼斯", note: "水面替城市保存黃昏" },
+  { number: "01", id: "roma", place: "ROME", zh: "羅馬", note: "石牆記得每一道斜陽" },
+  { number: "02", id: "toscana", place: "TUSCANY", zh: "托斯卡尼", note: "把時間交給蜿蜒的路" },
+  { number: "03", id: "venezia", place: "VENICE", zh: "威尼斯", note: "水面替城市保存黃昏" },
 ];
 
 export default function ItalyPage() {
@@ -32,7 +32,7 @@ export default function ItalyPage() {
             style={{ background: "linear-gradient(90deg, rgba(17,21,20,.7), rgba(17,21,20,.05) 64%), linear-gradient(0deg, rgba(15,18,17,.62), transparent 46%)" }}
           />
           <div className="italy-hero-copy">
-            <p>DOLOMITES · ALTO ADIGE · INVERNO</p>
+            <p>DOLOMITES · SOUTH TYROL · ITALY</p>
             <h1 id="italy-title">ITALIA</h1>
             <div className="italy-title-line"><span>46.5405° N</span><b>義大利旅行相片紀錄</b><span>11.6743° E</span></div>
             <div className="italy-hdr-format"><span className="italy-hdr-dot" />HDR PHOTOGRAPHY <i>·</i> DOLOMITES</div>
@@ -41,33 +41,39 @@ export default function ItalyPage() {
         </section>
 
         <section className="italy-opening" id="journal">
-          <div className="italy-stamp" aria-hidden="true"><span>IT</span></div>
-          <p className="italy-eyebrow">TRE CITTÀ · UNA LENTA ESTATE</p>
-          <h2>有些地方不是抵達，<br /><em>是慢慢顯影。</em></h2>
-          <div className="italy-opening-copy">
-            <p>十二天，三座城市，一捲還沒拍完的夏天。這不是景點清單，而是光落在石牆上的角度、轉角傳來的咖啡香，和那些來不及命名的片刻。</p>
-            <p>從羅馬的赭紅屋瓦一路往北，穿過托斯卡尼起伏的田野，最後在威尼斯的水道邊，等一扇窗亮起。</p>
+          <header className="italy-prologue-head">
+            <p className="italy-eyebrow">PROLOGO / ROMA TERMINI / 07:00</p>
+            <h2>Generazione mille euro</h2>
+            <p>某種程度上，這就是義大利版的 22K 世代。受過教育、進入職場，每個月卻只能領到一千歐元。一個薪資數字，最後成了一整代人的名字。</p>
+          </header>
+
+          <div className="italy-prologue-body">
+            <p>我們對義大利的第一個印象，卻不是這些社會問題，而是羅馬車站裡幾雙毫不避諱的眼睛。</p>
+            <p>從機場搭車抵達羅馬，時間才早上七點。黃皮膚的一大群人，拖著大大小小的行李，大剌剌地站在車站裡重新整理。有人清點背包，有人翻找車票，有人忙著確認下一段路線。以旁人的眼光看來，我們大概就是一排長了腳、會移動的錢包。</p>
+            <p>原本以為時間還早，城市尚未完全醒來，應該不至於有什麼問題。實際上，每個人的身體早已比嘴巴誠實：背包轉到胸前，行李拉到兩腿之間，視線不斷掃過四周。沒有人說破，但我們已經擺出了防衛姿態。</p>
+            <p className="italy-prologue-beat">不遠處的幾個人一直看著我們。</p>
+            <p>那不是偶然對上眼後便移開的目光。他們沒有假裝看手機，也沒有被發現後的尷尬。視線只是安靜地在我們、背包和行李之間來回，像是在等待其中一個人鬆手。</p>
+            <p>我們甚至想起出發前聽過的那些警告，猜測他們會不會就是傳聞裡專門在車站物色旅客的人。至於他們究竟是誰，其實沒有人知道。唯一可以確定的是，他們並不害怕我們發現。</p>
+            <p className="italy-prologue-beat">這反而最令人不安。</p>
+            <p>整理完行李，我們迅速離開車站。沒有人真的追上來，也沒有東西在那一刻被偷走，但從那幾雙眼睛開始，所有人都學會了在羅馬走路時，留一隻手給自己的背包。</p>
+            <p>走出車站，行李箱的輪子隨即撞上羅馬的千年石板路。原本想像的是晨光、古城與悠閒散步，現實卻是輪子不斷卡進縫隙，整個行李箱在身後劇烈顛簸。</p>
+            <div className="italy-prologue-ending">
+              <p>羅馬沒有先用競技場或教堂迎接我們。</p>
+              <p>它先教我們看好自己的行李。</p>
+              <p>而拖著行李走在千年石板路上，所謂的浪漫，也就這樣一路被震散了。</p>
+            </div>
           </div>
         </section>
 
         <nav className="italy-chapters" aria-label="義大利旅程章節">
           {chapters.map((chapter) => (
-            <a href={`#${chapter.place.toLowerCase()}`} key={chapter.place}>
+            <a href={`#${chapter.id}`} key={chapter.id}>
               <span>{chapter.number}</span><div><b>{chapter.place}</b><small>{chapter.zh} · {chapter.note}</small></div><i>↘</i>
             </a>
           ))}
         </nav>
 
-        <section className="italy-chapter italy-rome" id="roma">
-          <header><span>CAPITOLO 01 / ROMA</span><h2>永恆之城，<br />傍晚六點。</h2></header>
-          <figure className="italy-wide-photo">
-            <img src={`${BASE_PATH}/travel/italy/rome-hero.png`} alt="金色時刻的羅馬城市風景" />
-            <figcaption><b>ROMA, LAZIO</b><span>FRAME 01 — 18:42</span></figcaption>
-          </figure>
-          <blockquote>「城市不急著解釋自己，<br />它只是讓光，一層一層地落下。」</blockquote>
-        </section>
-
-        <section className="italy-hdr-archive" aria-labelledby="italy-hdr-title">
+        <section className="italy-hdr-archive" id="roma" aria-labelledby="italy-hdr-title">
           <header className="italy-hdr-intro">
             <div>
               <span className="italy-hdr-kicker">NUOVI FOTOGRAMMI / 10-BIT AVIF</span>
@@ -83,7 +89,7 @@ export default function ItalyPage() {
               loading="lazy"
               decoding="async"
             />
-            <figcaption><b>SAN GIMIGNANO · TOSCANA</b><span>HDR FRAME 01 / 10-BIT AVIF</span></figcaption>
+            <figcaption><b>SAN GIMIGNANO · TUSCANY</b><span>HDR FRAME 01 / 10-BIT AVIF</span></figcaption>
           </figure>
 
           <figure className="italy-hdr-group">
@@ -93,7 +99,7 @@ export default function ItalyPage() {
               loading="lazy"
               decoding="async"
             />
-            <figcaption><b>PANTHEON</b><span>ROMA / 02</span></figcaption>
+            <figcaption><b>PANTHEON</b><span>ROME / 02</span></figcaption>
           </figure>
 
           <div className="italy-hdr-rome-grid">
@@ -104,7 +110,7 @@ export default function ItalyPage() {
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption><b>FONTANA DI TREVI</b><span>ROMA / 03</span></figcaption>
+              <figcaption><b>TREVI FOUNTAIN</b><span>ROME / 03</span></figcaption>
             </figure>
             <figure>
               <img
@@ -113,7 +119,7 @@ export default function ItalyPage() {
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption><b>TREVI</b><span>04</span></figcaption>
+              <figcaption><b>TREVI DETAIL</b><span>04</span></figcaption>
             </figure>
             <figure>
               <img
@@ -122,7 +128,7 @@ export default function ItalyPage() {
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption><b>SALUMERIA</b><span>05</span></figcaption>
+              <figcaption><b>ROME DELI</b><span>05</span></figcaption>
             </figure>
             <figure>
               <img
@@ -131,17 +137,103 @@ export default function ItalyPage() {
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption><b>VIA DI ROMA</b><span>06</span></figcaption>
+              <figcaption><b>ROME STREET</b><span>06</span></figcaption>
             </figure>
           </div>
 
           <div className="italy-hdr-notes">
-            <p><span>ROMA · MEZZOGIORNO</span>正午的光落在大理石上，亮部仍保留雕刻的層次；轉進巷裡，櫥窗反射、石板路與行人的影子又把城市拉回日常。</p>
+            <p><span>ROME · MIDDAY</span>正午的光落在大理石上，亮部仍保留雕刻的層次；轉進巷裡，櫥窗反射、石板路與行人的影子又把城市拉回日常。</p>
           </div>
+
+          <section className="italy-rome-ruins" aria-labelledby="italy-rome-ruins-title">
+            <header>
+              <span>SEQUENCE 02 / ANCIENT ROME</span>
+              <div>
+                <h3 id="italy-rome-ruins-title">穿過古羅馬，<br />一路走向梵蒂岡。</h3>
+                <p>競技場外的人潮還沒散去，古羅馬廣場的殘牆已經在雲影下安靜下來。沿著石板路繼續走，聖天使堡與博物館的旋梯，把視線從城市帶進建築內部。</p>
+              </div>
+            </header>
+
+            <figure className="italy-rome-ruins-lead">
+              <img
+                src={`${BASE_PATH}/travel/italy/rome-colosseum-exterior-hdr.avif`}
+                alt="積雲天空下的羅馬競技場外牆與街道人群"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><b>COLOSSEUM</b><span>ANCIENT ROME</span></figcaption>
+            </figure>
+
+            <figure className="italy-forum-panorama">
+              <img
+                src={`${BASE_PATH}/travel/italy/rome-forum-panorama-hdr.avif`}
+                alt="從高處俯瞰古羅馬廣場遺跡與城市天際線"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><b>ROMAN FORUM</b><span>PANORAMA</span></figcaption>
+            </figure>
+
+            <div className="italy-rome-ruins-pair">
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/rome-palatine-hill-hdr.avif`}
+                  alt="帕拉提諾山古蹟、拱門與階梯花園"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>PALATINE HILL</b><span>ROME</span></figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/rome-basilica-maxentius-hdr.avif`}
+                  alt="古羅馬廣場與馬克森提烏斯巴西利卡遺跡全景"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>BASILICA OF MAXENTIUS</b><span>ROME</span></figcaption>
+              </figure>
+            </div>
+
+            <article className="italy-hunger-note">
+              <header>
+                <span>ROME / VATICAN CITY / ONE DAY</span>
+                <h4>午餐消失之後</h4>
+              </header>
+              <div>
+                <p>把羅馬和梵蒂岡排進同一天，行程緊得幾乎抽不出空。原本應該出現的午餐，就在不斷趕路之間消失了。</p>
+                <p>走到聖天使堡時，大家已經餓得沒有心情再討論下一站。或許是真的被空著肚子趕行程嚇怕了，一看到路邊有人賣熱狗堡，整團人幾乎沒有猶豫，先買一個填肚子再說。</p>
+                <p>那個熱狗堡不是下午茶，也不是旅行中特別安排的美食，比較像是讓所有人安全撐到晚餐的補給品。</p>
+                <p>只是到了晚上，肚子依然很餓，餐廳上菜又特別慢。每次有人從廚房方向走過來，全桌都以為終於輪到我們，結果端去的永遠是別桌。</p>
+                <p>午餐沒有吃到，晚餐遲遲沒有上桌。回頭看，那個站在聖天使堡旁匆忙吃完的熱狗堡，可能才是當天最重要的一餐。</p>
+              </div>
+            </article>
+
+            <div className="italy-rome-transition-pair">
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/rome-ponte-sant-angelo-hdr.avif`}
+                  alt="旅伴站在聖天使橋上，背後是聖天使堡與橋側雕像"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>SANT&apos;ANGELO BRIDGE</b><span>ROME</span></figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={`${BASE_PATH}/travel/italy/vatican-momo-staircase-hdr.avif`}
+                  alt="從高處俯瞰梵蒂岡博物館莫莫雙螺旋階梯與遊客"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption><b>MOMO STAIRCASE</b><span>VATICAN MUSEUMS</span></figcaption>
+              </figure>
+            </div>
+          </section>
 
           <section className="italy-vatican-story" aria-labelledby="italy-vatican-title">
             <header>
-              <span>SEQUENZA 02 / CITTÀ DEL VATICANO</span>
+              <span>SEQUENCE 03 / VATICAN CITY</span>
               <div>
                 <h3 id="italy-vatican-title">金色穹頂下，<br />光有自己的秩序。</h3>
                 <p>走進聖伯多祿大殿，尺度先消失，聲音才慢慢安靜下來。窗光穿過圓頂，落在青銅華蓋、石柱與長廊上；每一次抬頭，都像重新測量一次空間。</p>
@@ -155,7 +247,7 @@ export default function ItalyPage() {
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption><b>BASILICA DI SAN PIETRO</b><span>VATICANO / 07</span></figcaption>
+              <figcaption><b>ST. PETER&apos;S BASILICA</b><span>VATICAN / 07</span></figcaption>
             </figure>
 
             <div className="italy-vatican-details">
@@ -166,7 +258,7 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>NAVATA</b><span>08</span></figcaption>
+                <figcaption><b>NAVE</b><span>08</span></figcaption>
               </figure>
               <figure>
                 <img
@@ -175,7 +267,7 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>CAPPELLA</b><span>09</span></figcaption>
+                <figcaption><b>CHAPEL</b><span>09</span></figcaption>
               </figure>
               <figure>
                 <img
@@ -184,7 +276,7 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>CUPOLA</b><span>10</span></figcaption>
+                <figcaption><b>DOME</b><span>10</span></figcaption>
               </figure>
             </div>
 
@@ -195,13 +287,13 @@ export default function ItalyPage() {
                 loading="lazy"
                 decoding="async"
               />
-              <figcaption><b>VIA DELLA CONCILIAZIONE</b><span>USCITA / 11</span></figcaption>
+              <figcaption><b>VIA DELLA CONCILIAZIONE</b><span>EXIT / 11</span></figcaption>
             </figure>
           </section>
 
           <section className="italy-between-cities" aria-labelledby="italy-between-title">
             <header>
-              <span>SEQUENZA 03 / LAZIO · FIRENZE · ROMA</span>
+              <span>SEQUENCE 04 / LAZIO · FLORENCE · ROME</span>
               <h3 id="italy-between-title">城與城之間，<br />路把記憶接起來。</h3>
             </header>
 
@@ -222,7 +314,7 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>DUOMO DI FIRENZE</b><span>13</span></figcaption>
+                <figcaption><b>FLORENCE CATHEDRAL</b><span>13</span></figcaption>
               </figure>
             </div>
 
@@ -234,7 +326,7 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>PONTE DI CIVITA</b><span>LAZIO / 14</span></figcaption>
+                <figcaption><b>CIVITA BRIDGE</b><span>LAZIO / 14</span></figcaption>
               </figure>
 
               <div className="italy-civita-moments">
@@ -245,7 +337,7 @@ export default function ItalyPage() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <figcaption><b>VIA DI CIVITA</b><span>15</span></figcaption>
+                  <figcaption><b>CIVITA STREET</b><span>15</span></figcaption>
                 </figure>
                 <figure>
                   <img
@@ -254,7 +346,7 @@ export default function ItalyPage() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <figcaption><b>BELVEDERE DI CIVITA</b><span>16</span></figcaption>
+                  <figcaption><b>CIVITA VIEWPOINT</b><span>16</span></figcaption>
                 </figure>
               </div>
 
@@ -266,7 +358,7 @@ export default function ItalyPage() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <figcaption><b>DUOMO DI SIENA</b><span>TOSCANA / 17</span></figcaption>
+                  <figcaption><b>SIENA CATHEDRAL</b><span>TUSCANY / 17</span></figcaption>
                 </figure>
                 <figure>
                   <img
@@ -275,7 +367,7 @@ export default function ItalyPage() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <figcaption><b>TRIBUNA DEGLI UFFIZI</b><span>FIRENZE / 18</span></figcaption>
+                  <figcaption><b>UFFIZI TRIBUNA</b><span>FLORENCE / 18</span></figcaption>
                 </figure>
               </div>
             </div>
@@ -292,7 +384,7 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>BIRRIFICIO ANGELO PORETTI</b><span>19</span></figcaption>
+                <figcaption><b>PORETTI BAR</b><span>19</span></figcaption>
               </figure>
               <figure>
                 <img
@@ -301,7 +393,7 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>COMPAGNI DI VIAGGIO</b><span>20</span></figcaption>
+                <figcaption><b>TRAVEL COMPANIONS</b><span>20</span></figcaption>
               </figure>
               <figure>
                 <img
@@ -310,7 +402,7 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>ARCO DI COSTANTINO</b><span>21</span></figcaption>
+                <figcaption><b>ARCH OF CONSTANTINE</b><span>21</span></figcaption>
               </figure>
               <figure className="italy-colosseum-frame">
                 <img
@@ -319,14 +411,14 @@ export default function ItalyPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <figcaption><b>COLOSSEO</b><span>22 / FINE RULLINO</span></figcaption>
+                <figcaption><b>COLOSSEUM</b><span>22 / END OF ROLL</span></figcaption>
               </figure>
             </div>
           </section>
         </section>
 
         <section className="italy-chapter italy-tuscany" id="toscana">
-          <div className="italy-section-copy"><span>CAPITOLO 02 / TOSCANA</span><h2>走進地圖<br />沒有標記的地方。</h2><p>清晨的道路只有柏樹知道方向。車窗外的山丘像呼吸一樣起伏，時間在這裡不再用分鐘計算，而是用影子的長度。</p></div>
+          <div className="italy-section-copy"><span>CHAPTER 02 / TUSCANY</span><h2>走進地圖<br />沒有標記的地方。</h2><p>清晨的道路只有柏樹知道方向。車窗外的山丘像呼吸一樣起伏，時間在這裡不再用分鐘計算，而是用影子的長度。</p></div>
           <figure className="italy-feature-photo">
             <img src={`${BASE_PATH}/travel/italy/tuscany-road.png`} alt="托斯卡尼清晨的柏樹與蜿蜒道路" />
             <figcaption><b>VAL D'ORCIA</b><span>FRAME 18 — 06:17</span></figcaption>
@@ -337,15 +429,14 @@ export default function ItalyPage() {
         <section className="italy-chapter italy-venice" id="venezia">
           <figure className="italy-portrait-photo">
             <img src={`${BASE_PATH}/travel/italy/venice-canal.png`} alt="藍色時刻的威尼斯小運河" />
-            <figcaption><b>VENEZIA</b><span>FRAME 32 — 20:51</span></figcaption>
+            <figcaption><b>VENICE</b><span>FRAME 32 — 20:51</span></figcaption>
           </figure>
-          <div className="italy-section-copy"><span>CAPITOLO 03 / VENEZIA</span><h2>迷路，是這座城<br />最好的路線。</h2><p>離開人聲之後，水道收起白天的喧鬧。木船輕輕碰著岸，一扇窗亮了，又一扇。威尼斯真正的方向，藏在倒影裡。</p><div className="italy-place-list"><span>CASTELLO</span><span>CANNAREGIO</span><span>DORSODURO</span></div></div>
+          <div className="italy-section-copy"><span>CHAPTER 03 / VENICE</span><h2>迷路，是這座城<br />最好的路線。</h2><p>離開人聲之後，水道收起白天的喧鬧。木船輕輕碰著岸，一扇窗亮了，又一扇。威尼斯真正的方向，藏在倒影裡。</p><div className="italy-place-list"><span>CASTELLO</span><span>CANNAREGIO</span><span>DORSODURO</span></div></div>
         </section>
 
         <section className="italy-contact-sheet">
           <div><small>ROLL 01 / 36 EXPOSURES</small><h2>光走過以後，<br />照片留下來。</h2></div>
           <div className="italy-film-strip" aria-label="義大利旅程照片精選">
-            <figure><img src={`${BASE_PATH}/travel/italy/rome-hero.png`} alt="羅馬夕陽" /><span>01A</span></figure>
             <figure><img src={`${BASE_PATH}/travel/italy/tuscany-road.png`} alt="托斯卡尼道路" /><span>18A</span></figure>
             <figure><img src={`${BASE_PATH}/travel/italy/venice-canal.png`} alt="威尼斯運河" /><span>32A</span></figure>
           </div>

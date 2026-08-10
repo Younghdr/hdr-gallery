@@ -1,0 +1,124 @@
+/* Compact editorial opening for the journey index. */
+.destinations-page .destinations-nav {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(24px, 4vw, 72px);
+}
+
+.destinations-page .destinations-mark,
+.destinations-page .destinations-nav > a:last-child {
+  white-space: nowrap;
+}
+
+.destinations-page .destinations-country-nav {
+  min-width: 0;
+  justify-content: center;
+  gap: 3px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.destinations-page .destinations-country-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.destinations-page .destinations-intro {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  min-height: clamp(520px, calc(100svh - 86px), 720px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: clamp(88px, 9vw, 150px) 7vw;
+  text-align: center;
+  background: radial-gradient(circle at 50% 44%, rgba(165, 230, 196, .055), transparent 38%);
+}
+
+.destinations-page .destinations-intro::before,
+.destinations-page .destinations-intro::after {
+  content: "";
+  position: absolute;
+  right: 7vw;
+  left: 7vw;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line) 18%, var(--line) 82%, transparent);
+}
+
+.destinations-page .destinations-intro::before {
+  top: clamp(72px, 7vw, 112px);
+}
+
+.destinations-page .destinations-intro::after {
+  bottom: clamp(72px, 7vw, 112px);
+}
+
+.destinations-intro-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .2em;
+}
+
+.destinations-intro-meta p,
+.destinations-intro-meta span {
+  margin: 0;
+}
+
+.destinations-intro-meta p::after {
+  content: "";
+  display: inline-block;
+  width: 42px;
+  height: 1px;
+  margin-left: 16px;
+  vertical-align: middle;
+  background: #68716c;
+}
+
+.destinations-page .destinations-intro h1 {
+  grid-column: auto;
+  max-width: 14em;
+  margin: clamp(34px, 3.4vw, 54px) auto 0;
+  font-size: clamp(3.4rem, 5.8vw, 7.2rem);
+  line-height: 1.18;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+
+.destinations-intro-copy {
+  max-width: 760px;
+  margin: clamp(32px, 3vw, 48px) auto 0;
+  color: #b8bfba;
+  font-size: clamp(15px, 1vw, 18px);
+  line-height: 1.9;
+  letter-spacing: .025em;
+}
+
+@media (max-width: 800px) {
+  .destinations-page .destinations-country-nav {
+    justify-content: flex-start;
+  }
+
+  .destinations-page .destinations-intro {
+    min-height: 500px;
+    padding: 92px 22px;
+  }
+
+  .destinations-page .destinations-intro::before,
+  .destinations-page .destinations-intro::after {
+    right: 22px;
+    left: 22px;
+  }
+
+  .destinations-page .destinations-intro h1 {
+    font-size: clamp(3rem, 13vw, 5rem);
+    line-height: 1.18;
+  }
+
+  .destinations-intro-copy {
+    max-width: 34em;
+    font-size: 15px;
+  }
+}

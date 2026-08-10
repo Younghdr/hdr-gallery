@@ -7,10 +7,14 @@ const { execFileSync } = require("child_process");
 const ROOT = path.resolve(__dirname, "..");
 const TOOL_ROOT = __dirname;
 const DATA_FILE = path.join(ROOT, "site-data.js");
+const ALPINE_DATA_FILE = path.join(ROOT, "data", "alpine-dispatch.json");
 const PORT = Number(process.env.PORT || 4174);
 const HOST = process.env.HOST || "127.0.0.1";
-const GIT = "C:\\Program Files\\Git\\cmd\\git.exe";
+const WINDOWS_GIT = "C:\\Program Files\\Git\\cmd\\git.exe";
+const GIT = process.env.GIT_PATH || (process.platform === "win32" && fs.existsSync(WINDOWS_GIT) ? WINDOWS_GIT : "git");
 const PREVIEW_PATHSPECS = [".next-preview-github*", ".preview-github*"];
+const TEN_MB = 10 * 1024 * 1024;
+const HUNDRED_MB = 100 * 1024 * 1024;
 
 const TYPES = {
   ".avif": "image/avif",
@@ -64,6 +68,33 @@ function readSiteData() {
 function writeSiteData(data) {
   const output = `window.HDR_SITE_DATA = ${JSON.stringify(data, null, 2)};\n`;
   fs.writeFileSync(DATA_FILE, output, "utf8");
+}
+
+function readAlpineData() {
+  return JSON.parse(fs.readFileSync(ALPINE_DATA_FILE, "utf8"));
+}
+
+function validateAlpineData(data) {
+  const statuses = new Set(["planned", "editing", "published"]);
+  if (!data || !Array.isArray(data.days) || data.days.length !== 12) {
+    throw new Error("德瑞法資料必須包含 DAY 01 至 DAY 12。 ");
+  }
+  const days = new Set();
+  for (const day of data.days) {
+    if (!/^\d{2}$/.test(day.day) || days.has(day.day) || !statuses.has(day.status)) {
+      throw new Error(`DAY ${day.day || "?"} 的日次或狀態不正確。`);
+    }
+    days.add(day.day);
+    const publicLocation = [day.city, ...(Array.isArray(day.route) ? day.route : [])].join(" ");
+    if (day.status === "published" && /(飯店|酒店|hotel|hostel|民宿|\b-?\d{1,3}\.\d{4,}\s*,\s*-?\d{1,3}\.\d{4,}\b)/i.test(publicLocation)) {
+      throw new Error(`DAY ${day.day} 的公開位置包含住宿名稱或疑似精確座標，請改為城市／景點層級。`);
+    }
+  }
+}
+
+function writeAlpineData(data) {
+  validateAlpineData(data);
+  fs.writeFileSync(ALPINE_DATA_FILE, `${JSON.stringify(data, null, 2)}\n`, "utf8");
 }
 
 function splitBuffer(buffer, delimiter) {
@@ -148,6 +179,10 @@ function isImageFile(file) {
   );
 }
 
+function isAlpineImageFile(file) {
+  return [".avif", ".jpg", ".jpeg"].includes(path.extname(file).toLowerCase());
+}
+
 function isMusicFile(file) {
   return [".mp3", ".wav", ".ogg", ".flac", ".m4a", ".aac"].includes(
     path.extname(file).toLowerCase(),
@@ -211,17 +246,65 @@ function scanMissingPhotos(category = "photo", target = "photoDetails") {
 }
 
 async function handleApi(req, res) {
-  if (req.url === "/api/data" && req.method === "GET") {
+  const requestUrl = new URL(req.url, `http://127.0.0.1:${PORT}`);
+  const apiPath = requestUrl.pathname;
+
+  if (apiPath === "/api/alpine" && req.method === "GET") {
+    return sendJson(res, 200, readAlpineData());
+  }
+
+  if (apiPath === "/api/alpine" && req.method === "POST") {
+    const payload = JSON.parse((await readBody(req)).toString("utf8"));
+    writeAlpineData(payload);
+    return sendJson(res, 200, { ok: true });
+  }
+
+  if (apiPath === "/api/alpine-upload" && req.method === "POST") {
+    const dayNumber = requestUrl.searchParams.get("day") || "";
+    if (!/^\d{2}$/.test(dayNumber) || !readAlpineData().days.some((day) => day.day === dayNumber)) {
+      return sendJson(res, 400, { ok: false, error: "日次必須是 DAY 01 至 DAY 12。" });
+    }
+    const body = await readBody(req);
+    const parts = parseMultipart(body, req.headers["content-type"] || "");
+    const folder = path.join(ROOT, "public", "travel", "germany-switzerland-france", `day-${dayNumber}`);
+    fs.mkdirSync(folder, { recursive: true });
+    const saved = [];
+    for (const part of parts) {
+      if (!part.filename || !part.content.length) continue;
+      if (!isAlpineImageFile(part.filename)) {
+        throw new Error(`${part.filename} 不是支援的 AVIF／JPEG 照片。影片請使用 YouTube 網址。`);
+      }
+      if (part.content.length >= HUNDRED_MB) {
+        throw new Error(`${part.filename} 已達 GitHub 100 MB 單檔限制，請先最佳化後再上傳。`);
+      }
+      const filename = sanitizeName(part.filename);
+      fs.writeFileSync(path.join(folder, filename), part.content);
+      const warning = part.content.length > TEN_MB ? `${part.filename} 超過 10 MB，建議輸出較小的 Web 版本。` : "";
+      saved.push({
+        warning,
+        photo: {
+          src: `/travel/germany-switzerland-france/day-${dayNumber}/${filename}`,
+          alt: cleanTitleFromFile(part.filename),
+          caption: "",
+          orientation: "landscape",
+          hdr: true,
+        },
+      });
+    }
+    return sendJson(res, 200, { ok: true, files: saved });
+  }
+
+  if (apiPath === "/api/data" && req.method === "GET") {
     return sendJson(res, 200, readSiteData());
   }
 
-  if (req.url === "/api/data" && req.method === "POST") {
+  if (apiPath === "/api/data" && req.method === "POST") {
     const payload = JSON.parse((await readBody(req)).toString("utf8"));
     writeSiteData(payload);
     return sendJson(res, 200, { ok: true });
   }
 
-  if (req.url === "/api/upload" && req.method === "POST") {
+  if (apiPath === "/api/upload" && req.method === "POST") {
     const body = await readBody(req);
     const parts = parseMultipart(body, req.headers["content-type"] || "");
     const saved = [];
@@ -252,7 +335,7 @@ async function handleApi(req, res) {
     return sendJson(res, 200, { ok: true, files: saved });
   }
 
-  if (req.url === "/api/upload-music" && req.method === "POST") {
+  if (apiPath === "/api/upload-music" && req.method === "POST") {
     const body = await readBody(req);
     const parts = parseMultipart(body, req.headers["content-type"] || "");
     const saved = [];
@@ -279,7 +362,7 @@ async function handleApi(req, res) {
     return sendJson(res, 200, { ok: true, files: saved });
   }
 
-  if (req.url === "/api/stats" && req.method === "GET") {
+  if (apiPath === "/api/stats" && req.method === "GET") {
     const trackingEndpoint = process.env.TRACKING_ENDPOINT || "";
     const trackingToken = process.env.TRACKING_ADMIN_TOKEN || "";
 
@@ -315,24 +398,29 @@ async function handleApi(req, res) {
     }
   }
 
-  if (req.url === "/api/scan-photos" && req.method === "POST") {
+  if (apiPath === "/api/scan-photos" && req.method === "POST") {
     const payload = JSON.parse((await readBody(req)).toString("utf8") || "{}");
     const { data, added } = scanMissingPhotos(payload.category || "photo", payload.target || "photoDetails");
     writeSiteData(data);
     return sendJson(res, 200, { ok: true, added });
   }
 
-  if (req.url === "/api/publish" && req.method === "POST") {
+  if (apiPath === "/api/publish" && req.method === "POST") {
     const payload = JSON.parse((await readBody(req)).toString("utf8") || "{}");
     const message = payload.message || "Update HDR gallery";
     const logs = [];
 
     try {
       logs.push(runGit(["status", "--short"]));
-      runGit(["add", "-A"]);
-      const untrackedPreviewCount = untrackPreviewArtifacts();
-      if (untrackedPreviewCount) {
-        logs.push(`Removed ${untrackedPreviewCount} local preview build artifact(s) from Git tracking.`);
+      if (payload.scope === "alpine") {
+        runGit(["add", "--", "data/alpine-dispatch.json", "public/travel/germany-switzerland-france"]);
+        logs.push("Staged only Alpine Dispatch data and media.");
+      } else {
+        runGit(["add", "-A"]);
+        const untrackedPreviewCount = untrackPreviewArtifacts();
+        if (untrackedPreviewCount) {
+          logs.push(`Removed ${untrackedPreviewCount} local preview build artifact(s) from Git tracking.`);
+        }
       }
       try {
         logs.push(runGit(["commit", "-m", message]));
@@ -360,6 +448,9 @@ function serveStatic(req, res) {
   const localToolFiles = new Set([
     "/admin.html",
     "/admin.js",
+    "/alpine-admin.html",
+    "/alpine-admin.js",
+    "/alpine-admin.css",
   ]);
   const base = localToolFiles.has(pathname) ? TOOL_ROOT : ROOT;
   const filePath = path.normalize(path.join(base, pathname.replace(/^\/+/, "")));
@@ -388,4 +479,5 @@ http
   })
   .listen(PORT, HOST, () => {
     console.log(`HDR admin is running at http://${HOST}:${PORT}/admin.html`);
+    console.log(`Alpine Dispatch is running at http://${HOST}:${PORT}/alpine-admin.html`);
   });

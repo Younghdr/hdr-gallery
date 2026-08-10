@@ -32,6 +32,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check media file sizes
+        shell: bash
+        run: |
+          blocked=0
+          while IFS= read -r -d '' file; do
+            size=$(stat -c%s "$file")
+            if [ "$size" -ge 104857600 ]; then
+              echo "::error file=$file::單檔已達 GitHub 100 MB 限制，請先最佳化。"
+              blocked=1
+            elif [ "$size" -gt 10485760 ]; then
+              echo "::warning file=$file::單檔超過 10 MB，建議建立較小的 Web 版本。"
+            fi
+          done < <(find public -type f -print0)
+          exit "$blocked"
+
       - name: Build static site
         run: npm run build:github
         env:

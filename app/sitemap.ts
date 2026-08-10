@@ -25,6 +25,12 @@ const ROUTES = [
   { path: "travel/cebu", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "travel/hong-kong-macau", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "travel/sweden", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "travel/germany-switzerland-france", priority: 0.9, changeFrequency: "weekly" as const },
+  ...Array.from({ length: 12 }, (_, index) => ({
+    path: `travel/germany-switzerland-france/day/${String(index + 1).padStart(2, "0")}`,
+    priority: 0.8,
+    changeFrequency: "weekly" as const,
+  })),
   { path: "travel/guide", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "travel/guide/overview", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "travel/guide/visa", priority: 0.8, changeFrequency: "monthly" as const },

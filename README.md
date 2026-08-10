@@ -29,6 +29,34 @@ http://127.0.0.1:3000
 
 The admin tool is local-only and is not published to GitHub Pages.
 
+### macOS 與 Windows 共用
+
+Codex 只能看到目前電腦已開啟的本機資料夾；Windows 的 `C:\Users\HPOMEN\Documents\HDR` 不會直接出現在 Mac。兩台電腦以同一個 GitHub repository 同步：
+
+```bash
+# Mac 第一次設定
+git clone <你的 GitHub repository 網址> ~/Documents/HDR
+cd ~/Documents/HDR
+npm ci
+npm run admin
+```
+
+接著在 macOS Codex 使用「Open Folder」開啟 `~/Documents/HDR`，並瀏覽：
+
+```text
+http://127.0.0.1:4174/alpine-admin.html
+```
+
+預覽 Next.js 網站時，另開一個 Terminal 執行：
+
+```bash
+npm run dev
+```
+
+每日工作順序為 `git pull` → 加入當日照片與 YouTube 網址 → 儲存 → 預覽 → 確認發佈。照片必須放在 Mac 這份 clone 內，不可引用 Windows 的 `C:\...` 路徑。Mac 只需在整理、預覽與推送期間開機連網；Windows 不必保持開機。
+
+日更控制台的發佈按鈕只會暫存 `data/alpine-dispatch.json` 與 `public/travel/germany-switzerland-france/`，不會把一般相簿尚未完成的修改混進同一筆 commit。Git 使用系統 `PATH`，也可以透過 `GIT_PATH` 指定執行檔，因此 macOS 與 Windows 共用同一套後台程式。
+
 ```powershell
 .\local-tools\start-admin.ps1
 ```

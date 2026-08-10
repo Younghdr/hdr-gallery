@@ -1,0 +1,946 @@
+.alpine-page,
+.alpine-day-page {
+  --alpine-night: #08100f;
+  --alpine-ink: #111713;
+  --alpine-paper: #f1eee6;
+  --alpine-snow: #f7f8f4;
+  --alpine-muted: #9ba49f;
+  --alpine-line: rgba(232, 239, 235, 0.2);
+  --alpine-red: #d13b32;
+  --alpine-blue: #8dc5d7;
+  --alpine-green: #1e4d3b;
+  --alpine-wine: #7f2d38;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--alpine-night);
+  color: var(--alpine-snow);
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  overflow: hidden;
+}
+
+.alpine-page *,
+.alpine-day-page * { box-sizing: border-box; }
+.alpine-page a,
+.alpine-day-page a { color: inherit; text-decoration: none; }
+
+.alpine-nav {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 86px;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+  align-items: center;
+  padding: 0 clamp(24px, 4vw, 78px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.alpine-mark { display: flex; align-items: center; gap: 13px; }
+.alpine-mark span,
+.alpine-day-nav>a:first-child span { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid currentColor; font-weight: 900; }
+.alpine-mark b { font-size: 9px; }
+.alpine-nav nav { display: flex; gap: clamp(22px, 3vw, 52px); }
+.alpine-nav-status { justify-self: end; display: flex; align-items: center; gap: 10px; }
+.alpine-nav-status i,
+.alpine-day-status i { width: 7px; height: 7px; border-radius: 50%; background: #8fe0b1; box-shadow: 0 0 0 6px rgba(143, 224, 177, 0.12); }
+
+.alpine-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 clamp(24px, 6.5vw, 130px) clamp(74px, 9vh, 120px);
+  background-position: center;
+  background-size: cover;
+}
+
+.alpine-hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 12, 11, 0.85), rgba(5, 12, 11, 0.25) 58%, rgba(5, 12, 11, 0.46)), linear-gradient(0deg, rgba(5, 12, 11, 0.82), transparent 55%);
+}
+
+.alpine-hero-topline {
+  position: absolute;
+  z-index: 2;
+  top: 120px;
+  left: clamp(24px, 6.5vw, 130px);
+  right: clamp(24px, 6.5vw, 130px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  font: 700 10px/1.4 monospace;
+  letter-spacing: 0.18em;
+}
+.alpine-hero-topline span:last-child { justify-self: end; }
+.alpine-hero-copy { position: relative; z-index: 2; width: min(1180px, 83vw); }
+.alpine-hero-copy>p { margin: 0 0 22px; color: #b8c7c0; font: 700 11px/1.4 monospace; letter-spacing: 0.22em; }
+.alpine-hero-copy h1 { max-width: 1120px; margin: 0; font: 500 clamp(3.6rem, 7.2vw, 7.6rem)/0.87 Arial, sans-serif; letter-spacing: -0.065em; }
+.alpine-hero-copy h2 { max-width: 820px; margin: 28px 0 0; color: #fff; font: 500 clamp(1.8rem, 3vw, 3.6rem)/1.15 "Noto Sans TC", Arial, sans-serif; letter-spacing: -0.035em; }
+.alpine-hero-meta { display: flex; flex-wrap: wrap; gap: 16px 34px; margin-top: 42px; color: #c6d2cc; font: 10px/1.4 monospace; letter-spacing: 0.16em; }
+.alpine-scroll { position: absolute; z-index: 2; right: clamp(24px, 4vw, 78px); bottom: 11vh; display: flex; align-items: center; gap: 18px; font: 9px monospace; letter-spacing: 0.18em; writing-mode: vertical-rl; }
+.alpine-scroll i { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 50%; color: var(--alpine-red); font-style: normal; }
+.alpine-hero-credit { position: absolute; z-index: 2; right: clamp(24px, 4vw, 78px); bottom: 24px; color: rgba(255, 255, 255, 0.62); font: 8px monospace; letter-spacing: 0.08em; }
+
+.alpine-opening {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(60px, 9vw, 180px);
+  padding: clamp(100px, 10vw, 190px) clamp(24px, 7vw, 140px);
+  background: var(--alpine-paper);
+  color: var(--alpine-ink);
+}
+.alpine-opening-head>p,
+.alpine-section-head>p { margin: 0 0 28px; color: var(--alpine-red); font: 700 10px/1.4 monospace; letter-spacing: 0.2em; }
+.alpine-opening-head h2 { max-width: 760px; margin: 0; font: 500 clamp(2.5rem, 4.8vw, 5rem)/1.12 "Noto Serif TC", Georgia, serif; letter-spacing: -0.04em; }
+.alpine-opening-copy { align-self: end; max-width: 770px; }
+.alpine-opening-copy>p { margin: 0 0 25px; color: #4d5650; font: 17px/2 "Noto Serif TC", Georgia, serif; }
+.alpine-opening-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 48px; }
+.alpine-opening-tags span { padding: 10px 13px; border: 1px solid #aeb5af; color: #49524c; font: 9px monospace; letter-spacing: 0.1em; }
+
+.alpine-route-section,
+.alpine-format { padding: clamp(100px, 9vw, 180px) clamp(24px, 6.5vw, 130px); background: #0d1714; }
+.alpine-section-head { display: grid; grid-template-columns: minmax(180px, 0.55fr) minmax(440px, 1.05fr) minmax(300px, 0.75fr); gap: clamp(28px, 5vw, 100px); align-items: end; margin-bottom: 72px; }
+.alpine-section-head>p { align-self: start; }
+.alpine-section-head h2 { margin: 0; font: 500 clamp(2.5rem, 4.3vw, 5rem)/1.1 "Noto Serif TC", Georgia, serif; letter-spacing: -0.045em; }
+.alpine-section-head>span { color: #a8b5af; font-size: 15px; line-height: 1.9; }
+
+.alpine-route-map { position: relative; width: min(100%, 1920px); aspect-ratio: 16 / 9; margin: 0 auto; overflow: hidden; border: 1px solid #40534c; background: radial-gradient(circle at 62% 66%, rgba(46,93,89,.42), transparent 33%), linear-gradient(145deg, #14231f 0%, #091310 72%); box-shadow: 0 28px 90px rgba(0,0,0,.28), inset 0 0 0 7px rgba(255,255,255,.018); }
+.alpine-route-map::before { content: ""; position: absolute; z-index: 6; inset: 13px; border: 1px solid rgba(219,232,225,.12); pointer-events: none; }
+.alpine-map-dashboard { position: absolute; z-index: 8; top: 28px; left: 32px; right: 32px; display: flex; justify-content: space-between; align-items: start; padding-bottom: 16px; border-bottom: 1px solid rgba(210,226,219,.16); font-family: monospace; }
+.alpine-map-dashboard>div:first-child { display: grid; gap: 7px; }
+.alpine-map-dashboard b { color: #edf3ef; font-size: 10px; letter-spacing: .18em; }
+.alpine-map-dashboard span { color: #81958c; font-size: 8px; letter-spacing: .15em; }
+.alpine-map-dashboard>div:last-child { display: flex; gap: 22px; }
+.alpine-map-grid { position: absolute; inset: -24%; opacity: .5; transform: rotate(-5deg); background-image: linear-gradient(rgba(214,232,223,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(214,232,223,.035) 1px, transparent 1px), repeating-radial-gradient(ellipse at 68% 62%, transparent 0 38px, rgba(141,197,215,.065) 39px 40px); background-size: 52px 52px, 52px 52px, auto; }
+.alpine-map-country { position: absolute; z-index: 1; border: 1px solid rgba(226,236,231,.12); backdrop-filter: blur(1px); }
+.alpine-map-country span { position: absolute; display: flex; align-items: baseline; gap: 14px; color: rgba(235,242,238,.075); font: 700 clamp(2.2rem, 4.6vw, 5.2rem)/1 monospace; letter-spacing: .1em; }
+.alpine-map-country span b { color: rgba(235,242,238,.2); font-size: 11px; letter-spacing: .18em; }
+.alpine-map-germany { width: 61%; height: 51%; left: 3%; top: 5%; clip-path: polygon(0 0,100% 0,98% 69%,82% 78%,66% 69%,52% 88%,34% 73%,17% 86%,0 68%); background: linear-gradient(150deg,rgba(49,91,71,.22),rgba(29,67,52,.1)); }
+.alpine-map-germany span { left: 13%; top: 28%; }
+.alpine-map-france { width: 39%; height: 58%; left: 2%; bottom: 2%; clip-path: polygon(0 10%,35% 0,76% 13%,100% 40%,91% 84%,63% 100%,19% 90%,0 64%); background: linear-gradient(135deg,rgba(128,58,67,.23),rgba(88,39,49,.09)); }
+.alpine-map-france span { left: 8%; bottom: 22%; }
+.alpine-map-switzerland { width: 65%; height: 55%; right: 2%; bottom: 2%; clip-path: polygon(4% 31%,19% 14%,39% 20%,52% 0,72% 18%,91% 13%,100% 42%,91% 78%,68% 90%,49% 100%,26% 88%,0 69%); background: linear-gradient(150deg,rgba(91,148,157,.2),rgba(45,99,105,.09)); }
+.alpine-map-switzerland span { right: 4%; bottom: 14%; font-size: clamp(1.7rem, 3.8vw, 4.4rem); }
+.alpine-map-ridge { position: absolute; z-index: 2; left: 36%; right: 3%; top: 40%; bottom: 7%; opacity: .42; }
+.alpine-map-ridge i { position: absolute; left: 0; width: 100%; height: 1px; transform-origin: center; background: linear-gradient(90deg,transparent,#a3c5c5 20%,#d9e5df 53%,#89b7bd 78%,transparent); }
+.alpine-map-ridge i:nth-child(1) { top: 18%; transform: rotate(-5deg); }
+.alpine-map-ridge i:nth-child(2) { top: 33%; width: 92%; transform: rotate(3deg); opacity: .7; }
+.alpine-map-ridge i:nth-child(3) { top: 49%; width: 78%; left: 8%; transform: rotate(-8deg); opacity: .5; }
+.alpine-map-ridge i:nth-child(4) { top: 67%; width: 88%; transform: rotate(5deg); opacity: .35; }
+.alpine-map-ridge i:nth-child(5) { top: 81%; width: 68%; left: 13%; transform: rotate(-3deg); opacity: .25; }
+.alpine-map-lake { position: absolute; z-index: 2; height: 8px; border: 1px solid rgba(152,210,225,.38); border-radius: 50%; background: rgba(80,156,175,.18); box-shadow: 0 0 24px rgba(89,176,198,.12); transform: rotate(-12deg); }
+.alpine-map-lake span { position: absolute; top: 12px; color: rgba(171,214,223,.44); font: 6px monospace; letter-spacing: .12em; white-space: nowrap; }
+.lake-interlaken { left: 49%; top: 58%; width: 7%; }
+.lake-lucerne { left: 66%; top: 46%; width: 10%; transform: rotate(15deg); }
+.alpine-map-altitude { position: absolute; z-index: 2; left: 52%; bottom: 12%; display: grid; gap: 5px; color: rgba(222,232,227,.13); font-family: monospace; letter-spacing: .18em; }
+.alpine-map-altitude span { font-size: 8px; }
+.alpine-map-altitude b { font-size: clamp(1.5rem, 3vw, 3rem); }
+.alpine-map-lines i { position: absolute; z-index: 4; height: 8px; transform-origin: left center; }
+.alpine-map-lines i::before { content: ""; position: absolute; inset: 0; border-top: 1px solid rgba(219,231,225,.36); border-bottom: 1px solid rgba(219,231,225,.36); background: repeating-linear-gradient(90deg,rgba(221,232,226,.36) 0 1px,transparent 1px 8px); box-shadow: 0 0 12px rgba(0,0,0,.55); }
+.alpine-map-lines i::after { content: ""; position: absolute; left: 0; right: 0; top: 3px; height: 2px; background: #dce5df; box-shadow: 0 0 10px rgba(220,229,223,.35); }
+.alpine-map-lines i.track-fr::after { background: #d36b77; box-shadow: 0 0 12px rgba(211,107,119,.5); }
+.alpine-map-lines i.track-ch::after { background: #8fd7e8; box-shadow: 0 0 12px rgba(143,215,232,.5); }
+.alpine-map-lines .alpine-return-line { opacity: .32; }
+.alpine-map-lines .alpine-return-line::before { border-style: dashed; background: none; }
+.alpine-route-map ol { list-style: none; margin: 0; padding: 0; }
+.alpine-route-map li { position: absolute; z-index: 6; width: max-content; min-width: 34px; min-height: 34px; transform: translate(-17px,-17px); }
+.alpine-route-map li>b { position: relative; z-index: 2; display: grid; place-items: center; width: 34px; height: 34px; border: 2px solid #101b17; border-radius: 50%; background: #e5e9e4; color: #0a1210; font: 700 8px monospace; box-shadow: 0 0 0 5px rgba(229,233,228,.1), 0 8px 22px rgba(0,0,0,.28); }
+.alpine-route-map li>span { position: absolute; left: 43px; top: -3px; display: grid; min-width: 112px; padding: 7px 9px 6px; border-left: 1px solid rgba(226,235,230,.25); background: linear-gradient(90deg,rgba(7,15,12,.84),rgba(7,15,12,.2)); backdrop-filter: blur(5px); white-space: nowrap; }
+.alpine-route-map li strong { color: #f4f5f1; font: 700 10px/1.1 "Noto Sans TC",Arial,sans-serif; letter-spacing: .04em; }
+.alpine-route-map li small { margin-top: 4px; color: #81938a; font: 6px monospace; letter-spacing: .12em; }
+.alpine-route-map li.country-fr>b { background: #bd5b68; color: #fff; }
+.alpine-route-map li.country-ch>b { background: #91cfdd; }
+.alpine-route-map li.label-left>span { left: auto; right: 43px; border-left: 0; border-right: 1px solid rgba(226,235,230,.25); text-align: right; background: linear-gradient(270deg,rgba(7,15,12,.84),rgba(7,15,12,.2)); }
+.alpine-route-map li.label-up>span { top: auto; bottom: 42px; }
+.alpine-route-map li.label-down>span { top: 42px; }
+.alpine-map-compass { position: absolute; z-index: 7; top: 92px; right: 34px; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(223,234,228,.22); border-radius: 50%; color: #dce6e1; font: 8px monospace; }
+.alpine-map-compass i { position: absolute; top: 4px; width: 1px; height: 10px; background: #d95a63; transform-origin: 50% 15px; transform: rotate(22deg); }
+.alpine-map-legend { position: absolute; z-index: 8; left: 32px; bottom: 28px; display: flex; gap: 22px; color: #9dada5; font: 7px monospace; letter-spacing: .12em; }
+.alpine-map-legend span { display: flex; align-items: center; gap: 7px; }
+.alpine-map-legend i { width: 18px; height: 2px; background: #dce5df; box-shadow: 0 0 7px rgba(220,229,223,.35); }
+.alpine-map-legend .legend-fr { background: #d36b77; }
+.alpine-map-legend .legend-ch { background: #8fd7e8; }
+.alpine-map-note { position: absolute; z-index: 8; right: 32px; bottom: 26px; margin: 0; color: #687970; font: 7px monospace; letter-spacing: .11em; }
+
+.alpine-latest { padding: clamp(95px, 8vw, 160px) clamp(24px, 6.5vw, 130px); background: #07100e; }
+.alpine-latest>header,
+.alpine-published>header,
+.alpine-day-film>header,
+.alpine-day-photos>header,
+.alpine-day-metadata>header { display: flex; justify-content: space-between; gap: 30px; padding-bottom: 18px; border-bottom: 1px solid #32403a; color: #7f8e87; font: 9px monospace; letter-spacing: .18em; }
+.alpine-latest>header p,
+.alpine-published>header p,
+.alpine-day-film>header p,
+.alpine-day-photos>header p,
+.alpine-day-metadata>header p { margin: 0; color: #d9e2de; }
+.alpine-latest-card { display: grid; grid-template-columns: 1fr minmax(280px, .35fr); min-height: 380px; margin-top: 30px; border: 1px solid #2f3a35; background: linear-gradient(135deg, #12221d, #0c1412); }
+.alpine-latest-card>div { padding: clamp(35px, 5vw, 82px); }
+.alpine-latest-card>div>span { color: #8dc5d7; font: 9px monospace; letter-spacing: .18em; }
+.alpine-latest-card h2 { max-width: 850px; margin: 30px 0; font: 500 clamp(2.5rem, 4.6vw, 5.2rem)/1.08 "Noto Serif TC", Georgia, serif; }
+.alpine-latest-card p { max-width: 720px; color: #abb8b2; font-size: 15px; line-height: 1.9; }
+.alpine-latest-card aside { display: flex; flex-direction: column; justify-content: space-between; padding: 40px; border-left: 1px solid #2f3a35; }
+.alpine-latest-card aside>b { color: rgba(255,255,255,.12); font: 700 6rem/1 monospace; }
+.alpine-latest-card aside>span { color: #aebbb5; line-height: 1.7; }
+.alpine-latest-card aside>i { color: #8dc5d7; font: 9px monospace; font-style: normal; letter-spacing: .16em; }
+.alpine-latest-empty { display: grid; grid-template-columns: .55fr 1.1fr .7fr; gap: clamp(30px, 5vw, 100px); align-items: end; min-height: 320px; padding: 52px 0 20px; }
+.alpine-latest-empty>div { align-self: start; display: flex; align-items: center; gap: 15px; color: #8fe0b1; font: 9px monospace; letter-spacing: .18em; }
+.live-pulse { width: 8px; height: 8px; border-radius: 50%; background: #8fe0b1; box-shadow: 0 0 0 8px rgba(143,224,177,.09); }
+.alpine-latest-empty h2 { margin: 0; font: 500 clamp(2.5rem, 4vw, 4.7rem)/1.15 "Noto Serif TC", Georgia, serif; }
+.alpine-plan-copy { display: grid; gap: 28px; }
+.alpine-plan-copy>p { margin: 0; color: #a8b5af; font-size: 14px; line-height: 1.9; }
+.alpine-plan-copy ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid #34413c; }
+.alpine-plan-copy li { display: flex; justify-content: space-between; gap: 18px; padding: 11px 0; border-bottom: 1px solid #34413c; font: 8px monospace; letter-spacing: .11em; }
+.alpine-plan-copy li span { color: #74857d; }
+.alpine-plan-copy li b { color: #d4ded9; font-weight: 500; text-align: right; }
+
+.alpine-dispatches { padding: clamp(100px, 9vw, 180px) clamp(24px, 6.5vw, 130px); background: var(--alpine-paper); color: var(--alpine-ink); }
+.alpine-section-head-light>span { color: #626b66; }
+.alpine-day-grid { list-style: none; margin: 0; padding: 0; border-top: 1px solid #abb2ac; }
+.alpine-day-grid li { border-bottom: 1px solid #abb2ac; }
+.alpine-day-grid a { display: grid; grid-template-columns: 130px 1fr 150px; gap: clamp(22px, 4vw, 70px); align-items: center; min-height: 155px; padding: 24px 0; transition: padding .25s, background .25s; }
+.alpine-day-grid a:hover { padding-inline: 24px; background: rgba(255,255,255,.55); }
+.alpine-day-index { display: flex; align-items: baseline; gap: 8px; }
+.alpine-day-index span { color: #7f8782; font: 8px monospace; letter-spacing: .14em; }
+.alpine-day-index b { font: 500 4rem/1 Arial, sans-serif; letter-spacing: -.08em; }
+.alpine-day-copy>p { margin: 0 0 15px; color: #747c77; font: 9px monospace; letter-spacing: .13em; }
+.alpine-day-copy>p span { display: inline-grid; place-items: center; min-width: 31px; margin-right: 13px; padding: 5px; background: var(--alpine-green); color: white; }
+.alpine-day-grid .theme-france .alpine-day-copy>p span { background: var(--alpine-wine); }
+.alpine-day-grid .theme-switzerland .alpine-day-copy>p span { background: #5c97a9; }
+.alpine-day-copy h3 { margin: 0 0 11px; font: 500 clamp(1.4rem, 2vw, 2.2rem)/1.3 "Noto Serif TC", Georgia, serif; }
+.alpine-day-copy small { color: #757d78; font-size: 11px; }
+.alpine-day-state { justify-self: end; display: flex; align-items: center; gap: 24px; color: #707873; font: 9px monospace; letter-spacing: .12em; }
+.alpine-day-state b { font-size: 21px; color: var(--alpine-red); }
+
+.alpine-published { padding: 70px clamp(24px, 6.5vw, 130px) 120px; background: var(--alpine-paper); color: var(--alpine-ink); }
+.alpine-published>header { border-color: #abb2ac; color: #717a75; }
+.alpine-published>header p { color: var(--alpine-ink); }
+.alpine-published>div { display: grid; }
+.alpine-published>div a { display: flex; justify-content: space-between; padding: 24px 0; border-bottom: 1px solid #c1c6c1; }
+.alpine-published-empty { margin: 34px 0 0; color: #68716c; font-size: 14px; }
+
+.alpine-format-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #33413b; border-left: 1px solid #33413b; }
+.alpine-format-grid article { min-height: 360px; padding: clamp(30px, 4vw, 62px); border-right: 1px solid #33413b; border-bottom: 1px solid #33413b; }
+.alpine-format-grid article>span { color: rgba(255,255,255,.14); font: 700 4.5rem/1 monospace; }
+.alpine-format-grid article>b { display: block; margin: 42px 0 18px; color: #8dc5d7; font: 9px monospace; letter-spacing: .19em; }
+.alpine-format-grid h3 { margin: 0 0 28px; font: 500 clamp(1.7rem, 2.3vw, 2.5rem)/1.3 "Noto Serif TC", Georgia, serif; }
+.alpine-format-grid p { color: #9eaca5; font-size: 14px; line-height: 1.9; }
+
+.alpine-footer { display: grid; justify-items: center; min-height: 82vh; padding: 110px 24px 35px; text-align: center; background: radial-gradient(circle at 50% 110%, #254d41, #07100e 58%); }
+.alpine-footer>p { color: #8dc5d7; font: 9px monospace; letter-spacing: .2em; }
+.alpine-footer>div { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px 35px; margin-top: 28px; color: #a5b4ad; font: 9px monospace; letter-spacing: .16em; }
+.alpine-footer h2 { margin: 70px 0 65px; font: 500 clamp(3rem, 6vw, 6.8rem)/1.08 "Noto Serif TC", Georgia, serif; letter-spacing: -.05em; }
+.alpine-footer>a { padding-bottom: 13px; border-bottom: 1px solid var(--alpine-red); font-size: 11px; letter-spacing: .16em; }
+.alpine-footer>a span { margin-left: 36px; color: var(--alpine-red); }
+.alpine-footer>small { align-self: end; margin-top: 80px; color: #62716a; font: 8px monospace; letter-spacing: .16em; }
+
+/* Daily dispatch */
+.alpine-day-page.theme-germany { --day-accent: #8fbda7; --day-deep: #17382d; }
+.alpine-day-page.theme-france { --day-accent: #d28a91; --day-deep: #5a252c; }
+.alpine-day-page.theme-switzerland { --day-accent: #8dc5d7; --day-deep: #234e5b; }
+.alpine-day-nav { position: absolute; z-index: 20; top: 0; left: 0; width: 100%; height: 84px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 clamp(22px, 4vw, 74px); border-bottom: 1px solid rgba(255,255,255,.25); font: 9px monospace; letter-spacing: .16em; }
+.alpine-day-nav>a:first-child { display: flex; align-items: center; gap: 13px; }
+.alpine-day-nav>a:first-child b { font-size: 9px; }
+.alpine-day-nav>a:last-child { justify-self: end; }
+.alpine-day-hero { position: relative; min-height: 86svh; display: flex; align-items: flex-end; padding: 0 clamp(24px, 6vw, 120px) clamp(70px, 9vh, 110px); background-position: center; background-size: cover; }
+.alpine-day-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,10,8,.85), rgba(4,10,8,.2) 65%), linear-gradient(0deg, rgba(4,10,8,.88), transparent 58%); }
+.alpine-day-concept-label { position: absolute; z-index: 2; top: 110px; right: clamp(24px, 4vw, 74px); padding: 9px 12px; border: 1px solid rgba(255,255,255,.35); background: rgba(4,10,8,.45); color: #d0d9d4; font: 8px monospace; letter-spacing: .14em; }
+.alpine-day-status { position: absolute; z-index: 2; top: 119px; left: clamp(24px, 6vw, 120px); display: flex; align-items: center; gap: 14px; font: 9px monospace; letter-spacing: .16em; }
+.alpine-day-status i { background: var(--day-accent); box-shadow: 0 0 0 6px color-mix(in srgb, var(--day-accent), transparent 82%); }
+.alpine-day-status b { margin-left: 15px; color: #aebbb5; font-weight: 400; }
+.alpine-day-title { position: relative; z-index: 2; max-width: 1180px; }
+.alpine-day-title>p { color: var(--day-accent); font: 700 10px monospace; letter-spacing: .19em; }
+.alpine-day-title h1 { max-width: 1100px; margin: 24px 0 38px; font: 500 clamp(2.8rem, 5.6vw, 6.5rem)/1.08 "Noto Serif TC", Georgia, serif; letter-spacing: -.05em; }
+.alpine-day-title h1 span { display: block; margin-bottom: 20px; color: rgba(255,255,255,.42); font: 700 clamp(1rem, 1.4vw, 1.5rem)/1 monospace; letter-spacing: .14em; }
+.alpine-day-title>div { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.alpine-day-title>div span { display: flex; align-items: center; gap: 12px; color: #d4dcd8; font: 9px monospace; letter-spacing: .1em; }
+.alpine-day-title>div span:not(:last-child):after { content: "→"; color: var(--day-accent); }
+.alpine-day-down { position: absolute; z-index: 2; right: clamp(24px, 4vw, 74px); bottom: 9vh; display: grid; gap: 18px; justify-items: center; font: 8px monospace; letter-spacing: .16em; writing-mode: vertical-rl; }
+.alpine-day-down span { color: var(--day-accent); font-size: 18px; }
+
+.alpine-day-intro { display: grid; grid-template-columns: minmax(180px, .45fr) minmax(0, 1.55fr); gap: clamp(45px, 8vw, 160px); padding: clamp(90px, 9vw, 170px) clamp(24px, 7vw, 140px); background: var(--alpine-paper); color: var(--alpine-ink); }
+.alpine-day-intro aside { display: grid; align-content: start; gap: 18px; font: 9px monospace; letter-spacing: .14em; }
+.alpine-day-intro aside span { color: #737c77; }
+.alpine-day-intro aside b { color: var(--day-deep); font-size: 20px; }
+.alpine-day-intro aside small { color: #8d9691; }
+.alpine-day-intro>div { max-width: 1100px; }
+.alpine-day-intro h2 { margin: 0 0 38px; font: 500 clamp(2rem, 3.5vw, 4rem)/1.45 "Noto Serif TC", Georgia, serif; letter-spacing: -.035em; }
+.alpine-day-intro p { max-width: 780px; color: #5f6863; font-size: 15px; line-height: 2; }
+
+.alpine-day-route-strip { display: grid; grid-template-columns: 160px 1fr auto; gap: 35px; align-items: center; padding: 30px clamp(24px, 6vw, 120px); border-top: 1px solid #33413b; border-bottom: 1px solid #33413b; background: #0c1512; }
+.alpine-day-route-strip>p,
+.alpine-day-route-strip>small { color: #77877f; font: 8px monospace; letter-spacing: .16em; }
+.alpine-day-route-strip ol { list-style: none; display: flex; justify-content: center; align-items: center; gap: 13px; margin: 0; padding: 0; }
+.alpine-day-route-strip li { display: flex; align-items: center; gap: 10px; font: 10px monospace; }
+.alpine-day-route-strip li span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--day-accent); border-radius: 50%; color: var(--day-accent); font-size: 7px; }
+.alpine-day-route-strip li:not(:last-child):after { content: ""; width: 34px; border-top: 1px dashed #66746d; }
+
+.alpine-day-film { padding: clamp(95px, 8vw, 155px) clamp(24px, 6vw, 120px); background: #07100e; }
+.alpine-film-frame { position: relative; aspect-ratio: 16 / 9; margin-top: 38px; overflow: hidden; background: #000; box-shadow: 0 30px 90px rgba(0,0,0,.45); }
+.alpine-film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.alpine-day-film>p { display: flex; justify-content: space-between; margin: 17px 0 0; color: #8b9992; font: 8px monospace; letter-spacing: .13em; }
+.alpine-day-film-pending>div { min-height: 390px; display: grid; place-items: center; align-content: center; gap: 18px; margin-top: 38px; border: 1px solid #2f3c36; text-align: center; background: radial-gradient(circle at center, color-mix(in srgb, var(--day-deep), transparent 45%), #09110f 62%); }
+.film-rail { position: relative; display: block; width: 90px; height: 34px; border-top: 2px solid var(--day-accent); border-bottom: 2px solid var(--day-accent); opacity: .65; transform: skewX(-28deg); }
+.film-rail:before, .film-rail:after { content: ""; position: absolute; top: -7px; width: 2px; height: 44px; background: var(--day-accent); }
+.film-rail:before { left: 25px; } .film-rail:after { right: 25px; }
+.alpine-day-film-pending>div p { margin: 12px 0 0; font: 500 clamp(1.7rem, 3vw, 3rem)/1.4 "Noto Serif TC", Georgia, serif; }
+.alpine-day-film-pending>div small { color: #85938c; font-size: 11px; }
+
+.alpine-day-photos { padding: clamp(95px, 8vw, 155px) clamp(24px, 6vw, 120px); background: var(--alpine-paper); color: var(--alpine-ink); }
+.alpine-day-photos>header { border-color: #afb6b0; color: #6f7873; }
+.alpine-day-photos>header p { color: var(--alpine-ink); }
+.alpine-photo-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(16px, 2vw, 32px); margin-top: 42px; }
+.alpine-photo-grid figure { grid-column: span 6; margin: 0; }
+.alpine-photo-grid figure:nth-child(5n + 1) { grid-column: 1 / -1; }
+.alpine-photo-grid figure.orientation-portrait { grid-column: span 4; }
+.alpine-photo-grid figure.orientation-square { grid-column: span 6; }
+.alpine-photo-grid img { display: block; width: 100%; height: auto; max-height: 80vh; object-fit: contain; background: #d9d9d4; }
+.alpine-photo-grid figcaption { display: grid; grid-template-columns: 30px 1fr auto; gap: 14px; padding: 15px 0 28px; border-top: 1px solid #aeb5af; color: #69716d; font-size: 11px; line-height: 1.7; }
+.alpine-photo-grid figcaption b,
+.alpine-photo-grid figcaption span { color: var(--day-deep); font: 8px monospace; }
+.alpine-photo-grid figcaption p { margin: 0; }
+.alpine-photo-pending { padding: clamp(100px, 10vw, 190px) clamp(24px, 7vw, 140px); background: var(--alpine-paper); color: var(--alpine-ink); }
+.alpine-photo-pending>div { display: flex; justify-content: space-between; padding-bottom: 17px; border-bottom: 1px solid #adb4ae; color: #737b76; font: 9px monospace; letter-spacing: .17em; }
+.alpine-photo-pending>div p { margin: 0; }
+.alpine-photo-pending h2 { max-width: 1050px; margin: 72px 0 35px; font: 500 clamp(2.6rem, 5vw, 5.8rem)/1.12 "Noto Serif TC", Georgia, serif; letter-spacing: -.05em; }
+.alpine-photo-pending>p { max-width: 760px; margin-left: auto; color: #626b66; font-size: 15px; line-height: 2; }
+
+.alpine-day-metadata { padding: 75px clamp(24px, 6vw, 120px) 110px; background: #0b1512; }
+.alpine-day-metadata>div { display: grid; grid-template-columns: repeat(4, 1fr); }
+.alpine-day-metadata article { min-height: 130px; padding: 26px; border-right: 1px solid #34413c; }
+.alpine-day-metadata article:last-child { border: 0; }
+.alpine-day-metadata article span { display: block; margin-bottom: 20px; color: #78877f; font: 8px monospace; letter-spacing: .16em; }
+.alpine-day-metadata article b { color: #dce4e0; font-size: 16px; font-weight: 500; }
+.alpine-day-metadata>div>p { grid-column: 1 / -1; margin: 35px 0 0; color: #7d8b84; font-size: 13px; }
+
+.alpine-day-switcher { display: grid; grid-template-columns: 1fr 190px 1fr; border-top: 1px solid #34413c; border-bottom: 1px solid #34413c; background: #07100e; }
+.alpine-day-switcher>a { min-height: 180px; display: grid; align-content: center; gap: 10px; padding: 35px clamp(22px, 4vw, 70px); }
+.alpine-day-switcher>a:not(.alpine-day-home):hover { background: #0e1c18; }
+.alpine-day-switcher a span { color: var(--day-accent); font: 8px monospace; letter-spacing: .17em; }
+.alpine-day-switcher a b { font-size: 24px; font-weight: 500; }
+.alpine-day-switcher a small { color: #819088; }
+.alpine-day-switcher a.next { justify-items: end; text-align: right; }
+.alpine-day-switcher .alpine-day-home { justify-items: center; border-left: 1px solid #34413c; border-right: 1px solid #34413c; text-align: center; }
+.alpine-day-switcher .alpine-day-home b { font: 18px monospace; }
+.alpine-day-footer { display: grid; justify-items: center; gap: 16px; padding: 95px 24px 30px; background: radial-gradient(circle at 50% 120%, var(--day-deep), #07100e 60%); text-align: center; }
+.alpine-day-footer p { margin: 0; font: 500 clamp(1.7rem, 3.5vw, 3.8rem)/1 Arial, sans-serif; letter-spacing: -.04em; }
+.alpine-day-footer span { color: var(--day-accent); font: 9px monospace; letter-spacing: .16em; }
+.alpine-day-footer small { margin-top: 80px; color: #66756e; font: 8px monospace; letter-spacing: .16em; }
+
+@media (max-width: 980px) {
+  .alpine-nav { grid-template-columns: 1fr auto; }
+  .alpine-nav nav { display: none; }
+  .alpine-hero-topline { grid-template-columns: 1fr auto; }
+  .alpine-hero-topline span:nth-child(2) { display: none; }
+  .alpine-opening { grid-template-columns: 1fr; }
+  .alpine-opening-copy { max-width: 850px; }
+  .alpine-section-head { grid-template-columns: 1fr 1.3fr; }
+  .alpine-section-head>p { grid-column: 1 / -1; }
+  .alpine-route-map { min-height: 0; }
+  .alpine-latest-empty { grid-template-columns: 1fr 1.4fr; }
+  .alpine-plan-copy { grid-column: 2; }
+  .alpine-format-grid { grid-template-columns: 1fr; }
+  .alpine-format-grid article { min-height: 260px; }
+  .alpine-day-route-strip { grid-template-columns: 1fr; }
+  .alpine-day-route-strip ol { justify-content: flex-start; overflow-x: auto; padding-bottom: 10px; }
+  .alpine-day-route-strip>small { justify-self: start; }
+}
+
+@media (max-width: 720px) {
+  .alpine-nav, .alpine-day-nav { height: 72px; padding-inline: 20px; }
+  .alpine-mark b, .alpine-day-nav>a:first-child b, .alpine-day-nav>p { display: none; }
+  .alpine-nav-status { font-size: 8px; }
+  .alpine-hero { min-height: 91svh; padding: 0 20px 76px; background-position: 60% center; }
+  .alpine-hero-topline { top: 94px; left: 20px; right: 20px; }
+  .alpine-hero-topline span:last-child { display: none; }
+  .alpine-hero-copy { width: 100%; }
+  .alpine-hero-copy h1 { font-size: clamp(3.1rem, 16vw, 5.1rem); line-height: .92; }
+  .alpine-hero-copy h2 { font-size: clamp(1.75rem, 8vw, 2.55rem); line-height: 1.25; }
+  .alpine-scroll { display: none; }
+  .alpine-hero-credit { left: 20px; right: auto; font-size: 7px; }
+  .alpine-opening, .alpine-route-section, .alpine-latest, .alpine-dispatches, .alpine-format, .alpine-published { padding-left: 20px; padding-right: 20px; }
+  .alpine-section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 45px; }
+  .alpine-section-head>p { grid-column: auto; margin-bottom: 0; }
+  .alpine-route-map { min-height: 0; aspect-ratio: auto; padding: 82px 20px 64px; overflow: hidden; }
+  .alpine-route-map::before { inset: 8px; }
+  .alpine-map-dashboard { top: 22px; left: 20px; right: 20px; }
+  .alpine-map-dashboard>div:last-child { display: none; }
+  .alpine-map-country, .alpine-map-ridge, .alpine-map-lake, .alpine-map-altitude, .alpine-map-lines, .alpine-map-compass { display: none; }
+  .alpine-map-grid { opacity: .3; }
+  .alpine-route-map ol { position: relative; display: grid; }
+  .alpine-route-map ol::before { content: ""; position: absolute; top: 18px; bottom: 18px; left: 16px; width: 2px; background: linear-gradient(#dce5df 0 16%,#d36b77 22% 31%,#8fd7e8 38% 84%,#dce5df 90%); box-shadow: 0 0 12px rgba(143,215,232,.25); }
+  .alpine-route-map li { position: relative !important; left: auto !important; top: auto !important; display: grid; grid-template-columns: 34px 1fr; align-items: center; width: 100%; min-height: 58px; transform: none !important; }
+  .alpine-route-map li>b { width: 32px; height: 32px; }
+  .alpine-route-map li>span, .alpine-route-map li.label-left>span, .alpine-route-map li.label-up>span, .alpine-route-map li.label-down>span { position: static; display: grid; min-width: 0; margin-left: 15px; padding: 7px 0; border: 0; background: none; text-align: left; backdrop-filter: none; }
+  .alpine-route-map li strong { font-size: 12px; }
+  .alpine-route-map li small { display: block; margin-top: 5px; font-size: 7px; }
+  .alpine-map-legend { left: 20px; bottom: 20px; gap: 13px; }
+  .alpine-map-note { display: none; }
+  .alpine-latest-empty { grid-template-columns: 1fr; gap: 30px; }
+  .alpine-plan-copy { grid-column: auto; }
+  .alpine-latest-card { grid-template-columns: 1fr; }
+  .alpine-latest-card aside { border-left: 0; border-top: 1px solid #2f3a35; min-height: 170px; }
+  .alpine-day-grid a { grid-template-columns: 70px 1fr; gap: 18px; min-height: 150px; }
+  .alpine-day-index b { font-size: 2.8rem; }
+  .alpine-day-state { grid-column: 2; justify-self: start; }
+  .alpine-footer>div { display: grid; }
+  .alpine-day-hero { min-height: 88svh; padding: 0 20px 70px; }
+  .alpine-day-status { top: 98px; left: 20px; }
+  .alpine-day-status b { display: none; }
+  .alpine-day-concept-label { top: 132px; right: 20px; }
+  .alpine-day-title h1 { font-size: clamp(2.7rem, 13vw, 4.5rem); }
+  .alpine-day-down { display: none; }
+  .alpine-day-intro { grid-template-columns: 1fr; padding: 82px 20px; gap: 42px; }
+  .alpine-day-intro aside { grid-template-columns: 1fr auto; }
+  .alpine-day-intro aside small { grid-column: 1 / -1; }
+  .alpine-day-route-strip { padding-inline: 20px; }
+  .alpine-day-route-strip ol { width: calc(100vw - 40px); }
+  .alpine-day-film, .alpine-day-photos, .alpine-day-metadata { padding-left: 20px; padding-right: 20px; }
+  .alpine-day-film-pending>div { min-height: 310px; padding: 30px; }
+  .alpine-photo-grid { grid-template-columns: 1fr; }
+  .alpine-photo-grid figure, .alpine-photo-grid figure:nth-child(5n + 1), .alpine-photo-grid figure.orientation-portrait, .alpine-photo-grid figure.orientation-square { grid-column: 1; }
+  .alpine-photo-pending { padding: 85px 20px; }
+  .alpine-photo-pending h2 { margin-top: 50px; }
+  .alpine-day-metadata>div { grid-template-columns: 1fr 1fr; }
+  .alpine-day-metadata article:nth-child(2) { border-right: 0; }
+  .alpine-day-metadata article { border-bottom: 1px solid #34413c; }
+  .alpine-day-switcher { grid-template-columns: 1fr 78px 1fr; }
+  .alpine-day-switcher>a { min-height: 145px; padding: 22px 15px; }
+  .alpine-day-switcher a small { display: none; }
+  .alpine-day-switcher .alpine-day-home b { font-size: 12px; }
+}
+
+@media (min-width: 2200px) {
+  .alpine-hero-copy { width: min(1500px, 72vw); }
+  .alpine-hero-copy h1 { max-width: 1380px; font-size: 8.3rem; }
+  .alpine-hero-copy h2 { max-width: 1100px; font-size: 4rem; }
+  .alpine-opening-copy>p, .alpine-section-head>span, .alpine-day-intro p { font-size: 19px; }
+  .alpine-route-map { min-height: 0; }
+  .alpine-section-head h2 { font-size: 5.5rem; }
+  .alpine-day-title h1 { max-width: 1500px; font-size: 7rem; }
+}
+
+/* Geographic route map */
+.alpine-geographic-map {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #415049;
+  background: #101a17;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .24);
+}
+
+.alpine-geographic-dashboard,
+.alpine-geographic-footer {
+  position: relative;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 72px;
+  padding: 15px clamp(20px, 2.5vw, 42px);
+  background: rgba(9, 19, 16, .96);
+  color: #c9d5cf;
+  font: 8px/1.5 monospace;
+  letter-spacing: .15em;
+}
+
+.alpine-geographic-dashboard {
+  border-bottom: 1px solid #415049;
+}
+
+.alpine-geographic-dashboard > div,
+.alpine-geographic-dashboard > div:last-child,
+.alpine-geographic-legend {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 32px);
+}
+
+.alpine-geographic-dashboard > div:first-child {
+  gap: 16px;
+}
+
+.alpine-geographic-dashboard b {
+  color: #f0d878;
+  font-weight: 500;
+}
+
+.alpine-geographic-dashboard > div:last-child {
+  color: #75877e;
+}
+
+.alpine-geographic-canvas {
+  width: 100%;
+  height: clamp(560px, 62vw, 820px);
+  min-height: 560px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(55, 100, 84, .32), transparent 58%),
+    #101a17;
+  outline: none;
+}
+
+.alpine-geographic-canvas:focus-visible {
+  box-shadow: inset 0 0 0 3px #f0d878;
+}
+
+.alpine-geographic-canvas .leaflet-tile-pane {
+  filter: saturate(.74) contrast(1.06) brightness(.94);
+}
+
+.alpine-geographic-canvas .leaflet-control-zoom {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .7);
+  border-radius: 0;
+  box-shadow: 0 6px 24px rgba(10, 20, 17, .18);
+}
+
+.alpine-geographic-canvas .leaflet-control-zoom a {
+  border-color: #d8ddd9;
+  background: rgba(250, 248, 240, .94);
+  color: #183128;
+}
+
+.alpine-geographic-canvas .leaflet-control-attribution {
+  padding: 4px 7px;
+  background: rgba(250, 248, 240, .88);
+  color: #3f4944;
+  font: 9px/1.2 Arial, sans-serif;
+}
+
+.alpine-geographic-canvas .leaflet-control-attribution a {
+  color: #225b71;
+}
+
+.alpine-geographic-marker {
+  border: 0;
+  background: transparent;
+}
+
+.alpine-geographic-marker span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #faf7ee;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .34);
+  color: #fff;
+  font: 700 8px/1 monospace;
+  letter-spacing: -.02em;
+}
+
+.alpine-geographic-marker .marker-de { background: #295f4d; }
+.alpine-geographic-marker .marker-fr { background: #ad4050; }
+.alpine-geographic-marker .marker-ch { background: #2d91ae; }
+
+.alpine-geographic-tooltip {
+  display: grid;
+  gap: 2px;
+  padding: 7px 9px;
+  border: 1px solid rgba(13, 28, 23, .16);
+  border-radius: 0;
+  background: rgba(253, 250, 242, .94);
+  box-shadow: 0 5px 18px rgba(13, 28, 23, .13);
+  color: #162c24;
+}
+
+.alpine-geographic-tooltip b {
+  font: 600 11px/1.2 "Noto Sans TC", Arial, sans-serif;
+}
+
+.alpine-geographic-tooltip small {
+  display: block;
+  margin-top: 3px;
+  color: #66736d;
+  font: 7px/1.2 monospace;
+  letter-spacing: .08em;
+}
+
+.alpine-geographic-canvas .leaflet-popup-content-wrapper,
+.alpine-geographic-canvas .leaflet-popup-tip {
+  border-radius: 0;
+  background: #faf8f1;
+  color: #172b24;
+}
+
+.alpine-geographic-canvas .leaflet-popup-content {
+  margin: 14px 18px;
+  line-height: 1.7;
+}
+
+.alpine-geographic-canvas .leaflet-popup-content strong {
+  font-family: "Noto Sans TC", Arial, sans-serif;
+  font-size: 13px;
+}
+
+.alpine-geographic-canvas .leaflet-popup-content span {
+  color: #69746f;
+  font-size: 10px;
+}
+
+.alpine-geographic-footer {
+  min-height: 64px;
+  border-top: 1px solid #415049;
+}
+
+.alpine-geographic-footer p {
+  margin: 0;
+  color: #788981;
+  text-align: right;
+}
+
+.alpine-geographic-legend span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.alpine-geographic-legend i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.alpine-geographic-legend .legend-de { background: #5aa687; }
+.alpine-geographic-legend .legend-fr { background: #db7280; }
+.alpine-geographic-legend .legend-ch { background: #63c6e3; }
+
+@media (max-width: 720px) {
+  .alpine-geographic-dashboard {
+    min-height: 66px;
+    padding-inline: 16px;
+  }
+
+  .alpine-geographic-dashboard > div:first-child {
+    display: grid;
+    gap: 2px;
+  }
+
+  .alpine-geographic-dashboard > div:last-child span:not(:last-child) {
+    display: none;
+  }
+
+  .alpine-geographic-canvas {
+    height: 68svh;
+    min-height: 540px;
+  }
+
+  .alpine-geographic-tooltip {
+    display: none;
+  }
+
+  .alpine-geographic-footer {
+    display: grid;
+    gap: 11px;
+    min-height: 82px;
+    padding: 14px 16px;
+  }
+
+  .alpine-geographic-footer p {
+    text-align: left;
+    font-size: 7px;
+  }
+}
+
+/* Waypoint map — shared visual language with the Namibia expedition */
+.alpine-waypoint-map {
+  position: relative;
+  width: min(100%, 1440px);
+  height: auto;
+  aspect-ratio: 1.08 / 1;
+  min-height: 640px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #42463c;
+  background: #24291f;
+  box-shadow: 0 28px 84px rgba(0, 0, 0, .26);
+}
+
+.alpine-waypoint-canvas {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: #252a20;
+  outline: none;
+}
+
+.alpine-waypoint-canvas:focus-visible {
+  box-shadow: inset 0 0 0 3px #eb6b36;
+}
+
+.alpine-waypoint-shade {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(24, 27, 21, .28), transparent 38%, rgba(24, 27, 21, .06)),
+    linear-gradient(0deg, rgba(24, 27, 21, .22), transparent 28%);
+  mix-blend-mode: multiply;
+}
+
+.alpine-waypoint-canvas .leaflet-tile {
+  filter: grayscale(.32) sepia(.24) hue-rotate(19deg) saturate(.58) brightness(.78) contrast(1.08);
+}
+
+.alpine-waypoint-canvas .leaflet-control-container {
+  position: relative;
+  z-index: 5;
+}
+
+.alpine-waypoint-canvas .leaflet-control-zoom {
+  overflow: hidden;
+  border: 1px solid #565a4e;
+  border-radius: 0;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, .2);
+}
+
+.alpine-waypoint-canvas .leaflet-control-zoom a {
+  border-color: #3c4036;
+  background: rgba(20, 22, 17, .9);
+  color: #eee7d7;
+}
+
+.alpine-waypoint-canvas .leaflet-control-attribution {
+  padding: 4px 7px;
+  background: rgba(20, 22, 17, .76);
+  color: #b1b3a5;
+  font: 8px/1.2 Arial, sans-serif;
+}
+
+.alpine-waypoint-canvas .leaflet-control-attribution a {
+  color: #f0814d;
+}
+
+.alpine-waypoint-marker-wrap {
+  border: 0;
+  background: transparent;
+}
+
+.alpine-waypoint-marker {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e1e1ce;
+  box-shadow: 0 0 0 7px rgba(225, 225, 206, .18), 0 5px 15px rgba(0, 0, 0, .22);
+  color: #141510;
+  font: 700 8px/1 monospace;
+  transition: transform .25s, background .25s, box-shadow .25s, color .25s;
+}
+
+.alpine-waypoint-marker:hover,
+.alpine-waypoint-marker.is-active {
+  z-index: 2;
+  background: #eb6b36;
+  box-shadow: 0 0 0 9px rgba(235, 107, 54, .22), 0 6px 18px rgba(0, 0, 0, .28);
+  color: #fff;
+  transform: scale(1.28);
+}
+
+.alpine-waypoint-tooltip {
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 0;
+  background: rgba(19, 21, 16, .94);
+  box-shadow: none;
+  color: #eee7d7;
+  font: 9px/1.25 monospace;
+  letter-spacing: .08em;
+}
+
+.alpine-waypoint-tooltip b,
+.alpine-waypoint-tooltip small {
+  display: block;
+  white-space: nowrap;
+}
+
+.alpine-waypoint-tooltip b {
+  color: #f4efe3;
+  font: 600 10px/1.2 "Noto Sans TC", Arial, sans-serif;
+  letter-spacing: .04em;
+}
+
+.alpine-waypoint-tooltip small {
+  margin-top: 3px;
+  color: #aeb2a4;
+  font: 7px/1.2 monospace;
+  letter-spacing: .1em;
+}
+
+.leaflet-tooltip-left.alpine-waypoint-tooltip::before {
+  border-left-color: rgba(19, 21, 16, .94);
+}
+
+.leaflet-tooltip-right.alpine-waypoint-tooltip::before {
+  border-right-color: rgba(19, 21, 16, .94);
+}
+
+.alpine-country-label {
+  border: 0;
+  background: transparent;
+}
+
+.alpine-country-label span {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  color: rgba(40, 43, 35, .74);
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(239, 236, 218, .55);
+}
+
+.alpine-country-label b {
+  font: 700 18px/1.1 "Noto Sans TC", Arial, sans-serif;
+  letter-spacing: .18em;
+}
+
+.alpine-country-label.country-ch b {
+  font-size: 27px;
+  letter-spacing: .22em;
+}
+
+.alpine-country-label.country-ch small {
+  color: rgba(30, 51, 54, .78);
+  font-size: 8px;
+}
+
+.alpine-country-label small {
+  font: 700 7px/1.2 monospace;
+  letter-spacing: .16em;
+}
+
+.alpine-selected-waypoint {
+  position: absolute;
+  z-index: 500;
+  top: 28px;
+  left: 28px;
+  width: min(315px, calc(100% - 130px));
+  margin: 0;
+  padding: 22px 22px 23px;
+  border-left: 2px solid #eb6b36;
+  background: rgba(18, 20, 16, .82);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .16);
+  backdrop-filter: blur(12px);
+}
+
+.alpine-selected-waypoint p {
+  margin: 0 0 12px;
+  color: #eb6b36;
+  font: 8px/1.4 monospace;
+  letter-spacing: .2em;
+}
+
+.alpine-selected-waypoint strong {
+  display: block;
+  color: #f4efe3;
+  font: 400 clamp(1.65rem, 2.4vw, 2.2rem)/1.1 Georgia, serif;
+}
+
+.alpine-selected-waypoint b {
+  display: block;
+  margin-top: 7px;
+  color: #c9cbbc;
+  font: 500 10px/1.4 "Noto Sans TC", Arial, sans-serif;
+  letter-spacing: .08em;
+}
+
+.alpine-selected-waypoint span {
+  display: block;
+  margin-top: 15px;
+  color: #c0c2b5;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.alpine-waypoint-compass {
+  position: absolute;
+  z-index: 500;
+  top: 30px;
+  right: 30px;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(75, 79, 67, .62);
+  border-radius: 50%;
+  background: rgba(225, 225, 206, .12);
+  color: #ebe7d9;
+  font: 8px/1 monospace;
+  backdrop-filter: blur(5px);
+}
+
+.alpine-waypoint-compass b {
+  position: absolute;
+  top: 9px;
+  font-weight: 500;
+}
+
+.alpine-waypoint-compass span {
+  position: absolute;
+  top: 22px;
+  color: #eb6b36;
+  font-size: 18px;
+}
+
+.alpine-waypoint-scale,
+.alpine-waypoint-privacy {
+  position: absolute;
+  z-index: 500;
+  bottom: 23px;
+  color: #e2dfd2;
+  font: 8px/1.4 monospace;
+  letter-spacing: .15em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .8);
+}
+
+.alpine-waypoint-scale { left: 28px; }
+.alpine-waypoint-privacy { right: 90px; color: #c0c2b5; }
+
+@media (max-width: 980px) {
+  .alpine-waypoint-map { min-height: 0; }
+}
+
+@media (max-width: 720px) {
+  .alpine-waypoint-map {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.08 / 1;
+    min-height: 0;
+  }
+
+  .alpine-selected-waypoint {
+    top: 16px;
+    left: 16px;
+    width: calc(100% - 96px);
+    padding: 16px 17px 17px;
+  }
+
+  .alpine-selected-waypoint strong { font-size: 1.55rem; }
+  .alpine-selected-waypoint span { margin-top: 11px; font-size: 10px; line-height: 1.65; }
+
+  .alpine-waypoint-compass {
+    top: 16px;
+    right: 14px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .alpine-waypoint-compass span { top: 19px; }
+  .alpine-waypoint-scale { left: 16px; bottom: 18px; }
+  .alpine-waypoint-privacy { display: none; }
+
+  .alpine-waypoint-tooltip {
+    padding: 5px 7px;
+  }
+
+  .alpine-waypoint-tooltip b { font-size: 9px; }
+  .alpine-waypoint-tooltip small { display: none; }
+  .alpine-country-label b { font-size: 14px; }
+}
