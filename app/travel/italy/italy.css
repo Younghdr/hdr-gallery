@@ -150,3 +150,16 @@
 @media(max-width:800px){
   .italy-film-strip{grid-template-columns:1fr}
 }
+
+/* Preserve complete photo frames across the full Italy story. */
+.italy-hdr-lead img,
+.italy-vatican-lead img,
+.italy-feature-photo img,
+.italy-portrait-photo img{height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center}
+
+@media(max-width:800px){
+  .italy-hdr-lead img,
+  .italy-vatican-lead img,
+  .italy-feature-photo img,
+  .italy-portrait-photo img{height:auto;min-height:0;aspect-ratio:auto;object-fit:contain;object-position:center}
+}
