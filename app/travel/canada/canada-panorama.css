@@ -1,0 +1,77 @@
+.canada-panorama {
+  width: min(88vw, 3200px);
+  margin: clamp(150px, 13vw, 420px) auto 0;
+  padding-top: clamp(70px, 6vw, 190px);
+  border-top: 1px solid var(--line);
+}
+
+.canada-panorama > header {
+  display: grid;
+  grid-template-columns: minmax(180px, .55fr) minmax(0, 1.45fr);
+  gap: clamp(50px, 8vw, 220px);
+  margin-bottom: clamp(55px, 6vw, 130px);
+}
+
+.canada-panorama > header small {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .2em;
+}
+
+.canada-panorama > header span {
+  display: block;
+  margin-bottom: 25px;
+  color: var(--aurora);
+  font-size: 11px;
+  letter-spacing: .2em;
+}
+
+.canada-panorama > header h2 {
+  margin: 0;
+  font-size: clamp(3rem, 5vw, 8rem);
+  font-weight: 450;
+  line-height: 1.05;
+  letter-spacing: -.05em;
+}
+
+.canada-panorama .travel-panorama-viewer {
+  width: 100%;
+  height: clamp(680px, 82svh, 1200px);
+  background: #030504;
+}
+
+.canada-panorama-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .16em;
+}
+
+.canada-panorama-caption b {
+  color: var(--ink);
+  font-weight: 450;
+}
+
+@media (max-width: 850px) {
+  .canada-panorama {
+    width: calc(100% - 44px);
+  }
+
+  .canada-panorama > header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .canada-panorama .travel-panorama-viewer {
+    height: clamp(500px, 72svh, 720px);
+  }
+
+  .canada-panorama-caption {
+    display: grid;
+    gap: 8px;
+  }
+}

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { PanoramaViewer } from "@/components/panorama-viewer";
 import "./canada.css";
+import "./canada-panorama.css";
 import "./mobile-hero.css";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -65,7 +67,25 @@ export default function CanadaTravelPage() {
 
         <figure className="canada-photo second-wave-photo"><img src={`${BASE_PATH}/travel/canada/second-wave.avif`} alt="兩道逐漸增亮的綠色極光越過極光村帳篷與森林" /><figcaption><b>AURORA IN MOTION · SECOND WAVE</b><span>YELLOWKNIFE · OCT</span></figcaption></figure>
 
-        <footer className="canada-continues"><p>TO BE CONTINUED · 未完待續</p><h3>北方的夜還很長，<br />故事也會慢慢補上。</h3><span>下一章 · 極光之後，前往洛磯山脈</span></footer>
+        <section className="canada-panorama" aria-labelledby="canada-panorama-title">
+          <header>
+            <small>CHAPTER 02 · COLUMBIA ICEFIELD</small>
+            <div>
+              <span>THE ROCKIES / 360° PANORAMA</span>
+              <h2 id="canada-panorama-title">離開北方的夜，<br />走進冰原的白。</h2>
+            </div>
+          </header>
+          <PanoramaViewer
+            src={`${BASE_PATH}/travel/canada/360/columbia-icefield-snowcoach-panorama.avif?v=sdr-20260811`}
+            caption="Columbia Icefield · Canadian Rockies"
+          />
+          <div className="canada-panorama-caption">
+            <b>COLUMBIA ICEFIELD · CANADIAN ROCKIES</b>
+            <span>拖曳畫面環顧四周 · 全螢幕觀看</span>
+          </div>
+        </section>
+
+        <footer className="canada-continues"><p>TO BE CONTINUED · 未完待續</p><h3>離開冰原之後，<br />公路繼續伸向群山。</h3><span>下一章 · 冰原公路與班夫</span></footer>
       </article>
     </main>
   );
