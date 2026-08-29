@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AlpineRouteMap } from "@/components/alpine-route-map";
+import { AlpineRouteExperience } from "@/components/alpine-route-experience";
 import {
   alpineDispatch,
   dayStatusLabel,
@@ -96,7 +96,7 @@ export default function AlpineDispatchPage() {
           <h2>一條路線，國境在車窗外改變。</h2>
           <span>法蘭克福出發，穿過亞爾薩斯老城，進入瑞士高山與湖區，再經黑森林回到起點。</span>
         </header>
-        <AlpineRouteMap />
+        <AlpineRouteExperience />
       </section>
 
       <section className="alpine-latest" id="latest">

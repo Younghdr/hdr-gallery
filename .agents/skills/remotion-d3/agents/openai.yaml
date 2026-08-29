@@ -1,0 +1,5 @@
+interface:
+  display_name: "Remotion × D3 資料視覺化"
+  short_description: "建立逐幀確定、可渲染的 Remotion D3 動態圖表"
+  brand_color: "#F28E2B"
+  default_prompt: "使用 $remotion-d3 將這份資料製作成可精確拖曳與渲染的 Remotion 動態圖表。"

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Remotion × GSAP 動畫"
+  short_description: "建立可逐幀重現的 Remotion GSAP 時間軸動畫"
+  brand_color: "#88CE02"
+  default_prompt: "使用 $remotion-gsap 為這段 Remotion composition 建立可精確拖曳與渲染的 GSAP 動畫。"
